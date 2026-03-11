@@ -1,3 +1,5 @@
+Here’s the complete updated code with the API key line already in it. Go to GitHub, delete src/App.jsx, create a new one with the same name, and paste all of this:
+
 import { useState, useRef, useEffect } from "react";
 
 const CAL_GOAL = 1550;
@@ -173,9 +175,15 @@ export default function App() {
     if (!photoB64) return;
     setScanning(true); setScanErr(""); setScanNote("");
     try {
+      const apiKey = import.meta.env.VITE_ANTHROPIC_KEY;
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method:"POST",
-        headers:{ "content-type":"application/json", "anthropic-version":"2023-06-01", "anthropic-dangerous-direct-browser-access":"true" },
+        headers:{
+          "content-type":"application/json",
+          "anthropic-version":"2023-06-01",
+          "anthropic-dangerous-direct-browser-access":"true",
+          "x-api-key": apiKey,
+        },
         body:JSON.stringify({ model:"claude-opus-4-5", max_tokens:512, system:AI_SYSTEM, messages:[{ role:"user", content:[{ type:"image", source:{ type:"base64", media_type:photoMime, data:photoB64 } }, { type:"text", text:AI_USER_TEXT }] }] }),
       });
       if (!res.ok) { const b = await res.text(); throw new Error(`HTTP ${res.status}: ${b.slice(0,200)}`); }
@@ -395,3 +403,6 @@ export default function App() {
     </div>
   );
 }
+
+
+Long press → Select All → Copy → go to GitHub → delete App.jsx → create new App.jsx → paste → commit. Then Netlify will auto-redeploy and the scan feature will work!​​​​​​​​​​​​​​​​
