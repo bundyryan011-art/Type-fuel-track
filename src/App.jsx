@@ -403,4 +403,3 @@ export default function App() {
 }
 
 
-Long press → Select All → Copy → go to GitHub → delete App.jsx → create new App.jsx → paste → commit. Then Netlify will auto-redeploy and the scan feature will work!​​​​​​​​​​​​​​​​
