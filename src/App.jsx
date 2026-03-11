@@ -1,4 +1,4 @@
-Here’s the complete updated code with the API key line already in it. Go to GitHub, delete src/App.jsx, create a new one with the same name, and paste all of this:
+
 
 import { useState, useRef, useEffect } from "react";
 
