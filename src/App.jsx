@@ -9,7 +9,100 @@ const MACROS = [
   { key:"sugar",   label:"Sugar",   unit:"g",  color:"#f472b6", max:50   },
   { key:"sodium",  label:"Sodium",  unit:"mg", color:"#fb923c", max:2300 },
 ];
-const EMPTY_FORM = { name:"", calories:"", protein:"", carbs:"", fat:"", fiber:"", sugar:"", sodium:"" };
+
+const PRESET_CATEGORIES = [
+  {
+    label: "🥚 Eggs & Dairy",
+    foods: [
+      { name:"Egg (whole, large)",      emoji:"🥚", calories:72,  protein:6,   carbs:0.4, fat:5,   fiber:0, sugar:0.4, sodium:71  },
+      { name:"Egg White (large)",       emoji:"🥚", calories:17,  protein:3.6, carbs:0.2, fat:0.1, fiber:0, sugar:0.2, sodium:55  },
+      { name:"Greek Yogurt (nonfat, 1 cup)", emoji:"🫙", calories:100, protein:17, carbs:6,  fat:0,   fiber:0, sugar:6,   sodium:65  },
+      { name:"Cottage Cheese (1/2 cup)",emoji:"🫙", calories:90,  protein:12,  carbs:5,   fat:2.5, fiber:0, sugar:4,   sodium:360 },
+      { name:"Milk (1 cup, 2%)",        emoji:"🥛", calories:122, protein:8,   carbs:12,  fat:5,   fiber:0, sugar:12,  sodium:115 },
+      { name:"Cheddar Cheese (1 oz)",   emoji:"🧀", calories:115, protein:7,   carbs:0.4, fat:9,   fiber:0, sugar:0.1, sodium:185 },
+    ]
+  },
+  {
+    label: "🍗 Chicken & Turkey",
+    foods: [
+      { name:"Chicken Breast (4 oz, grilled)", emoji:"🍗", calories:185, protein:35, carbs:0, fat:4,   fiber:0, sugar:0, sodium:75  },
+      { name:"Chicken Breast (6 oz, grilled)", emoji:"🍗", calories:278, protein:52, carbs:0, fat:6,   fiber:0, sugar:0, sodium:112 },
+      { name:"Chicken Thigh (4 oz, grilled)",  emoji:"🍗", calories:209, protein:28, carbs:0, fat:10,  fiber:0, sugar:0, sodium:95  },
+      { name:"Ground Turkey (4 oz, 93% lean)", emoji:"🦃", calories:170, protein:22, carbs:0, fat:9,   fiber:0, sugar:0, sodium:75  },
+      { name:"Turkey Breast (3 oz, deli)",     emoji:"🦃", calories:90,  protein:18, carbs:1, fat:1,   fiber:0, sugar:0, sodium:570 },
+    ]
+  },
+  {
+    label: "🥩 Beef & Pork",
+    foods: [
+      { name:"Ground Beef (4 oz, 90% lean)",   emoji:"🥩", calories:196, protein:24, carbs:0, fat:11,  fiber:0, sugar:0, sodium:75  },
+      { name:"Sirloin Steak (6 oz)",           emoji:"🥩", calories:320, protein:46, carbs:0, fat:14,  fiber:0, sugar:0, sodium:90  },
+      { name:"Bacon (2 strips)",               emoji:"🥓", calories:86,  protein:6,  carbs:0.1,fat:7,  fiber:0, sugar:0, sodium:368 },
+      { name:"Pork Tenderloin (4 oz)",         emoji:"🥩", calories:140, protein:24, carbs:0, fat:4,   fiber:0, sugar:0, sodium:60  },
+    ]
+  },
+  {
+    label: "🐟 Fish & Seafood",
+    foods: [
+      { name:"Salmon (4 oz, grilled)",         emoji:"🐟", calories:234, protein:31, carbs:0, fat:12,  fiber:0, sugar:0, sodium:64  },
+      { name:"Tuna (1 can, in water)",         emoji:"🐟", calories:109, protein:25, carbs:0, fat:1,   fiber:0, sugar:0, sodium:303 },
+      { name:"Shrimp (4 oz, cooked)",          emoji:"🦐", calories:112, protein:24, carbs:0, fat:1.5, fiber:0, sugar:0, sodium:190 },
+      { name:"Tilapia (4 oz)",                 emoji:"🐟", calories:145, protein:30, carbs:0, fat:2.5, fiber:0, sugar:0, sodium:75  },
+    ]
+  },
+  {
+    label: "🍚 Grains & Carbs",
+    foods: [
+      { name:"White Rice (1 cup, cooked)",     emoji:"🍚", calories:206, protein:4,  carbs:45, fat:0.4, fiber:0.6, sugar:0, sodium:2   },
+      { name:"Brown Rice (1 cup, cooked)",     emoji:"🍚", calories:216, protein:5,  carbs:45, fat:1.8, fiber:3.5, sugar:0, sodium:10  },
+      { name:"Oatmeal (1 cup, cooked)",        emoji:"🥣", calories:158, protein:6,  carbs:27, fat:3,   fiber:4,   sugar:0, sodium:115 },
+      { name:"Sweet Potato (medium)",          emoji:"🍠", calories:103, protein:2,  carbs:24, fat:0.1, fiber:3.8, sugar:7, sodium:41  },
+      { name:"Bread (1 slice, whole wheat)",   emoji:"🍞", calories:81,  protein:4,  carbs:14, fat:1,   fiber:1.9, sugar:1.4, sodium:147},
+      { name:"Pasta (1 cup, cooked)",          emoji:"🍝", calories:220, protein:8,  carbs:43, fat:1.3, fiber:2.5, sugar:0.6, sodium:1  },
+      { name:"Tortilla (1 large, flour)",      emoji:"🫓", calories:218, protein:6,  carbs:36, fat:5,   fiber:2,   sugar:1,   sodium:440},
+    ]
+  },
+  {
+    label: "🥗 Vegetables",
+    foods: [
+      { name:"Broccoli (1 cup, cooked)",       emoji:"🥦", calories:55,  protein:4,  carbs:11, fat:0.6, fiber:5,   sugar:2,   sodium:64  },
+      { name:"Spinach (2 cups, raw)",          emoji:"🥬", calories:14,  protein:1.7,carbs:2,  fat:0.2, fiber:1.3, sugar:0.2, sodium:48  },
+      { name:"Mixed Greens (2 cups)",          emoji:"🥗", calories:18,  protein:1.5,carbs:3,  fat:0.2, fiber:1.5, sugar:1,   sodium:35  },
+      { name:"Avocado (1/2)",                  emoji:"🥑", calories:120, protein:1.5,carbs:6,  fat:11,  fiber:5,   sugar:0.5, sodium:5   },
+      { name:"Bell Pepper (1 medium)",         emoji:"🫑", calories:31,  protein:1,  carbs:7,  fat:0.3, fiber:2.5, sugar:3.7, sodium:4   },
+    ]
+  },
+  {
+    label: "🍎 Fruits",
+    foods: [
+      { name:"Banana (medium)",                emoji:"🍌", calories:105, protein:1.3,carbs:27, fat:0.4, fiber:3.1, sugar:14,  sodium:1   },
+      { name:"Apple (medium)",                 emoji:"🍎", calories:95,  protein:0.5,carbs:25, fat:0.3, fiber:4.4, sugar:19,  sodium:2   },
+      { name:"Strawberries (1 cup)",           emoji:"🍓", calories:49,  protein:1,  carbs:12, fat:0.5, fiber:3,   sugar:7,   sodium:2   },
+      { name:"Blueberries (1 cup)",            emoji:"🫐", calories:84,  protein:1.1,carbs:21, fat:0.5, fiber:3.6, sugar:15,  sodium:1   },
+    ]
+  },
+  {
+    label: "🥜 Nuts & Protein",
+    foods: [
+      { name:"Peanut Butter (2 tbsp)",         emoji:"🥜", calories:188, protein:8,  carbs:6,  fat:16,  fiber:2,   sugar:3,   sodium:152 },
+      { name:"Almonds (1 oz)",                 emoji:"🌰", calories:164, protein:6,  carbs:6,  fat:14,  fiber:3.5, sugar:1.2, sodium:0   },
+      { name:"Black Beans (1/2 cup)",          emoji:"🫘", calories:114, protein:7.6,carbs:20, fat:0.5, fiber:7.5, sugar:0.3, sodium:1   },
+      { name:"Protein Shake (1 scoop)",        emoji:"🥤", calories:120, protein:25, carbs:5,  fat:2,   fiber:1,   sugar:2,   sodium:150 },
+      { name:"Fairlife Core Power",            emoji:"🥤", calories:230, protein:42, carbs:13, fat:3.5, fiber:0,   sugar:11,  sodium:280 },
+    ]
+  },
+  {
+    label: "🫙 Sauces & Extras",
+    foods: [
+      { name:"Olive Oil (1 tbsp)",             emoji:"🫒", calories:119, protein:0,  carbs:0,  fat:13.5,fiber:0, sugar:0,   sodium:0   },
+      { name:"Butter (1 tbsp)",                emoji:"🧈", calories:102, protein:0.1,carbs:0,  fat:11.5,fiber:0, sugar:0,   sodium:82  },
+      { name:"Ketchup (1 tbsp)",               emoji:"🍅", calories:17,  protein:0.2,carbs:4.6,fat:0,  fiber:0, sugar:3.7, sodium:154 },
+      { name:"Hot Sauce (1 tsp)",              emoji:"🌶️", calories:0,   protein:0,  carbs:0.1,fat:0,  fiber:0, sugar:0,   sodium:124 },
+      { name:"Soy Sauce (1 tbsp)",             emoji:"🫙", calories:11,  protein:1.3,carbs:1,  fat:0,   fiber:0, sugar:0,   sodium:879 },
+    ]
+  },
+];
+
 const THEMES = [
   { id:"obsidian", label:"Obsidian", swatch:"#030712", bg:"#030712", card:"#0a0f1a", card2:"#0f172a", border:"#1e293b", text:"#f1f5f9", textSub:"#94a3b8", textFaint:"#475569" },
   { id:"midnight", label:"Midnight", swatch:"#0d0d20", bg:"#0d0d20", card:"#14142e", card2:"#1a1a3d", border:"#2d2d60", text:"#e8e8ff", textSub:"#9090c0", textFaint:"#4a4a80" },
@@ -35,6 +128,7 @@ const THEMES = [
   { id:"teal",     label:"Teal",     swatch:"#134e4a", bg:"#134e4a", card:"#115e59", card2:"#0f766e", border:"#2dd4bf", text:"#ffffff", textSub:"#99f6e4", textFaint:"#5eead4" },
   { id:"sunset",   label:"Sunset",   swatch:"#c2410c", bg:"#c2410c", card:"#ea580c", card2:"#f97316", border:"#fdba74", text:"#ffffff", textSub:"#fed7aa", textFaint:"#fdba74" },
 ];
+
 const MIME_MAP = { "image/jpeg":"image/jpeg","image/jpg":"image/jpeg","image/png":"image/png","image/webp":"image/webp","image/gif":"image/gif" };
 function safeNum(v) { const x = parseFloat(v); return isNaN(x) ? 0 : x; }
 function round1(x) { return Math.round(safeNum(x) * 10) / 10; }
@@ -71,10 +165,11 @@ async function searchFood(query) {
     return data.foods.map(food => {
       const n = food.foodNutrients || [];
       const get = (id) => { const f = n.find(x => x.nutrientId===id||x.nutrientNumber===String(id)); return f ? Math.round(f.value*10)/10 : 0; };
-      return { name:food.description, brand:food.brandOwner||"", calories:get(1008)||get("208"), protein:get(1003)||get("203"), carbs:get(1005)||get("205"), fat:get(1004)||get("204"), fiber:get(1079)||get("291"), sugar:get(2000)||get("269"), sodium:get(1093)||get("307"), serving:food.servingSize?`${food.servingSize}${food.servingSizeUnit||"g"}`:"100g" };
+      return { name:food.description, emoji:"🔍", brand:food.brandOwner||"", calories:get(1008)||get("208"), protein:get(1003)||get("203"), carbs:get(1005)||get("205"), fat:get(1004)||get("204"), fiber:get(1079)||get("291"), sugar:get(2000)||get("269"), sodium:get(1093)||get("307"), serving:food.servingSize?`${food.servingSize}${food.servingSizeUnit||"g"}`:"100g" };
     });
   } catch { return []; }
 }
+
 function CalRing({ eaten, goal, T }) {
   const pct = Math.min(eaten/goal,1); const over = eaten>goal;
   const radius=58, circ=2*Math.PI*radius, fill=pct*circ;
@@ -124,6 +219,7 @@ function StatPill({ label, value, unit, color, T }) {
     </div>
   );
 }
+
 export default function App() {
   const [meals, setMeals] = useState([]);
   const [tab, setTab] = useState("log");
@@ -131,20 +227,19 @@ export default function App() {
   const [themeId, setThemeId] = useState("obsidian");
   const [showTheme, setShowTheme] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  // Meal builder
   const [mealName, setMealName] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const [mealErr, setMealErr] = useState("");
+  const [activeCategory, setActiveCategory] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searching, setSearching] = useState(false);
   const [searchErr, setSearchErr] = useState("");
-  const [mealErr, setMealErr] = useState("");
-  // Photo scan
+  const [dragOverMeal, setDragOverMeal] = useState(false);
   const [photoSrc, setPhotoSrc] = useState(null);
   const [photoB64, setPhotoB64] = useState(null);
   const [photoMime, setPhotoMime] = useState("image/jpeg");
   const [scanning, setScanning] = useState(false);
-  const [scanNote, setScanNote] = useState("");
   const [scanErr, setScanErr] = useState("");
   const fileRef = useRef();
   const T = THEMES.find(t => t.id===themeId) || THEMES[0];
@@ -169,7 +264,6 @@ export default function App() {
     return acc;
   }, {calories:0,protein:0,carbs:0,fat:0,fiber:0,sugar:0,sodium:0});
 
-  // Ingredient totals (live preview)
   const ingTotals = ingredients.reduce((acc,ing) => {
     const s = safeNum(ing.servings);
     acc.calories += Math.round(safeNum(ing.calories)*s);
@@ -182,89 +276,62 @@ export default function App() {
     return acc;
   }, {calories:0,protein:0,carbs:0,fat:0,fiber:0,sugar:0,sodium:0});
 
+  function addIngredient(food) {
+    setIngredients(prev => {
+      const existing = prev.find(i => i.name===food.name);
+      if (existing) return prev.map(i => i.name===food.name ? {...i, servings:String(safeNum(i.servings)+1)} : i);
+      return [...prev, { ...food, id:Date.now()+Math.random(), servings:"1" }];
+    });
+    setMealErr("");
+  }
+  function updateServings(id, val) { setIngredients(prev => prev.map(i => i.id===id ? {...i, servings:val} : i)); }
+  function removeIngredient(id) { setIngredients(prev => prev.filter(i => i.id!==id)); }
+  function handleDragStart(e, food) { e.dataTransfer.setData("food", JSON.stringify(food)); }
+  function handleDrop(e) {
+    e.preventDefault(); setDragOverMeal(false);
+    try { addIngredient(JSON.parse(e.dataTransfer.getData("food"))); } catch {}
+  }
   async function handleFoodSearch() {
     if (!searchQuery.trim()) return;
     setSearching(true); setSearchErr(""); setSearchResults([]);
     const results = await searchFood(searchQuery);
     if (results.length===0) setSearchErr("No results. Try simpler terms.");
-    setSearchResults(results);
-    setSearching(false);
+    setSearchResults(results); setSearching(false);
   }
-
-  function addIngredient(food) {
-    setIngredients(prev => [...prev, { ...food, id:Date.now(), servings:"1" }]);
-    setSearchResults([]); setSearchQuery("");
-  }
-
-  function updateServings(id, val) {
-    setIngredients(prev => prev.map(i => i.id===id ? {...i, servings:val} : i));
-  }
-
-  function removeIngredient(id) {
-    setIngredients(prev => prev.filter(i => i.id!==id));
-  }
-
   function handleLogMeal() {
     if (!mealName.trim()) { setMealErr("Give your meal a name."); return; }
     if (ingredients.length===0) { setMealErr("Add at least one ingredient."); return; }
-    setMeals(prev => [...prev, {
-      id: Date.now(),
-      name: mealName.trim(),
-      calories: ingTotals.calories,
-      protein: ingTotals.protein,
-      carbs: ingTotals.carbs,
-      fat: ingTotals.fat,
-      fiber: ingTotals.fiber,
-      sugar: ingTotals.sugar,
-      sodium: ingTotals.sodium,
-      time: new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}),
-      hasPhoto: !!photoSrc,
-      ingredientCount: ingredients.length,
-    }]);
+    setMeals(prev => [...prev, { id:Date.now(), name:mealName.trim(), calories:ingTotals.calories, protein:ingTotals.protein, carbs:ingTotals.carbs, fat:ingTotals.fat, fiber:ingTotals.fiber, sugar:ingTotals.sugar, sodium:ingTotals.sodium, time:new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}), ingredientCount:ingredients.length }]);
     setMealName(""); setIngredients([]); setMealErr(""); clearPhoto(); setTab("log");
   }
-
   function handlePhotoFile(file) {
     if (!file || !file.type.startsWith("image/")) return;
     const mime = MIME_MAP[file.type]||"image/jpeg";
     const reader = new FileReader();
-    reader.onload = e => { const d=e.target.result; setPhotoSrc(d); setPhotoB64(d.split(",")[1]); setPhotoMime(mime); setScanErr(""); setScanNote(""); };
+    reader.onload = e => { const d=e.target.result; setPhotoSrc(d); setPhotoB64(d.split(",")[1]); setPhotoMime(mime); setScanErr(""); };
     reader.readAsDataURL(file);
   }
-  function clearPhoto() { setPhotoSrc(null); setPhotoB64(null); setScanErr(""); setScanNote(""); }
-
+  function clearPhoto() { setPhotoSrc(null); setPhotoB64(null); setScanErr(""); }
   async function scanPhoto() {
     if (!photoB64) return;
-    setScanning(true); setScanErr(""); setScanNote("");
+    setScanning(true); setScanErr("");
     try {
       const apiKey = import.meta.env.VITE_ANTHROPIC_KEY;
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method:"POST",
         headers:{"content-type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true","x-api-key":apiKey},
-        body:JSON.stringify({model:"claude-opus-4-5",max_tokens:512,system:`You are a nutrition database. Output only raw JSON starting with { and ending with }.`,messages:[{role:"user",content:[{type:"image",source:{type:"base64",media_type:photoMime,data:photoB64}},{type:"text",text:`Return JSON with keys: name, calories, protein, carbs, fat, fiber, sugar, sodium. Numbers only, per serving shown.`}]}]}),
+        body:JSON.stringify({model:"claude-opus-4-5",max_tokens:512,system:`Output only raw JSON.`,messages:[{role:"user",content:[{type:"image",source:{type:"base64",media_type:photoMime,data:photoB64}},{type:"text",text:`JSON keys: name, calories, protein, carbs, fat, fiber, sugar, sodium.`}]}]}),
       });
       if (!res.ok) { const b=await res.text(); throw new Error(`HTTP ${res.status}: ${b.slice(0,200)}`); }
       const data = await res.json();
-      const textBlock = data.content?.find(b=>b.type==="text");
-      if (!textBlock?.text) throw new Error("Empty response");
-      const {parsed,error:pe} = extractJSON(textBlock.text);
+      const tb = data.content?.find(b=>b.type==="text");
+      if (!tb?.text) throw new Error("Empty response");
+      const {parsed,error:pe} = extractJSON(tb.text);
       if (!parsed) throw new Error(pe||"Could not read data.");
-      addIngredient({
-        name:String(parsed.name||"Scanned food"),
-        calories:parsed.calories!=null?parsed.calories:0,
-        protein:parsed.protein!=null?parsed.protein:0,
-        carbs:parsed.carbs!=null?parsed.carbs:0,
-        fat:parsed.fat!=null?parsed.fat:0,
-        fiber:parsed.fiber!=null?parsed.fiber:0,
-        sugar:parsed.sugar!=null?parsed.sugar:0,
-        sodium:parsed.sodium!=null?parsed.sodium:0,
-        serving:"1 serving", brand:"",
-      });
-      if (parsed.note) setScanNote(parsed.note);
+      addIngredient({ name:String(parsed.name||"Scanned food"), emoji:"📸", calories:parsed.calories||0, protein:parsed.protein||0, carbs:parsed.carbs||0, fat:parsed.fat||0, fiber:parsed.fiber||0, sugar:parsed.sugar||0, sodium:parsed.sodium||0, serving:"1 serving", brand:"" });
     } catch(e) { setScanErr(e.message||"Something went wrong."); }
     finally { setScanning(false); }
   }
-
   function handleDelete(id) { setMeals(prev => prev.filter(m=>m.id!==id)); }
   function handleNewDay() { setMeals([]); setMealName(""); setIngredients([]); setMealErr(""); clearPhoto(); setConfirm(false); setTab("log"); }
   function handleThemeSelect(id) { setThemeId(id); setShowTheme(false); }
@@ -273,6 +340,7 @@ export default function App() {
   function tabStyle(active) {
     return {flex:1,padding:"11px 0",border:"none",cursor:"pointer",fontFamily:"'DM Mono',monospace",fontSize:12,fontWeight:600,letterSpacing:"0.08em",background:active?"#34d399":"transparent",color:active?"#030712":T.textSub,borderRadius:active?8:0,transition:"all .2s"};
   }
+  const displayFoods = searchResults.length > 0 ? searchResults : PRESET_CATEGORIES[activeCategory].foods;
 
   return (
     <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'DM Sans',sans-serif",transition:"background .4s,color .3s"}}>
@@ -288,15 +356,16 @@ export default function App() {
         .log-btn:disabled{opacity:.4;cursor:not-allowed;}
         .scan-btn:hover:not(:disabled){background:#1d4ed8!important;}
         .scan-btn:disabled{opacity:.5;cursor:not-allowed;}
-        .search-btn:hover:not(:disabled){background:#0e7490!important;}
-        .search-btn:disabled{opacity:.5;cursor:not-allowed;}
-        .food-result:hover{border-color:#34d399!important;background:rgba(52,211,153,0.08)!important;}
-        .ing-card:hover .ing-del{opacity:1!important;}
+        .food-card{cursor:grab;transition:all .15s;user-select:none;}
+        .food-card:active{cursor:grabbing;transform:scale(0.97);}
+        .food-card:hover{border-color:#34d399!important;transform:translateY(-2px);box-shadow:0 4px 16px rgba(52,211,153,0.15);}
+        .ing-row:hover .ing-del{opacity:1!important;}
         .ing-del{opacity:0!important;transition:opacity .2s!important;}
+        .cat-tab{transition:all .2s;cursor:pointer;white-space:nowrap;}
+        .cat-tab:hover{opacity:.8;}
         .theme-btn-item:hover{opacity:.85;}
         .newday-btn:hover{border-color:#f87171!important;color:#f87171!important;}
         .theme-toggle:hover{opacity:.8;}
-        .drop-zone:hover{border-color:#60a5fa!important;}
       `}</style>
 
       <header style={{padding:"14px 20px",borderBottom:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:60,background:T.bg,transition:"background .4s"}}>
@@ -334,7 +403,7 @@ export default function App() {
           <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:32,maxWidth:340,width:"90%",textAlign:"center"}}>
             <div style={{fontSize:36,marginBottom:12}}>🌅</div>
             <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,marginBottom:8,color:T.text}}>New Day?</div>
-            <p style={{color:T.textSub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears {meals.length} meal{meals.length!==1?"s":""} and resets all totals.<br/><span style={{color:"#34d399"}}>{Math.round(totals.calories)} kcal</span>{" · "}<span style={{color:"#60a5fa"}}>{round1(totals.protein)}g protein</span>{" will be wiped."}</p>
+            <p style={{color:T.textSub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears {meals.length} meal{meals.length!==1?"s":""} and resets totals.<br/><span style={{color:"#34d399"}}>{Math.round(totals.calories)} kcal</span>{" · "}<span style={{color:"#60a5fa"}}>{round1(totals.protein)}g protein</span>{" will be wiped."}</p>
             <div style={{display:"flex",gap:10}}>
               <button onClick={()=>setConfirm(false)} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.textSub,borderRadius:8,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>CANCEL</button>
               <button onClick={handleNewDay} style={{flex:1,padding:"12px 0",background:"#7f1d1d",border:"1px solid #991b1b",color:"#fca5a5",borderRadius:8,fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>RESET</button>
@@ -344,7 +413,6 @@ export default function App() {
       )}
 
       <div style={{maxWidth:520,margin:"0 auto",padding:"20px 16px 60px"}}>
-        {/* Ring + stats */}
         <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"20px 22px",marginBottom:16}}>
           <CalRing eaten={Math.round(totals.calories)} goal={CAL_GOAL} T={T}/>
           <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:18}}>
@@ -356,12 +424,10 @@ export default function App() {
             <StatPill label="SODIUM"  value={Math.round(totals.sodium)} unit="mg" color="#fb923c" T={T}/>
           </div>
         </div>
-        {/* Macro bars */}
         <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px",marginBottom:16}}>
           <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:14}}>MACRO BREAKDOWN</div>
           {MACROS.map(m=><MacroBar key={m.key} label={m.label} value={round1(totals[m.key])} max={m.max} unit={m.unit} color={m.color} T={T}/>)}
         </div>
-        {/* Tabs */}
         <div style={{display:"flex",background:T.card,border:"1px solid "+T.border,borderRadius:12,padding:4,marginBottom:16,gap:4}}>
           <button style={tabStyle(tab==="log")} onClick={()=>setTab("log")}>📋 MEAL LOG {meals.length>0&&`(${meals.length})`}</button>
           <button style={tabStyle(tab==="add")} onClick={()=>setTab("add")}>🍳 BUILD MEAL</button>
@@ -369,113 +435,129 @@ export default function App() {
 
         {tab==="add" && (
           <div style={{display:"flex",flexDirection:"column",gap:14}}>
-
-            {/* Meal name */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
-              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:10}}>MEAL NAME</div>
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"16px 18px"}}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:8}}>MEAL NAME</div>
               <input type="text" value={mealName} onChange={e=>{setMealName(e.target.value);setMealErr("");}} placeholder="e.g. Post-Workout Lunch"
                 style={{width:"100%",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:15,padding:"11px 14px",fontFamily:"'DM Sans',sans-serif",outline:"none"}}
               />
             </div>
 
-            {/* Food search */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
-              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>🔍 ADD INGREDIENTS <span style={{fontWeight:400}}>— search & tap to add</span></div>
-              <div style={{display:"flex",gap:8,marginBottom:8}}>
-                <input type="text" value={searchQuery} onChange={e=>setSearchQuery(e.target.value)} onKeyDown={e=>e.key==="Enter"&&handleFoodSearch()} placeholder="Search food..."
-                  style={{flex:1,background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:14,padding:"10px 12px",fontFamily:"'DM Sans',sans-serif",outline:"none"}}
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"16px 18px"}}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>
+                🍽️ FOOD BROWSER <span style={{fontWeight:400}}>— tap to add · drag to meal</span>
+              </div>
+              <div style={{display:"flex",gap:8,marginBottom:12}}>
+                <input type="text" value={searchQuery} onChange={e=>{setSearchQuery(e.target.value);if(!e.target.value)setSearchResults([]);}} onKeyDown={e=>e.key==="Enter"&&handleFoodSearch()} placeholder="Search any food..."
+                  style={{flex:1,background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:14,padding:"9px 12px",fontFamily:"'DM Sans',sans-serif",outline:"none"}}
                 />
-                <button className="search-btn" onClick={handleFoodSearch} disabled={searching} style={{padding:"10px 16px",background:"#0891b2",border:"none",borderRadius:8,color:"#fff",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",whiteSpace:"nowrap"}}>
+                <button onClick={handleFoodSearch} disabled={searching} style={{padding:"9px 14px",background:"#0891b2",border:"none",borderRadius:8,color:"#fff",fontSize:12,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",whiteSpace:"nowrap"}}>
                   {searching?"...":"SEARCH"}
                 </button>
+                {searchResults.length>0&&<button onClick={()=>{setSearchResults([]);setSearchQuery("");}} style={{padding:"9px 10px",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.textSub,fontSize:12,cursor:"pointer"}}>✕</button>}
               </div>
               {searchErr&&<div style={{fontSize:12,color:"#fca5a5",fontFamily:"'DM Mono',monospace",marginBottom:8}}>⚠ {searchErr}</div>}
-              {searchResults.length>0&&(
-                <div style={{display:"flex",flexDirection:"column",gap:6,maxHeight:260,overflowY:"auto"}}>
-                  {searchResults.map((food,i)=>(
-                    <button key={i} className="food-result" onClick={()=>addIngredient(food)}
-                      style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"10px 14px",textAlign:"left",cursor:"pointer",transition:"all .2s",width:"100%"}}>
-                      <div style={{fontSize:13,fontWeight:600,color:T.text,marginBottom:2}}>{food.name}</div>
-                      {food.brand&&<div style={{fontSize:11,color:T.textFaint,marginBottom:3}}>{food.brand}</div>}
-                      <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:"#34d399"}}>{food.calories} kcal</span>
-                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textSub}}>P {food.protein}g</span>
-                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textSub}}>C {food.carbs}g</span>
-                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textSub}}>F {food.fat}g</span>
-                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textFaint}}>{food.serving}</span>
-                      </div>
+              {searchResults.length===0&&(
+                <div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,marginBottom:12,scrollbarWidth:"none"}}>
+                  {PRESET_CATEGORIES.map((cat,i)=>(
+                    <button key={i} className="cat-tab" onClick={()=>setActiveCategory(i)}
+                      style={{padding:"6px 12px",borderRadius:20,border:"1px solid "+(activeCategory===i?"#34d399":T.border),background:activeCategory===i?"#34d399":T.card2,color:activeCategory===i?"#030712":T.textSub,fontSize:11,fontWeight:600,fontFamily:"'DM Mono',monospace",flexShrink:0}}>
+                      {cat.label}
                     </button>
                   ))}
                 </div>
               )}
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                {displayFoods.map((food,i)=>(
+                  <div key={i} className="food-card"
+                    draggable onDragStart={e=>handleDragStart(e,food)}
+                    onClick={()=>addIngredient(food)}
+                    style={{background:T.card2,border:"1px solid "+T.border,borderRadius:12,padding:"12px",cursor:"pointer"}}>
+                    <div style={{fontSize:28,marginBottom:6,lineHeight:1}}>{food.emoji}</div>
+                    <div style={{fontSize:12,fontWeight:600,color:T.text,lineHeight:1.3,marginBottom:6}}>{food.name}</div>
+                    {food.brand&&<div style={{fontSize:10,color:T.textFaint,marginBottom:4}}>{food.brand}</div>}
+                    <div style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:"#34d399",fontWeight:700}}>{food.calories} kcal</div>
+                    <div style={{fontSize:10,fontFamily:"'DM Mono',monospace",color:T.textSub}}>P{food.protein}g · C{food.carbs}g · F{food.fat}g</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Ingredient list */}
-            {ingredients.length>0&&(
-              <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
-                <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>🧺 YOUR INGREDIENTS <span style={{fontWeight:400}}>— set servings</span></div>
-                <div style={{display:"flex",flexDirection:"column",gap:8}}>
-                  {ingredients.map(ing=>(
-                    <div key={ing.id} className="ing-card" style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"10px 14px",display:"flex",alignItems:"center",gap:10}}>
-                      <div style={{flex:1,minWidth:0}}>
-                        <div style={{fontSize:13,fontWeight:600,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",marginBottom:2}}>{ing.name}</div>
-                        <div style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:"#34d399"}}>{Math.round(safeNum(ing.calories)*safeNum(ing.servings))} kcal · P {round1(safeNum(ing.protein)*safeNum(ing.servings))}g</div>
-                      </div>
-                      <div style={{display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
-                        <button onClick={()=>updateServings(ing.id, String(Math.max(0.25, safeNum(ing.servings)-0.25)))} style={{width:28,height:28,borderRadius:6,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>−</button>
-                        <input type="number" value={ing.servings} onChange={e=>updateServings(ing.id,e.target.value)} min="0.25" step="0.25"
-                          style={{width:44,textAlign:"center",background:T.card,border:"1px solid "+T.border,borderRadius:6,color:T.text,fontSize:13,padding:"4px",fontFamily:"'DM Mono',monospace",outline:"none"}}
-                        />
-                        <button onClick={()=>updateServings(ing.id, String(safeNum(ing.servings)+0.25))} style={{width:28,height:28,borderRadius:6,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>+</button>
-                        <button className="ing-del" onClick={()=>removeIngredient(ing.id)} style={{width:28,height:28,borderRadius:6,background:"transparent",border:"1px solid "+T.border,color:T.textFaint,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>×</button>
-                      </div>
-                    </div>
-                  ))}
+            <div
+              onDragOver={e=>{e.preventDefault();setDragOverMeal(true);}}
+              onDragLeave={()=>setDragOverMeal(false)}
+              onDrop={handleDrop}
+              style={{background:T.card,border:`2px ${dragOverMeal?"solid #34d399":"dashed "+T.border}`,borderRadius:16,padding:"16px 18px",minHeight:100,transition:"all .2s",boxShadow:dragOverMeal?"0 0 20px rgba(52,211,153,0.2)":"none"}}
+            >
+              {ingredients.length===0?(
+                <div style={{textAlign:"center",padding:"20px 0"}}>
+                  <div style={{fontSize:28,marginBottom:8}}>🧺</div>
+                  <div style={{color:dragOverMeal?"#34d399":T.textSub,fontSize:14,fontWeight:600,marginBottom:4}}>{dragOverMeal?"Drop it!":"Your Meal"}</div>
+                  <div style={{color:T.textFaint,fontSize:12,fontFamily:"'DM Mono',monospace"}}>Tap foods above or drag them here</div>
                 </div>
-                {/* Running total */}
-                <div style={{marginTop:12,padding:"12px 14px",background:previewCal>CAL_GOAL?"#1a0505":"#061a0f",border:`1px solid ${previewCal>CAL_GOAL?"#7f1d1d":"#14532d"}`,borderRadius:10}}>
-                  <div style={{fontSize:10,color:previewCal>CAL_GOAL?"#f87171":"#4ade80",fontFamily:"'DM Mono',monospace",letterSpacing:"0.08em",marginBottom:4}}>MEAL TOTAL</div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:previewCal>CAL_GOAL?"#f87171":"#4ade80",lineHeight:1,marginBottom:6}}>{ingTotals.calories} kcal</div>
-                  <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
-                    {[["P",ingTotals.protein,"g","#34d399"],["C",ingTotals.carbs,"g","#60a5fa"],["F",ingTotals.fat,"g","#fbbf24"],["Fi",ingTotals.fiber,"g","#a78bfa"],["Su",ingTotals.sugar,"g","#f472b6"],["Na",ingTotals.sodium,"mg","#fb923c"]].map(([l,v,u,c])=>(
-                      <span key={l} style={{fontSize:12,fontFamily:"'DM Mono',monospace",color:c}}>{l} {v}{u}</span>
+              ):(
+                <div>
+                  <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:10}}>
+                    🧺 YOUR MEAL · {ingredients.length} ingredient{ingredients.length!==1?"s":""}
+                    {dragOverMeal&&<span style={{color:"#34d399",marginLeft:8}}>DROP TO ADD</span>}
+                  </div>
+                  <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                    {ingredients.map(ing=>(
+                      <div key={ing.id} className="ing-row" style={{display:"flex",alignItems:"center",gap:10,background:T.card2,borderRadius:10,padding:"10px 12px",border:"1px solid "+T.border}}>
+                        <span style={{fontSize:22,flexShrink:0}}>{ing.emoji||"🍽️"}</span>
+                        <div style={{flex:1,minWidth:0}}>
+                          <div style={{fontSize:12,fontWeight:600,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{ing.name}</div>
+                          <div style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:"#34d399"}}>{Math.round(safeNum(ing.calories)*safeNum(ing.servings))} kcal · P{round1(safeNum(ing.protein)*safeNum(ing.servings))}g</div>
+                        </div>
+                        <div style={{display:"flex",alignItems:"center",gap:4,flexShrink:0}}>
+                          <button onClick={()=>updateServings(ing.id,String(Math.max(0.25,safeNum(ing.servings)-0.25)))} style={{width:26,height:26,borderRadius:6,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:14,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>−</button>
+                          <span style={{fontSize:12,fontFamily:"'DM Mono',monospace",color:T.text,minWidth:28,textAlign:"center"}}>{ing.servings}x</span>
+                          <button onClick={()=>updateServings(ing.id,String(safeNum(ing.servings)+0.25))} style={{width:26,height:26,borderRadius:6,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:14,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>+</button>
+                          <button className="ing-del" onClick={()=>removeIngredient(ing.id)} style={{width:26,height:26,borderRadius:6,background:"transparent",border:"1px solid "+T.border,color:T.textFaint,fontSize:14,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",marginLeft:2}}>×</button>
+                        </div>
+                      </div>
                     ))}
                   </div>
-                  {previewCal>CAL_GOAL&&<div style={{fontSize:11,color:"#fca5a5",fontFamily:"'DM Mono',monospace",marginTop:4}}>⚠ {Math.round(previewCal-CAL_GOAL)} kcal over daily goal</div>}
+                  <div style={{marginTop:12,padding:"12px 14px",background:previewCal>CAL_GOAL?"#1a0505":"#061a0f",border:`1px solid ${previewCal>CAL_GOAL?"#7f1d1d":"#14532d"}`,borderRadius:10}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:4}}>
+                      <span style={{fontSize:10,color:previewCal>CAL_GOAL?"#f87171":"#4ade80",fontFamily:"'DM Mono',monospace",letterSpacing:"0.08em"}}>MEAL TOTAL</span>
+                      <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:previewCal>CAL_GOAL?"#f87171":"#4ade80"}}>{ingTotals.calories} kcal</span>
+                    </div>
+                    <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
+                      {[["P",ingTotals.protein,"g","#34d399"],["C",ingTotals.carbs,"g","#60a5fa"],["F",ingTotals.fat,"g","#fbbf24"],["Fi",ingTotals.fiber,"g","#a78bfa"],["Su",ingTotals.sugar,"g","#f472b6"],["Na",ingTotals.sodium,"mg","#fb923c"]].map(([l,v,u,c])=>(
+                        <span key={l} style={{fontSize:12,fontFamily:"'DM Mono',monospace",color:c}}>{l} {v}{u}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
 
-            {/* Photo scan */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
-              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>📸 ADD FROM PHOTO <span style={{fontWeight:400}}>— optional, needs API credits</span></div>
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"16px 18px"}}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:10}}>📸 ADD FROM PHOTO <span style={{fontWeight:400}}>— needs API credits</span></div>
               {!photoSrc?(
-                <div className="drop-zone" onClick={()=>{if(fileRef.current)fileRef.current.click();}} style={{border:"2px dashed "+T.border,borderRadius:12,padding:"18px",textAlign:"center",cursor:"pointer",transition:"border-color .2s"}}>
-                  <div style={{fontSize:28,marginBottom:6}}>📷</div>
-                  <div style={{color:"#60a5fa",fontWeight:600,fontSize:13,marginBottom:2}}>Take or choose a photo</div>
-                  <div style={{color:T.textFaint,fontSize:11,fontFamily:"'DM Mono',monospace"}}>Adds food as an ingredient</div>
+                <div onClick={()=>{if(fileRef.current)fileRef.current.click();}} style={{border:"2px dashed "+T.border,borderRadius:10,padding:"16px",textAlign:"center",cursor:"pointer"}}>
+                  <div style={{fontSize:24,marginBottom:4}}>📷</div>
+                  <div style={{color:"#60a5fa",fontWeight:600,fontSize:13}}>Take or choose a photo</div>
                   <input ref={fileRef} type="file" accept="image/*" style={{display:"none"}} onChange={e=>{if(e.target.files[0])handlePhotoFile(e.target.files[0]);e.target.value="";}}/>
                 </div>
               ):(
                 <div>
-                  <div style={{position:"relative",borderRadius:12,overflow:"hidden",marginBottom:10}}>
-                    <img src={photoSrc} alt="food" style={{width:"100%",maxHeight:180,objectFit:"cover",display:"block"}}/>
+                  <div style={{position:"relative",borderRadius:10,overflow:"hidden",marginBottom:10}}>
+                    <img src={photoSrc} alt="food" style={{width:"100%",maxHeight:160,objectFit:"cover",display:"block"}}/>
                     <button onClick={clearPhoto} style={{position:"absolute",top:8,right:8,background:"rgba(3,7,18,.85)",border:"1px solid #334155",color:"#94a3b8",borderRadius:6,padding:"4px 10px",fontSize:12,cursor:"pointer"}}>✕</button>
                   </div>
-                  <button className="scan-btn" onClick={scanPhoto} disabled={scanning} style={{width:"100%",padding:"12px 0",background:"#1d4ed8",border:"none",borderRadius:10,color:"#fff",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",cursor:"pointer",transition:"all .2s"}}>
+                  <button className="scan-btn" onClick={scanPhoto} disabled={scanning} style={{width:"100%",padding:"11px 0",background:"#1d4ed8",border:"none",borderRadius:8,color:"#fff",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",cursor:"pointer"}}>
                     {scanning?"🔍  ANALYZING…":"🔍  SCAN & ADD INGREDIENT"}
                   </button>
-                  {scanNote&&<div style={{marginTop:8,padding:"8px 12px",background:T.card2,border:"1px solid "+T.border,borderRadius:8,fontSize:12,color:"#60a5fa",fontFamily:"'DM Mono',monospace"}}>ℹ {scanNote}</div>}
                   {scanErr&&<div style={{marginTop:8,padding:"8px 12px",background:"#1a0505",border:"1px solid #7f1d1d",borderRadius:8,fontSize:12,color:"#fca5a5",fontFamily:"'DM Mono',monospace"}}>⚠ {scanErr}</div>}
                 </div>
               )}
             </div>
 
-            {/* Log button */}
             {mealErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'DM Mono',monospace",textAlign:"center"}}>⚠ {mealErr}</div>}
             <button className="log-btn" onClick={handleLogMeal} disabled={!mealName.trim()||ingredients.length===0}
               style={{width:"100%",padding:"15px 0",background:"#34d399",border:"none",borderRadius:12,color:"#030712",fontSize:15,fontWeight:700,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",cursor:"pointer",transition:"all .2s"}}>
-              + LOG MEAL ({ingredients.length} ingredient{ingredients.length!==1?"s":""}{ingredients.length>0?` · ${ingTotals.calories} kcal`:""})
+              + LOG MEAL {ingredients.length>0&&`· ${ingTotals.calories} kcal`}
             </button>
           </div>
         )}
@@ -495,7 +577,7 @@ export default function App() {
                     <div style={{width:28,height:28,borderRadius:8,background:T.card2,border:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontFamily:"'DM Mono',monospace",fontSize:11,color:T.textFaint}}>{idx+1}</div>
                     <div style={{flex:1,minWidth:0}}>
                       <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:4}}>
-                        <span style={{fontWeight:600,fontSize:14,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{meal.hasPhoto&&<span style={{marginRight:5}}>📸</span>}{meal.name}</span>
+                        <span style={{fontWeight:600,fontSize:14,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{meal.name}</span>
                         <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:T.textSub,marginLeft:8,flexShrink:0}}>{meal.time}</span>
                       </div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:"#34d399",lineHeight:1,marginBottom:6}}>{meal.calories} <span style={{fontSize:13,fontWeight:400,color:T.textSub}}>kcal</span></div>
