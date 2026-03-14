@@ -63,7 +63,6 @@ async function storageLoad(key) {
   try { const str = localStorage.getItem(key); return str ? JSON.parse(str) : null; }
   catch { return null; }
 }
-
 async function searchFood(query) {
   try {
     const res = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&pageSize=6&api_key=DEMO_KEY`);
@@ -71,110 +70,84 @@ async function searchFood(query) {
     if (!data.foods || data.foods.length === 0) return [];
     return data.foods.map(food => {
       const n = food.foodNutrients || [];
-      const get = (id) => {
-        const found = n.find(x => x.nutrientId === id || x.nutrientNumber === String(id));
-        return found ? Math.round(found.value * 10) / 10 : 0;
-      };
-      const cal = get(1008) || get("208");
-      const protein = get(1003) || get("203");
-      const carbs = get(1005) || get("205");
-      const fat = get(1004) || get("204");
-      const fiber = get(1079) || get("291");
-      const sugar = get(2000) || get("269");
-      const sodium = get(1093) || get("307");
-      return {
-        name: food.description,
-        brand: food.brandOwner || "",
-        calories: cal,
-        protein, carbs, fat, fiber, sugar, sodium,
-        serving: food.servingSize ? `${food.servingSize}${food.servingSizeUnit||"g"}` : "100g",
-      };
+      const get = (id) => { const f = n.find(x => x.nutrientId===id||x.nutrientNumber===String(id)); return f ? Math.round(f.value*10)/10 : 0; };
+      return { name:food.description, brand:food.brandOwner||"", calories:get(1008)||get("208"), protein:get(1003)||get("203"), carbs:get(1005)||get("205"), fat:get(1004)||get("204"), fiber:get(1079)||get("291"), sugar:get(2000)||get("269"), sodium:get(1093)||get("307"), serving:food.servingSize?`${food.servingSize}${food.servingSizeUnit||"g"}`:"100g" };
     });
-  } catch(e) { return []; }
+  } catch { return []; }
 }
-
 function CalRing({ eaten, goal, T }) {
-  const pct = Math.min(eaten / goal, 1); const over = eaten > goal;
-  const radius = 58; const circ = 2 * Math.PI * radius; const fill = pct * circ;
-  const color = over ? "#f87171" : pct >= 0.9 ? "#fbbf24" : "#34d399";
+  const pct = Math.min(eaten/goal,1); const over = eaten>goal;
+  const radius=58, circ=2*Math.PI*radius, fill=pct*circ;
+  const color = over?"#f87171":pct>=0.9?"#fbbf24":"#34d399";
   return (
-    <div style={{ display:"flex", alignItems:"center", gap:24 }}>
-      <div style={{ position:"relative", width:136, height:136, flexShrink:0 }}>
-        <svg width="136" height="136" style={{ transform:"rotate(-90deg)", display:"block" }}>
+    <div style={{display:"flex",alignItems:"center",gap:24}}>
+      <div style={{position:"relative",width:136,height:136,flexShrink:0}}>
+        <svg width="136" height="136" style={{transform:"rotate(-90deg)",display:"block"}}>
           <circle cx="68" cy="68" r={radius} fill="none" stroke={T.border} strokeWidth="11"/>
-          <circle cx="68" cy="68" r={radius} fill="none" stroke={color} strokeWidth="11" strokeLinecap="round" strokeDasharray={`${fill} ${circ - fill}`} style={{ transition:"stroke-dasharray .6s ease, stroke .4s" }}/>
+          <circle cx="68" cy="68" r={radius} fill="none" stroke={color} strokeWidth="11" strokeLinecap="round" strokeDasharray={`${fill} ${circ-fill}`} style={{transition:"stroke-dasharray .6s ease,stroke .4s"}}/>
         </svg>
-        <div style={{ position:"absolute", inset:0, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center" }}>
-          <span style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:30, fontWeight:700, color, lineHeight:1 }}>{eaten}</span>
-          <span style={{ fontSize:11, color:T.textSub, fontFamily:"'DM Mono',monospace" }}>/{goal}</span>
+        <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+          <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:30,fontWeight:700,color,lineHeight:1}}>{eaten}</span>
+          <span style={{fontSize:11,color:T.textSub,fontFamily:"'DM Mono',monospace"}}>/{goal}</span>
         </div>
       </div>
       <div>
-        <div style={{ fontSize:11, color:T.textSub, fontFamily:"'DM Mono',monospace", letterSpacing:"0.08em", marginBottom:4 }}>CALORIES TODAY</div>
-        <div style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:700, color, lineHeight:1, marginBottom:8 }}>{over ? `+${eaten - goal} OVER` : `${goal - eaten} LEFT`}</div>
-        <div style={{ width:160, height:5, background:T.border, borderRadius:99, overflow:"hidden" }}>
-          <div style={{ width:`${Math.min(pct*100,100)}%`, height:"100%", background:color, borderRadius:99, transition:"width .6s ease" }}/>
+        <div style={{fontSize:11,color:T.textSub,fontFamily:"'DM Mono',monospace",letterSpacing:"0.08em",marginBottom:4}}>CALORIES TODAY</div>
+        <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:32,fontWeight:700,color,lineHeight:1,marginBottom:8}}>{over?`+${eaten-goal} OVER`:`${goal-eaten} LEFT`}</div>
+        <div style={{width:160,height:5,background:T.border,borderRadius:99,overflow:"hidden"}}>
+          <div style={{width:`${Math.min(pct*100,100)}%`,height:"100%",background:color,borderRadius:99,transition:"width .6s ease"}}/>
         </div>
-        <div style={{ fontSize:11, color:T.textFaint, fontFamily:"'DM Mono',monospace", marginTop:5 }}>{Math.round(pct*100)}% of {goal} kcal goal</div>
+        <div style={{fontSize:11,color:T.textFaint,fontFamily:"'DM Mono',monospace",marginTop:5}}>{Math.round(pct*100)}% of {goal} kcal goal</div>
       </div>
     </div>
   );
 }
 function MacroBar({ label, value, max, unit, color, T }) {
-  const over = value > max; const pct = Math.min((value / max) * 100, 100);
+  const over=value>max, pct=Math.min((value/max)*100,100);
   return (
-    <div style={{ marginBottom:12 }}>
-      <div style={{ display:"flex", justifyContent:"space-between", marginBottom:5 }}>
-        <span style={{ fontSize:12, color:T.textSub, fontFamily:"'DM Mono',monospace", letterSpacing:"0.04em" }}>{label}</span>
-        <span style={{ fontSize:13, fontWeight:700, color: over ? "#f87171" : T.text, fontFamily:"'DM Mono',monospace" }}>{value}{unit} <span style={{ color:T.textFaint, fontWeight:400 }}>/ {max}{unit}</span></span>
+    <div style={{marginBottom:12}}>
+      <div style={{display:"flex",justifyContent:"space-between",marginBottom:5}}>
+        <span style={{fontSize:12,color:T.textSub,fontFamily:"'DM Mono',monospace",letterSpacing:"0.04em"}}>{label}</span>
+        <span style={{fontSize:13,fontWeight:700,color:over?"#f87171":T.text,fontFamily:"'DM Mono',monospace"}}>{value}{unit} <span style={{color:T.textFaint,fontWeight:400}}>/ {max}{unit}</span></span>
       </div>
-      <div style={{ height:6, background:T.border, borderRadius:99, overflow:"hidden" }}>
-        <div style={{ width:`${pct}%`, height:"100%", background: over ? "#f87171" : color, borderRadius:99, transition:"width .5s ease" }}/>
+      <div style={{height:6,background:T.border,borderRadius:99,overflow:"hidden"}}>
+        <div style={{width:`${pct}%`,height:"100%",background:over?"#f87171":color,borderRadius:99,transition:"width .5s ease"}}/>
       </div>
     </div>
   );
 }
 function StatPill({ label, value, unit, color, T }) {
   return (
-    <div style={{ background:T.card2, border:"1px solid "+T.border, borderRadius:10, padding:"10px 14px", textAlign:"center", minWidth:72 }}>
-      <div style={{ fontFamily:"'DM Mono',monospace", fontSize:9, color:T.textFaint, letterSpacing:"0.12em", marginBottom:3 }}>{label}</div>
-      <div style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:700, color }}>{value}<span style={{ fontSize:13, fontWeight:400 }}>{unit}</span></div>
-    </div>
-  );
-}
-function Field({ label, name, value, onChange, wide, T }) {
-  return (
-    <div style={{ display:"flex", flexDirection:"column", gap:5, flex: wide ? "1 1 100%" : "1 1 calc(50% - 6px)" }}>
-      <label style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.08em" }}>{label}</label>
-      <input type={name === "name" ? "text" : "number"} min="0" step="any" value={value} onChange={e => onChange(name, e.target.value)} placeholder={name === "name" ? "e.g. Grilled Chicken" : "0"}
-        style={{ background:T.card2, border:"1px solid "+T.border, borderRadius:8, color:T.text, fontSize:14, padding:"10px 12px", fontFamily:"'DM Sans',sans-serif", outline:"none", transition:"border-color .2s", WebkitAppearance:"none", MozAppearance:"textfield" }}
-        onFocus={e => { e.target.style.borderColor = "#34d399"; }}
-        onBlur={e  => { e.target.style.borderColor = T.border; }}
-      />
+    <div style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"10px 14px",textAlign:"center",minWidth:72}}>
+      <div style={{fontFamily:"'DM Mono',monospace",fontSize:9,color:T.textFaint,letterSpacing:"0.12em",marginBottom:3}}>{label}</div>
+      <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color}}>{value}<span style={{fontSize:13,fontWeight:400}}>{unit}</span></div>
     </div>
   );
 }
 export default function App() {
   const [meals, setMeals] = useState([]);
-  const [form, setForm] = useState(EMPTY_FORM);
   const [tab, setTab] = useState("log");
   const [confirm, setConfirm] = useState(false);
-  const [formErr, setFormErr] = useState("");
   const [themeId, setThemeId] = useState("obsidian");
   const [showTheme, setShowTheme] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  // Meal builder
+  const [mealName, setMealName] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [searching, setSearching] = useState(false);
+  const [searchErr, setSearchErr] = useState("");
+  const [mealErr, setMealErr] = useState("");
+  // Photo scan
   const [photoSrc, setPhotoSrc] = useState(null);
   const [photoB64, setPhotoB64] = useState(null);
   const [photoMime, setPhotoMime] = useState("image/jpeg");
   const [scanning, setScanning] = useState(false);
   const [scanNote, setScanNote] = useState("");
   const [scanErr, setScanErr] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [searching, setSearching] = useState(false);
-  const [searchErr, setSearchErr] = useState("");
   const fileRef = useRef();
-  const T = THEMES.find(t => t.id === themeId) || THEMES[0];
+  const T = THEMES.find(t => t.id===themeId) || THEMES[0];
 
   useEffect(() => {
     (async () => {
@@ -182,7 +155,7 @@ export default function App() {
         const savedMeals = await storageLoad("ft-meals");
         const savedTheme = await storageLoad("ft-theme");
         if (Array.isArray(savedMeals) && savedMeals.length > 0) setMeals(savedMeals);
-        if (savedTheme && THEMES.find(t => t.id === savedTheme)) setThemeId(savedTheme);
+        if (savedTheme && THEMES.find(t => t.id===savedTheme)) setThemeId(savedTheme);
       } catch {}
       setLoaded(true);
     })();
@@ -190,42 +163,72 @@ export default function App() {
   useEffect(() => { if (loaded) storageSave("ft-meals", meals); }, [meals, loaded]);
   useEffect(() => { if (loaded) storageSave("ft-theme", themeId); }, [themeId, loaded]);
 
-  const totals = meals.reduce((acc, m) => {
-    acc.calories += safeNum(m.calories); acc.protein += safeNum(m.protein); acc.carbs += safeNum(m.carbs);
-    acc.fat += safeNum(m.fat); acc.fiber += safeNum(m.fiber); acc.sugar += safeNum(m.sugar); acc.sodium += safeNum(m.sodium);
+  const totals = meals.reduce((acc,m) => {
+    acc.calories+=safeNum(m.calories); acc.protein+=safeNum(m.protein); acc.carbs+=safeNum(m.carbs);
+    acc.fat+=safeNum(m.fat); acc.fiber+=safeNum(m.fiber); acc.sugar+=safeNum(m.sugar); acc.sodium+=safeNum(m.sodium);
     return acc;
-  }, { calories:0, protein:0, carbs:0, fat:0, fiber:0, sugar:0, sodium:0 });
+  }, {calories:0,protein:0,carbs:0,fat:0,fiber:0,sugar:0,sodium:0});
+
+  // Ingredient totals (live preview)
+  const ingTotals = ingredients.reduce((acc,ing) => {
+    const s = safeNum(ing.servings);
+    acc.calories += Math.round(safeNum(ing.calories)*s);
+    acc.protein  += round1(safeNum(ing.protein)*s);
+    acc.carbs    += round1(safeNum(ing.carbs)*s);
+    acc.fat      += round1(safeNum(ing.fat)*s);
+    acc.fiber    += round1(safeNum(ing.fiber)*s);
+    acc.sugar    += round1(safeNum(ing.sugar)*s);
+    acc.sodium   += Math.round(safeNum(ing.sodium)*s);
+    return acc;
+  }, {calories:0,protein:0,carbs:0,fat:0,fiber:0,sugar:0,sodium:0});
 
   async function handleFoodSearch() {
     if (!searchQuery.trim()) return;
     setSearching(true); setSearchErr(""); setSearchResults([]);
     const results = await searchFood(searchQuery);
-    if (results.length === 0) setSearchErr("No results found. Try a simpler search.");
+    if (results.length===0) setSearchErr("No results. Try simpler terms.");
     setSearchResults(results);
     setSearching(false);
   }
 
-  function handleSelectFood(food) {
-    setForm({
-      name: food.name,
-      calories: String(food.calories),
-      protein: String(food.protein),
-      carbs: String(food.carbs),
-      fat: String(food.fat),
-      fiber: String(food.fiber),
-      sugar: String(food.sugar),
-      sodium: String(food.sodium),
-    });
-    setSearchResults([]);
-    setSearchQuery("");
-    setFormErr("");
+  function addIngredient(food) {
+    setIngredients(prev => [...prev, { ...food, id:Date.now(), servings:"1" }]);
+    setSearchResults([]); setSearchQuery("");
+  }
+
+  function updateServings(id, val) {
+    setIngredients(prev => prev.map(i => i.id===id ? {...i, servings:val} : i));
+  }
+
+  function removeIngredient(id) {
+    setIngredients(prev => prev.filter(i => i.id!==id));
+  }
+
+  function handleLogMeal() {
+    if (!mealName.trim()) { setMealErr("Give your meal a name."); return; }
+    if (ingredients.length===0) { setMealErr("Add at least one ingredient."); return; }
+    setMeals(prev => [...prev, {
+      id: Date.now(),
+      name: mealName.trim(),
+      calories: ingTotals.calories,
+      protein: ingTotals.protein,
+      carbs: ingTotals.carbs,
+      fat: ingTotals.fat,
+      fiber: ingTotals.fiber,
+      sugar: ingTotals.sugar,
+      sodium: ingTotals.sodium,
+      time: new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}),
+      hasPhoto: !!photoSrc,
+      ingredientCount: ingredients.length,
+    }]);
+    setMealName(""); setIngredients([]); setMealErr(""); clearPhoto(); setTab("log");
   }
 
   function handlePhotoFile(file) {
     if (!file || !file.type.startsWith("image/")) return;
-    const mime = MIME_MAP[file.type] || "image/jpeg";
+    const mime = MIME_MAP[file.type]||"image/jpeg";
     const reader = new FileReader();
-    reader.onload = e => { const d = e.target.result; setPhotoSrc(d); setPhotoB64(d.split(",")[1]); setPhotoMime(mime); setScanErr(""); setScanNote(""); };
+    reader.onload = e => { const d=e.target.result; setPhotoSrc(d); setPhotoB64(d.split(",")[1]); setPhotoMime(mime); setScanErr(""); setScanNote(""); };
     reader.readAsDataURL(file);
   }
   function clearPhoto() { setPhotoSrc(null); setPhotoB64(null); setScanErr(""); setScanNote(""); }
@@ -237,166 +240,169 @@ export default function App() {
       const apiKey = import.meta.env.VITE_ANTHROPIC_KEY;
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method:"POST",
-        headers:{ "content-type":"application/json", "anthropic-version":"2023-06-01", "anthropic-dangerous-direct-browser-access":"true", "x-api-key": apiKey },
-        body:JSON.stringify({ model:"claude-opus-4-5", max_tokens:512, system:`You are a nutrition database. You only output raw JSON. Never use markdown, never use code fences, never explain anything. Output must start with { and end with } and be valid JSON.`, messages:[{ role:"user", content:[{ type:"image", source:{ type:"base64", media_type:photoMime, data:photoB64 } }, { type:"text", text:`Analyze the food in this image. Return a single JSON object with these exact keys: name (string), calories (number), protein (number), carbs (number), fat (number), fiber (number), sugar (number), sodium (number), note (string with your confidence level). All nutrient values are per serving shown. Use USDA values. No markdown, no fences, just the JSON object.` }] }] }),
+        headers:{"content-type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true","x-api-key":apiKey},
+        body:JSON.stringify({model:"claude-opus-4-5",max_tokens:512,system:`You are a nutrition database. Output only raw JSON starting with { and ending with }.`,messages:[{role:"user",content:[{type:"image",source:{type:"base64",media_type:photoMime,data:photoB64}},{type:"text",text:`Return JSON with keys: name, calories, protein, carbs, fat, fiber, sugar, sodium. Numbers only, per serving shown.`}]}]}),
       });
-      if (!res.ok) { const b = await res.text(); throw new Error(`HTTP ${res.status}: ${b.slice(0,200)}`); }
+      if (!res.ok) { const b=await res.text(); throw new Error(`HTTP ${res.status}: ${b.slice(0,200)}`); }
       const data = await res.json();
-      const textBlock = data.content?.find(b => b.type==="text");
-      if (!textBlock?.text) throw new Error("Empty response from API");
-      const { parsed, error:parseError } = extractJSON(textBlock.text);
-      if (!parsed) throw new Error(parseError || "Could not read nutrition data.");
-      setForm({ name:String(parsed.name||""), calories:parsed.calories!=null?String(parsed.calories):"", protein:parsed.protein!=null?String(parsed.protein):"", carbs:parsed.carbs!=null?String(parsed.carbs):"", fat:parsed.fat!=null?String(parsed.fat):"", fiber:parsed.fiber!=null?String(parsed.fiber):"", sugar:parsed.sugar!=null?String(parsed.sugar):"", sodium:parsed.sodium!=null?String(parsed.sodium):"" });
+      const textBlock = data.content?.find(b=>b.type==="text");
+      if (!textBlock?.text) throw new Error("Empty response");
+      const {parsed,error:pe} = extractJSON(textBlock.text);
+      if (!parsed) throw new Error(pe||"Could not read data.");
+      addIngredient({
+        name:String(parsed.name||"Scanned food"),
+        calories:parsed.calories!=null?parsed.calories:0,
+        protein:parsed.protein!=null?parsed.protein:0,
+        carbs:parsed.carbs!=null?parsed.carbs:0,
+        fat:parsed.fat!=null?parsed.fat:0,
+        fiber:parsed.fiber!=null?parsed.fiber:0,
+        sugar:parsed.sugar!=null?parsed.sugar:0,
+        sodium:parsed.sodium!=null?parsed.sodium:0,
+        serving:"1 serving", brand:"",
+      });
       if (parsed.note) setScanNote(parsed.note);
-      setFormErr("");
-    } catch(e) { setScanErr(e.message || "Something went wrong."); }
+    } catch(e) { setScanErr(e.message||"Something went wrong."); }
     finally { setScanning(false); }
   }
 
-  function handleChange(field, val) { setForm(f => ({...f, [field]:val})); setFormErr(""); }
-  function handleAdd() {
-    if (!form.name.trim()) { setFormErr("Give this meal a name."); return; }
-    if (!form.calories) { setFormErr("Calories are required."); return; }
-    setMeals(prev => [...prev, { id:Date.now(), name:form.name.trim(), calories:safeNum(form.calories), protein:safeNum(form.protein), carbs:safeNum(form.carbs), fat:safeNum(form.fat), fiber:safeNum(form.fiber), sugar:safeNum(form.sugar), sodium:safeNum(form.sodium), time:new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}), hasPhoto:!!photoSrc }]);
-    setForm(EMPTY_FORM); setFormErr(""); clearPhoto(); setTab("log");
-  }
-  function handleDelete(id) { setMeals(prev => prev.filter(m => m.id !== id)); }
-  function handleNewDay() { setMeals([]); setForm(EMPTY_FORM); setFormErr(""); clearPhoto(); setConfirm(false); setTab("log"); }
+  function handleDelete(id) { setMeals(prev => prev.filter(m=>m.id!==id)); }
+  function handleNewDay() { setMeals([]); setMealName(""); setIngredients([]); setMealErr(""); clearPhoto(); setConfirm(false); setTab("log"); }
   function handleThemeSelect(id) { setThemeId(id); setShowTheme(false); }
   const calOver = totals.calories > CAL_GOAL;
-  const previewCal = totals.calories + safeNum(form.calories);
+  const previewCal = totals.calories + ingTotals.calories;
   function tabStyle(active) {
-    return { flex:1, padding:"11px 0", border:"none", cursor:"pointer", fontFamily:"'DM Mono',monospace", fontSize:12, fontWeight:600, letterSpacing:"0.08em", background:active?"#34d399":"transparent", color:active?"#030712":T.textSub, borderRadius:active?8:0, transition:"all .2s" };
+    return {flex:1,padding:"11px 0",border:"none",cursor:"pointer",fontFamily:"'DM Mono',monospace",fontSize:12,fontWeight:600,letterSpacing:"0.08em",background:active?"#34d399":"transparent",color:active?"#030712":T.textSub,borderRadius:active?8:0,transition:"all .2s"};
   }
+
   return (
-    <div style={{ minHeight:"100vh", background:T.bg, color:T.text, fontFamily:"'DM Sans',sans-serif", transition:"background .4s, color .3s" }}>
+    <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'DM Sans',sans-serif",transition:"background .4s,color .3s"}}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
         * { box-sizing:border-box; margin:0; padding:0; }
-        input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
-        input[type=number] { -moz-appearance:textfield; }
-        .del-btn { opacity:0 !important; transition:opacity .2s !important; }
-        .meal-card:hover .del-btn { opacity:1 !important; }
-        .del-btn:hover { color:#f87171 !important; border-color:#f87171 !important; }
-        .log-btn:hover:not(:disabled) { background:#059669 !important; transform:translateY(-1px); }
-        .log-btn:disabled { opacity:.4; cursor:not-allowed; }
-        .scan-btn:hover:not(:disabled) { background:#1d4ed8 !important; }
-        .scan-btn:disabled { opacity:.5; cursor:not-allowed; }
-        .search-btn:hover:not(:disabled) { background:#0e7490 !important; }
-        .search-btn:disabled { opacity:.5; cursor:not-allowed; }
-        .drop-zone:hover { border-color:#60a5fa !important; }
-        .theme-btn-item:hover { opacity:.85; }
-        .newday-btn:hover { border-color:#f87171 !important; color:#f87171 !important; }
-        .theme-toggle:hover { opacity:.8; }
-        .food-result:hover { border-color:#34d399 !important; background:rgba(52,211,153,0.08) !important; }
+        input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+        input[type=number]{-moz-appearance:textfield;}
+        .del-btn{opacity:0!important;transition:opacity .2s!important;}
+        .meal-card:hover .del-btn{opacity:1!important;}
+        .del-btn:hover{color:#f87171!important;border-color:#f87171!important;}
+        .log-btn:hover:not(:disabled){background:#059669!important;transform:translateY(-1px);}
+        .log-btn:disabled{opacity:.4;cursor:not-allowed;}
+        .scan-btn:hover:not(:disabled){background:#1d4ed8!important;}
+        .scan-btn:disabled{opacity:.5;cursor:not-allowed;}
+        .search-btn:hover:not(:disabled){background:#0e7490!important;}
+        .search-btn:disabled{opacity:.5;cursor:not-allowed;}
+        .food-result:hover{border-color:#34d399!important;background:rgba(52,211,153,0.08)!important;}
+        .ing-card:hover .ing-del{opacity:1!important;}
+        .ing-del{opacity:0!important;transition:opacity .2s!important;}
+        .theme-btn-item:hover{opacity:.85;}
+        .newday-btn:hover{border-color:#f87171!important;color:#f87171!important;}
+        .theme-toggle:hover{opacity:.8;}
+        .drop-zone:hover{border-color:#60a5fa!important;}
       `}</style>
-      <header style={{ padding:"14px 20px", borderBottom:"1px solid "+T.border, display:"flex", alignItems:"center", justifyContent:"space-between", position:"sticky", top:0, zIndex:60, background:T.bg, transition:"background .4s" }}>
-        <div style={{ display:"flex", alignItems:"baseline", gap:8 }}>
-          <span style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:700, color:"#34d399", letterSpacing:"0.06em" }}>FUEL</span>
-          <span style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:700, letterSpacing:"0.06em", color:T.text }}>TRACK</span>
-          <span style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", marginLeft:4 }}>DAILY MACRO TRACKER</span>
+
+      <header style={{padding:"14px 20px",borderBottom:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:60,background:T.bg,transition:"background .4s"}}>
+        <div style={{display:"flex",alignItems:"baseline",gap:8}}>
+          <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:26,fontWeight:700,color:"#34d399",letterSpacing:"0.06em"}}>FUEL</span>
+          <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:26,fontWeight:700,letterSpacing:"0.06em",color:T.text}}>TRACK</span>
+          <span style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",marginLeft:4}}>DAILY MACRO TRACKER</span>
         </div>
-        <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-          <button className="theme-toggle" onClick={() => setShowTheme(v => !v)} style={{ background:showTheme?"#34d399":"transparent", border:"1px solid "+(showTheme?"#34d399":T.border), color:showTheme?"#030712":T.text, borderRadius:8, padding:"6px 12px", fontSize:11, fontWeight:700, fontFamily:"'DM Mono',monospace", letterSpacing:"0.06em", cursor:"pointer", transition:"all .2s" }}>🎨 THEME</button>
-          {meals.length > 0 && <button className="newday-btn" onClick={() => setConfirm(true)} style={{ background:"transparent", border:"1px solid "+T.border, color:T.textSub, borderRadius:8, padding:"6px 14px", fontSize:11, fontWeight:600, fontFamily:"'DM Mono',monospace", letterSpacing:"0.06em", cursor:"pointer", transition:"all .2s" }}>🌅 NEW DAY</button>}
+        <div style={{display:"flex",alignItems:"center",gap:8}}>
+          <button className="theme-toggle" onClick={()=>setShowTheme(v=>!v)} style={{background:showTheme?"#34d399":"transparent",border:"1px solid "+(showTheme?"#34d399":T.border),color:showTheme?"#030712":T.text,borderRadius:8,padding:"6px 12px",fontSize:11,fontWeight:700,fontFamily:"'DM Mono',monospace",letterSpacing:"0.06em",cursor:"pointer",transition:"all .2s"}}>🎨 THEME</button>
+          {meals.length>0&&<button className="newday-btn" onClick={()=>setConfirm(true)} style={{background:"transparent",border:"1px solid "+T.border,color:T.textSub,borderRadius:8,padding:"6px 14px",fontSize:11,fontWeight:600,fontFamily:"'DM Mono',monospace",letterSpacing:"0.06em",cursor:"pointer",transition:"all .2s"}}>🌅 NEW DAY</button>}
         </div>
       </header>
+
       {showTheme && (
-        <div style={{ background:T.card, borderBottom:"2px solid "+T.border, padding:"18px 20px", zIndex:55, position:"relative" }}>
-          <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:6 }}>DARK</div>
-          <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:14 }}>
-            {THEMES.slice(0,8).map(theme => (
-              <button key={theme.id} className="theme-btn-item" onClick={() => handleThemeSelect(theme.id)} style={{ display:"flex", alignItems:"center", gap:7, padding:"7px 12px", borderRadius:8, cursor:"pointer", border:themeId===theme.id?"2px solid #34d399":"1px solid "+T.border, background:theme.card, transition:"all .2s" }}>
-                <div style={{ width:16, height:16, borderRadius:3, background:theme.swatch, border:"1px solid rgba(255,255,255,0.15)", flexShrink:0 }}/>
-                <span style={{ fontSize:12, fontWeight:600, fontFamily:"'DM Mono',monospace", color:themeId===theme.id?"#34d399":theme.text, whiteSpace:"nowrap" }}>{theme.label}</span>
-              </button>
-            ))}
-          </div>
-          <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:6 }}>LIGHT</div>
-          <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:14 }}>
-            {THEMES.slice(8,15).map(theme => (
-              <button key={theme.id} className="theme-btn-item" onClick={() => handleThemeSelect(theme.id)} style={{ display:"flex", alignItems:"center", gap:7, padding:"7px 12px", borderRadius:8, cursor:"pointer", border:themeId===theme.id?"2px solid #34d399":"1px solid "+theme.border, background:theme.card, transition:"all .2s" }}>
-                <div style={{ width:16, height:16, borderRadius:3, background:theme.swatch, border:"1px solid rgba(0,0,0,0.15)", flexShrink:0 }}/>
-                <span style={{ fontSize:12, fontWeight:600, fontFamily:"'DM Mono',monospace", color:themeId===theme.id?"#15803d":theme.text, whiteSpace:"nowrap" }}>{theme.label}</span>
-              </button>
-            ))}
-          </div>
-          <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:6 }}>VIBRANT</div>
-          <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
-            {THEMES.slice(15).map(theme => (
-              <button key={theme.id} className="theme-btn-item" onClick={() => handleThemeSelect(theme.id)} style={{ display:"flex", alignItems:"center", gap:7, padding:"7px 12px", borderRadius:8, cursor:"pointer", border:themeId===theme.id?"2px solid #34d399":"1px solid "+theme.border, background:theme.card, transition:"all .2s" }}>
-                <div style={{ width:16, height:16, borderRadius:3, background:theme.swatch, border:"1px solid rgba(255,255,255,0.2)", flexShrink:0 }}/>
-                <span style={{ fontSize:12, fontWeight:600, fontFamily:"'DM Mono',monospace", color:themeId===theme.id?"#34d399":theme.text, whiteSpace:"nowrap" }}>{theme.label}</span>
-              </button>
-            ))}
-          </div>
+        <div style={{background:T.card,borderBottom:"2px solid "+T.border,padding:"18px 20px",zIndex:55,position:"relative"}}>
+          {[["DARK",0,8],["LIGHT",8,15],["VIBRANT",15,23]].map(([label,from,to])=>(
+            <div key={label}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:6,marginTop:from>0?12:0}}>{label}</div>
+              <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:4}}>
+                {THEMES.slice(from,to).map(theme=>(
+                  <button key={theme.id} className="theme-btn-item" onClick={()=>handleThemeSelect(theme.id)} style={{display:"flex",alignItems:"center",gap:7,padding:"7px 12px",borderRadius:8,cursor:"pointer",border:themeId===theme.id?"2px solid #34d399":"1px solid "+(from>=8&&from<15?theme.border:T.border),background:theme.card,transition:"all .2s"}}>
+                    <div style={{width:16,height:16,borderRadius:3,background:theme.swatch,border:"1px solid rgba(128,128,128,0.3)",flexShrink:0}}/>
+                    <span style={{fontSize:12,fontWeight:600,fontFamily:"'DM Mono',monospace",color:themeId===theme.id?"#34d399":theme.text,whiteSpace:"nowrap"}}>{theme.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       )}
+
       {confirm && (
-        <div style={{ position:"fixed", inset:0, background:"rgba(3,7,18,.88)", zIndex:100, display:"flex", alignItems:"center", justifyContent:"center" }}>
-          <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:32, maxWidth:340, width:"90%", textAlign:"center" }}>
-            <div style={{ fontSize:36, marginBottom:12 }}>🌅</div>
-            <div style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:700, marginBottom:8, color:T.text }}>New Day?</div>
-            <p style={{ color:T.textSub, fontSize:13, lineHeight:1.6, marginBottom:24 }}>Clears {meals.length} meal{meals.length!==1?"s":""} and resets all totals.<br/><span style={{color:"#34d399"}}>{Math.round(totals.calories)} kcal</span>{" · "}<span style={{color:"#60a5fa"}}>{round1(totals.protein)}g protein</span>{" will be wiped."}</p>
-            <div style={{ display:"flex", gap:10 }}>
-              <button onClick={() => setConfirm(false)} style={{ flex:1, padding:"12px 0", background:T.card2, border:"1px solid "+T.border, color:T.textSub, borderRadius:8, fontSize:13, fontWeight:600, fontFamily:"'DM Mono',monospace", cursor:"pointer" }}>CANCEL</button>
-              <button onClick={handleNewDay} style={{ flex:1, padding:"12px 0", background:"#7f1d1d", border:"1px solid #991b1b", color:"#fca5a5", borderRadius:8, fontSize:13, fontWeight:700, fontFamily:"'DM Mono',monospace", cursor:"pointer" }}>RESET</button>
+        <div style={{position:"fixed",inset:0,background:"rgba(3,7,18,.88)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center"}}>
+          <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:32,maxWidth:340,width:"90%",textAlign:"center"}}>
+            <div style={{fontSize:36,marginBottom:12}}>🌅</div>
+            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,marginBottom:8,color:T.text}}>New Day?</div>
+            <p style={{color:T.textSub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears {meals.length} meal{meals.length!==1?"s":""} and resets all totals.<br/><span style={{color:"#34d399"}}>{Math.round(totals.calories)} kcal</span>{" · "}<span style={{color:"#60a5fa"}}>{round1(totals.protein)}g protein</span>{" will be wiped."}</p>
+            <div style={{display:"flex",gap:10}}>
+              <button onClick={()=>setConfirm(false)} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.textSub,borderRadius:8,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>CANCEL</button>
+              <button onClick={handleNewDay} style={{flex:1,padding:"12px 0",background:"#7f1d1d",border:"1px solid #991b1b",color:"#fca5a5",borderRadius:8,fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>RESET</button>
             </div>
           </div>
         </div>
       )}
-      <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 16px 60px" }}>
-        <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"20px 22px", marginBottom:16 }}>
-          <CalRing eaten={Math.round(totals.calories)} goal={CAL_GOAL} T={T} />
-          <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginTop:18 }}>
-            <StatPill label="PROTEIN" value={round1(totals.protein)} unit="g"  color="#34d399" T={T} />
-            <StatPill label="CARBS"   value={round1(totals.carbs)}   unit="g"  color="#60a5fa" T={T} />
-            <StatPill label="FAT"     value={round1(totals.fat)}     unit="g"  color="#fbbf24" T={T} />
-            <StatPill label="FIBER"   value={round1(totals.fiber)}   unit="g"  color="#a78bfa" T={T} />
-            <StatPill label="SUGAR"   value={round1(totals.sugar)}   unit="g"  color="#f472b6" T={T} />
-            <StatPill label="SODIUM"  value={Math.round(totals.sodium)} unit="mg" color="#fb923c" T={T} />
+
+      <div style={{maxWidth:520,margin:"0 auto",padding:"20px 16px 60px"}}>
+        {/* Ring + stats */}
+        <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"20px 22px",marginBottom:16}}>
+          <CalRing eaten={Math.round(totals.calories)} goal={CAL_GOAL} T={T}/>
+          <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:18}}>
+            <StatPill label="PROTEIN" value={round1(totals.protein)} unit="g"  color="#34d399" T={T}/>
+            <StatPill label="CARBS"   value={round1(totals.carbs)}   unit="g"  color="#60a5fa" T={T}/>
+            <StatPill label="FAT"     value={round1(totals.fat)}     unit="g"  color="#fbbf24" T={T}/>
+            <StatPill label="FIBER"   value={round1(totals.fiber)}   unit="g"  color="#a78bfa" T={T}/>
+            <StatPill label="SUGAR"   value={round1(totals.sugar)}   unit="g"  color="#f472b6" T={T}/>
+            <StatPill label="SODIUM"  value={Math.round(totals.sodium)} unit="mg" color="#fb923c" T={T}/>
           </div>
         </div>
-        <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"18px 20px", marginBottom:16 }}>
-          <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:14 }}>MACRO BREAKDOWN</div>
-          {MACROS.map(m => <MacroBar key={m.key} label={m.label} value={round1(totals[m.key])} max={m.max} unit={m.unit} color={m.color} T={T} />)}
+        {/* Macro bars */}
+        <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px",marginBottom:16}}>
+          <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:14}}>MACRO BREAKDOWN</div>
+          {MACROS.map(m=><MacroBar key={m.key} label={m.label} value={round1(totals[m.key])} max={m.max} unit={m.unit} color={m.color} T={T}/>)}
         </div>
-        <div style={{ display:"flex", background:T.card, border:"1px solid "+T.border, borderRadius:12, padding:4, marginBottom:16, gap:4 }}>
-          <button style={tabStyle(tab==="log")} onClick={() => setTab("log")}>📋 MEAL LOG {meals.length > 0 && `(${meals.length})`}</button>
-          <button style={tabStyle(tab==="add")} onClick={() => setTab("add")}>➕ ADD MEAL</button>
+        {/* Tabs */}
+        <div style={{display:"flex",background:T.card,border:"1px solid "+T.border,borderRadius:12,padding:4,marginBottom:16,gap:4}}>
+          <button style={tabStyle(tab==="log")} onClick={()=>setTab("log")}>📋 MEAL LOG {meals.length>0&&`(${meals.length})`}</button>
+          <button style={tabStyle(tab==="add")} onClick={()=>setTab("add")}>🍳 BUILD MEAL</button>
         </div>
-        {tab === "add" && (
-          <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
 
-            {/* Food Search */}
-            <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"18px 20px" }}>
-              <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:14 }}>🔍 SEARCH FOOD DATABASE <span style={{ fontWeight:400 }}>— free, auto-fills nutrition</span></div>
-              <div style={{ display:"flex", gap:8, marginBottom:8 }}>
-                <input
-                  type="text" value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  onKeyDown={e => e.key === "Enter" && handleFoodSearch()}
-                  placeholder="e.g. grilled chicken breast"
-                  style={{ flex:1, background:T.card2, border:"1px solid "+T.border, borderRadius:8, color:T.text, fontSize:14, padding:"10px 12px", fontFamily:"'DM Sans',sans-serif", outline:"none" }}
+        {tab==="add" && (
+          <div style={{display:"flex",flexDirection:"column",gap:14}}>
+
+            {/* Meal name */}
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:10}}>MEAL NAME</div>
+              <input type="text" value={mealName} onChange={e=>{setMealName(e.target.value);setMealErr("");}} placeholder="e.g. Post-Workout Lunch"
+                style={{width:"100%",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:15,padding:"11px 14px",fontFamily:"'DM Sans',sans-serif",outline:"none"}}
+              />
+            </div>
+
+            {/* Food search */}
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>🔍 ADD INGREDIENTS <span style={{fontWeight:400}}>— search & tap to add</span></div>
+              <div style={{display:"flex",gap:8,marginBottom:8}}>
+                <input type="text" value={searchQuery} onChange={e=>setSearchQuery(e.target.value)} onKeyDown={e=>e.key==="Enter"&&handleFoodSearch()} placeholder="Search food..."
+                  style={{flex:1,background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:14,padding:"10px 12px",fontFamily:"'DM Sans',sans-serif",outline:"none"}}
                 />
-                <button className="search-btn" onClick={handleFoodSearch} disabled={searching} style={{ padding:"10px 16px", background:"#0891b2", border:"none", borderRadius:8, color:"#fff", fontSize:13, fontWeight:700, fontFamily:"'DM Mono',monospace", cursor:"pointer", whiteSpace:"nowrap" }}>
-                  {searching ? "..." : "SEARCH"}
+                <button className="search-btn" onClick={handleFoodSearch} disabled={searching} style={{padding:"10px 16px",background:"#0891b2",border:"none",borderRadius:8,color:"#fff",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",whiteSpace:"nowrap"}}>
+                  {searching?"...":"SEARCH"}
                 </button>
               </div>
-              {searchErr && <div style={{ fontSize:12, color:"#fca5a5", fontFamily:"'DM Mono',monospace", marginBottom:8 }}>⚠ {searchErr}</div>}
-              {searchResults.length > 0 && (
-                <div style={{ display:"flex", flexDirection:"column", gap:6, maxHeight:280, overflowY:"auto" }}>
-                  {searchResults.map((food, i) => (
-                    <button key={i} className="food-result" onClick={() => handleSelectFood(food)}
-                      style={{ background:T.card2, border:"1px solid "+T.border, borderRadius:10, padding:"10px 14px", textAlign:"left", cursor:"pointer", transition:"all .2s" }}>
-                      <div style={{ fontSize:13, fontWeight:600, color:T.text, marginBottom:2 }}>{food.name}</div>
-                      {food.brand && <div style={{ fontSize:11, color:T.textFaint, marginBottom:4 }}>{food.brand}</div>}
-                      <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
-                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:"#34d399" }}>{food.calories} kcal</span>
-                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textSub }}>P {food.protein}g</span>
-                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textSub }}>C {food.carbs}g</span>
-                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textSub }}>F {food.fat}g</span>
-                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textFaint }}>{food.serving}</span>
+              {searchErr&&<div style={{fontSize:12,color:"#fca5a5",fontFamily:"'DM Mono',monospace",marginBottom:8}}>⚠ {searchErr}</div>}
+              {searchResults.length>0&&(
+                <div style={{display:"flex",flexDirection:"column",gap:6,maxHeight:260,overflowY:"auto"}}>
+                  {searchResults.map((food,i)=>(
+                    <button key={i} className="food-result" onClick={()=>addIngredient(food)}
+                      style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"10px 14px",textAlign:"left",cursor:"pointer",transition:"all .2s",width:"100%"}}>
+                      <div style={{fontSize:13,fontWeight:600,color:T.text,marginBottom:2}}>{food.name}</div>
+                      {food.brand&&<div style={{fontSize:11,color:T.textFaint,marginBottom:3}}>{food.brand}</div>}
+                      <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:"#34d399"}}>{food.calories} kcal</span>
+                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textSub}}>P {food.protein}g</span>
+                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textSub}}>C {food.carbs}g</span>
+                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textSub}}>F {food.fat}g</span>
+                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.textFaint}}>{food.serving}</span>
                       </div>
                     </button>
                   ))}
@@ -404,93 +410,113 @@ export default function App() {
               )}
             </div>
 
-            {/* Photo scan */}
-            <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"18px 20px" }}>
-              <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:14 }}>📸 SCAN WITH PHOTO <span style={{ fontWeight:400 }}>— optional</span></div>
-              {!photoSrc ? (
-                <div className="drop-zone" onClick={() => { if (fileRef.current) fileRef.current.click(); }} style={{ border:"2px dashed "+T.border, borderRadius:12, padding:"20px", textAlign:"center", cursor:"pointer", transition:"border-color .2s" }}>
-                  <div style={{ fontSize:28, marginBottom:8 }}>📷</div>
-                  <div style={{ color:"#60a5fa", fontWeight:600, fontSize:13, marginBottom:4 }}>Take a photo or choose from library</div>
-                  <div style={{ color:T.textFaint, fontSize:11, fontFamily:"'DM Mono',monospace" }}>JPG · PNG · WEBP</div>
-                  <input ref={fileRef} type="file" accept="image/*" style={{ display:"none" }} onChange={e => { if(e.target.files[0]) handlePhotoFile(e.target.files[0]); e.target.value=""; }}/>
+            {/* Ingredient list */}
+            {ingredients.length>0&&(
+              <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
+                <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>🧺 YOUR INGREDIENTS <span style={{fontWeight:400}}>— set servings</span></div>
+                <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                  {ingredients.map(ing=>(
+                    <div key={ing.id} className="ing-card" style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"10px 14px",display:"flex",alignItems:"center",gap:10}}>
+                      <div style={{flex:1,minWidth:0}}>
+                        <div style={{fontSize:13,fontWeight:600,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",marginBottom:2}}>{ing.name}</div>
+                        <div style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:"#34d399"}}>{Math.round(safeNum(ing.calories)*safeNum(ing.servings))} kcal · P {round1(safeNum(ing.protein)*safeNum(ing.servings))}g</div>
+                      </div>
+                      <div style={{display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
+                        <button onClick={()=>updateServings(ing.id, String(Math.max(0.25, safeNum(ing.servings)-0.25)))} style={{width:28,height:28,borderRadius:6,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>−</button>
+                        <input type="number" value={ing.servings} onChange={e=>updateServings(ing.id,e.target.value)} min="0.25" step="0.25"
+                          style={{width:44,textAlign:"center",background:T.card,border:"1px solid "+T.border,borderRadius:6,color:T.text,fontSize:13,padding:"4px",fontFamily:"'DM Mono',monospace",outline:"none"}}
+                        />
+                        <button onClick={()=>updateServings(ing.id, String(safeNum(ing.servings)+0.25))} style={{width:28,height:28,borderRadius:6,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>+</button>
+                        <button className="ing-del" onClick={()=>removeIngredient(ing.id)} style={{width:28,height:28,borderRadius:6,background:"transparent",border:"1px solid "+T.border,color:T.textFaint,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>×</button>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ) : (
-                <div>
-                  <div style={{ position:"relative", borderRadius:12, overflow:"hidden", marginBottom:12 }}>
-                    <img src={photoSrc} alt="food" style={{ width:"100%", maxHeight:200, objectFit:"cover", display:"block" }}/>
-                    <button onClick={clearPhoto} style={{ position:"absolute", top:8, right:8, background:"rgba(3,7,18,.85)", border:"1px solid #334155", color:"#94a3b8", borderRadius:6, padding:"4px 10px", fontSize:12, cursor:"pointer" }}>✕ Clear</button>
+                {/* Running total */}
+                <div style={{marginTop:12,padding:"12px 14px",background:previewCal>CAL_GOAL?"#1a0505":"#061a0f",border:`1px solid ${previewCal>CAL_GOAL?"#7f1d1d":"#14532d"}`,borderRadius:10}}>
+                  <div style={{fontSize:10,color:previewCal>CAL_GOAL?"#f87171":"#4ade80",fontFamily:"'DM Mono',monospace",letterSpacing:"0.08em",marginBottom:4}}>MEAL TOTAL</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:previewCal>CAL_GOAL?"#f87171":"#4ade80",lineHeight:1,marginBottom:6}}>{ingTotals.calories} kcal</div>
+                  <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
+                    {[["P",ingTotals.protein,"g","#34d399"],["C",ingTotals.carbs,"g","#60a5fa"],["F",ingTotals.fat,"g","#fbbf24"],["Fi",ingTotals.fiber,"g","#a78bfa"],["Su",ingTotals.sugar,"g","#f472b6"],["Na",ingTotals.sodium,"mg","#fb923c"]].map(([l,v,u,c])=>(
+                      <span key={l} style={{fontSize:12,fontFamily:"'DM Mono',monospace",color:c}}>{l} {v}{u}</span>
+                    ))}
                   </div>
-                  <button className="scan-btn" onClick={scanPhoto} disabled={scanning} style={{ width:"100%", padding:"12px 0", background:"#1d4ed8", border:"none", borderRadius:10, color:"#fff", fontSize:13, fontWeight:700, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", cursor:"pointer", transition:"all .2s" }}>
-                    {scanning ? "🔍  ANALYZING…" : "🔍  SCAN & FILL NUTRITION"}
+                  {previewCal>CAL_GOAL&&<div style={{fontSize:11,color:"#fca5a5",fontFamily:"'DM Mono',monospace",marginTop:4}}>⚠ {Math.round(previewCal-CAL_GOAL)} kcal over daily goal</div>}
+                </div>
+              </div>
+            )}
+
+            {/* Photo scan */}
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>📸 ADD FROM PHOTO <span style={{fontWeight:400}}>— optional, needs API credits</span></div>
+              {!photoSrc?(
+                <div className="drop-zone" onClick={()=>{if(fileRef.current)fileRef.current.click();}} style={{border:"2px dashed "+T.border,borderRadius:12,padding:"18px",textAlign:"center",cursor:"pointer",transition:"border-color .2s"}}>
+                  <div style={{fontSize:28,marginBottom:6}}>📷</div>
+                  <div style={{color:"#60a5fa",fontWeight:600,fontSize:13,marginBottom:2}}>Take or choose a photo</div>
+                  <div style={{color:T.textFaint,fontSize:11,fontFamily:"'DM Mono',monospace"}}>Adds food as an ingredient</div>
+                  <input ref={fileRef} type="file" accept="image/*" style={{display:"none"}} onChange={e=>{if(e.target.files[0])handlePhotoFile(e.target.files[0]);e.target.value="";}}/>
+                </div>
+              ):(
+                <div>
+                  <div style={{position:"relative",borderRadius:12,overflow:"hidden",marginBottom:10}}>
+                    <img src={photoSrc} alt="food" style={{width:"100%",maxHeight:180,objectFit:"cover",display:"block"}}/>
+                    <button onClick={clearPhoto} style={{position:"absolute",top:8,right:8,background:"rgba(3,7,18,.85)",border:"1px solid #334155",color:"#94a3b8",borderRadius:6,padding:"4px 10px",fontSize:12,cursor:"pointer"}}>✕</button>
+                  </div>
+                  <button className="scan-btn" onClick={scanPhoto} disabled={scanning} style={{width:"100%",padding:"12px 0",background:"#1d4ed8",border:"none",borderRadius:10,color:"#fff",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",cursor:"pointer",transition:"all .2s"}}>
+                    {scanning?"🔍  ANALYZING…":"🔍  SCAN & ADD INGREDIENT"}
                   </button>
-                  {scanNote && <div style={{ marginTop:10, padding:"9px 13px", background:T.card2, border:"1px solid "+T.border, borderRadius:8, fontSize:12, color:"#60a5fa", fontFamily:"'DM Mono',monospace" }}>ℹ {scanNote}</div>}
-                  {scanErr  && <div style={{ marginTop:10, padding:"9px 13px", background:"#1a0505", border:"1px solid #7f1d1d", borderRadius:8, fontSize:12, color:"#fca5a5", fontFamily:"'DM Mono',monospace" }}>⚠ {scanErr}</div>}
+                  {scanNote&&<div style={{marginTop:8,padding:"8px 12px",background:T.card2,border:"1px solid "+T.border,borderRadius:8,fontSize:12,color:"#60a5fa",fontFamily:"'DM Mono',monospace"}}>ℹ {scanNote}</div>}
+                  {scanErr&&<div style={{marginTop:8,padding:"8px 12px",background:"#1a0505",border:"1px solid #7f1d1d",borderRadius:8,fontSize:12,color:"#fca5a5",fontFamily:"'DM Mono',monospace"}}>⚠ {scanErr}</div>}
                 </div>
               )}
             </div>
 
-            {/* Manual form */}
-            <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"18px 20px" }}>
-              <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:14 }}>MEAL DETAILS <span style={{ fontWeight:400 }}>— review & edit before logging</span></div>
-              <div style={{ display:"flex", flexWrap:"wrap", gap:10, marginBottom:12 }}>
-                <Field label="FOOD NAME *"       name="name"     value={form.name}     onChange={handleChange} wide T={T} />
-                <Field label="CALORIES (kcal) *" name="calories" value={form.calories} onChange={handleChange} wide T={T} />
-              </div>
-              <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:10 }}>MACROS &amp; MICROS</div>
-              <div style={{ display:"flex", flexWrap:"wrap", gap:10 }}>
-                <Field label="PROTEIN (g)"  name="protein" value={form.protein} onChange={handleChange} T={T} />
-                <Field label="CARBS (g)"    name="carbs"   value={form.carbs}   onChange={handleChange} T={T} />
-                <Field label="FAT (g)"      name="fat"     value={form.fat}     onChange={handleChange} T={T} />
-                <Field label="FIBER (g)"    name="fiber"   value={form.fiber}   onChange={handleChange} T={T} />
-                <Field label="SUGAR (g)"    name="sugar"   value={form.sugar}   onChange={handleChange} T={T} />
-                <Field label="SODIUM (mg)"  name="sodium"  value={form.sodium}  onChange={handleChange} T={T} />
-              </div>
-              {form.calories && (
-                <div style={{ marginTop:14, padding:"10px 14px", borderRadius:8, background:previewCal>CAL_GOAL?"#1a0505":"#061a0f", border:`1px solid ${previewCal>CAL_GOAL?"#7f1d1d":"#14532d"}`, fontSize:12, fontFamily:"'DM Mono',monospace", color:previewCal>CAL_GOAL?"#fca5a5":"#86efac" }}>
-                  {previewCal>CAL_GOAL?`⚠ This puts you ${Math.round(previewCal-CAL_GOAL)} kcal over your ${CAL_GOAL} goal`:`✓ After adding: ${Math.round(previewCal)} / ${CAL_GOAL} kcal — ${Math.round(CAL_GOAL-previewCal)} remaining`}
-                </div>
-              )}
-              {formErr && <div style={{ marginTop:10, color:"#fca5a5", fontSize:12, fontFamily:"'DM Mono',monospace" }}>⚠ {formErr}</div>}
-              <button className="log-btn" onClick={handleAdd} disabled={!form.name.trim()||!form.calories} style={{ width:"100%", marginTop:16, padding:"14px 0", background:"#34d399", border:"none", borderRadius:10, color:"#030712", fontSize:14, fontWeight:700, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", cursor:"pointer", transition:"all .2s" }}>+ LOG MEAL</button>
-            </div>
+            {/* Log button */}
+            {mealErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'DM Mono',monospace",textAlign:"center"}}>⚠ {mealErr}</div>}
+            <button className="log-btn" onClick={handleLogMeal} disabled={!mealName.trim()||ingredients.length===0}
+              style={{width:"100%",padding:"15px 0",background:"#34d399",border:"none",borderRadius:12,color:"#030712",fontSize:15,fontWeight:700,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",cursor:"pointer",transition:"all .2s"}}>
+              + LOG MEAL ({ingredients.length} ingredient{ingredients.length!==1?"s":""}{ingredients.length>0?` · ${ingTotals.calories} kcal`:""})
+            </button>
           </div>
         )}
-        {tab === "log" && (
+
+        {tab==="log" && (
           <div>
-            {meals.length === 0 ? (
-              <div style={{ background:T.card, border:"1px dashed "+T.border, borderRadius:16, padding:"40px 20px", textAlign:"center" }}>
-                <div style={{ fontSize:36, marginBottom:12 }}>🍽️</div>
-                <div style={{ color:T.textSub, fontSize:14, marginBottom:6 }}>No meals logged yet</div>
-                <div style={{ color:T.textFaint, fontSize:12, fontFamily:"'DM Mono',monospace" }}>Tap ➕ ADD MEAL to get started</div>
+            {meals.length===0?(
+              <div style={{background:T.card,border:"1px dashed "+T.border,borderRadius:16,padding:"40px 20px",textAlign:"center"}}>
+                <div style={{fontSize:36,marginBottom:12}}>🍽️</div>
+                <div style={{color:T.textSub,fontSize:14,marginBottom:6}}>No meals logged yet</div>
+                <div style={{color:T.textFaint,fontSize:12,fontFamily:"'DM Mono',monospace"}}>Tap 🍳 BUILD MEAL to get started</div>
               </div>
-            ) : (
-              <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
-                {meals.map((meal, idx) => (
-                  <div key={meal.id} className="meal-card" style={{ background:T.card, border:"1px solid "+T.border, borderRadius:12, padding:"14px 16px", display:"flex", alignItems:"flex-start", gap:12 }}>
-                    <div style={{ width:28, height:28, borderRadius:8, background:T.card2, border:"1px solid "+T.border, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, fontFamily:"'DM Mono',monospace", fontSize:11, color:T.textFaint }}>{idx+1}</div>
-                    <div style={{ flex:1, minWidth:0 }}>
-                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:4 }}>
-                        <span style={{ fontWeight:600, fontSize:14, color:T.text, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{meal.hasPhoto && <span style={{ marginRight:5 }}>📸</span>}{meal.name}</span>
-                        <span style={{ fontFamily:"'DM Mono',monospace", fontSize:11, color:T.textSub, marginLeft:8, flexShrink:0 }}>{meal.time}</span>
+            ):(
+              <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                {meals.map((meal,idx)=>(
+                  <div key={meal.id} className="meal-card" style={{background:T.card,border:"1px solid "+T.border,borderRadius:12,padding:"14px 16px",display:"flex",alignItems:"flex-start",gap:12}}>
+                    <div style={{width:28,height:28,borderRadius:8,background:T.card2,border:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontFamily:"'DM Mono',monospace",fontSize:11,color:T.textFaint}}>{idx+1}</div>
+                    <div style={{flex:1,minWidth:0}}>
+                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:4}}>
+                        <span style={{fontWeight:600,fontSize:14,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{meal.hasPhoto&&<span style={{marginRight:5}}>📸</span>}{meal.name}</span>
+                        <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:T.textSub,marginLeft:8,flexShrink:0}}>{meal.time}</span>
                       </div>
-                      <div style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:700, color:"#34d399", lineHeight:1, marginBottom:6 }}>{meal.calories} <span style={{ fontSize:13, fontWeight:400, color:T.textSub }}>kcal</span></div>
-                      <div style={{ display:"flex", flexWrap:"wrap", gap:5 }}>
-                        {[{label:"P",val:meal.protein,unit:"g",col:"#34d399"},{label:"C",val:meal.carbs,unit:"g",col:"#60a5fa"},{label:"F",val:meal.fat,unit:"g",col:"#fbbf24"},{label:"Fi",val:meal.fiber,unit:"g",col:"#a78bfa"},{label:"Su",val:meal.sugar,unit:"g",col:"#f472b6"},{label:"Na",val:meal.sodium,unit:"mg",col:"#fb923c"}].filter(c => c.val > 0).map(chip => (
-                          <span key={chip.label} style={{ background:T.card2, border:"1px solid "+T.border, borderRadius:5, padding:"2px 7px", fontSize:11, fontFamily:"'DM Mono',monospace", color:chip.col }}>{chip.label} {round1(chip.val)}{chip.unit}</span>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:"#34d399",lineHeight:1,marginBottom:6}}>{meal.calories} <span style={{fontSize:13,fontWeight:400,color:T.textSub}}>kcal</span></div>
+                      <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
+                        {[{label:"P",val:meal.protein,unit:"g",col:"#34d399"},{label:"C",val:meal.carbs,unit:"g",col:"#60a5fa"},{label:"F",val:meal.fat,unit:"g",col:"#fbbf24"},{label:"Fi",val:meal.fiber,unit:"g",col:"#a78bfa"},{label:"Su",val:meal.sugar,unit:"g",col:"#f472b6"},{label:"Na",val:meal.sodium,unit:"mg",col:"#fb923c"}].filter(c=>c.val>0).map(chip=>(
+                          <span key={chip.label} style={{background:T.card2,border:"1px solid "+T.border,borderRadius:5,padding:"2px 7px",fontSize:11,fontFamily:"'DM Mono',monospace",color:chip.col}}>{chip.label} {round1(chip.val)}{chip.unit}</span>
                         ))}
                       </div>
+                      {meal.ingredientCount>0&&<div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",marginTop:4}}>{meal.ingredientCount} ingredient{meal.ingredientCount!==1?"s":""}</div>}
                     </div>
-                    <button className="del-btn" onClick={() => handleDelete(meal.id)} style={{ background:"transparent", border:"1px solid "+T.border, color:T.textFaint, borderRadius:6, width:28, height:28, cursor:"pointer", fontSize:16, flexShrink:0, display:"flex", alignItems:"center", justifyContent:"center" }}>×</button>
+                    <button className="del-btn" onClick={()=>handleDelete(meal.id)} style={{background:"transparent",border:"1px solid "+T.border,color:T.textFaint,borderRadius:6,width:28,height:28,cursor:"pointer",fontSize:16,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>×</button>
                   </div>
                 ))}
-                <div style={{ background:calOver?"#1a0505":"#061a0f", border:`1px solid ${calOver?"#7f1d1d":"#14532d"}`, borderRadius:12, padding:"12px 16px", marginTop:4, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                <div style={{background:calOver?"#1a0505":"#061a0f",border:`1px solid ${calOver?"#7f1d1d":"#14532d"}`,borderRadius:12,padding:"12px 16px",marginTop:4,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <div>
-                    <div style={{ fontSize:10, color:calOver?"#f87171":"#4ade80", fontFamily:"'DM Mono',monospace", letterSpacing:"0.08em", marginBottom:2 }}>{calOver?"⚠ OVER DAILY GOAL":"✓ DAILY TOTAL"}</div>
-                    <div style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:700, color:calOver?"#f87171":"#4ade80", lineHeight:1 }}>{Math.round(totals.calories)} / {CAL_GOAL} kcal</div>
+                    <div style={{fontSize:10,color:calOver?"#f87171":"#4ade80",fontFamily:"'DM Mono',monospace",letterSpacing:"0.08em",marginBottom:2}}>{calOver?"⚠ OVER DAILY GOAL":"✓ DAILY TOTAL"}</div>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:26,fontWeight:700,color:calOver?"#f87171":"#4ade80",lineHeight:1}}>{Math.round(totals.calories)} / {CAL_GOAL} kcal</div>
                   </div>
-                  <div style={{ textAlign:"right" }}>
-                    <div style={{ fontSize:11, color:"#64748b", fontFamily:"'DM Mono',monospace" }}>{meals.length} meal{meals.length!==1?"s":""}</div>
-                    <div style={{ fontSize:13, color:"#34d399", fontFamily:"'DM Mono',monospace", fontWeight:600 }}>{round1(totals.protein)}g protein</div>
+                  <div style={{textAlign:"right"}}>
+                    <div style={{fontSize:11,color:"#64748b",fontFamily:"'DM Mono',monospace"}}>{meals.length} meal{meals.length!==1?"s":""}</div>
+                    <div style={{fontSize:13,color:"#34d399",fontFamily:"'DM Mono',monospace",fontWeight:600}}>{round1(totals.protein)}g protein</div>
                   </div>
                 </div>
               </div>
