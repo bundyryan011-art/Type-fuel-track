@@ -8,57 +8,86 @@ const PRESET_CATEGORIES = [
     foods: [
       { name:"Egg (whole, large)",           emoji:"🥚", calories:72,  protein:6,   carbs:0.4, fat:5,   fiber:0, sugar:0.4, sodium:71  },
       { name:"Egg White (large)",            emoji:"🥚", calories:17,  protein:3.6, carbs:0.2, fat:0.1, fiber:0, sugar:0.2, sodium:55  },
+      { name:"Egg (2 whole, large)",         emoji:"🥚", calories:143, protein:12,  carbs:0.7, fat:10,  fiber:0, sugar:0.7, sodium:142 },
+      { name:"Egg (3 whole, large)",         emoji:"🥚", calories:215, protein:18,  carbs:1.1, fat:15,  fiber:0, sugar:1.1, sodium:213 },
       { name:"Greek Yogurt (nonfat, 1 cup)", emoji:"🫙", calories:100, protein:17,  carbs:6,   fat:0,   fiber:0, sugar:6,   sodium:65  },
+      { name:"Greek Yogurt (2%, 1 cup)",     emoji:"🫙", calories:150, protein:17,  carbs:8,   fat:4,   fiber:0, sugar:7,   sodium:65  },
       { name:"Cottage Cheese (1/2 cup)",     emoji:"🫙", calories:90,  protein:12,  carbs:5,   fat:2.5, fiber:0, sugar:4,   sodium:360 },
+      { name:"Cottage Cheese (1 cup)",       emoji:"🫙", calories:180, protein:24,  carbs:10,  fat:5,   fiber:0, sugar:8,   sodium:720 },
+      { name:"Milk (1 cup, whole)",          emoji:"🥛", calories:149, protein:8,   carbs:12,  fat:8,   fiber:0, sugar:12,  sodium:105 },
       { name:"Milk (1 cup, 2%)",             emoji:"🥛", calories:122, protein:8,   carbs:12,  fat:5,   fiber:0, sugar:12,  sodium:115 },
+      { name:"Milk (1 cup, skim)",           emoji:"🥛", calories:83,  protein:8,   carbs:12,  fat:0.2, fiber:0, sugar:12,  sodium:103 },
       { name:"Cheddar Cheese (1 oz)",        emoji:"🧀", calories:115, protein:7,   carbs:0.4, fat:9,   fiber:0, sugar:0.1, sodium:185 },
+      { name:"Mozzarella (1 oz)",            emoji:"🧀", calories:85,  protein:6,   carbs:1,   fat:6,   fiber:0, sugar:0.3, sodium:175 },
+      { name:"Parmesan (2 tbsp)",            emoji:"🧀", calories:43,  protein:4,   carbs:0.4, fat:3,   fiber:0, sugar:0.1, sodium:165 },
+      { name:"Cream Cheese (2 tbsp)",        emoji:"🧀", calories:99,  protein:1.8, carbs:1.6, fat:10,  fiber:0, sugar:1.3, sodium:90  },
+      { name:"Sour Cream (2 tbsp)",          emoji:"🥛", calories:60,  protein:0.9, carbs:1.2, fat:6,   fiber:0, sugar:1,   sodium:15  },
+      { name:"Heavy Cream (2 tbsp)",         emoji:"🥛", calories:103, protein:0.6, carbs:0.8, fat:11,  fiber:0, sugar:0.5, sodium:11  },
+      { name:"String Cheese (1 stick)",      emoji:"🧀", calories:80,  protein:7,   carbs:1,   fat:5,   fiber:0, sugar:0,   sodium:200 },
     ]
   },
   {
     label: "🍗 Chicken & Turkey",
     foods: [
-      { name:"Chicken Breast (2 oz)",  emoji:"🍗", calories:92,  protein:17, carbs:0, fat:2,  fiber:0, sugar:0, sodium:37  },
-      { name:"Chicken Breast (3 oz)",  emoji:"🍗", calories:139, protein:26, carbs:0, fat:3,  fiber:0, sugar:0, sodium:56  },
-      { name:"Chicken Breast (4 oz)",  emoji:"🍗", calories:185, protein:35, carbs:0, fat:4,  fiber:0, sugar:0, sodium:75  },
-      { name:"Chicken Breast (5 oz)",  emoji:"🍗", calories:231, protein:43, carbs:0, fat:5,  fiber:0, sugar:0, sodium:94  },
-      { name:"Chicken Breast (6 oz)",  emoji:"🍗", calories:278, protein:52, carbs:0, fat:6,  fiber:0, sugar:0, sodium:112 },
-      { name:"Chicken Breast (7 oz)",  emoji:"🍗", calories:324, protein:61, carbs:0, fat:7,  fiber:0, sugar:0, sodium:131 },
-      { name:"Chicken Breast (8 oz)",  emoji:"🍗", calories:370, protein:69, carbs:0, fat:8,  fiber:0, sugar:0, sodium:150 },
-      { name:"Chicken Breast (10 oz)", emoji:"🍗", calories:463, protein:87, carbs:0, fat:10, fiber:0, sugar:0, sodium:188 },
-      { name:"Chicken Thigh (4 oz)",   emoji:"🍗", calories:209, protein:28, carbs:0, fat:10, fiber:0, sugar:0, sodium:95  },
-      { name:"Chicken Thigh (6 oz)",   emoji:"🍗", calories:314, protein:42, carbs:0, fat:15, fiber:0, sugar:0, sodium:143 },
-      { name:"Chicken Thigh (8 oz)",   emoji:"🍗", calories:418, protein:56, carbs:0, fat:20, fiber:0, sugar:0, sodium:190 },
-      { name:"Ground Turkey (4 oz)",   emoji:"🦃", calories:170, protein:22, carbs:0, fat:9,  fiber:0, sugar:0, sodium:75  },
-      { name:"Ground Turkey (6 oz)",   emoji:"🦃", calories:255, protein:33, carbs:0, fat:13, fiber:0, sugar:0, sodium:113 },
-      { name:"Ground Turkey (8 oz)",   emoji:"🦃", calories:340, protein:44, carbs:0, fat:18, fiber:0, sugar:0, sodium:150 },
-      { name:"Turkey Breast (3 oz)",   emoji:"🦃", calories:90,  protein:18, carbs:1, fat:1,  fiber:0, sugar:0, sodium:570 },
+      { name:"Chicken Breast (2 oz)",        emoji:"🍗", calories:92,  protein:17, carbs:0, fat:2,  fiber:0, sugar:0, sodium:37  },
+      { name:"Chicken Breast (3 oz)",        emoji:"🍗", calories:139, protein:26, carbs:0, fat:3,  fiber:0, sugar:0, sodium:56  },
+      { name:"Chicken Breast (4 oz)",        emoji:"🍗", calories:185, protein:35, carbs:0, fat:4,  fiber:0, sugar:0, sodium:75  },
+      { name:"Chicken Breast (5 oz)",        emoji:"🍗", calories:231, protein:43, carbs:0, fat:5,  fiber:0, sugar:0, sodium:94  },
+      { name:"Chicken Breast (6 oz)",        emoji:"🍗", calories:278, protein:52, carbs:0, fat:6,  fiber:0, sugar:0, sodium:112 },
+      { name:"Chicken Breast (7 oz)",        emoji:"🍗", calories:324, protein:61, carbs:0, fat:7,  fiber:0, sugar:0, sodium:131 },
+      { name:"Chicken Breast (8 oz)",        emoji:"🍗", calories:370, protein:69, carbs:0, fat:8,  fiber:0, sugar:0, sodium:150 },
+      { name:"Chicken Breast (10 oz)",       emoji:"🍗", calories:463, protein:87, carbs:0, fat:10, fiber:0, sugar:0, sodium:188 },
+      { name:"Chicken Thigh (4 oz)",         emoji:"🍗", calories:209, protein:28, carbs:0, fat:10, fiber:0, sugar:0, sodium:95  },
+      { name:"Chicken Thigh (6 oz)",         emoji:"🍗", calories:314, protein:42, carbs:0, fat:15, fiber:0, sugar:0, sodium:143 },
+      { name:"Chicken Thigh (8 oz)",         emoji:"🍗", calories:418, protein:56, carbs:0, fat:20, fiber:0, sugar:0, sodium:190 },
+      { name:"Chicken Drumstick (2 med)",    emoji:"🍗", calories:230, protein:29, carbs:0, fat:12, fiber:0, sugar:0, sodium:190 },
+      { name:"Chicken Wing (3 wings)",       emoji:"🍗", calories:220, protein:20, carbs:0, fat:15, fiber:0, sugar:0, sodium:180 },
+      { name:"Rotisserie Chicken (3.5 oz)",  emoji:"🍗", calories:190, protein:27, carbs:0, fat:9,  fiber:0, sugar:0, sodium:340 },
+      { name:"Ground Turkey (4 oz)",         emoji:"🦃", calories:170, protein:22, carbs:0, fat:9,  fiber:0, sugar:0, sodium:75  },
+      { name:"Ground Turkey (6 oz)",         emoji:"🦃", calories:255, protein:33, carbs:0, fat:13, fiber:0, sugar:0, sodium:113 },
+      { name:"Ground Turkey (8 oz)",         emoji:"🦃", calories:340, protein:44, carbs:0, fat:18, fiber:0, sugar:0, sodium:150 },
+      { name:"Turkey Breast (3 oz, deli)",   emoji:"🦃", calories:90,  protein:18, carbs:1, fat:1,  fiber:0, sugar:0, sodium:570 },
     ]
   },
   {
     label: "🥩 Beef & Pork",
     foods: [
-      { name:"Ground Beef 90% (4 oz)", emoji:"🥩", calories:196, protein:24, carbs:0, fat:11, fiber:0, sugar:0, sodium:75  },
-      { name:"Ground Beef 90% (6 oz)", emoji:"🥩", calories:294, protein:36, carbs:0, fat:16, fiber:0, sugar:0, sodium:113 },
-      { name:"Ground Beef 90% (8 oz)", emoji:"🥩", calories:392, protein:48, carbs:0, fat:22, fiber:0, sugar:0, sodium:150 },
-      { name:"Sirloin Steak (4 oz)",   emoji:"🥩", calories:213, protein:31, carbs:0, fat:9,  fiber:0, sugar:0, sodium:60  },
-      { name:"Sirloin Steak (6 oz)",   emoji:"🥩", calories:320, protein:46, carbs:0, fat:14, fiber:0, sugar:0, sodium:90  },
-      { name:"Sirloin Steak (8 oz)",   emoji:"🥩", calories:426, protein:61, carbs:0, fat:18, fiber:0, sugar:0, sodium:120 },
-      { name:"Bacon (2 strips)",       emoji:"🥓", calories:86,  protein:6,  carbs:0.1,fat:7, fiber:0, sugar:0, sodium:368 },
-      { name:"Pork Tenderloin (4 oz)", emoji:"🥩", calories:140, protein:24, carbs:0, fat:4,  fiber:0, sugar:0, sodium:60  },
-      { name:"Pork Tenderloin (6 oz)", emoji:"🥩", calories:210, protein:36, carbs:0, fat:6,  fiber:0, sugar:0, sodium:90  },
+      { name:"Ground Beef 90% (4 oz)",  emoji:"🥩", calories:196, protein:24, carbs:0, fat:11, fiber:0, sugar:0, sodium:75  },
+      { name:"Ground Beef 90% (6 oz)",  emoji:"🥩", calories:294, protein:36, carbs:0, fat:16, fiber:0, sugar:0, sodium:113 },
+      { name:"Ground Beef 90% (8 oz)",  emoji:"🥩", calories:392, protein:48, carbs:0, fat:22, fiber:0, sugar:0, sodium:150 },
+      { name:"Ground Beef 80% (4 oz)",  emoji:"🥩", calories:287, protein:20, carbs:0, fat:23, fiber:0, sugar:0, sodium:75  },
+      { name:"Sirloin Steak (4 oz)",    emoji:"🥩", calories:213, protein:31, carbs:0, fat:9,  fiber:0, sugar:0, sodium:60  },
+      { name:"Sirloin Steak (6 oz)",    emoji:"🥩", calories:320, protein:46, carbs:0, fat:14, fiber:0, sugar:0, sodium:90  },
+      { name:"Sirloin Steak (8 oz)",    emoji:"🥩", calories:426, protein:61, carbs:0, fat:18, fiber:0, sugar:0, sodium:120 },
+      { name:"Ribeye Steak (6 oz)",     emoji:"🥩", calories:430, protein:42, carbs:0, fat:28, fiber:0, sugar:0, sodium:100 },
+      { name:"Bacon (2 strips)",        emoji:"🥓", calories:86,  protein:6,  carbs:0.1,fat:7, fiber:0, sugar:0, sodium:368 },
+      { name:"Bacon (4 strips)",        emoji:"🥓", calories:172, protein:12, carbs:0.2,fat:14,fiber:0, sugar:0, sodium:736 },
+      { name:"Ham (3 oz, deli)",        emoji:"🥩", calories:90,  protein:14, carbs:2,  fat:3,  fiber:0, sugar:1, sodium:800 },
+      { name:"Pepperoni (1 oz)",        emoji:"🍕", calories:141, protein:6,  carbs:0,  fat:13, fiber:0, sugar:0, sodium:513 },
+      { name:"Pork Tenderloin (4 oz)",  emoji:"🥩", calories:140, protein:24, carbs:0,  fat:4,  fiber:0, sugar:0, sodium:60  },
+      { name:"Pork Tenderloin (6 oz)",  emoji:"🥩", calories:210, protein:36, carbs:0,  fat:6,  fiber:0, sugar:0, sodium:90  },
+      { name:"Italian Sausage (1 link)",emoji:"🌭", calories:230, protein:14, carbs:4,  fat:18, fiber:0, sugar:1, sodium:500 },
+      { name:"Hot Dog (1)",             emoji:"🌭", calories:180, protein:7,  carbs:2,  fat:16, fiber:0, sugar:1, sodium:550 },
     ]
   },
   {
     label: "🐟 Fish & Seafood",
     foods: [
-      { name:"Salmon (4 oz)",   emoji:"🐟", calories:234, protein:31, carbs:0, fat:12,  fiber:0, sugar:0, sodium:64  },
-      { name:"Salmon (6 oz)",   emoji:"🐟", calories:351, protein:47, carbs:0, fat:18,  fiber:0, sugar:0, sodium:96  },
-      { name:"Salmon (8 oz)",   emoji:"🐟", calories:468, protein:62, carbs:0, fat:24,  fiber:0, sugar:0, sodium:128 },
-      { name:"Tuna (1 can)",    emoji:"🐟", calories:109, protein:25, carbs:0, fat:1,   fiber:0, sugar:0, sodium:303 },
-      { name:"Shrimp (4 oz)",   emoji:"🦐", calories:112, protein:24, carbs:0, fat:1.5, fiber:0, sugar:0, sodium:190 },
-      { name:"Shrimp (6 oz)",   emoji:"🦐", calories:168, protein:36, carbs:0, fat:2,   fiber:0, sugar:0, sodium:285 },
-      { name:"Tilapia (4 oz)",  emoji:"🐟", calories:145, protein:30, carbs:0, fat:2.5, fiber:0, sugar:0, sodium:75  },
-      { name:"Tilapia (6 oz)",  emoji:"🐟", calories:218, protein:45, carbs:0, fat:3.5, fiber:0, sugar:0, sodium:113 },
+      { name:"Salmon (4 oz)",         emoji:"🐟", calories:234, protein:31, carbs:0, fat:12,  fiber:0, sugar:0, sodium:64  },
+      { name:"Salmon (6 oz)",         emoji:"🐟", calories:351, protein:47, carbs:0, fat:18,  fiber:0, sugar:0, sodium:96  },
+      { name:"Salmon (8 oz)",         emoji:"🐟", calories:468, protein:62, carbs:0, fat:24,  fiber:0, sugar:0, sodium:128 },
+      { name:"Tuna (1 can, water)",   emoji:"🐟", calories:109, protein:25, carbs:0, fat:1,   fiber:0, sugar:0, sodium:303 },
+      { name:"Tuna (1 can, oil)",     emoji:"🐟", calories:191, protein:26, carbs:0, fat:9,   fiber:0, sugar:0, sodium:300 },
+      { name:"Shrimp (4 oz)",         emoji:"🦐", calories:112, protein:24, carbs:0, fat:1.5, fiber:0, sugar:0, sodium:190 },
+      { name:"Shrimp (6 oz)",         emoji:"🦐", calories:168, protein:36, carbs:0, fat:2,   fiber:0, sugar:0, sodium:285 },
+      { name:"Tilapia (4 oz)",        emoji:"🐟", calories:145, protein:30, carbs:0, fat:2.5, fiber:0, sugar:0, sodium:75  },
+      { name:"Tilapia (6 oz)",        emoji:"🐟", calories:218, protein:45, carbs:0, fat:3.5, fiber:0, sugar:0, sodium:113 },
+      { name:"Cod (4 oz)",            emoji:"🐟", calories:96,  protein:21, carbs:0, fat:0.8, fiber:0, sugar:0, sodium:62  },
+      { name:"Mahi Mahi (4 oz)",      emoji:"🐟", calories:124, protein:26, carbs:0, fat:1,   fiber:0, sugar:0, sodium:104 },
+      { name:"Sardines (1 can)",      emoji:"🐟", calories:191, protein:23, carbs:0, fat:11,  fiber:0, sugar:0, sodium:465 },
+      { name:"Scallops (4 oz)",       emoji:"🦪", calories:100, protein:19, carbs:3, fat:0.8, fiber:0, sugar:0, sodium:310 },
+      { name:"Crab (3 oz)",           emoji:"🦀", calories:87,  protein:17, carbs:0, fat:1.5, fiber:0, sugar:0, sodium:911 },
+      { name:"Lobster (3 oz)",        emoji:"🦞", calories:83,  protein:17, carbs:1, fat:0.8, fiber:0, sugar:0, sodium:323 },
     ]
   },
   {
@@ -68,61 +97,262 @@ const PRESET_CATEGORIES = [
       { name:"White Rice (1 cup)",         emoji:"🍚", calories:206, protein:4,  carbs:45, fat:0.4, fiber:0.6, sugar:0,   sodium:2   },
       { name:"White Rice (1.5 cups)",      emoji:"🍚", calories:309, protein:6,  carbs:67, fat:0.6, fiber:0.9, sugar:0,   sodium:3   },
       { name:"Brown Rice (1 cup)",         emoji:"🍚", calories:216, protein:5,  carbs:45, fat:1.8, fiber:3.5, sugar:0,   sodium:10  },
-      { name:"Oatmeal (1 cup)",            emoji:"🥣", calories:158, protein:6,  carbs:27, fat:3,   fiber:4,   sugar:0,   sodium:115 },
+      { name:"Jasmine Rice (1 cup)",       emoji:"🍚", calories:200, protein:4,  carbs:44, fat:0.4, fiber:0.6, sugar:0,   sodium:0   },
+      { name:"Quinoa (1 cup)",             emoji:"🌾", calories:222, protein:8,  carbs:39, fat:4,   fiber:5,   sugar:1.6, sodium:13  },
+      { name:"Oatmeal (1/2 cup dry)",      emoji:"🥣", calories:150, protein:5,  carbs:27, fat:3,   fiber:4,   sugar:0,   sodium:0   },
+      { name:"Oatmeal (1 cup cooked)",     emoji:"🥣", calories:158, protein:6,  carbs:27, fat:3,   fiber:4,   sugar:0,   sodium:115 },
+      { name:"Cream of Wheat (1 cup)",     emoji:"🥣", calories:133, protein:4,  carbs:28, fat:0.5, fiber:1,   sugar:0,   sodium:180 },
       { name:"Sweet Potato (small)",       emoji:"🍠", calories:60,  protein:1,  carbs:14, fat:0,   fiber:2,   sugar:4,   sodium:24  },
       { name:"Sweet Potato (medium)",      emoji:"🍠", calories:103, protein:2,  carbs:24, fat:0.1, fiber:3.8, sugar:7,   sodium:41  },
       { name:"Sweet Potato (large)",       emoji:"🍠", calories:162, protein:3,  carbs:37, fat:0.2, fiber:5.9, sugar:12,  sodium:65  },
+      { name:"White Potato (medium)",      emoji:"🥔", calories:163, protein:4,  carbs:37, fat:0.2, fiber:3.8, sugar:1.7, sodium:13  },
       { name:"Bread (1 slice, WW)",        emoji:"🍞", calories:81,  protein:4,  carbs:14, fat:1,   fiber:1.9, sugar:1.4, sodium:147 },
-      { name:"Pasta (1 cup)",              emoji:"🍝", calories:220, protein:8,  carbs:43, fat:1.3, fiber:2.5, sugar:0.6, sodium:1   },
+      { name:"Bread (1 slice, white)",     emoji:"🍞", calories:67,  protein:2,  carbs:13, fat:0.8, fiber:0.6, sugar:1.4, sodium:119 },
+      { name:"Bagel (plain)",              emoji:"🥯", calories:270, protein:11, carbs:53, fat:1.5, fiber:2,   sugar:6,   sodium:430 },
+      { name:"English Muffin",             emoji:"🥯", calories:134, protein:5,  carbs:26, fat:1,   fiber:2,   sugar:3,   sodium:265 },
+      { name:"Pasta (1 cup cooked)",       emoji:"🍝", calories:220, protein:8,  carbs:43, fat:1.3, fiber:2.5, sugar:0.6, sodium:1   },
+      { name:"Pasta (2 cups cooked)",      emoji:"🍝", calories:440, protein:16, carbs:86, fat:2.6, fiber:5,   sugar:1.2, sodium:2   },
       { name:"Tortilla (large, flour)",    emoji:"🫓", calories:218, protein:6,  carbs:36, fat:5,   fiber:2,   sugar:1,   sodium:440 },
       { name:"Carb Balance Tortilla (lg)", emoji:"🫓", calories:110, protein:5,  carbs:22, fat:3,   fiber:11,  sugar:0,   sodium:380 },
+      { name:"Corn Tortilla (2)",          emoji:"🫓", calories:100, protein:3,  carbs:22, fat:1.5, fiber:3,   sugar:0.5, sodium:40  },
+      { name:"Pita Bread (1 whole)",       emoji:"🫓", calories:165, protein:5,  carbs:33, fat:0.7, fiber:1.3, sugar:0.6, sodium:322 },
+      { name:"Rice Cakes (2)",             emoji:"🍘", calories:70,  protein:1,  carbs:15, fat:0.5, fiber:0.3, sugar:0,   sodium:58  },
+      { name:"Crackers (6 Ritz)",          emoji:"🍘", calories:80,  protein:1,  carbs:10, fat:4,   fiber:0,   sugar:1,   sodium:130 },
     ]
   },
   {
     label: "🥗 Vegetables",
     foods: [
-      { name:"Broccoli (1 cup)",     emoji:"🥦", calories:55,  protein:4,   carbs:11, fat:0.6, fiber:5,   sugar:2,   sodium:64 },
-      { name:"Spinach (2 cups)",     emoji:"🥬", calories:14,  protein:1.7, carbs:2,  fat:0.2, fiber:1.3, sugar:0.2, sodium:48 },
-      { name:"Mixed Greens (2 cups)",emoji:"🥗", calories:18,  protein:1.5, carbs:3,  fat:0.2, fiber:1.5, sugar:1,   sodium:35 },
-      { name:"Avocado (1/4)",        emoji:"🥑", calories:60,  protein:0.8, carbs:3,  fat:5.5, fiber:2.5, sugar:0.2, sodium:3  },
-      { name:"Avocado (1/2)",        emoji:"🥑", calories:120, protein:1.5, carbs:6,  fat:11,  fiber:5,   sugar:0.5, sodium:5  },
-      { name:"Bell Pepper (1 med)",  emoji:"🫑", calories:31,  protein:1,   carbs:7,  fat:0.3, fiber:2.5, sugar:3.7, sodium:4  },
-      { name:"Asparagus (6 spears)", emoji:"🌿", calories:20,  protein:2,   carbs:3,  fat:0.2, fiber:2,   sugar:1,   sodium:13 },
-      { name:"Green Beans (1 cup)",  emoji:"🫛", calories:44,  protein:2,   carbs:10, fat:0.4, fiber:4,   sugar:5,   sodium:1  },
+      { name:"Broccoli (1 cup)",      emoji:"🥦", calories:55,  protein:4,   carbs:11, fat:0.6, fiber:5,   sugar:2,   sodium:64 },
+      { name:"Broccoli (2 cups)",     emoji:"🥦", calories:110, protein:8,   carbs:22, fat:1.2, fiber:10,  sugar:4,   sodium:128},
+      { name:"Spinach (2 cups raw)",  emoji:"🥬", calories:14,  protein:1.7, carbs:2,  fat:0.2, fiber:1.3, sugar:0.2, sodium:48 },
+      { name:"Mixed Greens (2 cups)", emoji:"🥗", calories:18,  protein:1.5, carbs:3,  fat:0.2, fiber:1.5, sugar:1,   sodium:35 },
+      { name:"Kale (2 cups raw)",     emoji:"🥬", calories:67,  protein:4.4, carbs:12, fat:0.9, fiber:2.6, sugar:0,   sodium:58 },
+      { name:"Romaine (2 cups)",      emoji:"🥬", calories:16,  protein:1.2, carbs:3,  fat:0.3, fiber:2,   sugar:1.5, sodium:9  },
+      { name:"Avocado (1/4)",         emoji:"🥑", calories:60,  protein:0.8, carbs:3,  fat:5.5, fiber:2.5, sugar:0.2, sodium:3  },
+      { name:"Avocado (1/2)",         emoji:"🥑", calories:120, protein:1.5, carbs:6,  fat:11,  fiber:5,   sugar:0.5, sodium:5  },
+      { name:"Avocado (whole)",       emoji:"🥑", calories:240, protein:3,   carbs:12, fat:22,  fiber:10,  sugar:1,   sodium:10 },
+      { name:"Bell Pepper (1 med)",   emoji:"🫑", calories:31,  protein:1,   carbs:7,  fat:0.3, fiber:2.5, sugar:3.7, sodium:4  },
+      { name:"Asparagus (6 spears)",  emoji:"🌿", calories:20,  protein:2,   carbs:3,  fat:0.2, fiber:2,   sugar:1,   sodium:13 },
+      { name:"Green Beans (1 cup)",   emoji:"🫛", calories:44,  protein:2,   carbs:10, fat:0.4, fiber:4,   sugar:5,   sodium:1  },
+      { name:"Cucumber (1 cup)",      emoji:"🥒", calories:16,  protein:0.7, carbs:3.8,fat:0.1, fiber:0.5, sugar:2,   sodium:2  },
+      { name:"Tomato (1 med)",        emoji:"🍅", calories:22,  protein:1.1, carbs:4.8,fat:0.2, fiber:1.5, sugar:3.2, sodium:6  },
+      { name:"Onion (1/2 cup)",       emoji:"🧅", calories:32,  protein:0.7, carbs:7.5,fat:0.1, fiber:1.4, sugar:3.4, sodium:3  },
+      { name:"Mushrooms (1 cup)",     emoji:"🍄", calories:21,  protein:3,   carbs:3,  fat:0.3, fiber:1,   sugar:2,   sodium:4  },
+      { name:"Zucchini (1 cup)",      emoji:"🥒", calories:21,  protein:1.5, carbs:4,  fat:0.4, fiber:1.3, sugar:3,   sodium:10 },
+      { name:"Carrots (1 cup)",       emoji:"🥕", calories:52,  protein:1.2, carbs:12, fat:0.3, fiber:3.6, sugar:6,   sodium:88 },
+      { name:"Celery (2 stalks)",     emoji:"🌿", calories:12,  protein:0.5, carbs:2.4,fat:0.1, fiber:1.2, sugar:1,   sodium:64 },
+      { name:"Corn (1 ear)",          emoji:"🌽", calories:132, protein:4.9, carbs:29, fat:1.8, fiber:3.6, sugar:9,   sodium:21 },
+      { name:"Edamame (1/2 cup)",     emoji:"🫘", calories:94,  protein:9,   carbs:8,  fat:4,   fiber:4,   sugar:2,   sodium:9  },
     ]
   },
   {
     label: "🍎 Fruits",
     foods: [
-      { name:"Banana (medium)",      emoji:"🍌", calories:105, protein:1.3, carbs:27, fat:0.4, fiber:3.1, sugar:14, sodium:1 },
-      { name:"Apple (medium)",       emoji:"🍎", calories:95,  protein:0.5, carbs:25, fat:0.3, fiber:4.4, sugar:19, sodium:2 },
-      { name:"Strawberries (1 cup)", emoji:"🍓", calories:49,  protein:1,   carbs:12, fat:0.5, fiber:3,   sugar:7,  sodium:2 },
-      { name:"Blueberries (1 cup)",  emoji:"🫐", calories:84,  protein:1.1, carbs:21, fat:0.5, fiber:3.6, sugar:15, sodium:1 },
-      { name:"Orange (medium)",      emoji:"🍊", calories:62,  protein:1.2, carbs:15, fat:0.2, fiber:3.1, sugar:12, sodium:0 },
+      { name:"Banana (medium)",         emoji:"🍌", calories:105, protein:1.3, carbs:27, fat:0.4, fiber:3.1, sugar:14, sodium:1  },
+      { name:"Apple (medium)",          emoji:"🍎", calories:95,  protein:0.5, carbs:25, fat:0.3, fiber:4.4, sugar:19, sodium:2  },
+      { name:"Strawberries (1 cup)",    emoji:"🍓", calories:49,  protein:1,   carbs:12, fat:0.5, fiber:3,   sugar:7,  sodium:2  },
+      { name:"Blueberries (1 cup)",     emoji:"🫐", calories:84,  protein:1.1, carbs:21, fat:0.5, fiber:3.6, sugar:15, sodium:1  },
+      { name:"Orange (medium)",         emoji:"🍊", calories:62,  protein:1.2, carbs:15, fat:0.2, fiber:3.1, sugar:12, sodium:0  },
+      { name:"Mango (1 cup)",           emoji:"🥭", calories:99,  protein:1.4, carbs:25, fat:0.6, fiber:2.6, sugar:23, sodium:2  },
+      { name:"Pineapple (1 cup)",       emoji:"🍍", calories:82,  protein:0.9, carbs:22, fat:0.2, fiber:2.3, sugar:16, sodium:2  },
+      { name:"Grapes (1 cup)",          emoji:"🍇", calories:104, protein:1.1, carbs:27, fat:0.2, fiber:1.4, sugar:23, sodium:3  },
+      { name:"Watermelon (2 cups)",     emoji:"🍉", calories:86,  protein:1.7, carbs:22, fat:0.4, fiber:1.1, sugar:18, sodium:4  },
+      { name:"Peach (medium)",          emoji:"🍑", calories:59,  protein:1.4, carbs:14, fat:0.4, fiber:2.3, sugar:13, sodium:0  },
+      { name:"Raspberries (1 cup)",     emoji:"🫐", calories:64,  protein:1.5, carbs:15, fat:0.8, fiber:8,   sugar:5,  sodium:1  },
+      { name:"Kiwi (1 medium)",         emoji:"🥝", calories:42,  protein:0.8, carbs:10, fat:0.4, fiber:2.1, sugar:6,  sodium:2  },
+      { name:"Grapefruit (1/2)",        emoji:"🍊", calories:52,  protein:0.9, carbs:13, fat:0.2, fiber:2,   sugar:8,  sodium:0  },
+      { name:"Cherries (1 cup)",        emoji:"🍒", calories:87,  protein:1.5, carbs:22, fat:0.3, fiber:3,   sugar:18, sodium:0  },
     ]
   },
   {
-    label: "🥜 Nuts & Protein",
+    label: "🥜 Nuts & Seeds",
     foods: [
-      { name:"Peanut Butter (1 tbsp)",  emoji:"🥜", calories:94,  protein:4,   carbs:3,  fat:8,   fiber:1,   sugar:1.5, sodium:76  },
-      { name:"Peanut Butter (2 tbsp)",  emoji:"🥜", calories:188, protein:8,   carbs:6,  fat:16,  fiber:2,   sugar:3,   sodium:152 },
-      { name:"Almonds (1 oz)",          emoji:"🌰", calories:164, protein:6,   carbs:6,  fat:14,  fiber:3.5, sugar:1.2, sodium:0   },
-      { name:"Black Beans (1/2 cup)",   emoji:"🫘", calories:114, protein:7.6, carbs:20, fat:0.5, fiber:7.5, sugar:0.3, sodium:1   },
-      { name:"Black Beans (1 cup)",     emoji:"🫘", calories:228, protein:15,  carbs:40, fat:1,   fiber:15,  sugar:0.6, sodium:2   },
-      { name:"Protein Shake (1 scoop)", emoji:"🥤", calories:120, protein:25,  carbs:5,  fat:2,   fiber:1,   sugar:2,   sodium:150 },
-      { name:"Fairlife Core Power",     emoji:"🥤", calories:230, protein:42,  carbs:13, fat:3.5, fiber:0,   sugar:11,  sodium:280 },
+      { name:"Almonds (1 oz, ~23)",      emoji:"🌰", calories:164, protein:6,   carbs:6,  fat:14,  fiber:3.5, sugar:1.2, sodium:0   },
+      { name:"Walnuts (1 oz)",           emoji:"🌰", calories:185, protein:4.3, carbs:4,  fat:18,  fiber:1.9, sugar:0.7, sodium:1   },
+      { name:"Cashews (1 oz)",           emoji:"🌰", calories:157, protein:5,   carbs:9,  fat:12,  fiber:0.9, sugar:1.7, sodium:3   },
+      { name:"Peanuts (1 oz)",           emoji:"🥜", calories:161, protein:7,   carbs:5,  fat:14,  fiber:2.4, sugar:1.3, sodium:114 },
+      { name:"Peanut Butter (1 tbsp)",   emoji:"🥜", calories:94,  protein:4,   carbs:3,  fat:8,   fiber:1,   sugar:1.5, sodium:76  },
+      { name:"Peanut Butter (2 tbsp)",   emoji:"🥜", calories:188, protein:8,   carbs:6,  fat:16,  fiber:2,   sugar:3,   sodium:152 },
+      { name:"Almond Butter (2 tbsp)",   emoji:"🌰", calories:196, protein:7,   carbs:6,  fat:18,  fiber:3.3, sugar:1.7, sodium:72  },
+      { name:"Sunflower Seeds (1 oz)",   emoji:"🌻", calories:165, protein:5.5, carbs:7,  fat:14,  fiber:3,   sugar:1,   sodium:1   },
+      { name:"Chia Seeds (2 tbsp)",      emoji:"🌱", calories:138, protein:4.7, carbs:12, fat:8.7, fiber:9.8, sugar:0,   sodium:5   },
+      { name:"Flax Seeds (2 tbsp)",      emoji:"🌱", calories:110, protein:3.8, carbs:6,  fat:8.5, fiber:5.5, sugar:0.2, sodium:6   },
+      { name:"Pistachios (1 oz)",        emoji:"🌰", calories:159, protein:6,   carbs:8,  fat:13,  fiber:3,   sugar:2,   sodium:0   },
+      { name:"Mixed Nuts (1 oz)",        emoji:"🌰", calories:173, protein:5,   carbs:6,  fat:16,  fiber:2,   sugar:1.3, sodium:110 },
     ]
   },
   {
-    label: "🫙 Sauces & Extras",
+    label: "💪 Protein Bars & Shakes",
     foods: [
-      { name:"Olive Oil (1 tbsp)", emoji:"🫒", calories:119, protein:0,   carbs:0,   fat:13.5, fiber:0, sugar:0,   sodium:0   },
-      { name:"Olive Oil (2 tbsp)", emoji:"🫒", calories:238, protein:0,   carbs:0,   fat:27,   fiber:0, sugar:0,   sodium:0   },
-      { name:"Butter (1 tbsp)",    emoji:"🧈", calories:102, protein:0.1, carbs:0,   fat:11.5, fiber:0, sugar:0,   sodium:82  },
-      { name:"Ketchup (1 tbsp)",   emoji:"🍅", calories:17,  protein:0.2, carbs:4.6, fat:0,    fiber:0, sugar:3.7, sodium:154 },
-      { name:"Hot Sauce (1 tsp)",  emoji:"🌶️", calories:0,   protein:0,   carbs:0.1, fat:0,    fiber:0, sugar:0,   sodium:124 },
-      { name:"Soy Sauce (1 tbsp)", emoji:"🫙", calories:11,  protein:1.3, carbs:1,   fat:0,    fiber:0, sugar:0,   sodium:879 },
-      { name:"Ranch (2 tbsp)",     emoji:"🥛", calories:73,  protein:0.4, carbs:1.4, fat:7.7,  fiber:0, sugar:1,   sodium:122 },
+      { name:"Quest Bar (avg)",             emoji:"💪", calories:200, protein:21, carbs:22, fat:8,   fiber:14, sugar:1,   sodium:250 },
+      { name:"RXBar (avg)",                 emoji:"💪", calories:210, protein:12, carbs:24, fat:9,   fiber:5,  sugar:13,  sodium:260 },
+      { name:"Clif Bar",                    emoji:"💪", calories:250, protein:9,  carbs:45, fat:5,   fiber:5,  sugar:21,  sodium:150 },
+      { name:"Kind Bar (avg)",              emoji:"💪", calories:200, protein:6,  carbs:20, fat:12,  fiber:3,  sugar:8,   sodium:95  },
+      { name:"ONE Bar (avg)",               emoji:"💪", calories:220, protein:20, carbs:23, fat:7,   fiber:10, sugar:1,   sodium:220 },
+      { name:"Barebells Protein Bar",       emoji:"💪", calories:200, protein:20, carbs:20, fat:7,   fiber:6,  sugar:2,   sodium:150 },
+      { name:"Gatorade Protein Bar",        emoji:"💪", calories:350, protein:20, carbs:46, fat:10,  fiber:5,  sugar:20,  sodium:220 },
+      { name:"Protein Shake (1 scoop)",     emoji:"🥤", calories:120, protein:25, carbs:5,  fat:2,   fiber:1,  sugar:2,   sodium:150 },
+      { name:"Fairlife Core Power (11.5oz)",emoji:"🥤", calories:230, protein:42, carbs:13, fat:3.5, fiber:0,  sugar:11,  sodium:280 },
+      { name:"Premier Protein Shake",       emoji:"🥤", calories:160, protein:30, carbs:6,  fat:3,   fiber:1,  sugar:1,   sodium:390 },
+      { name:"Muscle Milk (11 oz)",         emoji:"🥤", calories:160, protein:25, carbs:9,  fat:3,   fiber:2,  sugar:2,   sodium:250 },
+      { name:"Orgain Protein Shake",        emoji:"🥤", calories:255, protein:26, carbs:24, fat:7,   fiber:5,  sugar:15,  sodium:280 },
+      { name:"Isopure Zero Carb (1 scoop)", emoji:"🥤", calories:110, protein:25, carbs:0,  fat:0.5, fiber:0,  sugar:0,   sodium:140 },
+      { name:"Optimum Nutrition Gold (1sc)",emoji:"🥤", calories:120, protein:24, carbs:3,  fat:1,   fiber:1,  sugar:1,   sodium:130 },
+    ]
+  },
+  {
+    label: "🥣 Breakfast Foods",
+    foods: [
+      { name:"Pancake (3 med, plain)",   emoji:"🥞", calories:345, protein:9,   carbs:57, fat:10,  fiber:1.5, sugar:8,   sodium:730 },
+      { name:"Waffle (1 large)",         emoji:"🧇", calories:220, protein:6,   carbs:25, fat:11,  fiber:1,   sugar:4,   sodium:380 },
+      { name:"French Toast (2 slices)",  emoji:"🍞", calories:308, protein:10,  carbs:34, fat:15,  fiber:1.5, sugar:8,   sodium:370 },
+      { name:"Cereal — Cheerios (1 cup)",emoji:"🥣", calories:100, protein:3,   carbs:20, fat:2,   fiber:3,   sugar:1,   sodium:140 },
+      { name:"Cereal — Granola (1/2 c)", emoji:"🥣", calories:209, protein:5,   carbs:36, fat:6,   fiber:3,   sugar:12,  sodium:14  },
+      { name:"Cereal — Frosted Flakes",  emoji:"🥣", calories:130, protein:2,   carbs:31, fat:0,   fiber:0.5, sugar:11,  sodium:190 },
+      { name:"Cereal — Raisin Bran",     emoji:"🥣", calories:190, protein:5,   carbs:46, fat:1.5, fiber:7,   sugar:18,  sodium:350 },
+      { name:"Pop-Tart (1 pastry)",      emoji:"🍰", calories:200, protein:2,   carbs:37, fat:5,   fiber:0.5, sugar:16,  sodium:170 },
+      { name:"Bagel + Cream Cheese",     emoji:"🥯", calories:369, protein:13,  carbs:54, fat:12,  fiber:2,   sugar:7,   sodium:520 },
+      { name:"Toast (2 slices) + Butter",emoji:"🍞", calories:220, protein:6,   carbs:26, fat:11,  fiber:1.8, sugar:2,   sodium:380 },
+    ]
+  },
+  {
+    label: "🍔 Fast Food",
+    foods: [
+      { name:"McDonald's McDouble",         emoji:"🍔", calories:400, protein:22, carbs:33, fat:20, fiber:2,  sugar:7,  sodium:840  },
+      { name:"McDonald's Big Mac",          emoji:"🍔", calories:550, protein:25, carbs:46, fat:30, fiber:3,  sugar:9,  sodium:1010 },
+      { name:"McDonald's McChicken",        emoji:"🍔", calories:400, protein:14, carbs:40, fat:21, fiber:1,  sugar:5,  sodium:660  },
+      { name:"McDonald's Filet-O-Fish",     emoji:"🍔", calories:390, protein:15, carbs:39, fat:19, fiber:2,  sugar:5,  sodium:590  },
+      { name:"McDonald's Fries (Med)",      emoji:"🍟", calories:320, protein:4,  carbs:44, fat:15, fiber:3,  sugar:0,  sodium:400  },
+      { name:"McDonald's Fries (Large)",    emoji:"🍟", calories:490, protein:7,  carbs:66, fat:23, fiber:5,  sugar:0,  sodium:400  },
+      { name:"Chick-fil-A Sandwich",        emoji:"🍔", calories:440, protein:28, carbs:40, fat:19, fiber:1,  sugar:5,  sodium:1350 },
+      { name:"Chick-fil-A Grilled Sand.",   emoji:"🍔", calories:320, protein:29, carbs:36, fat:6,  fiber:3,  sugar:7,  sodium:800  },
+      { name:"Chick-fil-A Nuggets (8pc)",   emoji:"🍗", calories:260, protein:26, carbs:11, fat:12, fiber:0,  sugar:1,  sodium:1010 },
+      { name:"Chipotle Chicken Bowl",       emoji:"🥙", calories:655, protein:51, carbs:62, fat:21, fiber:11, sugar:5,  sodium:1810 },
+      { name:"Chipotle Burrito (chicken)",  emoji:"🌯", calories:1025,protein:60, carbs:98, fat:36, fiber:15, sugar:8,  sodium:2200 },
+      { name:"Subway 6\" Turkey",           emoji:"🥖", calories:280, protein:18, carbs:46, fat:3.5,fiber:4,  sugar:7,  sodium:760  },
+      { name:"Subway 6\" Chicken",          emoji:"🥖", calories:320, protein:24, carbs:46, fat:5,  fiber:4,  sugar:7,  sodium:700  },
+      { name:"Taco Bell Crunchy Taco",      emoji:"🌮", calories:170, protein:8,  carbs:13, fat:9,  fiber:3,  sugar:1,  sodium:310  },
+      { name:"Taco Bell Chicken Burrito",   emoji:"🌯", calories:410, protein:17, carbs:52, fat:15, fiber:5,  sugar:3,  sodium:1040 },
+      { name:"Raising Cane's Chicken Fngr", emoji:"🍗", calories:145, protein:13, carbs:8,  fat:6,  fiber:0,  sugar:0,  sodium:360  },
+      { name:"Raising Cane's Sauce",        emoji:"🫙", calories:190, protein:0,  carbs:4,  fat:20, fiber:0,  sugar:3,  sodium:280  },
+      { name:"Panda Express Orange Chicken",emoji:"🍊", calories:490, protein:26, carbs:67, fat:14, fiber:2,  sugar:35, sodium:820  },
+      { name:"Panda Express Broccoli Beef", emoji:"🥦", calories:150, protein:9,  carbs:13, fat:7,  fiber:3,  sugar:7,  sodium:520  },
+    ]
+  },
+  {
+    label: "🍕 Pizza & Sandwiches",
+    foods: [
+      { name:"Pizza — Cheese (1 slice)",    emoji:"🍕", calories:285, protein:12, carbs:36, fat:10, fiber:2,  sugar:3,  sodium:640  },
+      { name:"Pizza — Pepperoni (1 slice)", emoji:"🍕", calories:313, protein:14, carbs:34, fat:13, fiber:2,  sugar:3,  sodium:760  },
+      { name:"Grilled Cheese Sandwich",     emoji:"🥪", calories:390, protein:15, carbs:32, fat:23, fiber:1,  sugar:4,  sodium:800  },
+      { name:"BLT Sandwich",               emoji:"🥪", calories:350, protein:14, carbs:30, fat:20, fiber:2,  sugar:4,  sodium:750  },
+      { name:"Turkey Sandwich (deli)",      emoji:"🥪", calories:320, protein:22, carbs:34, fat:8,  fiber:3,  sugar:5,  sodium:980  },
+      { name:"Chicken Caesar Wrap",         emoji:"🌯", calories:450, protein:32, carbs:38, fat:18, fiber:3,  sugar:3,  sodium:920  },
+      { name:"Burrito Bowl (homemade)",     emoji:"🥙", calories:520, protein:38, carbs:55, fat:16, fiber:9,  sugar:4,  sodium:880  },
+    ]
+  },
+  {
+    label: "🍿 Snacks",
+    foods: [
+      { name:"Popcorn (3 cups, air-popped)",emoji:"🍿", calories:93,  protein:3,   carbs:19, fat:1,   fiber:3.6, sugar:0.2, sodium:2   },
+      { name:"Popcorn (microwave, 3 cups)", emoji:"🍿", calories:120, protein:2,   carbs:15, fat:7,   fiber:2,   sugar:0,   sodium:290 },
+      { name:"Chips (1 oz, potato)",        emoji:"🥔", calories:152, protein:2,   carbs:15, fat:10,  fiber:1,   sugar:0.1, sodium:148 },
+      { name:"Doritos (1 oz)",              emoji:"🌽", calories:140, protein:2,   carbs:18, fat:7,   fiber:1,   sugar:1,   sodium:210 },
+      { name:"Pretzels (1 oz)",             emoji:"🥨", calories:108, protein:2.6, carbs:23, fat:0.7, fiber:0.8, sugar:0.8, sodium:385 },
+      { name:"Goldfish (55 crackers)",       emoji:"🐟", calories:140, protein:3,   carbs:20, fat:5,   fiber:1,   sugar:0,   sodium:250 },
+      { name:"Granola Bar (avg)",           emoji:"🍫", calories:193, protein:4,   carbs:28, fat:7,   fiber:2,   sugar:13,  sodium:100 },
+      { name:"Trail Mix (1/4 cup)",         emoji:"🌰", calories:173, protein:5,   carbs:17, fat:11,  fiber:2,   sugar:8,   sodium:72  },
+      { name:"Rice Cakes (2)",              emoji:"🍘", calories:70,  protein:1,   carbs:15, fat:0.5, fiber:0.3, sugar:0,   sodium:58  },
+      { name:"Beef Jerky (1 oz)",           emoji:"🥩", calories:116, protein:9.4, carbs:3.1,fat:7.3, fiber:0.5, sugar:2.6, sodium:506 },
+      { name:"Cheese Stick (1)",            emoji:"🧀", calories:80,  protein:7,   carbs:1,  fat:5,   fiber:0,   sugar:0,   sodium:200 },
+      { name:"Hummus (2 tbsp)",             emoji:"🫘", calories:50,  protein:2,   carbs:6,  fat:3,   fiber:1.6, sugar:0.3, sodium:115 },
+      { name:"Edamame (1/2 cup shelled)",   emoji:"🫘", calories:94,  protein:9,   carbs:8,  fat:4,   fiber:4,   sugar:2,   sodium:9   },
+      { name:"Apple + PB (med + 2 tbsp)",   emoji:"🍎", calories:283, protein:8.5, carbs:31, fat:16.3,fiber:6.4, sugar:22,  sodium:154 },
+      { name:"Celery + PB (2 stalks+1tbsp)",emoji:"🌿", calories:106, protein:4.5, carbs:5.4,fat:8.1, fiber:2.2, sugar:2.5, sodium:140 },
+    ]
+  },
+  {
+    label: "🍰 Sweets & Treats",
+    foods: [
+      { name:"Dark Chocolate (1 oz)",     emoji:"🍫", calories:170, protein:2,   carbs:13, fat:12, fiber:3,  sugar:7,  sodium:5   },
+      { name:"Milk Chocolate (1 oz)",     emoji:"🍫", calories:153, protein:2.2, carbs:17, fat:9,  fiber:1,  sugar:14, sodium:24  },
+      { name:"Ice Cream (1/2 cup)",       emoji:"🍦", calories:207, protein:3.5, carbs:24, fat:11, fiber:0.7,sugar:21, sodium:80  },
+      { name:"Gelato (1/2 cup)",          emoji:"🍨", calories:160, protein:3,   carbs:22, fat:7,  fiber:0,  sugar:20, sodium:50  },
+      { name:"Cookie (1 choc chip)",      emoji:"🍪", calories:148, protein:2,   carbs:19, fat:7,  fiber:1,  sugar:10, sodium:109 },
+      { name:"Brownie (2\" square)",      emoji:"🍫", calories:112, protein:1.6, carbs:18, fat:4.5,fiber:0.6,sugar:11, sodium:82  },
+      { name:"Donut (glazed)",            emoji:"🍩", calories:269, protein:3,   carbs:31, fat:15, fiber:1,  sugar:14, sodium:319 },
+      { name:"Cheesecake (1 slice)",      emoji:"🍰", calories:401, protein:7,   carbs:35, fat:26, fiber:0.5,sugar:26, sodium:325 },
+      { name:"Gummy Bears (10 pieces)",   emoji:"🍬", calories:87,  protein:2,   carbs:21, fat:0,  fiber:0,  sugar:15, sodium:15  },
+    ]
+  },
+  {
+    label: "🥤 Drinks",
+    foods: [
+      { name:"Whole Milk (8 oz)",         emoji:"🥛", calories:149, protein:8,   carbs:12, fat:8,  fiber:0, sugar:12, sodium:105 },
+      { name:"Orange Juice (8 oz)",       emoji:"🍊", calories:112, protein:1.7, carbs:26, fat:0.5,fiber:0.5,sugar:21,sodium:2  },
+      { name:"Apple Juice (8 oz)",        emoji:"🍎", calories:113, protein:0.1, carbs:28, fat:0.3,fiber:0.5,sugar:24,sodium:10 },
+      { name:"Coconut Water (1 cup)",     emoji:"🥥", calories:46,  protein:1.7, carbs:9,  fat:0.5,fiber:2.6,sugar:6, sodium:252 },
+      { name:"Gatorade (20 oz)",          emoji:"🥤", calories:140, protein:0,   carbs:36, fat:0,  fiber:0, sugar:34, sodium:270 },
+      { name:"Monster Energy (16 oz)",    emoji:"🥤", calories:210, protein:0,   carbs:54, fat:0,  fiber:0, sugar:54, sodium:370 },
+      { name:"Red Bull (8.4 oz)",         emoji:"🥤", calories:110, protein:1,   carbs:28, fat:0,  fiber:0, sugar:27, sodium:105 },
+      { name:"Coffee (black, 8 oz)",      emoji:"☕", calories:5,   protein:0.3, carbs:0.7,fat:0.1,fiber:0, sugar:0,  sodium:5  },
+      { name:"Latte (16 oz, 2% milk)",    emoji:"☕", calories:190, protein:13,  carbs:19, fat:7,  fiber:0, sugar:17, sodium:150 },
+      { name:"Frappuccino (16 oz avg)",   emoji:"☕", calories:380, protein:5,   carbs:65, fat:14, fiber:0, sugar:60, sodium:230 },
+      { name:"Smoothie (fruit, 16 oz)",   emoji:"🥤", calories:250, protein:3,   carbs:60, fat:1,  fiber:4, sugar:45, sodium:90  },
+      { name:"Protein Smoothie (16 oz)",  emoji:"🥤", calories:320, protein:30,  carbs:40, fat:5,  fiber:3, sugar:25, sodium:200 },
+      { name:"Beer (12 oz, regular)",     emoji:"🍺", calories:153, protein:1.6, carbs:13, fat:0,  fiber:0, sugar:0,  sodium:14  },
+      { name:"Wine (5 oz, red)",          emoji:"🍷", calories:125, protein:0.1, carbs:4,  fat:0,  fiber:0, sugar:1,  sodium:6  },
+    ]
+  },
+  {
+    label: "🍲 Prepared & Frozen",
+    foods: [
+      { name:"Mac & Cheese (1 cup)",       emoji:"🧀", calories:390, protein:13, carbs:57, fat:13, fiber:2,  sugar:8,  sodium:760  },
+      { name:"Ramen (1 packet)",           emoji:"🍜", calories:380, protein:9,  carbs:55, fat:14, fiber:2,  sugar:2,  sodium:1820 },
+      { name:"Frozen Pizza (1/4 pie)",     emoji:"🍕", calories:310, protein:14, carbs:35, fat:12, fiber:2,  sugar:4,  sodium:680  },
+      { name:"Canned Soup (1 cup, chkn)",  emoji:"🍲", calories:120, protein:8,  carbs:15, fat:3,  fiber:1,  sugar:2,  sodium:890  },
+      { name:"Frozen Burrito",             emoji:"🌯", calories:300, protein:9,  carbs:44, fat:9,  fiber:5,  sugar:2,  sodium:690  },
+      { name:"Lean Cuisine (avg)",         emoji:"🍱", calories:280, protein:18, carbs:38, fat:6,  fiber:4,  sugar:7,  sodium:600  },
+      { name:"Canned Chili (1 cup)",       emoji:"🍲", calories:255, protein:18, carbs:28, fat:8,  fiber:9,  sugar:4,  sodium:1020 },
+    ]
+  },
+  {
+    label: "🫘 Legumes & Tofu",
+    foods: [
+      { name:"Black Beans (1/2 cup)",      emoji:"🫘", calories:114, protein:7.6, carbs:20, fat:0.5, fiber:7.5, sugar:0.3, sodium:1   },
+      { name:"Black Beans (1 cup)",        emoji:"🫘", calories:228, protein:15,  carbs:40, fat:1,   fiber:15,  sugar:0.6, sodium:2   },
+      { name:"Chickpeas (1/2 cup)",        emoji:"🫘", calories:134, protein:7,   carbs:22, fat:2.1, fiber:6,   sugar:3.9, sodium:5   },
+      { name:"Lentils (1/2 cup cooked)",   emoji:"🫘", calories:115, protein:9,   carbs:20, fat:0.4, fiber:7.8, sugar:1.8, sodium:2   },
+      { name:"Kidney Beans (1/2 cup)",     emoji:"🫘", calories:112, protein:7.7, carbs:20, fat:0.4, fiber:5.5, sugar:0.3, sodium:1   },
+      { name:"Tofu — Firm (4 oz)",         emoji:"🟦", calories:94,  protein:10,  carbs:2.3,fat:5,   fiber:0.3, sugar:0.5, sodium:94  },
+      { name:"Tofu — Silken (4 oz)",       emoji:"🟦", calories:61,  protein:6,   carbs:3,  fat:3,   fiber:0,   sugar:1,   sodium:60  },
+      { name:"Tempeh (4 oz)",              emoji:"🟫", calories:222, protein:21,  carbs:11, fat:12,  fiber:7.3, sugar:0,   sodium:9   },
+    ]
+  },
+  {
+    label: "🫙 Sauces & Condiments",
+    foods: [
+      { name:"Olive Oil (1 tbsp)",    emoji:"🫒", calories:119, protein:0,   carbs:0,   fat:13.5, fiber:0, sugar:0,   sodium:0   },
+      { name:"Olive Oil (2 tbsp)",    emoji:"🫒", calories:238, protein:0,   carbs:0,   fat:27,   fiber:0, sugar:0,   sodium:0   },
+      { name:"Coconut Oil (1 tbsp)",  emoji:"🥥", calories:121, protein:0,   carbs:0,   fat:13.5, fiber:0, sugar:0,   sodium:0   },
+      { name:"Butter (1 tbsp)",       emoji:"🧈", calories:102, protein:0.1, carbs:0,   fat:11.5, fiber:0, sugar:0,   sodium:82  },
+      { name:"Mayo (1 tbsp)",         emoji:"🥛", calories:94,  protein:0.1, carbs:0.1, fat:10,   fiber:0, sugar:0.1, sodium:88  },
+      { name:"Ketchup (1 tbsp)",      emoji:"🍅", calories:17,  protein:0.2, carbs:4.6, fat:0,    fiber:0, sugar:3.7, sodium:154 },
+      { name:"Mustard (1 tsp)",       emoji:"🟡", calories:3,   protein:0.2, carbs:0.3, fat:0.2,  fiber:0, sugar:0.1, sodium:56  },
+      { name:"Hot Sauce (1 tsp)",     emoji:"🌶️", calories:0,   protein:0,   carbs:0.1, fat:0,    fiber:0, sugar:0,   sodium:124 },
+      { name:"Soy Sauce (1 tbsp)",    emoji:"🫙", calories:11,  protein:1.3, carbs:1,   fat:0,    fiber:0, sugar:0,   sodium:879 },
+      { name:"Sriracha (1 tsp)",      emoji:"🌶️", calories:5,   protein:0.1, carbs:1,   fat:0.1,  fiber:0, sugar:0.7, sodium:80  },
+      { name:"BBQ Sauce (2 tbsp)",    emoji:"🫙", calories:58,  protein:0.5, carbs:14,  fat:0.1,  fiber:0, sugar:11,  sodium:340 },
+      { name:"Ranch (2 tbsp)",        emoji:"🥛", calories:73,  protein:0.4, carbs:1.4, fat:7.7,  fiber:0, sugar:1,   sodium:122 },
+      { name:"Honey (1 tbsp)",        emoji:"🍯", calories:64,  protein:0.1, carbs:17,  fat:0,    fiber:0, sugar:17,  sodium:0   },
+      { name:"Maple Syrup (1 tbsp)",  emoji:"🍁", calories:52,  protein:0,   carbs:13,  fat:0,    fiber:0, sugar:12,  sodium:2   },
+      { name:"Salsa (2 tbsp)",        emoji:"🍅", calories:10,  protein:0.5, carbs:2,   fat:0,    fiber:0.5,sugar:1,  sodium:230 },
+      { name:"Guacamole (2 tbsp)",    emoji:"🥑", calories:45,  protein:0.5, carbs:2.5, fat:4,    fiber:1.5,sugar:0,  sodium:115 },
+      { name:"Hummus (2 tbsp)",       emoji:"🫘", calories:50,  protein:2,   carbs:6,   fat:3,    fiber:1.6,sugar:0.3,sodium:115 },
+      { name:"Tahini (1 tbsp)",       emoji:"🫙", calories:89,  protein:2.6, carbs:3.2, fat:8,    fiber:1.4,sugar:0.1,sodium:17  },
+      { name:"Teriyaki Sauce (1 tbsp)",emoji:"🫙",calories:16,  protein:0.5, carbs:3,   fat:0,    fiber:0, sugar:2.5, sodium:690 },
+      { name:"Salad Dressing (2 tbsp, Italian)",emoji:"🥗",calories:71,protein:0.1,carbs:3,fat:7,fiber:0,sugar:2,sodium:345},
     ]
   },
 ];
@@ -274,12 +504,12 @@ export default function App() {
   const fileRef = useRef();
   const T = THEMES.find(t => t.id===themeId) || THEMES[0];
   const MACROS = [
-    { key:"protein", label:"Protein", unit:"g",  color:"#34d399", max:goals.protein  },
-    { key:"carbs",   label:"Carbs",   unit:"g",  color:"#60a5fa", max:goals.carbs    },
-    { key:"fat",     label:"Fat",     unit:"g",  color:"#fbbf24", max:goals.fat      },
-    { key:"fiber",   label:"Fiber",   unit:"g",  color:"#a78bfa", max:goals.fiber    },
-    { key:"sugar",   label:"Sugar",   unit:"g",  color:"#f472b6", max:goals.sugar    },
-    { key:"sodium",  label:"Sodium",  unit:"mg", color:"#fb923c", max:goals.sodium   },
+    { key:"protein", label:"Protein", unit:"g",  color:"#34d399", max:goals.protein },
+    { key:"carbs",   label:"Carbs",   unit:"g",  color:"#60a5fa", max:goals.carbs   },
+    { key:"fat",     label:"Fat",     unit:"g",  color:"#fbbf24", max:goals.fat     },
+    { key:"fiber",   label:"Fiber",   unit:"g",  color:"#a78bfa", max:goals.fiber   },
+    { key:"sugar",   label:"Sugar",   unit:"g",  color:"#f472b6", max:goals.sugar   },
+    { key:"sodium",  label:"Sodium",  unit:"mg", color:"#fb923c", max:goals.sodium  },
   ];
 
   useEffect(() => {
@@ -321,19 +551,9 @@ export default function App() {
   }, {calories:0,protein:0,carbs:0,fat:0,fiber:0,sugar:0,sodium:0});
 
   function saveGoals() {
-    const newGoals = {
-      calories: safeNum(goalsForm.calories) || DEFAULT_GOALS.calories,
-      protein:  safeNum(goalsForm.protein)  || DEFAULT_GOALS.protein,
-      carbs:    safeNum(goalsForm.carbs)    || DEFAULT_GOALS.carbs,
-      fat:      safeNum(goalsForm.fat)      || DEFAULT_GOALS.fat,
-      fiber:    safeNum(goalsForm.fiber)    || DEFAULT_GOALS.fiber,
-      sugar:    safeNum(goalsForm.sugar)    || DEFAULT_GOALS.sugar,
-      sodium:   safeNum(goalsForm.sodium)   || DEFAULT_GOALS.sodium,
-    };
-    setGoals(newGoals);
-    setShowGoals(false);
+    const g = { calories:safeNum(goalsForm.calories)||DEFAULT_GOALS.calories, protein:safeNum(goalsForm.protein)||DEFAULT_GOALS.protein, carbs:safeNum(goalsForm.carbs)||DEFAULT_GOALS.carbs, fat:safeNum(goalsForm.fat)||DEFAULT_GOALS.fat, fiber:safeNum(goalsForm.fiber)||DEFAULT_GOALS.fiber, sugar:safeNum(goalsForm.sugar)||DEFAULT_GOALS.sugar, sodium:safeNum(goalsForm.sodium)||DEFAULT_GOALS.sodium };
+    setGoals(g); setShowGoals(false);
   }
-
   function addIngredient(food) {
     setIngredients(prev => {
       const existing = prev.find(i => i.name===food.name);
@@ -345,10 +565,7 @@ export default function App() {
   function updateServings(id, val) { setIngredients(prev => prev.map(i => i.id===id ? {...i, servings:val} : i)); }
   function removeIngredient(id) { setIngredients(prev => prev.filter(i => i.id!==id)); }
   function handleDragStart(e, food) { e.dataTransfer.setData("food", JSON.stringify(food)); }
-  function handleDrop(e) {
-    e.preventDefault(); setDragOverMeal(false);
-    try { addIngredient(JSON.parse(e.dataTransfer.getData("food"))); } catch {}
-  }
+  function handleDrop(e) { e.preventDefault(); setDragOverMeal(false); try { addIngredient(JSON.parse(e.dataTransfer.getData("food"))); } catch {} }
   async function handleFoodSearch() {
     if (!searchQuery.trim()) return;
     setSearching(true); setSearchErr(""); setSearchResults([]);
@@ -359,15 +576,10 @@ export default function App() {
   function handleSaveMealTemplate() {
     if (!mealName.trim() || ingredients.length===0) { setMealErr("Name your meal and add ingredients first."); return; }
     setSavedMealTemplates(prev => [...prev, { id:Date.now(), name:mealName.trim(), ingredients:ingredients.map(i=>({...i})), calories:ingTotals.calories, protein:ingTotals.protein, carbs:ingTotals.carbs, fat:ingTotals.fat }]);
-    setMealErr("");
-    alert(`"${mealName}" saved to Saved Meals!`);
+    setMealErr(""); alert(`"${mealName}" saved!`);
   }
-  function handleLoadTemplate(template) {
-    setMealName(template.name);
-    setIngredients(template.ingredients.map(i => ({...i, id:Date.now()+Math.random()})));
-    setShowSaved(false); setTab("add"); setMealErr("");
-  }
-  function handleDeleteTemplate(id) { setSavedMealTemplates(prev => prev.filter(t => t.id!==id)); setDeleteSavedConfirm(null); }
+  function handleLoadTemplate(template) { setMealName(template.name); setIngredients(template.ingredients.map(i=>({...i,id:Date.now()+Math.random()}))); setShowSaved(false); setTab("add"); setMealErr(""); }
+  function handleDeleteTemplate(id) { setSavedMealTemplates(prev => prev.filter(t=>t.id!==id)); setDeleteSavedConfirm(null); }
   function handleLogMeal() {
     if (!mealName.trim()) { setMealErr("Give your meal a name."); return; }
     if (ingredients.length===0) { setMealErr("Add at least one ingredient."); return; }
@@ -387,11 +599,7 @@ export default function App() {
     setScanning(true); setScanErr("");
     try {
       const apiKey = import.meta.env.VITE_ANTHROPIC_KEY;
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method:"POST",
-        headers:{"content-type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true","x-api-key":apiKey},
-        body:JSON.stringify({model:"claude-opus-4-5",max_tokens:512,system:`Output only raw JSON.`,messages:[{role:"user",content:[{type:"image",source:{type:"base64",media_type:photoMime,data:photoB64}},{type:"text",text:`JSON keys: name, calories, protein, carbs, fat, fiber, sugar, sodium.`}]}]}),
-      });
+      const res = await fetch("https://api.anthropic.com/v1/messages", { method:"POST", headers:{"content-type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true","x-api-key":apiKey}, body:JSON.stringify({model:"claude-opus-4-5",max_tokens:512,system:`Output only raw JSON.`,messages:[{role:"user",content:[{type:"image",source:{type:"base64",media_type:photoMime,data:photoB64}},{type:"text",text:`JSON keys: name, calories, protein, carbs, fat, fiber, sugar, sodium.`}]}]}) });
       if (!res.ok) { const b=await res.text(); throw new Error(`HTTP ${res.status}: ${b.slice(0,200)}`); }
       const data = await res.json();
       const tb = data.content?.find(b=>b.type==="text");
@@ -407,9 +615,7 @@ export default function App() {
   function handleThemeSelect(id) { setThemeId(id); setShowTheme(false); }
   const calOver = totals.calories > goals.calories;
   const previewCal = totals.calories + ingTotals.calories;
-  function tabStyle(active) {
-    return {flex:1,padding:"11px 0",border:"none",cursor:"pointer",fontFamily:"'DM Mono',monospace",fontSize:11,fontWeight:600,letterSpacing:"0.06em",background:active?"#34d399":"transparent",color:active?"#030712":T.textSub,borderRadius:active?8:0,transition:"all .2s"};
-  }
+  function tabStyle(active) { return {flex:1,padding:"11px 0",border:"none",cursor:"pointer",fontFamily:"'DM Mono',monospace",fontSize:11,fontWeight:600,letterSpacing:"0.06em",background:active?"#34d399":"transparent",color:active?"#030712":T.textSub,borderRadius:active?8:0,transition:"all .2s"}; }
   const displayFoods = searchResults.length > 0 ? searchResults : PRESET_CATEGORIES[activeCategory].foods;
 
   return (
@@ -453,7 +659,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* Goals modal */}
       {showGoals && (
         <div style={{position:"fixed",inset:0,background:"rgba(3,7,18,.88)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
           <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:20,padding:24,width:"100%",maxWidth:400,maxHeight:"90vh",overflowY:"auto"}}>
@@ -462,15 +667,7 @@ export default function App() {
               <button onClick={()=>setShowGoals(false)} style={{background:T.card2,border:"1px solid "+T.border,color:T.textSub,borderRadius:8,padding:"6px 12px",fontSize:12,cursor:"pointer",fontFamily:"'DM Mono',monospace"}}>CANCEL</button>
             </div>
             <div style={{display:"flex",flexDirection:"column",gap:12}}>
-              {[
-                {key:"calories", label:"Calories (kcal)", color:"#34d399"},
-                {key:"protein",  label:"Protein (g)",     color:"#34d399"},
-                {key:"carbs",    label:"Carbs (g)",       color:"#60a5fa"},
-                {key:"fat",      label:"Fat (g)",         color:"#fbbf24"},
-                {key:"fiber",    label:"Fiber (g)",       color:"#a78bfa"},
-                {key:"sugar",    label:"Sugar (g)",       color:"#f472b6"},
-                {key:"sodium",   label:"Sodium (mg)",     color:"#fb923c"},
-              ].map(({key,label,color})=>(
+              {[{key:"calories",label:"Calories (kcal)",color:"#34d399"},{key:"protein",label:"Protein (g)",color:"#34d399"},{key:"carbs",label:"Carbs (g)",color:"#60a5fa"},{key:"fat",label:"Fat (g)",color:"#fbbf24"},{key:"fiber",label:"Fiber (g)",color:"#a78bfa"},{key:"sugar",label:"Sugar (g)",color:"#f472b6"},{key:"sodium",label:"Sodium (mg)",color:"#fb923c"}].map(({key,label,color})=>(
                 <div key={key}>
                   <label style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.08em",display:"block",marginBottom:5}}>{label}</label>
                   <input type="number" min="0" value={goalsForm[key]} onChange={e=>setGoalsForm(f=>({...f,[key]:e.target.value}))}
@@ -480,7 +677,7 @@ export default function App() {
               ))}
             </div>
             <div style={{display:"flex",gap:10,marginTop:20}}>
-              <button onClick={()=>{setGoalsForm(DEFAULT_GOALS);}} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.textSub,borderRadius:8,fontSize:12,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>RESET DEFAULT</button>
+              <button onClick={()=>setGoalsForm(DEFAULT_GOALS)} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.textSub,borderRadius:8,fontSize:12,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>RESET</button>
               <button onClick={saveGoals} style={{flex:2,padding:"12px 0",background:"#34d399",border:"none",borderRadius:8,color:"#030712",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>SAVE GOALS</button>
             </div>
           </div>
@@ -510,7 +707,7 @@ export default function App() {
           <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:32,maxWidth:340,width:"90%",textAlign:"center"}}>
             <div style={{fontSize:36,marginBottom:12}}>🌅</div>
             <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,marginBottom:8,color:T.text}}>New Day?</div>
-            <p style={{color:T.textSub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears {meals.length} meal{meals.length!==1?"s":""} and resets totals.<br/><span style={{color:"#34d399"}}>{Math.round(totals.calories)} kcal</span>{" · "}<span style={{color:"#60a5fa"}}>{round1(totals.protein)}g protein</span>{" wiped."}</p>
+            <p style={{color:T.textSub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears {meals.length} meal{meals.length!==1?"s":""} and resets totals.<br/><span style={{color:"#34d399"}}>{Math.round(totals.calories)} kcal · {round1(totals.protein)}g protein</span> wiped.</p>
             <div style={{display:"flex",gap:10}}>
               <button onClick={()=>setConfirm(false)} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.textSub,borderRadius:8,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>CANCEL</button>
               <button onClick={handleNewDay} style={{flex:1,padding:"12px 0",background:"#7f1d1d",border:"1px solid #991b1b",color:"#fca5a5",borderRadius:8,fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>RESET</button>
@@ -527,7 +724,7 @@ export default function App() {
               <button onClick={()=>setShowSaved(false)} style={{background:T.card2,border:"1px solid "+T.border,color:T.textSub,borderRadius:8,padding:"6px 12px",fontSize:12,cursor:"pointer",fontFamily:"'DM Mono',monospace"}}>CLOSE</button>
             </div>
             {savedMealTemplates.length===0?(
-              <div style={{textAlign:"center",padding:"30px 0",color:T.textFaint,fontSize:13,fontFamily:"'DM Mono',monospace"}}>No saved meals yet.<br/>Build a meal and tap ⭐ SAVE MEAL.</div>
+              <div style={{textAlign:"center",padding:"30px 0",color:T.textFaint,fontSize:13,fontFamily:"'DM Mono',monospace"}}>No saved meals yet.<br/>Build a meal and tap ⭐ SAVE.</div>
             ):(
               <div style={{display:"flex",flexDirection:"column",gap:10}}>
                 {savedMealTemplates.map(tmpl=>(
@@ -577,7 +774,6 @@ export default function App() {
           <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:14}}>MACRO BREAKDOWN</div>
           {MACROS.map(m=><MacroBar key={m.key} label={m.label} value={round1(totals[m.key])} max={m.max} unit={m.unit} color={m.color} T={T}/>)}
         </div>
-
         <div style={{display:"flex",background:T.card,border:"1px solid "+T.border,borderRadius:12,padding:4,marginBottom:16,gap:4}}>
           <button style={tabStyle(tab==="log")} onClick={()=>setTab("log")}>📋 LOG {meals.length>0&&`(${meals.length})`}</button>
           <button style={tabStyle(tab==="add")} onClick={()=>setTab("add")}>🍳 BUILD</button>
@@ -592,9 +788,8 @@ export default function App() {
                 style={{width:"100%",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:15,padding:"11px 14px",fontFamily:"'DM Sans',sans-serif",outline:"none"}}
               />
             </div>
-
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"16px 18px"}}>
-              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>🍽️ FOOD BROWSER <span style={{fontWeight:400}}>— tap to add</span></div>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>🍽️ FOOD BROWSER <span style={{fontWeight:400}}>— tap to add · {PRESET_CATEGORIES.length} categories · 200+ foods</span></div>
               <div style={{display:"flex",gap:8,marginBottom:12}}>
                 <input type="text" value={searchQuery} onChange={e=>{setSearchQuery(e.target.value);if(!e.target.value)setSearchResults([]);}} onKeyDown={e=>e.key==="Enter"&&handleFoodSearch()} placeholder="Search any food..."
                   style={{flex:1,background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:14,padding:"9px 12px",fontFamily:"'DM Sans',sans-serif",outline:"none"}}
@@ -622,7 +817,6 @@ export default function App() {
                 ))}
               </div>
             </div>
-
             <div onDragOver={e=>{e.preventDefault();setDragOverMeal(true);}} onDragLeave={()=>setDragOverMeal(false)} onDrop={handleDrop}
               style={{background:T.card,border:`2px ${dragOverMeal?"solid #34d399":"dashed "+T.border}`,borderRadius:16,padding:"16px 18px",minHeight:90,transition:"all .2s",boxShadow:dragOverMeal?"0 0 20px rgba(52,211,153,0.2)":"none"}}>
               {ingredients.length===0?(
@@ -665,7 +859,6 @@ export default function App() {
                 </div>
               )}
             </div>
-
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"16px 18px"}}>
               <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:10}}>📸 ADD FROM PHOTO <span style={{fontWeight:400}}>— needs API credits</span></div>
               {!photoSrc?(
@@ -687,7 +880,6 @@ export default function App() {
                 </div>
               )}
             </div>
-
             {mealErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'DM Mono',monospace",textAlign:"center"}}>⚠ {mealErr}</div>}
             <div style={{display:"flex",gap:10}}>
               <button className="save-btn" onClick={handleSaveMealTemplate} disabled={!mealName.trim()||ingredients.length===0}
