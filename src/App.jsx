@@ -35,8 +35,6 @@ const THEMES = [
   { id:"teal",     label:"Teal",     swatch:"#134e4a", bg:"#134e4a", card:"#115e59", card2:"#0f766e", border:"#2dd4bf", text:"#ffffff", textSub:"#99f6e4", textFaint:"#5eead4" },
   { id:"sunset",   label:"Sunset",   swatch:"#c2410c", bg:"#c2410c", card:"#ea580c", card2:"#f97316", border:"#fdba74", text:"#ffffff", textSub:"#fed7aa", textFaint:"#fdba74" },
 ];
-const AI_SYSTEM = `You are a nutrition database. You only output raw JSON. Never use markdown, never use code fences, never explain anything. Output must start with { and end with } and be valid JSON.`;
-const AI_USER_TEXT = `Analyze the food in this image. Return a single JSON object with these exact keys: name (string), calories (number), protein (number), carbs (number), fat (number), fiber (number), sugar (number), sodium (number), note (string with your confidence level). All nutrient values are per serving shown. Use USDA values. No markdown, no fences, just the JSON object.`;
 const MIME_MAP = { "image/jpeg":"image/jpeg","image/jpg":"image/jpeg","image/png":"image/png","image/webp":"image/webp","image/gif":"image/gif" };
 function safeNum(v) { const x = parseFloat(v); return isNaN(x) ? 0 : x; }
 function round1(x) { return Math.round(safeNum(x) * 10) / 10; }
@@ -65,6 +63,36 @@ async function storageLoad(key) {
   try { const str = localStorage.getItem(key); return str ? JSON.parse(str) : null; }
   catch { return null; }
 }
+
+async function searchFood(query) {
+  try {
+    const res = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&pageSize=6&api_key=DEMO_KEY`);
+    const data = await res.json();
+    if (!data.foods || data.foods.length === 0) return [];
+    return data.foods.map(food => {
+      const n = food.foodNutrients || [];
+      const get = (id) => {
+        const found = n.find(x => x.nutrientId === id || x.nutrientNumber === String(id));
+        return found ? Math.round(found.value * 10) / 10 : 0;
+      };
+      const cal = get(1008) || get("208");
+      const protein = get(1003) || get("203");
+      const carbs = get(1005) || get("205");
+      const fat = get(1004) || get("204");
+      const fiber = get(1079) || get("291");
+      const sugar = get(2000) || get("269");
+      const sodium = get(1093) || get("307");
+      return {
+        name: food.description,
+        brand: food.brandOwner || "",
+        calories: cal,
+        protein, carbs, fat, fiber, sugar, sodium,
+        serving: food.servingSize ? `${food.servingSize}${food.servingSizeUnit||"g"}` : "100g",
+      };
+    });
+  } catch(e) { return []; }
+}
+
 function CalRing({ eaten, goal, T }) {
   const pct = Math.min(eaten / goal, 1); const over = eaten > goal;
   const radius = 58; const circ = 2 * Math.PI * radius; const fill = pct * circ;
@@ -141,8 +169,13 @@ export default function App() {
   const [scanning, setScanning] = useState(false);
   const [scanNote, setScanNote] = useState("");
   const [scanErr, setScanErr] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [searching, setSearching] = useState(false);
+  const [searchErr, setSearchErr] = useState("");
   const fileRef = useRef();
   const T = THEMES.find(t => t.id === themeId) || THEMES[0];
+
   useEffect(() => {
     (async () => {
       try {
@@ -156,11 +189,38 @@ export default function App() {
   }, []);
   useEffect(() => { if (loaded) storageSave("ft-meals", meals); }, [meals, loaded]);
   useEffect(() => { if (loaded) storageSave("ft-theme", themeId); }, [themeId, loaded]);
+
   const totals = meals.reduce((acc, m) => {
     acc.calories += safeNum(m.calories); acc.protein += safeNum(m.protein); acc.carbs += safeNum(m.carbs);
     acc.fat += safeNum(m.fat); acc.fiber += safeNum(m.fiber); acc.sugar += safeNum(m.sugar); acc.sodium += safeNum(m.sodium);
     return acc;
   }, { calories:0, protein:0, carbs:0, fat:0, fiber:0, sugar:0, sodium:0 });
+
+  async function handleFoodSearch() {
+    if (!searchQuery.trim()) return;
+    setSearching(true); setSearchErr(""); setSearchResults([]);
+    const results = await searchFood(searchQuery);
+    if (results.length === 0) setSearchErr("No results found. Try a simpler search.");
+    setSearchResults(results);
+    setSearching(false);
+  }
+
+  function handleSelectFood(food) {
+    setForm({
+      name: food.name,
+      calories: String(food.calories),
+      protein: String(food.protein),
+      carbs: String(food.carbs),
+      fat: String(food.fat),
+      fiber: String(food.fiber),
+      sugar: String(food.sugar),
+      sodium: String(food.sodium),
+    });
+    setSearchResults([]);
+    setSearchQuery("");
+    setFormErr("");
+  }
+
   function handlePhotoFile(file) {
     if (!file || !file.type.startsWith("image/")) return;
     const mime = MIME_MAP[file.type] || "image/jpeg";
@@ -169,6 +229,7 @@ export default function App() {
     reader.readAsDataURL(file);
   }
   function clearPhoto() { setPhotoSrc(null); setPhotoB64(null); setScanErr(""); setScanNote(""); }
+
   async function scanPhoto() {
     if (!photoB64) return;
     setScanning(true); setScanErr(""); setScanNote("");
@@ -176,13 +237,8 @@ export default function App() {
       const apiKey = import.meta.env.VITE_ANTHROPIC_KEY;
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method:"POST",
-        headers:{
-          "content-type":"application/json",
-          "anthropic-version":"2023-06-01",
-          "anthropic-dangerous-direct-browser-access":"true",
-          "x-api-key": apiKey,
-        },
-        body:JSON.stringify({ model:"claude-opus-4-5", max_tokens:512, system:AI_SYSTEM, messages:[{ role:"user", content:[{ type:"image", source:{ type:"base64", media_type:photoMime, data:photoB64 } }, { type:"text", text:AI_USER_TEXT }] }] }),
+        headers:{ "content-type":"application/json", "anthropic-version":"2023-06-01", "anthropic-dangerous-direct-browser-access":"true", "x-api-key": apiKey },
+        body:JSON.stringify({ model:"claude-opus-4-5", max_tokens:512, system:`You are a nutrition database. You only output raw JSON. Never use markdown, never use code fences, never explain anything. Output must start with { and end with } and be valid JSON.`, messages:[{ role:"user", content:[{ type:"image", source:{ type:"base64", media_type:photoMime, data:photoB64 } }, { type:"text", text:`Analyze the food in this image. Return a single JSON object with these exact keys: name (string), calories (number), protein (number), carbs (number), fat (number), fiber (number), sugar (number), sodium (number), note (string with your confidence level). All nutrient values are per serving shown. Use USDA values. No markdown, no fences, just the JSON object.` }] }] }),
       });
       if (!res.ok) { const b = await res.text(); throw new Error(`HTTP ${res.status}: ${b.slice(0,200)}`); }
       const data = await res.json();
@@ -196,6 +252,7 @@ export default function App() {
     } catch(e) { setScanErr(e.message || "Something went wrong."); }
     finally { setScanning(false); }
   }
+
   function handleChange(field, val) { setForm(f => ({...f, [field]:val})); setFormErr(""); }
   function handleAdd() {
     if (!form.name.trim()) { setFormErr("Give this meal a name."); return; }
@@ -225,10 +282,13 @@ export default function App() {
         .log-btn:disabled { opacity:.4; cursor:not-allowed; }
         .scan-btn:hover:not(:disabled) { background:#1d4ed8 !important; }
         .scan-btn:disabled { opacity:.5; cursor:not-allowed; }
+        .search-btn:hover:not(:disabled) { background:#0e7490 !important; }
+        .search-btn:disabled { opacity:.5; cursor:not-allowed; }
         .drop-zone:hover { border-color:#60a5fa !important; }
         .theme-btn-item:hover { opacity:.85; }
         .newday-btn:hover { border-color:#f87171 !important; color:#f87171 !important; }
         .theme-toggle:hover { opacity:.8; }
+        .food-result:hover { border-color:#34d399 !important; background:rgba(52,211,153,0.08) !important; }
       `}</style>
       <header style={{ padding:"14px 20px", borderBottom:"1px solid "+T.border, display:"flex", alignItems:"center", justifyContent:"space-between", position:"sticky", top:0, zIndex:60, background:T.bg, transition:"background .4s" }}>
         <div style={{ display:"flex", alignItems:"baseline", gap:8 }}>
@@ -307,22 +367,60 @@ export default function App() {
         </div>
         {tab === "add" && (
           <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+
+            {/* Food Search */}
+            <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"18px 20px" }}>
+              <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:14 }}>🔍 SEARCH FOOD DATABASE <span style={{ fontWeight:400 }}>— free, auto-fills nutrition</span></div>
+              <div style={{ display:"flex", gap:8, marginBottom:8 }}>
+                <input
+                  type="text" value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  onKeyDown={e => e.key === "Enter" && handleFoodSearch()}
+                  placeholder="e.g. grilled chicken breast"
+                  style={{ flex:1, background:T.card2, border:"1px solid "+T.border, borderRadius:8, color:T.text, fontSize:14, padding:"10px 12px", fontFamily:"'DM Sans',sans-serif", outline:"none" }}
+                />
+                <button className="search-btn" onClick={handleFoodSearch} disabled={searching} style={{ padding:"10px 16px", background:"#0891b2", border:"none", borderRadius:8, color:"#fff", fontSize:13, fontWeight:700, fontFamily:"'DM Mono',monospace", cursor:"pointer", whiteSpace:"nowrap" }}>
+                  {searching ? "..." : "SEARCH"}
+                </button>
+              </div>
+              {searchErr && <div style={{ fontSize:12, color:"#fca5a5", fontFamily:"'DM Mono',monospace", marginBottom:8 }}>⚠ {searchErr}</div>}
+              {searchResults.length > 0 && (
+                <div style={{ display:"flex", flexDirection:"column", gap:6, maxHeight:280, overflowY:"auto" }}>
+                  {searchResults.map((food, i) => (
+                    <button key={i} className="food-result" onClick={() => handleSelectFood(food)}
+                      style={{ background:T.card2, border:"1px solid "+T.border, borderRadius:10, padding:"10px 14px", textAlign:"left", cursor:"pointer", transition:"all .2s" }}>
+                      <div style={{ fontSize:13, fontWeight:600, color:T.text, marginBottom:2 }}>{food.name}</div>
+                      {food.brand && <div style={{ fontSize:11, color:T.textFaint, marginBottom:4 }}>{food.brand}</div>}
+                      <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
+                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:"#34d399" }}>{food.calories} kcal</span>
+                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textSub }}>P {food.protein}g</span>
+                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textSub }}>C {food.carbs}g</span>
+                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textSub }}>F {food.fat}g</span>
+                        <span style={{ fontSize:11, fontFamily:"'DM Mono',monospace", color:T.textFaint }}>{food.serving}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Photo scan */}
             <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"18px 20px" }}>
               <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:14 }}>📸 SCAN WITH PHOTO <span style={{ fontWeight:400 }}>— optional</span></div>
               {!photoSrc ? (
-                <div className="drop-zone" onClick={() => { if (fileRef.current) fileRef.current.click(); }} style={{ border:"2px dashed "+T.border, borderRadius:12, padding:"28px 20px", textAlign:"center", cursor:"pointer", transition:"border-color .2s" }}>
-                  <div style={{ fontSize:32, marginBottom:10 }}>📷</div>
-                  <div style={{ color:"#60a5fa", fontWeight:600, fontSize:14, marginBottom:4 }}>Take a photo or choose from your library</div>
-                  <div style={{ color:T.textFaint, fontSize:12, fontFamily:"'DM Mono',monospace" }}>JPG · PNG · WEBP</div>
+                <div className="drop-zone" onClick={() => { if (fileRef.current) fileRef.current.click(); }} style={{ border:"2px dashed "+T.border, borderRadius:12, padding:"20px", textAlign:"center", cursor:"pointer", transition:"border-color .2s" }}>
+                  <div style={{ fontSize:28, marginBottom:8 }}>📷</div>
+                  <div style={{ color:"#60a5fa", fontWeight:600, fontSize:13, marginBottom:4 }}>Take a photo or choose from library</div>
+                  <div style={{ color:T.textFaint, fontSize:11, fontFamily:"'DM Mono',monospace" }}>JPG · PNG · WEBP</div>
                   <input ref={fileRef} type="file" accept="image/*" style={{ display:"none" }} onChange={e => { if(e.target.files[0]) handlePhotoFile(e.target.files[0]); e.target.value=""; }}/>
                 </div>
               ) : (
                 <div>
                   <div style={{ position:"relative", borderRadius:12, overflow:"hidden", marginBottom:12 }}>
-                    <img src={photoSrc} alt="food" style={{ width:"100%", maxHeight:220, objectFit:"cover", display:"block" }}/>
+                    <img src={photoSrc} alt="food" style={{ width:"100%", maxHeight:200, objectFit:"cover", display:"block" }}/>
                     <button onClick={clearPhoto} style={{ position:"absolute", top:8, right:8, background:"rgba(3,7,18,.85)", border:"1px solid #334155", color:"#94a3b8", borderRadius:6, padding:"4px 10px", fontSize:12, cursor:"pointer" }}>✕ Clear</button>
                   </div>
-                  <button className="scan-btn" onClick={scanPhoto} disabled={scanning} style={{ width:"100%", padding:"13px 0", background:"#1d4ed8", border:"none", borderRadius:10, color:"#fff", fontSize:14, fontWeight:700, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", cursor:"pointer", transition:"all .2s" }}>
+                  <button className="scan-btn" onClick={scanPhoto} disabled={scanning} style={{ width:"100%", padding:"12px 0", background:"#1d4ed8", border:"none", borderRadius:10, color:"#fff", fontSize:13, fontWeight:700, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", cursor:"pointer", transition:"all .2s" }}>
                     {scanning ? "🔍  ANALYZING…" : "🔍  SCAN & FILL NUTRITION"}
                   </button>
                   {scanNote && <div style={{ marginTop:10, padding:"9px 13px", background:T.card2, border:"1px solid "+T.border, borderRadius:8, fontSize:12, color:"#60a5fa", fontFamily:"'DM Mono',monospace" }}>ℹ {scanNote}</div>}
@@ -330,6 +428,8 @@ export default function App() {
                 </div>
               )}
             </div>
+
+            {/* Manual form */}
             <div style={{ background:T.card, border:"1px solid "+T.border, borderRadius:16, padding:"18px 20px" }}>
               <div style={{ fontSize:10, color:T.textFaint, fontFamily:"'DM Mono',monospace", letterSpacing:"0.1em", marginBottom:14 }}>MEAL DETAILS <span style={{ fontWeight:400 }}>— review & edit before logging</span></div>
               <div style={{ display:"flex", flexWrap:"wrap", gap:10, marginBottom:12 }}>
@@ -401,5 +501,3 @@ export default function App() {
     </div>
   );
 }
-
-
