@@ -2,29 +2,91 @@ import { useState, useRef, useEffect } from “react”;
 
 const DEFAULT_GOALS = { calories:1550, protein:180, carbs:200, fat:70, fiber:38, sugar:50, sodium:2300 };
 
-// ── Pet definitions ────────────────────────────────────────────
+// ── Pet definitions with evolution stages ─────────────────────
 const PETS = [
-{ id:“dog”,     name:“Gains”,  emoji:“🐶”, type:“Labrador”,   color:”#f59e0b”, desc:“Loyal and energetic. Loves protein!” },
-{ id:“cat”,     name:“Macro”,  emoji:“🐱”, type:“Siamese”,    color:”#8b5cf6”, desc:“Sleek and precise. Tracks every macro.” },
-{ id:“dragon”,  name:“Flex”,   emoji:“🐉”, type:“Fire Dragon”,color:”#ef4444”, desc:“Legendary. Grows stronger with every PR.” },
-{ id:“fox”,     name:“Swift”,  emoji:“🦊”, type:“Arctic Fox”, color:”#06b6d4”, desc:“Quick and clever. Always one step ahead.” },
-{ id:“bear”,    name:“Bulk”,   emoji:“🐻”, type:“Grizzly”,    color:”#78716c”, desc:“Massive and powerful. Built for gains.” },
-{ id:“penguin”, name:“Shred”,  emoji:“🐧”, type:“Emperor”,    color:”#3b82f6”, desc:“Cool under pressure. Cuts like a knife.” },
-{ id:“lion”,    name:“King”,   emoji:“🦁”, type:“African”,    color:”#d97706”, desc:“Rules the gym. Dominates every session.” },
-{ id:“wolf”,    name:“Pack”,   emoji:“🐺”, type:“Timber”,     color:”#6366f1”, desc:“Runs with discipline. Never skips a day.” },
+{
+id:“dog”, name:“Biscuit”, color:”#f59e0b”, desc:“A loyal companion who grows from a tiny pup into a legendary guardian. Loves every meal you log!”,
+stages:[
+{ level:1,  form:“Tiny Pup”,       emoji:“🐶”, size:44, description:“A wobbly little puppy just finding its legs.” },
+{ level:3,  form:“Playful Pup”,    emoji:“🐕”, size:56, description:“Energetic and bouncy, tail always wagging.” },
+{ level:5,  form:“Young Dog”,      emoji:“🦮”, size:68, description:“Growing fast, strong and loyal.” },
+{ level:7,  form:“Guardian Dog”,   emoji:“🐕‍🦺”, size:82, description:“A powerful, trained companion by your side.” },
+{ level:10, form:“Legendary Hound”,emoji:“🐺”, size:100, description:“A mythic beast — feared and respected by all.” },
+],
+},
+{
+id:“cat”, name:“Whisper”, color:”#8b5cf6”, desc:“Mysterious and precise, she evolves from a tiny kitten into a shadow panther. Every macro tracked perfectly.”,
+stages:[
+{ level:1,  form:“Tiny Kitten”,    emoji:“🐱”, size:40, description:“A small fluffy kitten, curious about everything.” },
+{ level:3,  form:“Young Cat”,      emoji:“🐈”, size:52, description:“Quick and clever, always one step ahead.” },
+{ level:5,  form:“Sleek Cat”,      emoji:“🐈‍⬛”, size:66, description:“Graceful and precise — just like your macros.” },
+{ level:7,  form:“Night Panther”,  emoji:“🐆”, size:80, description:“A powerful predator, silently dominant.” },
+{ level:10, form:“Shadow Lord”,    emoji:“✨🐈‍⬛”, size:100, description:“An ethereal being woven from darkness and starlight.” },
+],
+},
+{
+id:“dragon”, name:“Ember”, color:”#ef4444”, desc:“Starts as a tiny egg, hatches into a serpent, and evolves into a world-ending fire-breathing dragon.”,
+stages:[
+{ level:1,  form:“Dragon Egg”,     emoji:“🥚”, size:44, description:“A glowing egg, pulsing with ancient power.” },
+{ level:3,  form:“Baby Serpent”,   emoji:“🐍”, size:54, description:“A tiny snake-like hatchling, still finding fire.” },
+{ level:5,  form:“Young Drake”,    emoji:“🦎”, size:68, description:“Wings have sprouted. First flames crackle.” },
+{ level:7,  form:“Fire Drake”,     emoji:“🐲”, size:84, description:“A fearsome drake, scorching everything in sight.” },
+{ level:10, form:“Mega Dragon”,    emoji:“🐉”, size:110, description:“A colossal fire-breathing god. Maximum power.” },
+],
+},
+{
+id:“kraken”, name:“Inkwell”, color:”#06b6d4”, desc:“From a tiny squid to the legendary Kraken Lord. Rises from the deep the more you crush your goals.”,
+stages:[
+{ level:1,  form:“Tiny Squid”,     emoji:“🦑”, size:42, description:“A small squid barely bigger than your thumb.” },
+{ level:3,  form:“Baby Octopus”,   emoji:“🐙”, size:54, description:“Arms growing, already curious and crafty.” },
+{ level:5,  form:“Sea Beast”,      emoji:“🐟”, size:68, description:“Lurks the deep, a growing threat to sailors.” },
+{ level:7,  form:“Deep Terror”,    emoji:“🦈”, size:84, description:“Massive and terrifying, commands the deep.” },
+{ level:10, form:“Kraken Lord”,    emoji:“🦑”, size:110, description:“🌊 The ancient Kraken rises. All seas bow.” },
+],
+},
+{
+id:“unicorn”, name:“Luna”, color:”#ec4899”, desc:“A magical foal that transforms into a divine unicorn radiating celestial light. Pure magic in every meal.”,
+stages:[
+{ level:1,  form:“Magic Foal”,     emoji:“🐴”, size:42, description:“A tiny magical foal, horn just beginning to show.” },
+{ level:3,  form:“Young Unicorn”,  emoji:“🦄”, size:56, description:“Horn glowing softly, magic awakening.” },
+{ level:5,  form:“Shining Unicorn”,emoji:“🌟🦄”, size:70, description:“Radiates light, leaves stardust in its wake.” },
+{ level:7,  form:“Celestial Steed”,emoji:“✨🦄”, size:86, description:“Gallops between stars, power without limit.” },
+{ level:10, form:“Divine Unicorn”, emoji:“🌈🦄”, size:110, description:“A god among creatures. Rainbows bow to its will.” },
+],
+},
+{
+id:“koi”, name:“Ripple”, color:”#f97316”, desc:“A tiny fish that transforms through rare koi stages into the legendary Celestial Dragon Koi of ancient legend.”,
+stages:[
+{ level:1,  form:“Baby Fish”,      emoji:“🐟”, size:38, description:“A tiny goldfish, barely a flicker in the water.” },
+{ level:3,  form:“Young Koi”,      emoji:“🐠”, size:52, description:“Growing fins, beginning to show its true colors.” },
+{ level:5,  form:“Dragon Koi”,     emoji:“🐡”, size:66, description:“Shimmering scales catch every light. Rare and proud.” },
+{ level:7,  form:“River Spirit”,   emoji:“🌊🐟”, size:82, description:“A spiritual fish, revered across all waters.” },
+{ level:10, form:“Celestial Koi”,  emoji:“🐉🐟”, size:108, description:“The mythic Dragon Koi of legend. Swims through clouds.” },
+],
+},
+{
+id:“turtle”, name:“Shell”, color:”#22c55e”, desc:“Starts as a tiny hatchling on the beach and slowly grows into the Ancient Titan — slow but absolutely unstoppable.”,
+stages:[
+{ level:1,  form:“Sand Hatchling”, emoji:“🐣”, size:38, description:“A tiny hatchling crawling toward the ocean.” },
+{ level:3,  form:“Baby Turtle”,    emoji:“🐢”, size:50, description:“Shell hardening, paddling with newfound purpose.” },
+{ level:5,  form:“Sea Turtle”,     emoji:“🐢”, size:66, description:“Gliding through deep waters with ancient grace.” },
+{ level:7,  form:“Ocean Elder”,    emoji:“🌊🐢”, size:82, description:“Carries entire ecosystems on its back.” },
+{ level:10, form:“Ancient Titan”,  emoji:“🏔️🐢”, size:110, description:“A living island. Mountains bow. Oceans part.” },
+],
+},
 ];
 
 const PET_LEVELS = [
-{ level:1,  name:“Hatchling”,  xpRequired:0,    size:60,  emoji_modifier:”” },
-{ level:2,  name:“Pup”,        xpRequired:100,  size:70,  emoji_modifier:”” },
-{ level:3,  name:“Juvenile”,   xpRequired:250,  size:80,  emoji_modifier:”” },
-{ level:4,  name:“Young”,      xpRequired:500,  size:90,  emoji_modifier:“✨” },
-{ level:5,  name:“Trained”,    xpRequired:900,  size:100, emoji_modifier:“✨” },
-{ level:6,  name:“Strong”,     xpRequired:1400, size:110, emoji_modifier:“⚡” },
-{ level:7,  name:“Elite”,      xpRequired:2100, size:120, emoji_modifier:“⚡” },
-{ level:8,  name:“Champion”,   xpRequired:3000, size:130, emoji_modifier:“🔥” },
-{ level:9,  name:“Legend”,     xpRequired:4200, size:140, emoji_modifier:“🔥” },
-{ level:10, name:“GOD MODE”,   xpRequired:6000, size:160, emoji_modifier:“👑” },
+{ level:1,  name:“Newborn”,    xpRequired:0,    emoji_modifier:”” },
+{ level:2,  name:“Baby”,       xpRequired:100,  emoji_modifier:”” },
+{ level:3,  name:“Young”,      xpRequired:250,  emoji_modifier:“✨” },
+{ level:4,  name:“Growing”,    xpRequired:500,  emoji_modifier:“✨” },
+{ level:5,  name:“Evolved”,    xpRequired:900,  emoji_modifier:“⚡” },
+{ level:6,  name:“Strong”,     xpRequired:1400, emoji_modifier:“⚡” },
+{ level:7,  name:“Powerful”,   xpRequired:2100, emoji_modifier:“🔥” },
+{ level:8,  name:“Champion”,   xpRequired:3000, emoji_modifier:“🔥” },
+{ level:9,  name:“Legend”,     xpRequired:4200, emoji_modifier:“👑” },
+{ level:10, name:“GOD MODE”,   xpRequired:6000, emoji_modifier:“👑” },
 ];
 
 function getPetLevel(xp) {
@@ -38,6 +100,15 @@ const progress = nextLevel
 ? ((xp - currentLevel.xpRequired) / (nextLevel.xpRequired - currentLevel.xpRequired)) * 100
 : 100;
 return { …currentLevel, nextLevel, progress, xp };
+}
+function getPetStage(petInfo, level) {
+if (!petInfo || !petInfo.stages) return null;
+let currentStage = petInfo.stages[0];
+for (const stage of petInfo.stages) {
+if (level >= stage.level) currentStage = stage;
+else break;
+}
+return currentStage;
 }
 
 // ── Meal scoring ───────────────────────────────────────────────
@@ -517,6 +588,7 @@ return a;
 
 const petInfo = petId ? PETS.find(p=>p.id===petId) : null;
 const petLevel = getPetLevel(petXP);
+const petStage = petInfo ? getPetStage(petInfo, petLevel.level) : null;
 
 function awardXP(amount, reason){
 setPetXP(prev=>{
@@ -621,12 +693,16 @@ const res=await fetch(“https://api.anthropic.com/v1/messages”,{
 method:“POST”,
 headers:{“content-type”:“application/json”,“anthropic-version”:“2023-06-01”,“anthropic-dangerous-direct-browser-access”:“true”,“x-api-key”:apiKey},
 body:JSON.stringify({
-model:“claude-opus-4-5”,max_tokens:512,
+model:“claude-opus-4-5”,
+max_tokens:512,
 system:“You are a nutrition database. Output only raw JSON starting with { and ending with }.”,
-messages:[{role:“user”,content:[
+messages:[{
+role:“user”,
+content:[
 {type:“image”,source:{type:“base64”,media_type:photoMime,data:photoB64}},
 {type:“text”,text:“Return JSON with keys: name, calories, protein, carbs, fat, fiber, sugar, sodium.”},
-]}],
+],
+}],
 }),
 });
 if(!res.ok){const b=await res.text();throw new Error(`HTTP ${res.status}: ${b.slice(0,200)}`);}
@@ -858,11 +934,19 @@ return(
         <div style={{fontSize:12,color:T.textSub,textAlign:"center",marginBottom:20}}>Your companion will level up as you hit your nutrition goals!</div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
           {PETS.map(pet=>(
-            <button key={pet.id} className="pet-card" onClick={()=>{setPetId(pet.id);if(!petName)setPetName(pet.name);setShowPetSelect(false);}} style={{background:petId===pet.id?pet.color+"22":T.card2,border:`2px solid ${petId===pet.id?pet.color:T.border}`,borderRadius:14,padding:"16px 12px",cursor:"pointer",textAlign:"center",transition:"all .2s"}}>
-              <div style={{fontSize:40,marginBottom:6}}>{pet.emoji}</div>
-              <div style={{fontWeight:700,fontSize:14,color:petId===pet.id?pet.color:T.text,marginBottom:2}}>{pet.name}</div>
-              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",marginBottom:4}}>{pet.type}</div>
-              <div style={{fontSize:11,color:T.textSub,lineHeight:1.4}}>{pet.desc}</div>
+            <button key={pet.id} className="pet-card" onClick={()=>{setPetId(pet.id);if(!petName||petName===petInfo?.name)setPetName(pet.name);setShowPetSelect(false);}} style={{background:petId===pet.id?pet.color+"22":T.card2,border:`2px solid ${petId===pet.id?pet.color:T.border}`,borderRadius:14,padding:"14px 16px",cursor:"pointer",textAlign:"left",transition:"all .2s",display:"flex",alignItems:"center",gap:12}}>
+              <div style={{fontSize:42,flexShrink:0,width:52,textAlign:"center"}}>{pet.stages[0].emoji}</div>
+              <div style={{flex:1}}>
+                <div style={{fontWeight:700,fontSize:15,color:petId===pet.id?pet.color:T.text,marginBottom:2}}>{pet.name}</div>
+                <div style={{fontSize:11,color:T.textSub,lineHeight:1.4,marginBottom:6}}>{pet.desc}</div>
+                <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                  <span style={{fontSize:9,color:T.textFaint,fontFamily:"'DM Mono',monospace"}}>EVOLVES →</span>
+                  {pet.stages.map((s,i)=>(
+                    <span key={i} title={s.form} style={{fontSize:16,cursor:"default"}}>{s.emoji}</span>
+                  ))}
+                </div>
+              </div>
+              {petId===pet.id&&<span style={{fontSize:10,color:pet.color,fontFamily:"'DM Mono',monospace",fontWeight:700,flexShrink:0}}>✓</span>}
             </button>
           ))}
         </div>
@@ -922,13 +1006,14 @@ return(
           ):(
             <div>
               <div style={{display:"flex",alignItems:"center",gap:16}}>
-                <div className="pet-float" style={{fontSize:56,lineHeight:1,cursor:"pointer"}} onClick={()=>setShowPetSelect(true)}>{petInfo?.emoji}</div>
+                <div className="pet-float" style={{fontSize:56,lineHeight:1,cursor:"pointer"}} onClick={()=>setShowPetSelect(true)}>{petStage?.emoji||petInfo?.stages[0]?.emoji}</div>
                 <div style={{flex:1}}>
                   <div style={{display:"flex",alignItems:"baseline",gap:8,marginBottom:2}}>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:petInfo?.color}}>{petName||petInfo?.name}</div>
                     <div style={{fontSize:10,fontFamily:"'DM Mono',monospace",color:T.textFaint}}>{petLevel.emoji_modifier}</div>
                   </div>
-                  <div style={{fontSize:11,color:T.textSub,fontFamily:"'DM Mono',monospace",marginBottom:8}}>LVL {petLevel.level} {petLevel.name} · {petXP} XP</div>
+                  <div style={{fontSize:11,color:T.textSub,fontFamily:"'DM Mono',monospace",marginBottom:2}}>LVL {petLevel.level} {petLevel.name} · {petXP} XP</div>
+                  <div style={{fontSize:10,color:petInfo?.color,fontFamily:"'DM Mono',monospace",marginBottom:6}}>✦ {petStage?.form}</div>
                   <div style={{height:6,background:T.border,borderRadius:99,overflow:"hidden",marginBottom:4}}>
                     <div style={{width:`${petLevel.progress}%`,height:"100%",background:petInfo?.color,borderRadius:99,transition:"width .8s ease"}}/>
                   </div>
@@ -1165,10 +1250,11 @@ return(
         ):(
           <>
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"24px 20px",textAlign:"center"}}>
-              <div className="pet-float" style={{fontSize:80,lineHeight:1,marginBottom:8}}>{petInfo?.emoji}</div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:700,color:petInfo?.color,marginBottom:4}}>{petName||petInfo?.name}</div>
-              <div style={{fontSize:12,color:T.textSub,fontFamily:"'DM Mono',monospace",marginBottom:4}}>{petInfo?.type}</div>
-              <div style={{fontSize:14,color:T.textSub,marginBottom:20}}>{petInfo?.desc}</div>
+              <div className="pet-float" style={{fontSize:90,lineHeight:1,marginBottom:8}}>{petStage?.emoji||petInfo?.stages[0]?.emoji}</div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:700,color:petInfo?.color,marginBottom:2}}>{petName||petInfo?.name}</div>
+              <div style={{fontSize:14,fontWeight:600,color:petInfo?.color,opacity:0.8,marginBottom:4}}>✦ {petStage?.form}</div>
+              <div style={{fontSize:13,color:T.textSub,marginBottom:4,lineHeight:1.5,fontStyle:"italic"}}>{petStage?.description}</div>
+              <div style={{fontSize:12,color:T.textFaint,marginBottom:20}}>{petInfo?.desc}</div>
 
               <div style={{background:T.card2,border:"1px solid "+T.border,borderRadius:12,padding:"16px",marginBottom:16}}>
                 <div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
@@ -1219,17 +1305,38 @@ return(
             </div>
 
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
-              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:14}}>PET MILESTONES</div>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:14}}>🌱 EVOLUTION STAGES</div>
+              {petInfo?.stages.map((stage,i)=>{
+                const unlocked=petLevel.level>=stage.level;
+                const isCurrent=petLevel.level>=stage.level&&(i===petInfo.stages.length-1||petLevel.level<petInfo.stages[i+1].level);
+                return(
+                  <div key={i} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 0",borderBottom:"1px solid "+T.border,opacity:unlocked?1:0.35}}>
+                    <div style={{fontSize:36,flexShrink:0,width:44,textAlign:"center"}}>{stage.emoji}</div>
+                    <div style={{flex:1}}>
+                      <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:2}}>
+                        <span style={{fontSize:13,fontWeight:700,color:isCurrent?petInfo.color:unlocked?T.text:T.textFaint}}>{stage.form}</span>
+                        {isCurrent&&<span style={{fontSize:9,background:petInfo.color,color:"#030712",borderRadius:4,padding:"1px 6px",fontFamily:"'DM Mono',monospace",fontWeight:700}}>NOW</span>}
+                        {!unlocked&&<span style={{fontSize:9,color:T.textFaint,fontFamily:"'DM Mono',monospace"}}>Lvl {stage.level} required</span>}
+                      </div>
+                      <div style={{fontSize:11,color:T.textFaint,fontStyle:"italic",lineHeight:1.4}}>{stage.description}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"18px 20px"}}>
+              <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:14}}>PET LEVELS</div>
               {PET_LEVELS.map(lvl=>(
                 <div key={lvl.level} style={{display:"flex",alignItems:"center",gap:12,padding:"8px 0",borderBottom:"1px solid "+T.border,opacity:petLevel.level>=lvl.level?1:0.4}}>
-                  <div style={{width:28,height:28,borderRadius:99,background:petLevel.level>=lvl.level?petInfo?.color:T.border,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:11,fontWeight:700,color:"#030712",fontFamily:"'DM Mono',monospace"}}>
+                  <div style={{width:26,height:26,borderRadius:99,background:petLevel.level>=lvl.level?petInfo?.color:T.border,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:10,fontWeight:700,color:"#030712",fontFamily:"'DM Mono',monospace"}}>
                     {petLevel.level>=lvl.level?"✓":lvl.level}
                   </div>
                   <div style={{flex:1}}>
-                    <div style={{fontSize:13,fontWeight:600,color:petLevel.level>=lvl.level?T.text:T.textFaint}}>Lv{lvl.level} — {lvl.name} {lvl.emoji_modifier}</div>
-                    <div style={{fontSize:11,color:T.textFaint,fontFamily:"'DM Mono',monospace"}}>{lvl.xpRequired} XP required</div>
+                    <div style={{fontSize:12,fontWeight:600,color:petLevel.level>=lvl.level?T.text:T.textFaint}}>Lv{lvl.level} — {lvl.name} {lvl.emoji_modifier}</div>
+                    <div style={{fontSize:10,color:T.textFaint,fontFamily:"'DM Mono',monospace"}}>{lvl.xpRequired} XP required</div>
                   </div>
-                  {petLevel.level===lvl.level&&<span style={{fontSize:11,color:"#34d399",fontFamily:"'DM Mono',monospace",fontWeight:700}}>CURRENT</span>}
+                  {petLevel.level===lvl.level&&<span style={{fontSize:10,color:"#34d399",fontFamily:"'DM Mono',monospace",fontWeight:700}}>CURRENT</span>}
                 </div>
               ))}
             </div>
@@ -1302,6 +1409,116 @@ return(
         )}
       </div>
     )}
+
+    {/* INFO / GUIDE TAB */}
+    {tab==="info"&&(
+      <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:8}}>
+        <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"20px"}}>
+          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:700,color:"#34d399",marginBottom:6}}>FUEL TRACK 🐾</div>
+          <div style={{fontSize:13,color:T.textSub,lineHeight:1.7}}>A nutrition RPG — log meals, earn XP, level up your pet, and crush your goals. Every food choice matters here.</div>
+        </div>
+
+        {[
+          {icon:"🍳",title:"HOW TO BUILD & LOG A MEAL",color:"#34d399",steps:[
+            "Tap the BUILD tab at the bottom",
+            "Type a name for your meal (e.g. 'Lunch', 'Post-Workout')",
+            "Browse 15+ food categories — tap any food card to add it instantly",
+            "Use the − and + buttons to adjust servings in 0.25x increments",
+            "Use the SEARCH bar to find any food not in the presets (USDA database)",
+            "The basket below shows your meal total updating live",
+            "Tap ⭐ SAVE to store this meal forever as a template",
+            "Tap + LOG to add it to today and see your meal score!",
+          ]},
+          {icon:"⭐",title:"SAVED MEALS",color:"#fbbf24",steps:[
+            "After building a meal tap ⭐ SAVE to store it",
+            "Tap SAVED MEALS button at the bottom of BUILD tab",
+            "Tap LOAD on any saved meal to reload it into the builder",
+            "Change servings, swap items, then log it again — perfect for meal prep",
+          ]},
+          {icon:"🏆",title:"HOW MEALS ARE SCORED (0–100)",color:"#f97316",steps:[
+            "Every meal gets a score from 0–100 and a letter grade (S/A/B/C/D/F)",
+            "PROTEIN EFFICIENCY (0–40 pts): how much protein per calorie. High protein = big points",
+            "CALORIE FIT (0–25 pts): how well the meal fits your remaining daily budget",
+            "FIBER BONUS (0–15 pts): fiber content relative to your daily goal",
+            "SODIUM PENALTY (up to −10 pts): deducted if meal is >50% of your sodium goal",
+            "FAT BALANCE (0–10 pts): fat ratio vs expected for the calorie count",
+            "SUGAR SCORE (−5 to +10 pts): low sugar = bonus, high sugar = penalty",
+            "S grade = 90+, A = 80+, B = 70+, C = 55+, D = 40+, F = below 40",
+            "High scores award your pet bonus XP — quality matters!",
+          ]},
+          {icon:"🐾",title:"PET SYSTEM & EVOLUTION",color:"#8b5cf6",steps:[
+            "Choose a pet from 7 options: Dog, Cat, Dragon, Kraken, Unicorn, Koi, or Turtle",
+            "Each pet has 5 evolution stages — they physically transform as you level up",
+            "DRAGON: starts as a tiny egg → baby serpent → young drake → fire drake → 🐉 MEGA DRAGON",
+            "KRAKEN: tiny squid → baby octopus → sea beast → deep terror → 🦑 KRAKEN LORD",
+            "UNICORN: magic foal → young unicorn → shining unicorn → celestial steed → 🌈 DIVINE",
+            "KOI: baby fish → young koi → dragon koi → river spirit → 🐉🐟 CELESTIAL KOI",
+            "TURTLE: sand hatchling → baby turtle → sea turtle → ocean elder → 🏔️ ANCIENT TITAN",
+            "Tap the PET tab to see your full evolution timeline",
+          ]},
+          {icon:"⚡",title:"HOW TO EARN XP",color:"#fbbf24",steps:[
+            "Log any meal: +10 XP",
+            "Log 3+ meals in a day: +10 XP bonus",
+            "Hit your calorie goal (within ±15%): +15 XP",
+            "Hit your protein goal (90%+): +20 XP",
+            "Daily streak bonus: +3 XP per streak day (up to +30)",
+            "Meal score 80+: +15 XP bonus",
+            "Meal score 65–79: +8 XP bonus",
+            "Ask the AI Coach: +5 XP",
+            "Complete a full day (tap 🌅 New Day): bonus XP for all goals hit",
+          ]},
+          {icon:"🎯",title:"SETTING YOUR GOALS",color:"#60a5fa",steps:[
+            "Tap the 🎯 button in the top right header",
+            "Adjust your daily calorie, protein, carbs, fat, fiber, sugar, and sodium targets",
+            "Tap SAVE GOALS — saved permanently",
+            "All rings, bars, and meal scores will update to your targets",
+            "Tap RESET to return to the recommended defaults",
+          ]},
+          {icon:"🤖",title:"AI NUTRITION COACH",color:"#a78bfa",steps:[
+            "Tap COACH tab at the bottom",
+            "The AI knows everything you've logged today, your goals, and your streak",
+            "Ask anything: 'What should I eat for dinner?', 'How's my protein?'",
+            "Earns your pet +5 XP every time you ask a question",
+            "Requires Anthropic API credits — add at console.anthropic.com",
+          ]},
+          {icon:"🔥",title:"STREAKS",color:"#fb923c",steps:[
+            "A streak counts every day you open the app and log at least one meal",
+            "Tap 🌅 New Day each morning to reset and keep your streak alive",
+            "Longer streaks = more XP per day for your pet",
+            "Your streak is shown in the header as 🔥N",
+          ]},
+        ].map(({icon,title,color,steps})=>(
+          <div key={title} style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"16px 18px"}}>
+            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+              <div style={{fontSize:22}}>{icon}</div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,color}}>{title}</div>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:7}}>
+              {steps.map((step,i)=>(
+                <div key={i} style={{display:"flex",gap:10,alignItems:"flex-start"}}>
+                  <div style={{width:18,height:18,borderRadius:99,background:color,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:9,fontWeight:700,color:"#030712",fontFamily:"'DM Mono',monospace",marginTop:2}}>{i+1}</div>
+                  <div style={{fontSize:13,color:T.textSub,lineHeight:1.5}}>{step}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:16,padding:"16px 18px"}}>
+          <div style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:T.textFaint,letterSpacing:"0.08em",marginBottom:10}}>💡 PRO TIPS</div>
+          {[
+            "Tap a food twice to instantly add 2 servings",
+            "Search USDA database for millions of branded foods",
+            "Saved meals are perfect for daily meal prep routines",
+            "A meal high in protein but low in calories will score near 100",
+            "Consistent streaks give massive long-term XP — don't break the chain!",
+            "Your pet's evolution stage emoji shows in the nav bar as it transforms",
+          ].map((tip,i)=>(
+            <div key={i} style={{fontSize:12,color:T.textSub,padding:"7px 10px",background:T.card2,borderRadius:8,marginBottom:5}}>💡 {tip}</div>
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 
   {/* Bottom nav */}
@@ -1310,8 +1527,9 @@ return(
       {id:"home",icon:"🏠",label:"HOME"},
       {id:"log",icon:"📋",label:"LOG"},
       {id:"build",icon:"🍳",label:"BUILD"},
-      {id:"pet",icon:petId?PETS.find(p=>p.id===petId)?.emoji||"🐾":"🐾",label:"PET"},
+      {id:"pet",icon:petId&&petStage?petStage.emoji:"🐾",label:"PET"},
       {id:"coach",icon:"🤖",label:"COACH"},
+      {id:"info",icon:"ℹ️",label:"GUIDE"},
     ].map(({id,icon,label})=>(
       <button key={id} style={navSt(tab===id)} onClick={()=>setTab(id)}>
         <span style={{fontSize:18}}>{icon}</span>
