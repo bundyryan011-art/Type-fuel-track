@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from “react”;
 
 const CAL_GOAL = 1550;
 const MACROS = [
