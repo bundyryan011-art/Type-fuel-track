@@ -1,4 +1,3 @@
-
 const CAL_GOAL = 1550;
 const MACROS = [
 { key:“protein”, label:“Protein”, unit:“g”,  color:”#34d399”, max:180  },
