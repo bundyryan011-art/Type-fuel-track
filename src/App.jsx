@@ -1,4 +1,5 @@
-import { useState, useEffect } from “react”;
+import { useState, useEffect } from "react";
+
 
 const DEFAULT_GOALS = { calories:1550, protein:180, carbs:200, fat:70, fiber:38, sugar:50, sodium:2300 };
 
