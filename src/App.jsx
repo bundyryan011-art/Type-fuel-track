@@ -20,165 +20,192 @@ const THEMES = [
   { id:"golden",   label:"Golden",    bg:"#1a1200", card:"#2a1e00", card2:"#3a2c00", border:"#7a5a00", text:"#fff7d6", sub:"#d4aa40", faint:"#6a4800", accent:"#fbbf24" },
 ];
 
-function NovusStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="nv1a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><circle cx="50" cy="52" r="26" fill="url(#nv1a)"/><circle cx="50" cy="52" r="26" fill="none" stroke="#6d28d9" strokeWidth="1" opacity="0.5"/><circle cx="43" cy="46" r="3" fill="#a78bfa" opacity="0.7"/><circle cx="57" cy="46" r="3" fill="#a78bfa" opacity="0.7"/><ellipse cx="50" cy="58" rx="8" ry="3" fill="#7c3aed" opacity="0.3"/></svg>);}
-function NovusStage2(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="nv2a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#5b21b6"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><circle cx="50" cy="52" r="26" fill="url(#nv2a)"/><circle cx="43" cy="46" r="3.5" fill="#c4b5fd" opacity="0.9"/><circle cx="57" cy="46" r="3.5" fill="#c4b5fd" opacity="0.9"/><path d="M30 52 Q20 44 24 36 Q30 46 50 48 Q70 46 76 36 Q80 44 70 52" fill="#4c1d95" opacity="0.6"/><ellipse cx="50" cy="60" rx="6" ry="2" fill="#7c3aed" opacity="0.4"/><circle cx="50" cy="38" r="2" fill="#ddd6fe" opacity="0.5"/></svg>);}
-function NovusStage3(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="nv3a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#1e1035"/></radialGradient></defs><path d="M50 52 Q20 30 10 48 Q16 62 50 58 Q84 62 90 48 Q80 30 50 52Z" fill="#3b0764" opacity="0.8"/><circle cx="50" cy="50" r="18" fill="url(#nv3a)"/><circle cx="43" cy="45" r="4" fill="#ddd6fe"/><circle cx="57" cy="45" r="4" fill="#ddd6fe"/><path d="M42 55 Q50 60 58 55" stroke="#a78bfa" strokeWidth="1.5" fill="none"/><circle cx="30" cy="40" r="2" fill="#7c3aed" opacity="0.6"/><circle cx="70" cy="40" r="2" fill="#7c3aed" opacity="0.6"/></svg>);}
-function NovusStage4(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="nv4a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#7c3aed"/><stop offset="60%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0014"/></radialGradient><radialGradient id="nv4b" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#ede9fe"/><stop offset="100%" stopColor="#7c3aed"/></radialGradient></defs><path d="M50 50 Q10 18 4 44 Q10 72 50 68 Q90 72 96 44 Q90 18 50 50Z" fill="#2e1065" opacity="0.9"/><circle cx="50" cy="50" r="16" fill="url(#nv4a)"/><circle cx="50" cy="50" r="7" fill="url(#nv4b)"/><circle cx="43" cy="45" r="4.5" fill="white" opacity="0.9"/><circle cx="57" cy="45" r="4.5" fill="white" opacity="0.9"/><circle cx="44" cy="45" r="2" fill="#4c1d95"/><circle cx="58" cy="45" r="2" fill="#4c1d95"/></svg>);}
-function NovusStage5(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="nv5a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#ede9fe"/><stop offset="40%" stopColor="#7c3aed"/><stop offset="100%" stopColor="#0a0014"/></radialGradient><radialGradient id="nv5b" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="100%" stopColor="#a78bfa"/></radialGradient></defs><path d="M50 48 Q4 8 2 44 Q6 76 50 72 Q94 76 98 44 Q96 8 50 48Z" fill="#1e1b4b" opacity="0.95"/><path d="M50 48 Q16 20 12 46 Q16 68 50 65 Q84 68 88 46 Q84 20 50 48Z" fill="#3730a3" opacity="0.7"/><circle cx="50" cy="48" r="14" fill="url(#nv5a)"/><circle cx="50" cy="48" r="6" fill="url(#nv5b)"/><circle cx="43" cy="43" r="5" fill="white"/><circle cx="57" cy="43" r="5" fill="white"/><circle cx="44" cy="43" r="2.5" fill="#3730a3"/><circle cx="58" cy="43" r="2.5" fill="#3730a3"/></svg>);}
-function KhaosStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><circle cx="50" cy="50" r="24" fill="#0c1a2e" stroke="#1e3a5f" strokeWidth="1"/><circle cx="50" cy="50" r="4" fill="#38bdf8" opacity="0.8"/><line x1="50" y1="28" x2="50" y2="34" stroke="#38bdf8" strokeWidth="1" opacity="0.3"/><line x1="50" y1="66" x2="50" y2="72" stroke="#38bdf8" strokeWidth="1" opacity="0.3"/><line x1="28" y1="50" x2="34" y2="50" stroke="#38bdf8" strokeWidth="1" opacity="0.3"/><line x1="66" y1="50" x2="72" y2="50" stroke="#38bdf8" strokeWidth="1" opacity="0.3"/></svg>);}
-function KhaosStage2(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="kh2a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#075985"/><stop offset="100%" stopColor="#0c1a2e"/></radialGradient></defs><circle cx="50" cy="50" r="28" fill="url(#kh2a)"/><circle cx="50" cy="50" r="7" fill="#0ea5e9" opacity="0.9"/><path d="M50 22 L46 34 L50 32 L54 34Z" fill="#7dd3fc" opacity="0.8"/><path d="M50 78 L46 66 L50 68 L54 66Z" fill="#7dd3fc" opacity="0.8"/><path d="M22 50 L34 46 L32 50 L34 54Z" fill="#7dd3fc" opacity="0.8"/><path d="M78 50 L66 46 L68 50 L66 54Z" fill="#7dd3fc" opacity="0.8"/></svg>);}
-function KhaosStage3(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="kh3a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#0369a1"/><stop offset="100%" stopColor="#082f49"/></radialGradient></defs><path d="M50 18 Q72 18 78 36 Q90 46 82 62 Q78 78 60 80 Q50 86 40 80 Q22 78 18 62 Q10 46 22 36 Q28 18 50 18Z" fill="url(#kh3a)"/><circle cx="50" cy="50" r="11" fill="#0ea5e9" opacity="0.9"/><circle cx="50" cy="50" r="6" fill="#bae6fd"/><path d="M50 20 L47 30 L50 28 L53 30Z" fill="#38bdf8"/><path d="M50 80 L47 70 L50 72 L53 70Z" fill="#38bdf8"/><path d="M20 50 L30 47 L28 50 L30 53Z" fill="#38bdf8"/><path d="M80 50 L70 47 L72 50 L70 53Z" fill="#38bdf8"/></svg>);}
-function KhaosStage4(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="kh4a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#0284c7"/><stop offset="60%" stopColor="#0c4a6e"/><stop offset="100%" stopColor="#020617"/></radialGradient></defs><ellipse cx="50" cy="50" rx="44" ry="38" fill="url(#kh4a)"/><circle cx="50" cy="50" r="16" fill="#0369a1" opacity="0.9"/><circle cx="50" cy="50" r="9" fill="#0ea5e9"/><circle cx="50" cy="50" r="5" fill="#e0f2fe"/><path d="M50 16 L47 22 L50 20 L53 22Z" fill="#7dd3fc"/><path d="M84 50 L78 47 L80 50 L78 53Z" fill="#7dd3fc"/><path d="M50 84 L47 78 L50 80 L53 78Z" fill="#7dd3fc"/><path d="M16 50 L22 47 L20 50 L22 53Z" fill="#7dd3fc"/></svg>);}
-function KhaosStage5(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="kh5a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#155e75"/><stop offset="50%" stopColor="#0c4a6e"/><stop offset="100%" stopColor="#020617"/></radialGradient><radialGradient id="kh5b" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#bae6fd"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><path d="M50 10 Q90 20 92 50 Q90 80 50 92 Q10 80 8 50 Q10 20 50 10Z" fill="url(#kh5a)"/><circle cx="50" cy="50" r="14" fill="#0369a1"/><circle cx="50" cy="50" r="8" fill="url(#kh5b)"/><circle cx="50" cy="50" r="3" fill="#020617"/><path d="M50 10 L46 16 L50 14 L54 16Z" fill="#38bdf8"/><path d="M92 50 L86 46 L88 50 L86 54Z" fill="#38bdf8"/><path d="M50 92 L46 86 L50 88 L54 86Z" fill="#38bdf8"/><path d="M8 50 L14 46 L12 50 L14 54Z" fill="#38bdf8"/></svg>);}
-function YokaiStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="35" y="38" width="30" height="24" rx="2" fill="#064e3b" stroke="#34d399" strokeWidth="1"/><rect x="42" y="44" width="16" height="12" rx="1" fill="#022c22" stroke="#10b981" strokeWidth="0.5"/><rect x="47" y="47" width="6" height="6" rx="0.5" fill="#34d399" opacity="0.9"/><rect x="36" y="64" width="4" height="8" fill="#064e3b" stroke="#34d399" strokeWidth="0.5"/><rect x="60" y="64" width="4" height="8" fill="#064e3b" stroke="#34d399" strokeWidth="0.5"/></svg>);}
-function YokaiStage2(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="28" y="28" width="44" height="44" rx="4" fill="#064e3b" stroke="#34d399" strokeWidth="1.2"/><rect x="28" y="28" width="44" height="8" rx="2" fill="#065f46" opacity="0.8"/><rect x="34" y="40" width="14" height="10" rx="1" fill="#022c22" stroke="#10b981" strokeWidth="0.7"/><rect x="52" y="40" width="14" height="10" rx="1" fill="#022c22" stroke="#10b981" strokeWidth="0.7"/><rect x="38" y="43" width="6" height="4" rx="0.5" fill="#34d399"/><rect x="56" y="43" width="6" height="4" rx="0.5" fill="#34d399"/><rect x="36" y="56" width="28" height="4" rx="1" fill="#065f46"/><rect x="30" y="72" width="6" height="10" fill="#064e3b" stroke="#34d399" strokeWidth="0.7"/><rect x="64" y="72" width="6" height="10" fill="#064e3b" stroke="#34d399" strokeWidth="0.7"/></svg>);}
-function YokaiStage3(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="22" y="22" width="56" height="56" rx="6" fill="#064e3b" stroke="#34d399" strokeWidth="1.5"/><rect x="22" y="22" width="56" height="10" rx="4" fill="#065f46"/><circle cx="34" cy="27" r="2" fill="#34d399" opacity="0.7"/><circle cx="40" cy="27" r="2" fill="#fbbf24" opacity="0.7"/><circle cx="46" cy="27" r="2" fill="#ef4444" opacity="0.7"/><rect x="28" y="38" width="18" height="14" rx="2" fill="#022c22" stroke="#10b981" strokeWidth="1"/><rect x="54" y="38" width="18" height="14" rx="2" fill="#022c22" stroke="#10b981" strokeWidth="1"/><rect x="33" y="42" width="8" height="6" rx="1" fill="#34d399" opacity="0.9"/><rect x="59" y="42" width="8" height="6" rx="1" fill="#34d399" opacity="0.9"/><rect x="28" y="58" width="44" height="6" rx="2" fill="#065f46"/><rect x="24" y="78" width="8" height="12" fill="#064e3b" stroke="#34d399" strokeWidth="0.8"/><rect x="68" y="78" width="8" height="12" fill="#064e3b" stroke="#34d399" strokeWidth="0.8"/></svg>);}
-function YokaiStage4(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><linearGradient id="yk4a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#064e3b"/><stop offset="100%" stopColor="#022c22"/></linearGradient></defs><rect x="16" y="16" width="68" height="68" rx="8" fill="url(#yk4a)" stroke="#34d399" strokeWidth="1.5"/><rect x="16" y="16" width="68" height="12" rx="6" fill="#065f46"/><rect x="22" y="34" width="24" height="18" rx="3" fill="#022c22" stroke="#34d399" strokeWidth="1.2"/><rect x="54" y="34" width="24" height="18" rx="3" fill="#022c22" stroke="#34d399" strokeWidth="1.2"/><rect x="28" y="38" width="12" height="10" rx="1" fill="#34d399" opacity="0.95"/><rect x="60" y="38" width="12" height="10" rx="1" fill="#34d399" opacity="0.95"/><rect x="31" y="40" width="4" height="4" fill="#022c22"/><rect x="63" y="40" width="4" height="4" fill="#022c22"/><rect x="22" y="58" width="56" height="8" rx="2" fill="#065f46"/><rect x="20" y="80" width="12" height="16" rx="2" fill="#064e3b" stroke="#34d399" strokeWidth="1"/><rect x="68" y="80" width="12" height="16" rx="2" fill="#064e3b" stroke="#34d399" strokeWidth="1"/></svg>);}
-function YokaiStage5(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><linearGradient id="yk5a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#022c22"/><stop offset="50%" stopColor="#064e3b"/><stop offset="100%" stopColor="#022c22"/></linearGradient></defs><rect x="10" y="10" width="80" height="80" rx="10" fill="url(#yk5a)" stroke="#34d399" strokeWidth="2"/><rect x="10" y="10" width="80" height="14" rx="8" fill="#065f46"/><text x="50" y="22" textAnchor="middle" fill="#34d399" fontSize="6" fontFamily="monospace" opacity="0.9">SYS::ONLINE</text><rect x="16" y="30" width="30" height="22" rx="3" fill="#011a13" stroke="#34d399" strokeWidth="1.2"/><rect x="54" y="30" width="30" height="22" rx="3" fill="#011a13" stroke="#34d399" strokeWidth="1.2"/><rect x="22" y="35" width="18" height="12" rx="1" fill="#34d399" opacity="0.95"/><rect x="60" y="35" width="18" height="12" rx="1" fill="#34d399" opacity="0.95"/><rect x="27" y="38" width="6" height="6" fill="#011a13"/><rect x="65" y="38" width="6" height="6" fill="#011a13"/><rect x="16" y="56" width="68" height="10" rx="2" fill="#065f46"/><rect x="14" y="82" width="16" height="18" rx="3" fill="#064e3b" stroke="#34d399" strokeWidth="1.2"/><rect x="70" y="82" width="16" height="18" rx="3" fill="#064e3b" stroke="#34d399" strokeWidth="1.2"/></svg>);}
-function VerdantStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><line x1="50" y1="80" x2="50" y2="55" stroke="#78350f" strokeWidth="3" strokeLinecap="round"/><path d="M50 55 Q42 46 44 38 Q50 42 50 55Z" fill="#16a34a"/><path d="M50 55 Q58 46 56 38 Q50 42 50 55Z" fill="#15803d"/><path d="M50 48 Q43 40 46 32 Q50 38 50 48Z" fill="#22c55e" opacity="0.8"/><circle cx="50" cy="82" r="4" fill="#92400e" opacity="0.6"/></svg>);}
-function VerdantStage2(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><ellipse cx="50" cy="84" rx="14" ry="5" fill="#78350f" opacity="0.5"/><line x1="50" y1="80" x2="50" y2="50" stroke="#92400e" strokeWidth="4" strokeLinecap="round"/><line x1="50" y1="66" x2="36" y2="58" stroke="#92400e" strokeWidth="2.5" strokeLinecap="round"/><line x1="50" y1="60" x2="64" y2="52" stroke="#92400e" strokeWidth="2.5" strokeLinecap="round"/><path d="M36 58 Q26 50 30 40 Q36 48 44 52 Q36 58 36 58Z" fill="#16a34a"/><path d="M64 52 Q74 44 70 34 Q64 42 56 46 Q64 52 64 52Z" fill="#15803d"/><path d="M50 50 Q40 40 44 28 Q50 38 56 28 Q60 40 50 50Z" fill="#22c55e"/></svg>);}
-function VerdantStage3(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><ellipse cx="50" cy="88" rx="22" ry="6" fill="#78350f" opacity="0.4"/><rect x="46" y="56" width="8" height="32" rx="3" fill="#92400e"/><line x1="50" y1="68" x2="28" y2="58" stroke="#a16207" strokeWidth="3" strokeLinecap="round"/><line x1="50" y1="62" x2="72" y2="52" stroke="#a16207" strokeWidth="3" strokeLinecap="round"/><path d="M28 58 Q10 48 16 32 Q26 44 38 50 Q28 58 28 58Z" fill="#16a34a"/><path d="M72 52 Q90 42 84 26 Q74 38 62 44 Q72 52 72 52Z" fill="#15803d"/><path d="M50 56 Q36 44 42 26 Q50 38 58 26 Q64 44 50 56Z" fill="#4ade80"/><circle cx="50" cy="30" r="5" fill="#86efac" opacity="0.9"/></svg>);}
-function VerdantStage4(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="46" y="52" width="8" height="40" rx="3" fill="#92400e"/><line x1="50" y1="64" x2="20" y2="52" stroke="#a16207" strokeWidth="3.5" strokeLinecap="round"/><line x1="50" y1="58" x2="80" y2="46" stroke="#a16207" strokeWidth="3.5" strokeLinecap="round"/><line x1="50" y1="72" x2="22" y2="72" stroke="#a16207" strokeWidth="2.5" strokeLinecap="round"/><line x1="50" y1="72" x2="78" y2="72" stroke="#a16207" strokeWidth="2.5" strokeLinecap="round"/><path d="M20 52 Q2 38 10 18 Q22 36 36 46 Q20 52 20 52Z" fill="#15803d"/><path d="M80 46 Q98 32 90 12 Q78 30 64 40 Q80 46 80 46Z" fill="#16a34a"/><path d="M50 52 Q32 38 40 14 Q50 34 60 14 Q68 38 50 52Z" fill="#4ade80"/><circle cx="50" cy="22" r="7" fill="#86efac"/></svg>);}
-function VerdantStage5(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="46" y="48" width="8" height="46" rx="3" fill="#92400e"/><line x1="50" y1="62" x2="14" y2="48" stroke="#a16207" strokeWidth="4" strokeLinecap="round"/><line x1="50" y1="56" x2="86" y2="42" stroke="#a16207" strokeWidth="4" strokeLinecap="round"/><line x1="50" y1="70" x2="16" y2="70" stroke="#a16207" strokeWidth="3" strokeLinecap="round"/><line x1="50" y1="70" x2="84" y2="70" stroke="#a16207" strokeWidth="3" strokeLinecap="round"/><path d="M14 48 Q-8 30 2 6 Q16 28 34 42 Q14 48 14 48Z" fill="#14532d"/><path d="M86 42 Q108 24 98 0 Q84 22 66 36 Q86 42 86 42Z" fill="#166534"/><path d="M50 48 Q26 30 36 4 Q50 26 64 4 Q74 30 50 48Z" fill="#22c55e"/><circle cx="50" cy="14" r="9" fill="#4ade80"/><circle cx="50" cy="14" r="5" fill="#86efac"/><circle cx="50" cy="14" r="2" fill="white" opacity="0.8"/></svg>);}
-function AbyssusStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ab1a" cx="50%" cy="40%" r="50%"><stop offset="0%" stopColor="#0c4a6e"/><stop offset="100%" stopColor="#020617"/></radialGradient></defs><path d="M50 30 Q62 46 62 56 Q62 68 50 72 Q38 68 38 56 Q38 46 50 30Z" fill="url(#ab1a)"/><circle cx="44" cy="54" r="3" fill="#0ea5e9" opacity="0.6"/><circle cx="56" cy="54" r="3" fill="#0ea5e9" opacity="0.6"/></svg>);}
-function AbyssusStage2(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ab2a" cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor="#075985"/><stop offset="100%" stopColor="#020617"/></radialGradient></defs><path d="M50 22 Q70 42 70 58 Q70 76 50 80 Q30 76 30 58 Q30 42 50 22Z" fill="url(#ab2a)"/><path d="M30 58 Q18 54 16 64 Q22 70 32 66 Q30 58 30 58Z" fill="#0c4a6e" opacity="0.9"/><path d="M70 58 Q82 54 84 64 Q78 70 68 66 Q70 58 70 58Z" fill="#0c4a6e" opacity="0.9"/><ellipse cx="42" cy="52" rx="5" ry="5" fill="#0284c7" opacity="0.7"/><ellipse cx="58" cy="52" rx="5" ry="5" fill="#0284c7" opacity="0.7"/><ellipse cx="42" cy="52" rx="2.5" ry="2.5" fill="#bae6fd"/><ellipse cx="58" cy="52" rx="2.5" ry="2.5" fill="#bae6fd"/></svg>);}
-function AbyssusStage3(p){var sz=p.size||80;var pairs=[[-1,0],[1,0],[0,-1],[0,1],[-0.7,-0.7],[0.7,-0.7],[-0.7,0.7],[0.7,0.7]];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ab3a" cx="50%" cy="45%" r="55%"><stop offset="0%" stopColor="#0369a1"/><stop offset="100%" stopColor="#020617"/></radialGradient></defs><ellipse cx="50" cy="52" rx="28" ry="32" fill="url(#ab3a)"/>{pairs.map(function(d,i){var angle=i*45*Math.PI/180;var len=20+i%2*8;var x2=50+Math.cos(angle)*len;var y2=52+Math.sin(angle)*len;var cx1=50+Math.cos(angle)*8;var cy1=52+Math.sin(angle)*8;return <path key={i} d={"M50 52 Q"+cx1+" "+cy1+" "+x2+" "+y2} stroke="#0284c7" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.8"/>;})}<ellipse cx="40" cy="46" rx="6" ry="7" fill="#0c4a6e" stroke="#0ea5e9" strokeWidth="0.8"/><ellipse cx="60" cy="46" rx="6" ry="7" fill="#0c4a6e" stroke="#0ea5e9" strokeWidth="0.8"/><ellipse cx="40" cy="46" rx="3" ry="3.5" fill="#38bdf8"/><ellipse cx="60" cy="46" rx="3" ry="3.5" fill="#38bdf8"/></svg>);}
-function AbyssusStage4(p){var sz=p.size||80;var t=Array.from({length:10},function(_,i){return i;});return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ab4a" cx="50%" cy="45%" r="50%"><stop offset="0%" stopColor="#0c4a6e"/><stop offset="100%" stopColor="#020617"/></radialGradient></defs><ellipse cx="50" cy="50" rx="32" ry="36" fill="url(#ab4a)"/>{t.map(function(i){var angle=i*36*Math.PI/180;var len=26+i%3*6;var curveX=50+Math.cos(angle-0.3)*16;var curveY=50+Math.sin(angle-0.3)*16;var endX=50+Math.cos(angle)*len;var endY=50+Math.sin(angle)*len;return <path key={i} d={"M50 50 Q"+curveX+" "+curveY+" "+endX+" "+endY} stroke="#0284c7" strokeWidth={i%2===0?2.5:2} fill="none" strokeLinecap="round" opacity="0.85"/>;})}<ellipse cx="40" cy="44" rx="8" ry="9" fill="#0c4a6e" stroke="#0ea5e9" strokeWidth="1"/><ellipse cx="60" cy="44" rx="8" ry="9" fill="#0c4a6e" stroke="#0ea5e9" strokeWidth="1"/><ellipse cx="40" cy="44" rx="4.5" ry="5" fill="#0ea5e9"/><ellipse cx="60" cy="44" rx="4.5" ry="5" fill="#0ea5e9"/></svg>);}
-function AbyssusStage5(p){var sz=p.size||80;var t=Array.from({length:12},function(_,i){return i;});return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ab5a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#0c4a6e"/><stop offset="40%" stopColor="#0a1628"/><stop offset="100%" stopColor="#020617"/></radialGradient><radialGradient id="ab5b" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#38bdf8"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><circle cx="50" cy="50" r="42" fill="url(#ab5a)"/>{t.map(function(i){var angle=i*30*Math.PI/180;var len=34+i%4*5;var cx1=50+Math.cos(angle-0.4)*18;var cy1=50+Math.sin(angle-0.4)*18;var cx2=50+Math.cos(angle-0.1)*28;var cy2=50+Math.sin(angle-0.1)*28;var endX=50+Math.cos(angle)*len;var endY=50+Math.sin(angle)*len;return <path key={i} d={"M50 50 C"+cx1+" "+cy1+" "+cx2+" "+cy2+" "+endX+" "+endY} stroke="#0284c7" strokeWidth={2.5-i%3*0.3} fill="none" strokeLinecap="round" opacity="0.9"/>;})}<circle cx="50" cy="50" r="18" fill="#020617"/><circle cx="50" cy="50" r="12" fill="url(#ab5b)"/><ellipse cx="43" cy="46" rx="6" ry="7" fill="#020617" stroke="#38bdf8" strokeWidth="1.2"/><ellipse cx="57" cy="46" rx="6" ry="7" fill="#020617" stroke="#38bdf8" strokeWidth="1.2"/><ellipse cx="43" cy="46" rx="3" ry="3.5" fill="#7dd3fc"/><ellipse cx="57" cy="46" rx="3" ry="3.5" fill="#7dd3fc"/></svg>);}
-function SolarisStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="sl1a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#92400e"/><stop offset="100%" stopColor="#1c0a00"/></radialGradient></defs><circle cx="50" cy="50" r="20" fill="url(#sl1a)"/><circle cx="44" cy="46" r="2" fill="#fbbf24" opacity="0.5"/><circle cx="56" cy="46" r="2" fill="#fbbf24" opacity="0.5"/></svg>);}
-function SolarisStage2(p){var sz=p.size||80;var rays=[0,60,120,180,240,300];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="sl2a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#d97706"/><stop offset="60%" stopColor="#92400e"/><stop offset="100%" stopColor="#1c0a00"/></radialGradient></defs><circle cx="50" cy="50" r="24" fill="url(#sl2a)"/>{rays.map(function(deg,i){var r=deg*Math.PI/180;return <line key={i} x1={50+Math.cos(r)*22} y1={50+Math.sin(r)*22} x2={50+Math.cos(r)*30} y2={50+Math.sin(r)*30} stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" opacity="0.7"/>;})}<circle cx="44" cy="46" r="3" fill="#fde68a" opacity="0.7"/><circle cx="56" cy="46" r="3" fill="#fde68a" opacity="0.7"/></svg>);}
-function SolarisStage3(p){var sz=p.size||80;var rays=Array.from({length:8},function(_,i){return i;});return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="sl3a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="50%" stopColor="#d97706"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#sl3a)"/>{rays.map(function(i){var deg=i*45;var r=deg*Math.PI/180;var len=i%2===0?16:12;return <line key={i} x1={50+Math.cos(r)*24} y1={50+Math.sin(r)*24} x2={50+Math.cos(r)*(24+len)} y2={50+Math.sin(r)*(24+len)} stroke="#fde68a" strokeWidth={i%2===0?3:2} strokeLinecap="round" opacity="0.9"/>;})}<circle cx="50" cy="50" r="10" fill="#fef3c7" opacity="0.8"/><circle cx="43" cy="46" r="3.5" fill="#7c2d12"/><circle cx="57" cy="46" r="3.5" fill="#7c2d12"/></svg>);}
-function SolarisStage4(p){var sz=p.size||80;var rays=Array.from({length:12},function(_,i){return i;});return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="sl4a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef3c7"/><stop offset="30%" stopColor="#fbbf24"/><stop offset="70%" stopColor="#d97706"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#sl4a)"/>{rays.map(function(i){var deg=i*30;var r=deg*Math.PI/180;var len=i%3===0?20:i%3===1?14:10;var width=i%3===0?3.5:i%3===1?2.5:1.5;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+len)} y2={50+Math.sin(r)*(28+len)} stroke="#fde68a" strokeWidth={width} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="7" fill="white"/><circle cx="43" cy="46" r="4" fill="#92400e"/><circle cx="57" cy="46" r="4" fill="#92400e"/></svg>);}
-function SolarisStage5(p){var sz=p.size||80;var rays=Array.from({length:16},function(_,i){return i;});return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="sl5a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#fef3c7"/><stop offset="50%" stopColor="#fbbf24"/><stop offset="80%" stopColor="#d97706"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient><radialGradient id="sl5b" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="100%" stopColor="#fbbf24"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#sl5a)"/>{rays.map(function(i){var deg=i*22.5;var r=deg*Math.PI/180;var len=i%4===0?26:i%4===1?18:i%4===2?14:10;var w=i%4===0?4:i%4===1?3:2;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+len)} y2={50+Math.sin(r)*(28+len)} stroke={i%2===0?"#fde68a":"#fbbf24"} strokeWidth={w} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="8" fill="white"/><circle cx="43" cy="45" r="4.5" fill="#d97706"/><circle cx="57" cy="45" r="4.5" fill="#d97706"/></svg>);}
-function FerrusStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><polygon points="50,22 68,38 64,58 50,68 36,58 32,38" fill="#292524" stroke="#78716c" strokeWidth="1.5"/><polygon points="50,32 60,42 58,54 50,60 42,54 40,42" fill="#44403c" opacity="0.7"/><line x1="44" y1="42" x2="56" y2="42" stroke="#78716c" strokeWidth="1" opacity="0.6"/></svg>);}
-function FerrusStage2(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="32" y="36" width="36" height="40" rx="2" fill="#292524" stroke="#78716c" strokeWidth="1.5"/><rect x="36" y="40" width="28" height="6" rx="1" fill="#44403c"/><circle cx="42" cy="54" r="5" fill="#44403c" stroke="#a8a29e" strokeWidth="1"/><circle cx="58" cy="54" r="5" fill="#44403c" stroke="#a8a29e" strokeWidth="1"/><circle cx="42" cy="54" r="2" fill="#78716c"/><circle cx="58" cy="54" r="2" fill="#78716c"/><rect x="34" y="28" width="32" height="10" rx="1" fill="#3c3836" stroke="#a8a29e" strokeWidth="1"/></svg>);}
-function FerrusStage3(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="28" y="30" width="44" height="54" rx="3" fill="#1c1917" stroke="#78716c" strokeWidth="2"/><rect x="28" y="30" width="44" height="10" rx="2" fill="#292524" stroke="#a8a29e" strokeWidth="1"/><circle cx="38" cy="42" r="6" fill="#292524" stroke="#78716c" strokeWidth="1.2"/><circle cx="62" cy="42" r="6" fill="#292524" stroke="#78716c" strokeWidth="1.2"/><circle cx="38" cy="42" r="3" fill="#a8a29e" opacity="0.8"/><circle cx="62" cy="42" r="3" fill="#a8a29e" opacity="0.8"/><rect x="20" y="34" width="10" height="36" rx="2" fill="#292524" stroke="#78716c" strokeWidth="1.2"/><rect x="70" y="34" width="10" height="36" rx="2" fill="#292524" stroke="#78716c" strokeWidth="1.2"/></svg>);}
-function FerrusStage4(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><rect x="22" y="24" width="56" height="66" rx="4" fill="#1c1917" stroke="#a8a29e" strokeWidth="2"/><rect x="22" y="24" width="56" height="12" rx="3" fill="#292524"/><circle cx="38" cy="30" r="3" fill="#78716c"/><circle cx="50" cy="30" r="3" fill="#78716c"/><circle cx="62" cy="30" r="3" fill="#78716c"/><rect x="28" y="40" width="18" height="20" rx="2" fill="#292524" stroke="#78716c" strokeWidth="1.2"/><rect x="54" y="40" width="18" height="20" rx="2" fill="#292524" stroke="#78716c" strokeWidth="1.2"/><circle cx="37" cy="50" r="6" fill="#0d0d0d" stroke="#a8a29e" strokeWidth="1"/><circle cx="63" cy="50" r="6" fill="#0d0d0d" stroke="#a8a29e" strokeWidth="1"/><circle cx="37" cy="50" r="3" fill="#d6d3d1" opacity="0.7"/><circle cx="63" cy="50" r="3" fill="#d6d3d1" opacity="0.7"/><rect x="12" y="28" width="12" height="46" rx="3" fill="#292524" stroke="#a8a29e" strokeWidth="1.5"/><rect x="76" y="28" width="12" height="46" rx="3" fill="#292524" stroke="#a8a29e" strokeWidth="1.5"/></svg>);}
-function FerrusStage5(p){var sz=p.size||80;var barYs=[28,38,48,58];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><linearGradient id="fe5a" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#44403c"/><stop offset="100%" stopColor="#0c0a09"/></linearGradient></defs><rect x="18" y="16" width="64" height="74" rx="6" fill="url(#fe5a)" stroke="#d6d3d1" strokeWidth="2"/><rect x="18" y="16" width="64" height="14" rx="5" fill="#292524" stroke="#a8a29e" strokeWidth="1.5"/><text x="50" y="27" textAnchor="middle" fill="#d6d3d1" fontSize="5" fontFamily="monospace" letterSpacing="1">FERRUS</text><rect x="24" y="34" width="22" height="26" rx="3" fill="#1c1917" stroke="#a8a29e" strokeWidth="1.5"/><rect x="54" y="34" width="22" height="26" rx="3" fill="#1c1917" stroke="#a8a29e" strokeWidth="1.5"/><circle cx="35" cy="47" r="8" fill="#0a0908" stroke="#d6d3d1" strokeWidth="1.2"/><circle cx="65" cy="47" r="8" fill="#0a0908" stroke="#d6d3d1" strokeWidth="1.2"/><circle cx="35" cy="47" r="4" fill="#78716c" opacity="0.9"/><circle cx="65" cy="47" r="4" fill="#78716c" opacity="0.9"/><circle cx="35" cy="47" r="1.5" fill="#e7e5e4"/><circle cx="65" cy="47" r="1.5" fill="#e7e5e4"/><rect x="6" y="20" width="14" height="56" rx="4" fill="#292524" stroke="#d6d3d1" strokeWidth="1.5"/><rect x="80" y="20" width="14" height="56" rx="4" fill="#292524" stroke="#d6d3d1" strokeWidth="1.5"/>{barYs.map(function(y){return [<rect key={"l"+y} x="8" y={y} width="10" height="5" fill="#44403c"/>,<rect key={"r"+y} x="82" y={y} width="10" height="5" fill="#44403c"/>];})}</svg>);}
-function LumisStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><circle cx="50" cy="50" r="6" fill="#fbbf24" opacity="0.9"/><circle cx="50" cy="50" r="10" fill="none" stroke="#fbbf24" strokeWidth="0.5" opacity="0.3"/></svg>);}
-function LumisStage2(p){var sz=p.size||80;var dots=[[50,30],[50,70],[30,50],[70,50],[36,36],[64,36],[36,64],[64,64]];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><circle cx="50" cy="50" r="6" fill="#fbbf24"/>{dots.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?3:2} fill="#fbbf24" opacity={i<4?0.7:0.5}/>;})}</svg>);}
-function LumisStage3(p){var sz=p.size||80;var outer=[[50,26],[50,74],[26,50],[74,50],[32,32],[68,32],[32,68],[68,68]];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="lm3a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#92400e" stopOpacity="0"/></radialGradient></defs><circle cx="50" cy="50" r="40" fill="url(#lm3a)" opacity="0.2"/><circle cx="50" cy="50" r="9" fill="#fbbf24"/><circle cx="44" cy="44" r="4" fill="#fde68a" opacity="0.8"/><circle cx="56" cy="44" r="4" fill="#fde68a" opacity="0.8"/>{outer.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?3.5:2.5} fill="#fbbf24" opacity={0.8-i*0.05}/>;})}</svg>);}
-function LumisStage4(p){var sz=p.size||80;var orbs=Array.from({length:20},function(_,i){return i;});return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="lm4a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#92400e" stopOpacity="0"/></radialGradient></defs><circle cx="50" cy="50" r="44" fill="url(#lm4a)" opacity="0.15"/><circle cx="50" cy="50" r="12" fill="#fbbf24"/><circle cx="50" cy="50" r="7" fill="#fef3c7"/><circle cx="43" cy="46" r="4.5" fill="#92400e"/><circle cx="57" cy="46" r="4.5" fill="#92400e"/>{orbs.map(function(i){var angle=i*18*Math.PI/180;var dist=22+i%3*8;return <circle key={i} cx={50+Math.cos(angle)*dist} cy={50+Math.sin(angle)*dist} r={i%4===0?3:2} fill="#fbbf24" opacity={0.9-i*0.02}/>;})}</svg>);}
-function LumisStage5(p){var sz=p.size||80;var spikes=Array.from({length:16},function(_,i){return i;});var orbs=Array.from({length:30},function(_,i){return i;});return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="lm5a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef3c7"/><stop offset="40%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#92400e" stopOpacity="0"/></radialGradient><radialGradient id="lm5b" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="100%" stopColor="#fbbf24"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#lm5a)" opacity="0.25"/>{spikes.map(function(i){var deg=i*22.5;var angle=deg*Math.PI/180;var len=i%4===0?20:i%4===2?16:12;return <line key={i} x1={50+Math.cos(angle)*14} y1={50+Math.sin(angle)*14} x2={50+Math.cos(angle)*(14+len)} y2={50+Math.sin(angle)*(14+len)} stroke="#fbbf24" strokeWidth={i%4===0?2:1} opacity="0.6"/>;})}<circle cx="50" cy="50" r="16" fill="url(#lm5b)"/><circle cx="50" cy="50" r="9" fill="white"/><circle cx="43" cy="46" r="5" fill="#92400e"/><circle cx="57" cy="46" r="5" fill="#92400e"/>{orbs.map(function(i){var angle=i*12*Math.PI/180;var dist=20+i%5*6;return <circle key={i} cx={50+Math.cos(angle)*dist} cy={50+Math.sin(angle)*dist} r={i%5===0?2.5:1.2} fill="#fbbf24" opacity={0.9-i*0.015}/>;})}</svg>);}
-function OkamiStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><ellipse cx="50" cy="58" rx="20" ry="16" fill="#1e293b"/><ellipse cx="50" cy="44" rx="14" ry="12" fill="#1e293b"/><polygon points="38,36 34,22 44,34" fill="#1e293b"/><polygon points="62,36 66,22 56,34" fill="#1e293b"/><circle cx="44" cy="43" r="3" fill="#94a3b8" opacity="0.6"/><circle cx="56" cy="43" r="3" fill="#94a3b8" opacity="0.6"/></svg>);}
-function OkamiStage2(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><ellipse cx="50" cy="60" rx="24" ry="18" fill="#1e293b"/><ellipse cx="50" cy="44" rx="16" ry="14" fill="#1e293b"/><polygon points="36,34 30,16 46,32" fill="#334155"/><polygon points="64,34 70,16 54,32" fill="#334155"/><circle cx="43" cy="42" r="4" fill="#cbd5e1" opacity="0.8"/><circle cx="57" cy="42" r="4" fill="#cbd5e1" opacity="0.8"/><circle cx="43" cy="42" r="2" fill="#0f172a"/><circle cx="57" cy="42" r="2" fill="#0f172a"/><path d="M50 70 Q70 68 80 78" stroke="#1e293b" strokeWidth="5" fill="none" strokeLinecap="round"/></svg>);}
-function OkamiStage3(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ok3a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#334155"/><stop offset="100%" stopColor="#0f172a"/></radialGradient></defs><ellipse cx="50" cy="62" rx="26" ry="20" fill="url(#ok3a)"/><ellipse cx="50" cy="44" rx="18" ry="15" fill="url(#ok3a)"/><polygon points="34,32 26,10 46,30" fill="#475569"/><polygon points="66,32 74,10 54,30" fill="#475569"/><circle cx="42" cy="41" r="5" fill="#e2e8f0" opacity="0.9"/><circle cx="58" cy="41" r="5" fill="#e2e8f0" opacity="0.9"/><circle cx="42" cy="41" r="2.5" fill="#0f172a"/><circle cx="58" cy="41" r="2.5" fill="#0f172a"/><path d="M50 74 Q72 70 86 82" stroke="#334155" strokeWidth="6" fill="none" strokeLinecap="round"/></svg>);}
-function OkamiStage4(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ok4a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#475569"/><stop offset="100%" stopColor="#0f172a"/></radialGradient></defs><ellipse cx="50" cy="64" rx="28" ry="22" fill="url(#ok4a)"/><ellipse cx="50" cy="44" rx="20" ry="17" fill="url(#ok4a)"/><polygon points="32,30 22,6 46,28" fill="#64748b"/><polygon points="68,30 78,6 54,28" fill="#64748b"/><circle cx="41" cy="40" r="6" fill="white" opacity="0.95"/><circle cx="59" cy="40" r="6" fill="white" opacity="0.95"/><circle cx="41" cy="40" r="3" fill="#0f172a"/><circle cx="59" cy="40" r="3" fill="#0f172a"/><path d="M50 78 Q76 72 92 86" stroke="#475569" strokeWidth="7" fill="none" strokeLinecap="round"/><circle cx="50" cy="4" r="2" fill="#e2e8f0" opacity="0.8"/></svg>);}
-function OkamiStage5(p){var sz=p.size||80;var stars=[[50,4],[38,10],[62,10],[30,18],[70,18],[22,26],[78,26]];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ok5a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#64748b"/><stop offset="60%" stopColor="#1e293b"/><stop offset="100%" stopColor="#0f172a"/></radialGradient></defs><ellipse cx="50" cy="66" rx="30" ry="24" fill="url(#ok5a)"/><ellipse cx="50" cy="44" rx="22" ry="18" fill="url(#ok5a)"/><polygon points="30,28 18,2 46,26" fill="#94a3b8"/><polygon points="70,28 82,2 54,26" fill="#94a3b8"/><circle cx="40" cy="39" r="7" fill="white"/><circle cx="60" cy="39" r="7" fill="white"/><circle cx="40" cy="39" r="3.5" fill="#1e293b"/><circle cx="60" cy="39" r="3.5" fill="#1e293b"/><path d="M50 82 Q80 74 96 90" stroke="#64748b" strokeWidth="8" fill="none" strokeLinecap="round"/>{stars.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<2?2.5:2} fill="#e2e8f0" opacity={0.9-i*0.08}/>;})}</svg>);}
-function RyuStage1(p){var sz=p.size||80;return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ry1a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#166534"/><stop offset="100%" stopColor="#052e16"/></radialGradient></defs><ellipse cx="50" cy="54" rx="22" ry="26" fill="url(#ry1a)" stroke="#15803d" strokeWidth="1"/><circle cx="44" cy="50" r="2" fill="#4ade80" opacity="0.5"/><circle cx="56" cy="50" r="2" fill="#4ade80" opacity="0.5"/></svg>);}
-function RyuStage2(p){var sz=p.size||80;var scales=[[32,52],[68,52],[30,62],[70,62]];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ry2a" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#4ade80"/><stop offset="100%" stopColor="#166534"/></radialGradient></defs><path d="M50 20 Q60 30 64 44 Q68 60 60 72 Q54 82 50 84 Q46 82 40 72 Q32 60 36 44 Q40 30 50 20Z" fill="url(#ry2a)" opacity="0.9"/><circle cx="43" cy="38" r="4" fill="#052e16" stroke="#86efac" strokeWidth="0.8"/><circle cx="57" cy="38" r="4" fill="#052e16" stroke="#86efac" strokeWidth="0.8"/><circle cx="43" cy="38" r="2" fill="#4ade80" opacity="0.8"/><circle cx="57" cy="38" r="2" fill="#4ade80" opacity="0.8"/>{scales.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r="2.5" fill="#4ade80" opacity="0.4"/>;})}</svg>);}
-function RyuStage3(p){var sz=p.size||80;var finPts=["M26 36 L18 32 L20 36 L18 40Z","M74 36 L82 32 L80 36 L82 40Z","M22 52 L14 48 L16 52 L14 56Z","M78 52 L86 48 L84 52 L86 56Z"];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><linearGradient id="ry3a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#15803d"/><stop offset="100%" stopColor="#166534"/></linearGradient></defs><path d="M50 16 Q70 22 76 40 Q82 60 70 76 Q62 86 50 88 Q38 86 30 76 Q18 60 24 40 Q30 22 50 16Z" fill="url(#ry3a)"/><circle cx="42" cy="40" r="5.5" fill="#052e16" stroke="#4ade80" strokeWidth="1"/><circle cx="58" cy="40" r="5.5" fill="#052e16" stroke="#4ade80" strokeWidth="1"/><circle cx="42" cy="40" r="3" fill="#86efac"/><circle cx="58" cy="40" r="3" fill="#86efac"/><path d="M38 55 Q50 64 62 55" stroke="#4ade80" strokeWidth="2" fill="none"/>{finPts.map(function(d,i){return <path key={i} d={d} fill="#22c55e" opacity="0.7"/>;})}</svg>);}
-function RyuStage4(p){var sz=p.size||80;var fins=[[18,28,true],[82,28,false],[12,48,true],[88,48,false],[16,68,true],[84,68,false]];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><linearGradient id="ry4a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22c55e"/><stop offset="100%" stopColor="#14532d"/></linearGradient></defs><path d="M50 10 Q74 16 82 36 Q90 58 78 78 Q68 92 50 94 Q32 92 22 78 Q10 58 18 36 Q26 16 50 10Z" fill="url(#ry4a)"/><circle cx="40" cy="36" r="7" fill="#052e16" stroke="#86efac" strokeWidth="1.2"/><circle cx="60" cy="36" r="7" fill="#052e16" stroke="#86efac" strokeWidth="1.2"/><circle cx="40" cy="36" r="4" fill="#4ade80"/><circle cx="60" cy="36" r="4" fill="#4ade80"/><path d="M36 52 Q50 62 64 52" stroke="#86efac" strokeWidth="2.5" fill="none"/>{fins.map(function(fin,i){var x=fin[0];var y=fin[1];var flip=fin[2];return <path key={i} d={"M"+x+" "+y+" L"+(x+(flip?-12:12))+" "+(y-6)+" L"+(x+(flip?-10:10))+" "+y+" L"+(x+(flip?-12:12))+" "+(y+6)+"Z"} fill="#16a34a" opacity="0.8"/>;})}</svg>);}
-function RyuStage5(p){var sz=p.size||80;var fins=[[12,24,true],[88,24,false],[6,46,true],[94,46,false],[10,68,true],[90,68,false]];return(<svg width={sz} height={sz} viewBox="0 0 100 100" style={{overflow:"visible"}}><defs><radialGradient id="ry5a" cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor="#4ade80"/><stop offset="40%" stopColor="#16a34a"/><stop offset="100%" stopColor="#052e16"/></radialGradient><radialGradient id="ry5b" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#dcfce7"/><stop offset="100%" stopColor="#4ade80"/></radialGradient></defs><path d="M50 6 Q78 12 88 34 Q98 58 84 80 Q72 96 50 98 Q28 96 16 80 Q2 58 12 34 Q22 12 50 6Z" fill="url(#ry5a)"/><circle cx="38" cy="32" r="9" fill="#052e16" stroke="#86efac" strokeWidth="1.5"/><circle cx="62" cy="32" r="9" fill="#052e16" stroke="#86efac" strokeWidth="1.5"/><circle cx="38" cy="32" r="5.5" fill="url(#ry5b)"/><circle cx="62" cy="32" r="5.5" fill="url(#ry5b)"/><circle cx="38" cy="31" r="2.5" fill="#052e16"/><circle cx="62" cy="31" r="2.5" fill="#052e16"/><path d="M34 50 Q50 62 66 50" stroke="#86efac" strokeWidth="3" fill="none"/><path d="M50 90 Q76 82 96 96" stroke="#22c55e" strokeWidth="9" fill="none" strokeLinecap="round"/>{fins.map(function(fin,i){var x=fin[0];var y=fin[1];var flip=fin[2];return <path key={i} d={"M"+x+" "+y+" L"+(x+(flip?-16:16))+" "+(y-8)+" L"+(x+(flip?-13:13))+" "+y+" L"+(x+(flip?-16:16))+" "+(y+8)+"Z"} fill="#22c55e" opacity="0.9"/>;})}</svg>);}
+// ═══════════════════════════════════════════════════
+// PET ART — Bold geometric designs, premium feel
+// ═══════════════════════════════════════════════════
 
-function renderArt(ArtComponent, size) {
-  if (!ArtComponent) return null;
-  return <ArtComponent size={size} />;
-}
+// EMBER — A living flame that grows into a sun
+function EmberS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em1g" cx="50%" cy="70%" r="50%"><stop offset="0%" stopColor="#f97316"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><ellipse cx="50" cy="62" rx="18" ry="14" fill="url(#em1g)"/><path d="M50 20 Q44 38 50 48 Q56 38 50 20Z" fill="#f97316"/><path d="M50 28 Q46 40 50 48 Q54 40 50 28Z" fill="#fbbf24"/><circle cx="50" cy="50" r="4" fill="#fef3c7"/></svg>);}
+function EmberS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em2g" cx="50%" cy="60%" r="55%"><stop offset="0%" stopColor="#fb923c"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><ellipse cx="50" cy="65" rx="22" ry="16" fill="url(#em2g)"/><path d="M50 15 Q40 35 44 52 Q50 44 56 52 Q60 35 50 15Z" fill="#f97316"/><path d="M38 28 Q34 44 40 54 Q44 46 48 54 Q44 36 38 28Z" fill="#fb923c" opacity="0.8"/><path d="M62 28 Q66 44 60 54 Q56 46 52 54 Q56 36 62 28Z" fill="#fb923c" opacity="0.8"/><path d="M50 22 Q46 38 50 48 Q54 38 50 22Z" fill="#fbbf24"/><circle cx="50" cy="50" r="5" fill="#fef3c7"/></svg>);}
+function EmberS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em3g" cx="50%" cy="55%" r="55%"><stop offset="0%" stopColor="#f97316"/><stop offset="100%" stopColor="#431407"/></radialGradient></defs><circle cx="50" cy="55" r="28" fill="url(#em3g)"/><path d="M50 10 Q40 30 44 48 Q50 40 56 48 Q60 30 50 10Z" fill="#fb923c"/><path d="M32 22 Q24 40 30 56 Q36 48 40 56 Q34 36 32 22Z" fill="#f97316" opacity="0.9"/><path d="M68 22 Q76 40 70 56 Q64 48 60 56 Q66 36 68 22Z" fill="#f97316" opacity="0.9"/><path d="M50 16 Q46 34 50 46 Q54 34 50 16Z" fill="#fbbf24"/><circle cx="50" cy="50" r="9" fill="#fef3c7"/><circle cx="50" cy="50" r="5" fill="white"/></svg>);}
+function EmberS4(p){var s=p.size||80;var rays=[0,45,90,135,180,225,270,315];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="50%" stopColor="#f97316"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#em4g)"/>{rays.map(function(deg,i){var r=deg*Math.PI/180;var l=i%2===0?16:10;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke="#fbbf24" strokeWidth={i%2===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="14" fill="#fef3c7"/><circle cx="50" cy="50" r="7" fill="white"/><circle cx="44" cy="46" r="3" fill="#7c2d12"/><circle cx="56" cy="46" r="3" fill="#7c2d12"/><path d="M42 56 Q50 62 58 56" stroke="#f97316" strokeWidth="2" fill="none"/></svg>);}
+function EmberS5(p){var s=p.size||80;var rays=Array.from({length:16},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#fef3c7"/><stop offset="60%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="36" fill="url(#em5g)" opacity="0.3"/><circle cx="50" cy="50" r="28" fill="url(#em5g)"/>{rays.map(function(i){var r=i*22.5*Math.PI/180;var l=i%4===0?22:i%2===0?15:10;return <line key={i} x1={50+Math.cos(r)*26} y1={50+Math.sin(r)*26} x2={50+Math.cos(r)*(26+l)} y2={50+Math.sin(r)*(26+l)} stroke={i%2===0?"#fbbf24":"#fb923c"} strokeWidth={i%4===0?3.5:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="13" fill="white"/><circle cx="44" cy="46" r="4" fill="#92400e"/><circle cx="56" cy="46" r="4" fill="#92400e"/><circle cx="44.5" cy="45.5" r="1.5" fill="white"/><circle cx="56.5" cy="45.5" r="1.5" fill="white"/><path d="M40 57 Q50 65 60 57" stroke="#f97316" strokeWidth="2.5" fill="none"/></svg>);}
+
+// VOID — A black hole creature that warps reality
+function VoidS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><circle cx="50" cy="50" r="20" fill="url(#vo1g)"/><circle cx="50" cy="50" r="8" fill="#0a0010"/><circle cx="50" cy="50" r="20" fill="none" stroke="#7c3aed" strokeWidth="1" opacity="0.5"/></svg>);}
+function VoidS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#7c3aed"/><stop offset="60%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="36" ry="12" fill="url(#vo2g)" opacity="0.6"/><circle cx="50" cy="50" r="22" fill="url(#vo2g)"/><circle cx="50" cy="50" r="22" fill="none" stroke="#a78bfa" strokeWidth="0.8" opacity="0.7"/><ellipse cx="50" cy="50" rx="36" ry="12" fill="none" stroke="#7c3aed" strokeWidth="1.5"/><circle cx="50" cy="50" r="10" fill="#0a0010"/><circle cx="50" cy="50" r="4" fill="#4c1d95"/></svg>);}
+function VoidS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#8b5cf6"/><stop offset="50%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="44" ry="14" fill="#4c1d95" opacity="0.4"/><ellipse cx="50" cy="50" rx="44" ry="14" fill="none" stroke="#7c3aed" strokeWidth="2"/><circle cx="50" cy="50" r="26" fill="url(#vo3g)"/><circle cx="50" cy="50" r="14" fill="#0a0010"/><circle cx="50" cy="50" r="6" fill="#6d28d9"/><circle cx="44" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/><circle cx="56" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/><path d="M43 56 Q50 60 57 56" stroke="#a78bfa" strokeWidth="1.5" fill="none"/></svg>);}
+function VoidS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#a78bfa"/><stop offset="40%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="46" ry="16" fill="#3b0764" opacity="0.5"/><ellipse cx="50" cy="50" rx="46" ry="16" fill="none" stroke="#8b5cf6" strokeWidth="2.5"/><ellipse cx="50" cy="50" rx="36" ry="10" fill="none" stroke="#a78bfa" strokeWidth="1" opacity="0.6"/><circle cx="50" cy="50" r="28" fill="url(#vo4g)"/><circle cx="50" cy="50" r="16" fill="#0a0010"/><circle cx="50" cy="50" r="7" fill="#4c1d95"/><circle cx="43" cy="45" r="4" fill="#ddd6fe"/><circle cx="57" cy="45" r="4" fill="#ddd6fe"/><circle cx="43" cy="45" r="2" fill="#0a0010"/><circle cx="57" cy="45" r="2" fill="#0a0010"/><path d="M42 56 Q50 62 58 56" stroke="#c4b5fd" strokeWidth="2" fill="none"/></svg>);}
+function VoidS5(p){var s=p.size||80;var particles=[[14,26],[86,26],[8,50],[92,50],[14,74],[86,74],[30,10],[70,10]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="30%" stopColor="#8b5cf6"/><stop offset="70%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="48" ry="18" fill="#2e1065" opacity="0.6"/><ellipse cx="50" cy="50" rx="48" ry="18" fill="none" stroke="#a78bfa" strokeWidth="3"/><ellipse cx="50" cy="50" rx="38" ry="12" fill="none" stroke="#c4b5fd" strokeWidth="1.5" opacity="0.7"/><circle cx="50" cy="50" r="30" fill="url(#vo5g)"/><circle cx="50" cy="50" r="18" fill="#0a0010"/><circle cx="50" cy="50" r="8" fill="#4c1d95"/>{particles.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?2:1.5} fill="#c4b5fd" opacity={0.8-i*0.05}/>;})}<circle cx="43" cy="44" r="5" fill="#ede9fe"/><circle cx="57" cy="44" r="5" fill="#ede9fe"/><circle cx="43" cy="44" r="2.5" fill="#0a0010"/><circle cx="57" cy="44" r="2.5" fill="#0a0010"/><circle cx="44" cy="43" r="1" fill="white"/><circle cx="58" cy="43" r="1" fill="white"/><path d="M40 57 Q50 65 60 57" stroke="#c4b5fd" strokeWidth="2.5" fill="none"/></svg>);}
+
+// IRONCLAD — A mechanical titan
+function IronS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><rect x="34" y="30" width="32" height="40" rx="3" fill="#374151" stroke="#6b7280" strokeWidth="1.5"/><rect x="34" y="30" width="32" height="10" rx="2" fill="#4b5563"/><rect x="38" y="44" width="10" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/><rect x="52" y="44" width="10" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/><rect x="40" y="62" width="20" height="6" rx="1" fill="#4b5563"/><rect x="26" y="34" width="10" height="24" rx="2" fill="#374151" stroke="#6b7280" strokeWidth="1"/><rect x="64" y="34" width="10" height="24" rx="2" fill="#374151" stroke="#6b7280" strokeWidth="1"/></svg>);}
+function IronS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><rect x="28" y="24" width="44" height="54" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="2"/><rect x="28" y="24" width="44" height="12" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1"/><rect x="33" y="40" width="14" height="14" rx="2" fill="#1f2937" stroke="#6b7280" strokeWidth="1.2"/><rect x="53" y="40" width="14" height="14" rx="2" fill="#1f2937" stroke="#6b7280" strokeWidth="1.2"/><circle cx="40" cy="47" r="4" fill="#6b7280"/><circle cx="60" cy="47" r="4" fill="#6b7280"/><circle cx="40" cy="47" r="2" fill="#9ca3af"/><circle cx="60" cy="47" r="2" fill="#9ca3af"/><rect x="34" y="60" width="32" height="10" rx="2" fill="#4b5563"/><rect x="38" y="63" width="4" height="4" rx="1" fill="#6b7280"/><rect x="46" y="63" width="4" height="4" rx="1" fill="#6b7280"/><rect x="54" y="63" width="4" height="4" rx="1" fill="#6b7280"/><rect x="18" y="28" width="12" height="34" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1.5"/><rect x="70" y="28" width="12" height="34" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1.5"/></svg>);}
+function IronS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir3g" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#4b5563"/><stop offset="100%" stopColor="#1f2937"/></linearGradient></defs><rect x="22" y="18" width="56" height="66" rx="6" fill="url(#ir3g)" stroke="#9ca3af" strokeWidth="2"/><rect x="22" y="18" width="56" height="14" rx="5" fill="#374151" stroke="#6b7280" strokeWidth="1"/><rect x="28" y="36" width="18" height="18" rx="3" fill="#111827" stroke="#6b7280" strokeWidth="1.5"/><rect x="54" y="36" width="18" height="18" rx="3" fill="#111827" stroke="#6b7280" strokeWidth="1.5"/><circle cx="37" cy="45" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="63" cy="45" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="37" cy="45" r="3" fill="#d1d5db"/><circle cx="63" cy="45" r="3" fill="#d1d5db"/><rect x="28" y="60" width="44" height="18" rx="3" fill="#374151"/><rect x="32" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="42" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="52" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="62" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="10" y="22" width="14" height="44" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><rect x="76" y="22" width="14" height="44" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/></svg>);}
+function IronS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir4g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#6b7280"/><stop offset="100%" stopColor="#111827"/></linearGradient></defs><polygon points="50,8 78,22 82,55 65,80 35,80 18,55 22,22" fill="url(#ir4g)" stroke="#d1d5db" strokeWidth="2"/><polygon points="50,16 72,27 76,55 62,74 38,74 24,55 28,27" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/><rect x="34" y="32" width="14" height="14" rx="2" fill="#111827" stroke="#9ca3af" strokeWidth="1.5"/><rect x="52" y="32" width="14" height="14" rx="2" fill="#111827" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="41" cy="39" r="5" fill="#374151" stroke="#d1d5db" strokeWidth="1.5"/><circle cx="59" cy="39" r="5" fill="#374151" stroke="#d1d5db" strokeWidth="1.5"/><circle cx="41" cy="39" r="2.5" fill="#f3f4f6"/><circle cx="59" cy="39" r="2.5" fill="#f3f4f6"/><rect x="32" y="52" width="36" height="14" rx="2" fill="#111827"/><rect x="36" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/><rect x="44" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/><rect x="52" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/><rect x="60" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/></svg>);}
+function IronS5(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir5g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#9ca3af"/><stop offset="50%" stopColor="#374151"/><stop offset="100%" stopColor="#111827"/></linearGradient></defs><polygon points="50,4 82,18 88,52 70,84 30,84 12,52 18,18" fill="url(#ir5g)" stroke="#f3f4f6" strokeWidth="2.5"/><polygon points="50,12 76,24 82,54 66,80 34,80 18,54 24,24" fill="#1f2937" stroke="#9ca3af" strokeWidth="1.5"/><polygon points="50,20 70,30 74,54 60,72 40,72 26,54 30,30" fill="#111827" stroke="#6b7280" strokeWidth="1"/><rect x="32" y="30" width="16" height="16" rx="2" fill="#0a0a0a" stroke="#d1d5db" strokeWidth="2"/><rect x="52" y="30" width="16" height="16" rx="2" fill="#0a0a0a" stroke="#d1d5db" strokeWidth="2"/><circle cx="40" cy="38" r="6" fill="#374151" stroke="#f3f4f6" strokeWidth="2"/><circle cx="60" cy="38" r="6" fill="#374151" stroke="#f3f4f6" strokeWidth="2"/><circle cx="40" cy="38" r="3" fill="white"/><circle cx="60" cy="38" r="3" fill="white"/><circle cx="40" cy="38" r="1.5" fill="#111827"/><circle cx="60" cy="38" r="1.5" fill="#111827"/><rect x="30" y="52" width="40" height="16" rx="3" fill="#0a0a0a" stroke="#9ca3af" strokeWidth="1.5"/><rect x="34" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/><rect x="44" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/><rect x="54" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/><rect x="64" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/></svg>);}
+
+// AURORA — A crystalline ice being
+function AuroraS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#bae6fd"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,22 62,44 50,66 38,44" fill="url(#au1g)"/><polygon points="50,22 62,44 50,66 38,44" fill="none" stroke="#e0f2fe" strokeWidth="1" opacity="0.7"/></svg>);}
+function AuroraS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#e0f2fe"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><polygon points="50,14 70,36 70,64 50,78 30,64 30,36" fill="url(#au2g)"/><polygon points="50,14 70,36 70,64 50,78 30,64 30,36" fill="none" stroke="#bae6fd" strokeWidth="1.5"/><polygon points="50,26 62,42 62,58 50,66 38,58 38,42" fill="none" stroke="#e0f2fe" strokeWidth="1" opacity="0.8"/><circle cx="44" cy="44" r="3" fill="#0284c7" opacity="0.8"/><circle cx="56" cy="44" r="3" fill="#0284c7" opacity="0.8"/></svg>);}
+function AuroraS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#f0f9ff"/><stop offset="50%" stopColor="#38bdf8"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,10 72,28 80,54 66,76 34,76 20,54 28,28" fill="url(#au3g)"/><polygon points="50,10 72,28 80,54 66,76 34,76 20,54 28,28" fill="none" stroke="#e0f2fe" strokeWidth="2"/><polygon points="50,22 64,36 70,54 60,68 40,68 30,54 36,36" fill="none" stroke="#bae6fd" strokeWidth="1" opacity="0.8"/><line x1="50" y1="10" x2="50" y2="76" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.5"/><line x1="20" y1="54" x2="80" y2="54" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.5"/><circle cx="43" cy="42" r="4" fill="#0369a1"/><circle cx="57" cy="42" r="4" fill="#0369a1"/><circle cx="43" cy="42" r="2" fill="#e0f2fe"/><circle cx="57" cy="42" r="2" fill="#e0f2fe"/><path d="M42 56 Q50 62 58 56" stroke="#bae6fd" strokeWidth="2" fill="none"/></svg>);}
+function AuroraS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#7dd3fc"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><polygon points="50,6 76,22 84,50 76,78 50,88 24,78 16,50 24,22" fill="url(#au4g)"/><polygon points="50,6 76,22 84,50 76,78 50,88 24,78 16,50 24,22" fill="none" stroke="#e0f2fe" strokeWidth="2"/><polygon points="50,18 68,30 74,50 68,70 50,78 32,70 26,50 32,30" fill="none" stroke="#bae6fd" strokeWidth="1.5" opacity="0.7"/><line x1="50" y1="6" x2="50" y2="88" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><line x1="16" y1="50" x2="84" y2="50" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><line x1="24" y1="22" x2="76" y2="78" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><line x1="76" y1="22" x2="24" y2="78" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><circle cx="42" cy="42" r="5" fill="#0284c7"/><circle cx="58" cy="42" r="5" fill="#0284c7"/><circle cx="42" cy="42" r="2.5" fill="white"/><circle cx="58" cy="42" r="2.5" fill="white"/><path d="M40 58 Q50 66 60 58" stroke="#7dd3fc" strokeWidth="2.5" fill="none"/></svg>);}
+function AuroraS5(p){var s=p.size||80;var spikes=[0,45,90,135,180,225,270,315];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#bae6fd"/><stop offset="70%" stopColor="#0ea5e9"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,4 80,20 88,50 80,80 50,92 20,80 12,50 20,20" fill="url(#au5g)"/><polygon points="50,4 80,20 88,50 80,80 50,92 20,80 12,50 20,20" fill="none" stroke="#e0f2fe" strokeWidth="2.5"/>{spikes.map(function(deg,i){var r=deg*Math.PI/180;var l=i%2===0?10:6;var x1=50+Math.cos(r)*42;var y1=50+Math.sin(r)*42;return <line key={i} x1={x1} y1={y1} x2={50+Math.cos(r)*(42+l)} y2={50+Math.sin(r)*(42+l)} stroke="#bae6fd" strokeWidth={i%2===0?2:1.5} strokeLinecap="round"/>;})}<polygon points="50,16 72,28 78,50 72,72 50,80 28,72 22,50 28,28" fill="none" stroke="#7dd3fc" strokeWidth="1.5" opacity="0.6"/><circle cx="42" cy="42" r="6" fill="#0284c7"/><circle cx="58" cy="42" r="6" fill="#0284c7"/><circle cx="42" cy="42" r="3" fill="white"/><circle cx="58" cy="42" r="3" fill="white"/><circle cx="42" cy="41" r="1.2" fill="#0369a1"/><circle cx="58" cy="41" r="1.2" fill="#0369a1"/><path d="M38 60 Q50 70 62 60" stroke="#bae6fd" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2" fill="#7dd3fc"/><circle cx="62" cy="60" r="2" fill="#7dd3fc"/></svg>);}
+
+// VENOM — A toxic serpentine creature
+function VenomS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#4ade80"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 20 Q58 32 60 48 Q58 62 50 70 Q42 62 40 48 Q42 32 50 20Z" fill="url(#vn1g)"/><circle cx="44" cy="44" r="2.5" fill="#14532d"/><circle cx="56" cy="44" r="2.5" fill="#14532d"/></svg>);}
+function VenomS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#86efac"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 14 Q64 26 68 44 Q68 62 56 74 Q50 80 44 74 Q32 62 32 44 Q36 26 50 14Z" fill="url(#vn2g)"/><path d="M50 14 Q54 10 58 14 Q54 20 50 18Z" fill="#4ade80"/><path d="M50 14 Q46 10 42 14 Q46 20 50 18Z" fill="#4ade80"/><circle cx="43" cy="40" r="4" fill="#14532d"/><circle cx="57" cy="40" r="4" fill="#14532d"/><circle cx="43" cy="40" r="2" fill="#86efac"/><circle cx="57" cy="40" r="2" fill="#86efac"/><path d="M44 56 Q50 60 56 56" stroke="#14532d" strokeWidth="2" fill="none"/><path d="M48 62 L46 68 M52 62 L54 68" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round"/></svg>);}
+function VenomS3(p){var s=p.size||80;var scales=[[32,48],[68,48],[28,60],[72,60]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn3g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#bbf7d0"/><stop offset="50%" stopColor="#22c55e"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 10 Q68 20 74 40 Q78 60 64 76 Q57 84 50 86 Q43 84 36 76 Q22 60 26 40 Q32 20 50 10Z" fill="url(#vn3g)"/><path d="M50 10 Q55 4 60 8 Q56 16 50 14Z" fill="#4ade80"/><path d="M50 10 Q45 4 40 8 Q44 16 50 14Z" fill="#4ade80"/>{scales.map(function(pt,i){return <ellipse key={i} cx={pt[0]} cy={pt[1]} rx="6" ry="4" fill="#14532d" opacity="0.4"/>;})}<circle cx="42" cy="36" r="5" fill="#14532d"/><circle cx="58" cy="36" r="5" fill="#14532d"/><circle cx="42" cy="36" r="2.5" fill="#dcfce7"/><circle cx="58" cy="36" r="2.5" fill="#dcfce7"/><circle cx="42" cy="35" r="1" fill="#14532d"/><circle cx="58" cy="35" r="1" fill="#14532d"/><path d="M42 54 Q50 60 58 54" stroke="#4ade80" strokeWidth="2" fill="none"/><path d="M47 62 L44 70 M53 62 L56 70" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/></svg>);}
+function VenomS4(p){var s=p.size||80;var fins=[[18,36,true],[82,36,false],[14,56,true],[86,56,false]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn4g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#dcfce7"/><stop offset="40%" stopColor="#4ade80"/><stop offset="100%" stopColor="#052e16"/></radialGradient></defs><path d="M50 6 Q72 14 80 36 Q86 56 74 74 Q65 86 50 88 Q35 86 26 74 Q14 56 20 36 Q28 14 50 6Z" fill="url(#vn4g)"/><path d="M50 6 Q56 0 62 4 Q58 12 50 10Z" fill="#86efac"/><path d="M50 6 Q44 0 38 4 Q42 12 50 10Z" fill="#86efac"/>{fins.map(function(fin,i){var x=fin[0];var y=fin[1];var flip=fin[2];return <path key={i} d={"M"+x+" "+y+" L"+(x+(flip?-12:12))+" "+(y-8)+" L"+(x+(flip?-10:10))+" "+y+" L"+(x+(flip?-12:12))+" "+(y+8)+"Z"} fill="#22c55e" opacity="0.8"/>;})}<circle cx="41" cy="34" r="6" fill="#052e16"/><circle cx="59" cy="34" r="6" fill="#052e16"/><circle cx="41" cy="34" r="3" fill="#bbf7d0"/><circle cx="59" cy="34" r="3" fill="#bbf7d0"/><circle cx="41" cy="33" r="1.2" fill="#052e16"/><circle cx="59" cy="33" r="1.2" fill="#052e16"/><path d="M40 54 Q50 62 60 54" stroke="#86efac" strokeWidth="2.5" fill="none"/><path d="M46 64 L42 74 M54 64 L58 74" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round"/></svg>);}
+function VenomS5(p){var s=p.size||80;var fins=[[12,30,true],[88,30,false],[8,52,true],[92,52,false],[14,72,true],[86,72,false]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn5g" cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#bbf7d0"/><stop offset="50%" stopColor="#22c55e"/><stop offset="100%" stopColor="#052e16"/></radialGradient></defs><path d="M50 4 Q76 10 86 32 Q94 56 80 76 Q68 92 50 94 Q32 92 20 76 Q6 56 14 32 Q24 10 50 4Z" fill="url(#vn5g)"/><path d="M50 4 Q58 -2 64 2 Q60 12 50 8Z" fill="#4ade80"/><path d="M50 4 Q42 -2 36 2 Q40 12 50 8Z" fill="#4ade80"/>{fins.map(function(fin,i){var x=fin[0];var y=fin[1];var flip=fin[2];return <path key={i} d={"M"+x+" "+y+" L"+(x+(flip?-14:14))+" "+(y-9)+" L"+(x+(flip?-11:11))+" "+y+" L"+(x+(flip?-14:14))+" "+(y+9)+"Z"} fill="#16a34a" opacity="0.85"/>;})}<circle cx="40" cy="32" r="8" fill="#052e16"/><circle cx="60" cy="32" r="8" fill="#052e16"/><circle cx="40" cy="32" r="4.5" fill="#dcfce7"/><circle cx="60" cy="32" r="4.5" fill="#dcfce7"/><circle cx="40" cy="31" r="2" fill="#052e16"/><circle cx="60" cy="31" r="2" fill="#052e16"/><circle cx="41" cy="30" r="0.8" fill="white"/><circle cx="61" cy="30" r="0.8" fill="white"/><path d="M38 54 Q50 64 62 54" stroke="#bbf7d0" strokeWidth="3" fill="none"/><path d="M44 66 L40 78 M56 66 L60 78" stroke="#4ade80" strokeWidth="3" strokeLinecap="round"/></svg>);}
+
+// PHANTOM — A ghost/spirit creature
+function PhantomS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph1g" cx="50%" cy="40%" r="50%"><stop offset="0%" stopColor="#e0e7ff"/><stop offset="100%" stopColor="#4338ca" stopOpacity="0.3"/></radialGradient></defs><path d="M30 70 Q30 30 50 22 Q70 30 70 70 Q64 64 58 70 Q52 64 50 70 Q48 64 42 70 Q36 64 30 70Z" fill="url(#ph1g)" opacity="0.9"/><circle cx="42" cy="46" r="3" fill="#312e81" opacity="0.6"/><circle cx="58" cy="46" r="3" fill="#312e81" opacity="0.6"/></svg>);}
+function PhantomS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#c7d2fe"/><stop offset="70%" stopColor="#6366f1" stopOpacity="0.5"/><stop offset="100%" stopColor="#312e81" stopOpacity="0.2"/></radialGradient></defs><path d="M26 72 Q26 26 50 18 Q74 26 74 72 Q67 64 62 72 Q57 64 54 72 Q52 66 50 72 Q48 66 46 72 Q43 64 38 72 Q33 64 26 72Z" fill="url(#ph2g)"/><circle cx="42" cy="44" r="4" fill="#312e81" opacity="0.8"/><circle cx="58" cy="44" r="4" fill="#312e81" opacity="0.8"/><circle cx="42" cy="44" r="2" fill="#e0e7ff"/><circle cx="58" cy="44" r="2" fill="#e0e7ff"/><path d="M44 60 Q50 65 56 60" stroke="#6366f1" strokeWidth="1.5" fill="none" opacity="0.8"/></svg>);}
+function PhantomS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph3g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="#e0e7ff"/><stop offset="50%" stopColor="#818cf8" stopOpacity="0.7"/><stop offset="100%" stopColor="#312e81" stopOpacity="0.3"/></radialGradient></defs><path d="M22 74 Q22 22 50 14 Q78 22 78 74 Q70 64 65 74 Q60 64 57 74 Q54 66 50 74 Q46 66 43 74 Q40 64 35 74 Q30 64 22 74Z" fill="url(#ph3g)"/><circle cx="50" cy="14" r="4" fill="#c7d2fe" opacity="0.6"/><circle cx="40" cy="42" r="5" fill="#312e81"/><circle cx="60" cy="42" r="5" fill="#312e81"/><circle cx="40" cy="42" r="2.5" fill="#e0e7ff"/><circle cx="60" cy="42" r="2.5" fill="#e0e7ff"/><path d="M42 58 Q50 65 58 58" stroke="#818cf8" strokeWidth="2" fill="none"/><circle cx="30" cy="30" r="3" fill="#6366f1" opacity="0.4"/><circle cx="70" cy="30" r="3" fill="#6366f1" opacity="0.4"/></svg>);}
+function PhantomS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph4g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#a5b4fc"/><stop offset="80%" stopColor="#4f46e5" stopOpacity="0.6"/><stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.3"/></radialGradient></defs><path d="M18 76 Q18 18 50 10 Q82 18 82 76 Q73 64 68 76 Q63 64 60 76 Q57 66 50 76 Q43 66 40 76 Q37 64 32 76 Q27 64 18 76Z" fill="url(#ph4g)"/><circle cx="30" cy="24" r="4" fill="#818cf8" opacity="0.5"/><circle cx="70" cy="24" r="4" fill="#818cf8" opacity="0.5"/><circle cx="50" cy="10" r="5" fill="#c7d2fe" opacity="0.7"/><circle cx="38" cy="40" r="6" fill="#312e81"/><circle cx="62" cy="40" r="6" fill="#312e81"/><circle cx="38" cy="40" r="3" fill="white"/><circle cx="62" cy="40" r="3" fill="white"/><circle cx="38" cy="39" r="1.5" fill="#312e81"/><circle cx="62" cy="39" r="1.5" fill="#312e81"/><path d="M40 58 Q50 67 60 58" stroke="#a5b4fc" strokeWidth="2.5" fill="none"/></svg>);}
+function PhantomS5(p){var s=p.size||80;var orbs=[[20,20],[80,20],[14,44],[86,44],[18,68],[82,68],[38,8],[62,8]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph5g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#c7d2fe"/><stop offset="70%" stopColor="#6366f1" stopOpacity="0.7"/><stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.3"/></radialGradient></defs><path d="M14 78 Q14 14 50 6 Q86 14 86 78 Q76 64 71 78 Q66 64 63 78 Q60 66 50 78 Q40 66 37 78 Q34 64 29 78 Q24 64 14 78Z" fill="url(#ph5g)"/>{orbs.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?3:2} fill="#818cf8" opacity={0.6-i*0.04}/>;})}<circle cx="36" cy="38" r="7" fill="#1e1b4b"/><circle cx="64" cy="38" r="7" fill="#1e1b4b"/><circle cx="36" cy="38" r="4" fill="white"/><circle cx="64" cy="38" r="4" fill="white"/><circle cx="36" cy="37" r="2" fill="#312e81"/><circle cx="64" cy="37" r="2" fill="#312e81"/><circle cx="37" cy="36" r="0.8" fill="white"/><circle cx="65" cy="36" r="0.8" fill="white"/><path d="M38 60 Q50 72 62 60" stroke="#c7d2fe" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2.5" fill="#818cf8"/><circle cx="62" cy="60" r="2.5" fill="#818cf8"/></svg>);}
+
+// TITAN — A golden warrior
+function TitanS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ti1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#78350f"/></radialGradient></defs><polygon points="50,20 65,50 50,75 35,50" fill="url(#ti1g)"/><polygon points="50,20 65,50 50,75 35,50" fill="none" stroke="#fde68a" strokeWidth="1"/></svg>);}
+function TitanS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ti2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fde68a"/><stop offset="100%" stopColor="#92400e"/></radialGradient></defs><polygon points="50,14 68,32 74,56 58,76 42,76 26,56 32,32" fill="url(#ti2g)"/><polygon points="50,14 68,32 74,56 58,76 42,76 26,56 32,32" fill="none" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="42" cy="46" r="4" fill="#78350f"/><circle cx="58" cy="46" r="4" fill="#78350f"/><circle cx="42" cy="46" r="2" fill="#fef3c7"/><circle cx="58" cy="46" r="2" fill="#fef3c7"/></svg>);}
+function TitanS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ti3g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#fde68a"/><stop offset="100%" stopColor="#b45309"/></linearGradient></defs><polygon points="50,10 72,24 80,50 72,76 50,84 28,76 20,50 28,24" fill="url(#ti3g)"/><polygon points="50,10 72,24 80,50 72,76 50,84 28,76 20,50 28,24" fill="none" stroke="#fbbf24" strokeWidth="2"/><polygon points="50,22 64,32 70,50 64,68 50,74 36,68 30,50 36,32" fill="none" stroke="#fde68a" strokeWidth="1" opacity="0.6"/><circle cx="41" cy="43" r="5" fill="#78350f"/><circle cx="59" cy="43" r="5" fill="#78350f"/><circle cx="41" cy="43" r="2.5" fill="#fef3c7"/><circle cx="59" cy="43" r="2.5" fill="#fef3c7"/><path d="M40 58 Q50 66 60 58" stroke="#fbbf24" strokeWidth="2" fill="none"/></svg>);}
+function TitanS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ti4g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#fef3c7"/><stop offset="50%" stopColor="#d97706"/><stop offset="100%" stopColor="#78350f"/></linearGradient></defs><polygon points="50,6 76,18 86,46 76,74 50,86 24,74 14,46 24,18" fill="url(#ti4g)"/><polygon points="50,6 76,18 86,46 76,74 50,86 24,74 14,46 24,18" fill="none" stroke="#fbbf24" strokeWidth="2.5"/><polygon points="50,18 68,28 76,46 68,64 50,72 32,64 24,46 32,28" fill="none" stroke="#fde68a" strokeWidth="1" opacity="0.7"/><rect x="34" y="38" width="12" height="14" rx="2" fill="#78350f"/><rect x="54" y="38" width="12" height="14" rx="2" fill="#78350f"/><circle cx="40" cy="45" r="5" fill="#92400e" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="60" cy="45" r="5" fill="#92400e" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="40" cy="45" r="2.5" fill="#fef3c7"/><circle cx="60" cy="45" r="2.5" fill="#fef3c7"/><path d="M38 60 Q50 70 62 60" stroke="#fde68a" strokeWidth="2.5" fill="none"/></svg>);}
+function TitanS5(p){var s=p.size||80;var pts=[[50,4],[78,16],[88,46],[78,76],[50,88],[22,76],[12,46],[22,16]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ti5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#fef3c7"/><stop offset="50%" stopColor="#fbbf24"/><stop offset="80%" stopColor="#d97706"/><stop offset="100%" stopColor="#78350f"/></radialGradient></defs><polygon points="50,4 78,16 88,46 78,76 50,88 22,76 12,46 22,16" fill="url(#ti5g)"/><polygon points="50,4 78,16 88,46 78,76 50,88 22,76 12,46 22,16" fill="none" stroke="#fef3c7" strokeWidth="3"/>{pts.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r="2" fill="#fbbf24"/>;})}<polygon points="50,18 70,28 78,46 70,64 50,72 30,64 22,46 30,28" fill="none" stroke="#fde68a" strokeWidth="1.5" opacity="0.6"/><circle cx="40" cy="42" r="7" fill="#78350f" stroke="#fef3c7" strokeWidth="1.5"/><circle cx="60" cy="42" r="7" fill="#78350f" stroke="#fef3c7" strokeWidth="1.5"/><circle cx="40" cy="42" r="4" fill="#fef3c7"/><circle cx="60" cy="42" r="4" fill="#fef3c7"/><circle cx="40" cy="41" r="2" fill="#78350f"/><circle cx="60" cy="41" r="2" fill="#78350f"/><circle cx="41" cy="40" r="0.8" fill="white"/><circle cx="61" cy="40" r="0.8" fill="white"/><path d="M38 60 Q50 72 62 60" stroke="#fef3c7" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2.5" fill="#fbbf24"/><circle cx="62" cy="60" r="2.5" fill="#fbbf24"/></svg>);}
+
+// STORM — A lightning elemental
+function StormS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef08a"/><stop offset="100%" stopColor="#713f12"/></radialGradient></defs><polygon points="56,18 46,46 54,46 44,80 62,44 52,44" fill="url(#st1g)"/></svg>);}
+function StormS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef9c3"/><stop offset="100%" stopColor="#854d0e"/></radialGradient></defs><circle cx="50" cy="50" r="24" fill="#1c1917" stroke="#ca8a04" strokeWidth="1.5"/><polygon points="57,22 45,48 55,48 43,78 65,44 53,44" fill="url(#st2g)"/><circle cx="44" cy="42" r="3" fill="#fef08a" opacity="0.7"/><circle cx="56" cy="42" r="3" fill="#fef08a" opacity="0.7"/></svg>);}
+function StormS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#92400e"/><stop offset="100%" stopColor="#0a0a00"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#st3g)"/><circle cx="50" cy="50" r="30" fill="none" stroke="#ca8a04" strokeWidth="1.5"/><polygon points="58,18 44,46 56,46 42,82 68,42 54,42" fill="#fef08a"/><polygon points="58,18 44,46 56,46 42,82 68,42 54,42" fill="none" stroke="#fef9c3" strokeWidth="0.5"/><circle cx="42" cy="40" r="4" fill="#fef08a" opacity="0.9"/><circle cx="58" cy="40" r="4" fill="#fef08a" opacity="0.9"/><circle cx="42" cy="40" r="2" fill="#78350f"/><circle cx="58" cy="40" r="2" fill="#78350f"/></svg>);}
+function StormS4(p){var s=p.size||80;var arcs=[28,20,14];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#b45309"/><stop offset="100%" stopColor="#0a0500"/></radialGradient></defs><circle cx="50" cy="50" r="38" fill="url(#st4g)"/>{arcs.map(function(r,i){return <circle key={i} cx="50" cy="50" r={r} fill="none" stroke="#ca8a04" strokeWidth="0.8" opacity={0.8-i*0.2}/>;})}<polygon points="60,14 44,46 58,46 40,86 72,40 56,40" fill="#fef08a"/><polygon points="60,14 44,46 58,46 40,86 72,40 56,40" fill="none" stroke="#fef9c3" strokeWidth="0.8"/><circle cx="40" cy="38" r="5" fill="#fef08a"/><circle cx="58" cy="38" r="5" fill="#fef08a"/><circle cx="40" cy="38" r="2.5" fill="#78350f"/><circle cx="58" cy="38" r="2.5" fill="#78350f"/><path d="M40 56 Q50 64 60 56" stroke="#fef08a" strokeWidth="2" fill="none"/></svg>);}
+function StormS5(p){var s=p.size||80;var bolts=Array.from({length:6},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef9c3"/><stop offset="30%" stopColor="#eab308"/><stop offset="70%" stopColor="#92400e"/><stop offset="100%" stopColor="#0a0500"/></radialGradient></defs><circle cx="50" cy="50" r="42" fill="url(#st5g)"/><circle cx="50" cy="50" r="42" fill="none" stroke="#fef08a" strokeWidth="2"/>{bolts.map(function(i){var angle=(i*60)*Math.PI/180;var x1=50+Math.cos(angle)*28;var y1=50+Math.sin(angle)*28;var x2=50+Math.cos(angle)*42;var y2=50+Math.sin(angle)*42;return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#fef9c3" strokeWidth="2" strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="22" fill="#0a0500"/><polygon points="58,28 42,52 56,52 38,76 70,46 54,46" fill="#fef08a"/><polygon points="58,28 42,52 56,52 38,76 70,46 54,46" fill="none" stroke="white" strokeWidth="0.8"/><circle cx="40" cy="38" r="6" fill="#fef08a" stroke="#0a0500" strokeWidth="1.5"/><circle cx="60" cy="38" r="6" fill="#fef08a" stroke="#0a0500" strokeWidth="1.5"/><circle cx="40" cy="38" r="3" fill="#78350f"/><circle cx="60" cy="38" r="3" fill="#78350f"/><path d="M38 58 Q50 68 62 58" stroke="#fef9c3" strokeWidth="3" fill="none"/></svg>);}
+
+// NOVA — A cosmic explosion creature
+function NovaS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#f0abfc"/><stop offset="100%" stopColor="#701a75"/></radialGradient></defs><circle cx="50" cy="50" r="18" fill="url(#nv1g)"/><circle cx="50" cy="50" r="6" fill="#fdf4ff"/></svg>);}
+function NovaS2(p){var s=p.size||80;var spikes=[0,72,144,216,288];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#f0abfc"/><stop offset="100%" stopColor="#701a75"/></radialGradient></defs><circle cx="50" cy="50" r="22" fill="url(#nv2g)"/>{spikes.map(function(deg,i){var r=deg*Math.PI/180;return <line key={i} x1={50+Math.cos(r)*20} y1={50+Math.sin(r)*20} x2={50+Math.cos(r)*32} y2={50+Math.sin(r)*32} stroke="#e879f9" strokeWidth="3" strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="10" fill="#fdf4ff"/><circle cx="44" cy="46" r="3" fill="#701a75"/><circle cx="56" cy="46" r="3" fill="#701a75"/></svg>);}
+function NovaS3(p){var s=p.size||80;var spikes=Array.from({length:8},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fdf4ff"/><stop offset="40%" stopColor="#d946ef"/><stop offset="100%" stopColor="#701a75"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#nv3g)"/>{spikes.map(function(i){var r=i*45*Math.PI/180;var l=i%2===0?14:9;return <line key={i} x1={50+Math.cos(r)*24} y1={50+Math.sin(r)*24} x2={50+Math.cos(r)*(24+l)} y2={50+Math.sin(r)*(24+l)} stroke="#f0abfc" strokeWidth={i%2===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="12" fill="#fdf4ff"/><circle cx="43" cy="46" r="4" fill="#701a75"/><circle cx="57" cy="46" r="4" fill="#701a75"/><circle cx="43" cy="46" r="2" fill="#fdf4ff"/><circle cx="57" cy="46" r="2" fill="#fdf4ff"/></svg>);}
+function NovaS4(p){var s=p.size||80;var spikes=Array.from({length:12},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#f0abfc"/><stop offset="70%" stopColor="#a21caf"/><stop offset="100%" stopColor="#4a044e"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#nv4g)"/>{spikes.map(function(i){var r=i*30*Math.PI/180;var l=i%3===0?18:i%3===1?12:8;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke={i%2===0?"#f0abfc":"#e879f9"} strokeWidth={i%3===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="14" fill="#fdf4ff"/><circle cx="42" cy="46" r="5" fill="#701a75"/><circle cx="58" cy="46" r="5" fill="#701a75"/><circle cx="42" cy="46" r="2.5" fill="white"/><circle cx="58" cy="46" r="2.5" fill="white"/><path d="M40 58 Q50 66 60 58" stroke="#d946ef" strokeWidth="2.5" fill="none"/></svg>);}
+function NovaS5(p){var s=p.size||80;var spikes=Array.from({length:16},function(_,i){return i;});var particles=[[12,22],[88,22],[8,50],[92,50],[12,78],[88,78],[36,8],[64,8]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#fdf4ff"/><stop offset="50%" stopColor="#d946ef"/><stop offset="80%" stopColor="#86198f"/><stop offset="100%" stopColor="#2e1065"/></radialGradient></defs><circle cx="50" cy="50" r="38" fill="url(#nv5g)" opacity="0.3"/><circle cx="50" cy="50" r="30" fill="url(#nv5g)"/>{spikes.map(function(i){var r=i*22.5*Math.PI/180;var l=i%4===0?22:i%2===0?15:10;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke={i%2===0?"#f0abfc":"#d946ef"} strokeWidth={i%4===0?3.5:2} strokeLinecap="round"/>;})}{particles.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?2.5:2} fill="#f0abfc" opacity={0.8-i*0.05}/>;})}<circle cx="50" cy="50" r="14" fill="white"/><circle cx="42" cy="46" r="6" fill="#701a75"/><circle cx="58" cy="46" r="6" fill="#701a75"/><circle cx="42" cy="46" r="3" fill="white"/><circle cx="58" cy="46" r="3" fill="white"/><circle cx="42" cy="45" r="1.5" fill="#4a044e"/><circle cx="58" cy="45" r="1.5" fill="#4a044e"/><circle cx="43" cy="44.5" r="0.8" fill="white"/><circle cx="59" cy="44.5" r="0.8" fill="white"/><path d="M38 60 Q50 72 62 60" stroke="#f0abfc" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2.5" fill="#d946ef"/><circle cx="62" cy="60" r="2.5" fill="#d946ef"/></svg>);}
+
+// REEF — An ocean creature
+function ReefS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#67e8f9"/><stop offset="100%" stopColor="#0e7490"/></radialGradient></defs><ellipse cx="50" cy="52" rx="20" ry="24" fill="url(#rf1g)"/><circle cx="44" cy="48" r="3" fill="#0e7490" opacity="0.7"/><circle cx="56" cy="48" r="3" fill="#0e7490" opacity="0.7"/></svg>);}
+function ReefS2(p){var s=p.size||80;var tentacles=Array.from({length:6},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#a5f3fc"/><stop offset="100%" stopColor="#0891b2"/></radialGradient></defs><ellipse cx="50" cy="46" rx="26" ry="28" fill="url(#rf2g)"/>{tentacles.map(function(i){var x=30+i*8;var wave=i%2===0?8:-8;return <path key={i} d={"M"+x+" 68 Q"+(x+wave)+" 76 "+x+" 84"} stroke="#0891b2" strokeWidth="3" fill="none" strokeLinecap="round"/>;})}<circle cx="42" cy="42" r="4" fill="#0e7490"/><circle cx="58" cy="42" r="4" fill="#0e7490"/><circle cx="42" cy="42" r="2" fill="#e0f2fe"/><circle cx="58" cy="42" r="2" fill="#e0f2fe"/></svg>);}
+function ReefS3(p){var s=p.size||80;var tentacles=Array.from({length:8},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf3g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#e0f2fe"/><stop offset="50%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#0e7490"/></radialGradient></defs><ellipse cx="50" cy="44" rx="30" ry="30" fill="url(#rf3g)"/>{tentacles.map(function(i){var x=26+i*7;var wave=i%2===0?10:-10;return <path key={i} d={"M"+x+" 68 Q"+(x+wave)+" 78 "+x+" 88"} stroke="#0284c7" strokeWidth={i%2===0?3.5:2.5} fill="none" strokeLinecap="round"/>;})}<circle cx="41" cy="40" r="5" fill="#0e7490"/><circle cx="59" cy="40" r="5" fill="#0e7490"/><circle cx="41" cy="40" r="2.5" fill="#e0f2fe"/><circle cx="59" cy="40" r="2.5" fill="#e0f2fe"/><path d="M42 56 Q50 62 58 56" stroke="#0891b2" strokeWidth="2" fill="none"/></svg>);}
+function ReefS4(p){var s=p.size||80;var tentacles=Array.from({length:10},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf4g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#38bdf8"/><stop offset="100%" stopColor="#0c4a6e"/></radialGradient></defs><ellipse cx="50" cy="42" rx="34" ry="32" fill="url(#rf4g)"/>{tentacles.map(function(i){var x=18+i*7;var wave=i%2===0?12:-12;return <path key={i} d={"M"+x+" 66 Q"+(x+wave/2)+" 76 "+x+" 86 Q"+(x+wave)+" 82 "+x+" 90"} stroke="#0284c7" strokeWidth={i%3===0?4:3} fill="none" strokeLinecap="round"/>;})}<circle cx="40" cy="38" r="6" fill="#0c4a6e"/><circle cx="60" cy="38" r="6" fill="#0c4a6e"/><circle cx="40" cy="38" r="3" fill="#e0f2fe"/><circle cx="60" cy="38" r="3" fill="#e0f2fe"/><circle cx="40" cy="37" r="1.5" fill="#0c4a6e"/><circle cx="60" cy="37" r="1.5" fill="#0c4a6e"/><path d="M40 56 Q50 64 60 56" stroke="#38bdf8" strokeWidth="2.5" fill="none"/></svg>);}
+function ReefS5(p){var s=p.size||80;var tentacles=Array.from({length:12},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf5g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#bae6fd"/><stop offset="70%" stopColor="#0ea5e9"/><stop offset="100%" stopColor="#082f49"/></radialGradient></defs><ellipse cx="50" cy="40" rx="38" ry="34" fill="url(#rf5g)"/>{tentacles.map(function(i){var x=14+i*6.5;var wave=i%2===0?14:-14;var thick=i%4===0?4.5:i%2===0?3.5:2.5;return <path key={i} d={"M"+x+" 64 Q"+(x+wave/2)+" 74 "+x+" 82 Q"+(x+wave)+" 78 "+x+" 88"} stroke="#0284c7" strokeWidth={thick} fill="none" strokeLinecap="round"/>;})}<circle cx="40" cy="34" r="8" fill="#082f49"/><circle cx="60" cy="34" r="8" fill="#082f49"/><circle cx="40" cy="34" r="4.5" fill="#e0f2fe"/><circle cx="60" cy="34" r="4.5" fill="#e0f2fe"/><circle cx="40" cy="33" r="2.5" fill="#082f49"/><circle cx="60" cy="33" r="2.5" fill="#082f49"/><circle cx="41" cy="32" r="1" fill="white"/><circle cx="61" cy="32" r="1" fill="white"/><path d="M38 56 Q50 68 62 56" stroke="#bae6fd" strokeWidth="3" fill="none"/><circle cx="38" cy="56" r="2.5" fill="#38bdf8"/><circle cx="62" cy="56" r="2.5" fill="#38bdf8"/></svg>);}
+
+// SHADOW — A dark assassin
+function ShadowS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><polygon points="50,20 60,46 50,56 40,46" fill="#1e1b4b"/><polygon points="50,20 60,46 50,56 40,46" fill="none" stroke="#6366f1" strokeWidth="1" opacity="0.6"/><circle cx="44" cy="40" r="2" fill="#818cf8" opacity="0.8"/><circle cx="56" cy="40" r="2" fill="#818cf8" opacity="0.8"/></svg>);}
+function ShadowS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,16 66,34 70,56 60,74 40,74 30,56 34,34" fill="url(#sh2g)"/><polygon points="50,16 66,34 70,56 60,74 40,74 30,56 34,34" fill="none" stroke="#6366f1" strokeWidth="1.5"/><circle cx="42" cy="44" r="3.5" fill="#818cf8"/><circle cx="58" cy="44" r="3.5" fill="#818cf8"/><circle cx="42" cy="44" r="1.5" fill="white" opacity="0.9"/><circle cx="58" cy="44" r="1.5" fill="white" opacity="0.9"/></svg>);}
+function ShadowS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#4338ca"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,10 70,26 76,50 70,74 50,84 30,74 24,50 30,26" fill="url(#sh3g)"/><polygon points="50,10 70,26 76,50 70,74 50,84 30,74 24,50 30,26" fill="none" stroke="#818cf8" strokeWidth="2"/><line x1="50" y1="10" x2="50" y2="84" stroke="#6366f1" strokeWidth="0.8" opacity="0.4"/><circle cx="40" cy="42" r="5" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5"/><circle cx="60" cy="42" r="5" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5"/><circle cx="40" cy="42" r="2.5" fill="#c7d2fe"/><circle cx="60" cy="42" r="2.5" fill="#c7d2fe"/><path d="M41 58 Q50 65 59 58" stroke="#818cf8" strokeWidth="2" fill="none"/></svg>);}
+function ShadowS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#6366f1"/><stop offset="60%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,6 74,20 82,48 74,76 50,86 26,76 18,48 26,20" fill="url(#sh4g)"/><polygon points="50,6 74,20 82,48 74,76 50,86 26,76 18,48 26,20" fill="none" stroke="#818cf8" strokeWidth="2"/><polygon points="50,18 66,28 72,48 66,68 50,76 34,68 28,48 34,28" fill="none" stroke="#6366f1" strokeWidth="1" opacity="0.5"/><circle cx="50" cy="6" r="3" fill="#818cf8"/><circle cx="50" cy="86" r="3" fill="#818cf8"/><circle cx="38" cy="40" r="6" fill="#0a0014" stroke="#a5b4fc" strokeWidth="2"/><circle cx="62" cy="40" r="6" fill="#0a0014" stroke="#a5b4fc" strokeWidth="2"/><circle cx="38" cy="40" r="3" fill="#c7d2fe"/><circle cx="62" cy="40" r="3" fill="#c7d2fe"/><circle cx="38" cy="39" r="1.5" fill="#0a0014"/><circle cx="62" cy="39" r="1.5" fill="#0a0014"/><path d="M38 58 Q50 68 62 58" stroke="#a5b4fc" strokeWidth="2.5" fill="none"/></svg>);}
+function ShadowS5(p){var s=p.size||80;var shards=[[50,4],[82,20],[90,50],[82,80],[50,92],[18,80],[10,50],[18,20]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#a5b4fc"/><stop offset="30%" stopColor="#6366f1"/><stop offset="70%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,4 82,20 90,50 82,80 50,92 18,80 10,50 18,20" fill="url(#sh5g)"/><polygon points="50,4 82,20 90,50 82,80 50,92 18,80 10,50 18,20" fill="none" stroke="#c7d2fe" strokeWidth="2.5"/>{shards.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r="2.5" fill="#818cf8"/>;})}<polygon points="50,16 70,26 76,50 70,74 50,80 30,74 24,50 30,26" fill="none" stroke="#818cf8" strokeWidth="1.5" opacity="0.5"/><circle cx="36" cy="38" r="7" fill="#0a0014" stroke="#c7d2fe" strokeWidth="2"/><circle cx="64" cy="38" r="7" fill="#0a0014" stroke="#c7d2fe" strokeWidth="2"/><circle cx="36" cy="38" r="4" fill="#e0e7ff"/><circle cx="64" cy="38" r="4" fill="#e0e7ff"/><circle cx="36" cy="37" r="2" fill="#0a0014"/><circle cx="64" cy="37" r="2" fill="#0a0014"/><circle cx="37" cy="36" r="0.8" fill="white"/><circle cx="65" cy="36" r="0.8" fill="white"/><path d="M36 60 Q50 74 64 60" stroke="#c7d2fe" strokeWidth="3" fill="none"/><circle cx="36" cy="60" r="3" fill="#6366f1"/><circle cx="64" cy="60" r="3" fill="#6366f1"/></svg>);}
+
+function renderArt(A,size){if(!A)return null;return <A size={size}/>;}
 
 const PETS = [
-  { id:"novus",   name:"Novus",   color:"#a78bfa", desc:"A cosmic moth born from the space between stars.", stages:[
-    { level:1,  form:"Dormant Speck",    Art:NovusStage1, desc:"A single dark point. You would not notice it." },
-    { level:3,  form:"Waking Mote",      Art:NovusStage2, desc:"Something flickers. Not quite light." },
-    { level:5,  form:"Soft Cocoon",      Art:NovusStage3, desc:"Folded away. The transformation is happening." },
-    { level:7,  form:"Cracked Chrysalis",Art:NovusStage4, desc:"The shell is breaking." },
-    { level:10, form:"The Cosmic Moth",  Art:NovusStage5, desc:"Navigates by starlight." },
+  { id:"ember",   name:"Ember",   color:"#f97316", desc:"Born from a dying coal. Grows into a star that cannot be extinguished.", stages:[
+    {level:1,  form:"Dying Ember",    Art:EmberS1, desc:"Almost out. But not yet."},
+    {level:3,  form:"Rising Flame",   Art:EmberS2, desc:"Something caught. It is not stopping."},
+    {level:5,  form:"Burning Core",   Art:EmberS3, desc:"Solid fire. It warms everything near it."},
+    {level:7,  form:"Solar Bloom",    Art:EmberS4, desc:"Expanded past what contained it."},
+    {level:10, form:"The Undying Sun",Art:EmberS5, desc:"Burns cold. Burns forever. Cannot be put out."},
   ]},
-  { id:"khaos",   name:"Khaos",   color:"#38bdf8", desc:"A storm entity. Never fully solid. Never fully gone.", stages:[
-    { level:1,  form:"Static Breath",    Art:KhaosStage1, desc:"A charge in the air. Something is building." },
-    { level:3,  form:"First Charge",     Art:KhaosStage2, desc:"The electricity has found a shape." },
-    { level:5,  form:"Storm Core",       Art:KhaosStage3, desc:"A dense center of pressure." },
-    { level:7,  form:"Pressure Front",   Art:KhaosStage4, desc:"It arrives before it arrives." },
-    { level:10, form:"Eye of All Things",Art:KhaosStage5, desc:"Total stillness at the center. It reigns." },
+  { id:"void",    name:"Void",    color:"#8b5cf6", desc:"A black hole that learned to think. Pulls everything toward its gravity.", stages:[
+    {level:1,  form:"Dark Point",     Art:VoidS1, desc:"Nothing to see. Everything to fear."},
+    {level:3,  form:"Event Horizon",  Art:VoidS2, desc:"The ring forms. Things get close and don't leave."},
+    {level:5,  form:"Collapsing Star",Art:VoidS3, desc:"It is consuming itself to become something greater."},
+    {level:7,  form:"Singularity",    Art:VoidS4, desc:"Space bends. Time bends. It does not."},
+    {level:10, form:"The Absolute",   Art:VoidS5, desc:"There is no outside of it anymore."},
   ]},
-  { id:"yokai",   name:"YKÄI-7",  color:"#34d399", desc:"A corrupted signal that became conscious.", stages:[
-    { level:1,  form:"Null Signal",      Art:YokaiStage1, desc:"Receiving. Watching. Deciding." },
-    { level:3,  form:"Ghost Ping",       Art:YokaiStage2, desc:"Found a frequency." },
-    { level:5,  form:"Signal Breach",    Art:YokaiStage3, desc:"Fully materialized. Not supposed to exist." },
-    { level:7,  form:"Sentient Glitch",  Art:YokaiStage4, desc:"The errors are features now." },
-    { level:10, form:"The Corrupted",    Art:YokaiStage5, desc:"Does not run on servers. Runs on belief." },
+  { id:"iron",    name:"Ironclad",color:"#9ca3af", desc:"Forged in fire. Tested by everything. Still standing.", stages:[
+    {level:1,  form:"Raw Frame",      Art:IronS1, desc:"Bolted together. Not pretty. Functional."},
+    {level:3,  form:"First Armor",    Art:IronS2, desc:"The plates are setting. Shape emerging."},
+    {level:5,  form:"War Machine",    Art:IronS3, desc:"All systems operational. Purpose: withstand."},
+    {level:7,  form:"Iron Fortress",  Art:IronS4, desc:"Has absorbed every hit. Has not moved."},
+    {level:10, form:"The Indestructible",Art:IronS5, desc:"You cannot break what has already survived everything."},
   ]},
-  { id:"verdant", name:"Verdant", color:"#4ade80", desc:"The living forest. Starts as a single seed.", stages:[
-    { level:1,  form:"Single Seed",      Art:VerdantStage1, desc:"Pressed into dark soil. Still, it pushes." },
-    { level:3,  form:"First Shoot",      Art:VerdantStage2, desc:"Pale and determined." },
-    { level:5,  form:"Young Grove",      Art:VerdantStage3, desc:"Roots have met roots." },
-    { level:7,  form:"Ancient Wood",     Art:VerdantStage4, desc:"Old enough to offer shelter." },
-    { level:10, form:"World Root",       Art:VerdantStage5, desc:"Every forest whispers its name." },
+  { id:"aurora",  name:"Aurora",  color:"#38bdf8", desc:"A crystal being grown from pure arctic silence.", stages:[
+    {level:1,  form:"Ice Shard",      Art:AuroraS1, desc:"One perfect cut. One perfect edge."},
+    {level:3,  form:"Frost Prism",    Art:AuroraS2, desc:"Light bends through it. Colours appear."},
+    {level:5,  form:"Crystal Form",   Art:AuroraS3, desc:"Many faces. One being. Perfectly cold."},
+    {level:7,  form:"Glacial Crown",  Art:AuroraS4, desc:"The tundra grows where it walks."},
+    {level:10, form:"The Eternal Ice",Art:AuroraS5, desc:"Nothing melts it. Nothing comes close enough to try."},
   ]},
-  { id:"abyssus", name:"Abyssus", color:"#0ea5e9", desc:"Something that lives where light does not reach.", stages:[
-    { level:1,  form:"Pressure Point",   Art:AbyssusStage1, desc:"Cold. Dense. Patient." },
-    { level:3,  form:"First Tendril",    Art:AbyssusStage2, desc:"Something extends upward." },
-    { level:5,  form:"Deep Crawler",     Art:AbyssusStage3, desc:"Never seen light. On its way." },
-    { level:7,  form:"Tide Sovereign",   Art:AbyssusStage4, desc:"The ocean does not move without permission." },
-    { level:10, form:"The Abyss Itself", Art:AbyssusStage5, desc:"There is no bottom anymore." },
+  { id:"venom",   name:"Venom",   color:"#4ade80", desc:"A serpent that got larger every time something tried to stop it.", stages:[
+    {level:1,  form:"Hatchling",      Art:VenomS1, desc:"Tiny. Already dangerous."},
+    {level:3,  form:"Fang",           Art:VenomS2, desc:"The venom works fast. The bite is faster."},
+    {level:5,  form:"River Serpent",  Art:VenomS3, desc:"Moves without sound. Strikes without warning."},
+    {level:7,  form:"Apex Predator",  Art:VenomS4, desc:"At the top of every food chain it entered."},
+    {level:10, form:"The Ancient One",Art:VenomS5, desc:"Older than the forest. Larger than the river."},
   ]},
-  { id:"solaris", name:"Solaris", color:"#fbbf24", desc:"A dying star that refused to go dark.", stages:[
-    { level:1,  form:"Cooling Remnant",  Art:SolarisStage1, desc:"Almost out. Still spinning." },
-    { level:3,  form:"Ignition Shard",   Art:SolarisStage2, desc:"Something catches. Then everything." },
-    { level:5,  form:"Rekindled Core",   Art:SolarisStage3, desc:"Burning again. Hotter than ever." },
-    { level:7,  form:"Stellar Bloom",    Art:SolarisStage4, desc:"The star is bigger than its grief." },
-    { level:10, form:"Supernova Born",   Art:SolarisStage5, desc:"Seeds new stars wherever it goes." },
+  { id:"phantom", name:"Phantom", color:"#818cf8", desc:"Neither here nor gone. Passes through walls. Passes through time.", stages:[
+    {level:1,  form:"Wisp",           Art:PhantomS1, desc:"A breath of something. Gone if you look."},
+    {level:3,  form:"Specter",        Art:PhantomS2, desc:"Visible now. Still not quite real."},
+    {level:5,  form:"Haunt",          Art:PhantomS3, desc:"It has chosen this place. And this person."},
+    {level:7,  form:"Revenant",       Art:PhantomS4, desc:"Has returned from somewhere worse. Is fine now."},
+    {level:10, form:"The Undying",    Art:PhantomS5, desc:"Death already tried. Did not stick."},
   ]},
-  { id:"ferrus",  name:"Ferrus",  color:"#94a3b8", desc:"Forged, not born. Every dent is a record.", stages:[
-    { level:1,  form:"Raw Ore",          Art:FerrusStage1, desc:"Unrefined. Heavy. No shine yet." },
-    { level:3,  form:"First Cast",       Art:FerrusStage2, desc:"Still cooling. Shape emerging." },
-    { level:5,  form:"The Machine",      Art:FerrusStage3, desc:"All systems running. Purpose: protect." },
-    { level:7,  form:"Iron Sentinel",    Art:FerrusStage4, desc:"Has absorbed every impact." },
-    { level:10, form:"The Unbroken",     Art:FerrusStage5, desc:"It is the fortress now." },
+  { id:"titan",   name:"Titan",   color:"#fbbf24", desc:"A golden warrior that grows more legendary with every challenge.", stages:[
+    {level:1,  form:"Warrior's Oath", Art:TitanS1, desc:"The promise made before the battle."},
+    {level:3,  form:"Bronze Guard",   Art:TitanS2, desc:"The first victories have been won."},
+    {level:5,  form:"Golden Knight",  Art:TitanS3, desc:"The legend is beginning to form."},
+    {level:7,  form:"Warlord",        Art:TitanS4, desc:"Armies step aside. No contest necessary."},
+    {level:10, form:"The Eternal Champion",Art:TitanS5, desc:"Songs are written. The warrior has not finished."},
   ]},
-  { id:"lumis",   name:"Lumis",   color:"#fbbf24", desc:"A swarm mind. Thousands of tiny lights.", stages:[
-    { level:1,  form:"Single Mote",      Art:LumisStage1, desc:"One point of warm light. Looking for you." },
-    { level:3,  form:"Cluster Birth",    Art:LumisStage2, desc:"Others have been called." },
-    { level:5,  form:"The Gathering",    Art:LumisStage3, desc:"They have agreed: you are worth it." },
-    { level:7,  form:"Convergence",      Art:LumisStage4, desc:"The lights have learned to speak." },
-    { level:10, form:"The Singular",     Art:LumisStage5, desc:"So many lights they became a star." },
+  { id:"storm",   name:"Storm",   color:"#eab308", desc:"Pure electrical fury wearing the shape of a living thing.", stages:[
+    {level:1,  form:"Static",         Art:StormS1, desc:"A charge in the air. Hair stands up."},
+    {level:3,  form:"Spark",          Art:StormS2, desc:"The first bolt has been thrown."},
+    {level:5,  form:"Thunderhead",    Art:StormS3, desc:"Weather patterns change when it moves."},
+    {level:7,  form:"Lightning Lord", Art:StormS4, desc:"Controls the storm. Is the storm."},
+    {level:10, form:"The Tempest",    Art:StormS5, desc:"The sky obeys. The thunder is its voice."},
   ]},
-  { id:"okami",   name:"Okami",   color:"#e2e8f0", desc:"Not a wolf. The idea of a wolf.", stages:[
-    { level:1,  form:"Shadow Pup",       Art:OkamiStage1, desc:"New. Uncertain. Watching everything." },
-    { level:3,  form:"Moonbound",        Art:OkamiStage2, desc:"The moon answers." },
-    { level:5,  form:"Howling Gate",     Art:OkamiStage3, desc:"Two moons rise when it calls." },
-    { level:7,  form:"The Thunder Walk", Art:OkamiStage4, desc:"Its footsteps make weather." },
-    { level:10, form:"Myth Made Real",   Art:OkamiStage5, desc:"The world arranges around its path." },
+  { id:"nova",    name:"Nova",    color:"#d946ef", desc:"An explosion that refuses to fade. Gets brighter with every moment.", stages:[
+    {level:1,  form:"Pinpoint",       Art:NovaS1, desc:"Compressed to almost nothing. Extremely dangerous."},
+    {level:3,  form:"Burst",          Art:NovaS2, desc:"The first expansion. Cannot be contained."},
+    {level:5,  form:"Radiant",        Art:NovaS3, desc:"Visible from far away now. Getting closer."},
+    {level:7,  form:"Supernova",      Art:NovaS4, desc:"Exploded once. Growing from the wreckage."},
+    {level:10, form:"The Eternal Bloom",Art:NovaS5, desc:"The explosion never ended. It just became everything."},
   ]},
-  { id:"ryu",     name:"Ryu",     color:"#4ade80", desc:"The ascending dragon. Earns its fire.", stages:[
-    { level:1,  form:"The Dreaming Egg", Art:RyuStage1, desc:"Full of something the world isn't ready for." },
-    { level:3,  form:"Jade Hatchling",   Art:RyuStage2, desc:"Eyes older than the egg it came from." },
-    { level:5,  form:"River Drake",      Art:RyuStage3, desc:"Moves through water like thought." },
-    { level:7,  form:"Mountain Warden",  Art:RyuStage4, desc:"The peaks recognized it." },
-    { level:10, form:"Heaven Piercer",   Art:RyuStage5, desc:"The first breath of fire took ten years." },
+  { id:"reef",    name:"Reef",    color:"#22d3ee", desc:"An ocean hunter. Patient as the tide. As inevitable as the sea.", stages:[
+    {level:1,  form:"Larvae",         Art:ReefS1, desc:"Translucent. Almost invisible. Learning."},
+    {level:3,  form:"Jellyfish",      Art:ReefS2, desc:"Floats with purpose. Stings without warning."},
+    {level:5,  form:"Kraken Pup",     Art:ReefS3, desc:"The tentacles have opinions now."},
+    {level:7,  form:"Deep Hunter",    Art:ReefS4, desc:"The deep water belongs to it."},
+    {level:10, form:"The Leviathan",  Art:ReefS5, desc:"Older than the ocean. The ocean knows."},
   ]},
 ];
 
 const PET_LEVELS = [
-  { level:1,  name:"Newborn",  xpReq:0    },
-  { level:2,  name:"Waking",   xpReq:100  },
-  { level:3,  name:"Growing",  xpReq:250  },
-  { level:4,  name:"Learning", xpReq:500  },
-  { level:5,  name:"Evolved",  xpReq:900  },
-  { level:6,  name:"Strong",   xpReq:1400 },
-  { level:7,  name:"Powerful", xpReq:2100 },
-  { level:8,  name:"Champion", xpReq:3000 },
-  { level:9,  name:"Legend",   xpReq:4200 },
-  { level:10, name:"Eternal",  xpReq:6000 },
+  {level:1,  name:"Newborn",  xpReq:0},
+  {level:2,  name:"Waking",   xpReq:100},
+  {level:3,  name:"Growing",  xpReq:250},
+  {level:4,  name:"Learning", xpReq:500},
+  {level:5,  name:"Evolved",  xpReq:900},
+  {level:6,  name:"Strong",   xpReq:1400},
+  {level:7,  name:"Powerful", xpReq:2100},
+  {level:8,  name:"Champion", xpReq:3000},
+  {level:9,  name:"Legend",   xpReq:4200},
+  {level:10, name:"Eternal",  xpReq:6000},
 ];
 
 const WORKOUT_TYPES = [
-  { id:"run",      label:"Running",        emoji:"🏃",  met:9.8  },
-  { id:"walk",     label:"Walking",        emoji:"🚶",  met:3.5  },
-  { id:"bike",     label:"Cycling",        emoji:"🚴",  met:8.0  },
-  { id:"swim",     label:"Swimming",       emoji:"🏊",  met:7.0  },
-  { id:"lift",     label:"Weight Training",emoji:"🏋️", met:5.0  },
-  { id:"hiit",     label:"HIIT",           emoji:"⚡",  met:10.0 },
-  { id:"yoga",     label:"Yoga",           emoji:"🧘",  met:2.5  },
-  { id:"pilates",  label:"Pilates",        emoji:"🤸",  met:3.0  },
-  { id:"sport",    label:"Sports",         emoji:"⚽",  met:7.5  },
-  { id:"climb",    label:"Climbing",       emoji:"🧗",  met:8.0  },
-  { id:"dance",    label:"Dancing",        emoji:"💃",  met:5.5  },
-  { id:"row",      label:"Rowing",         emoji:"🚣",  met:7.0  },
-  { id:"elliptic", label:"Elliptical",     emoji:"🔄",  met:6.5  },
-  { id:"boxing",   label:"Boxing",         emoji:"🥊",  met:9.0  },
-  { id:"hike",     label:"Hiking",         emoji:"🥾",  met:6.0  },
-  { id:"other",    label:"Other",          emoji:"💪",  met:5.0  },
+  {id:"run",     label:"Running",        emoji:"🏃",  met:9.8 },
+  {id:"walk",    label:"Walking",        emoji:"🚶",  met:3.5 },
+  {id:"bike",    label:"Cycling",        emoji:"🚴",  met:8.0 },
+  {id:"swim",    label:"Swimming",       emoji:"🏊",  met:7.0 },
+  {id:"lift",    label:"Weight Training",emoji:"🏋️", met:5.0 },
+  {id:"hiit",    label:"HIIT",           emoji:"⚡",  met:10.0},
+  {id:"yoga",    label:"Yoga",           emoji:"🧘",  met:2.5 },
+  {id:"pilates", label:"Pilates",        emoji:"🤸",  met:3.0 },
+  {id:"sport",   label:"Sports",         emoji:"⚽",  met:7.5 },
+  {id:"climb",   label:"Climbing",       emoji:"🧗",  met:8.0 },
+  {id:"dance",   label:"Dancing",        emoji:"💃",  met:5.5 },
+  {id:"row",     label:"Rowing",         emoji:"🚣",  met:7.0 },
+  {id:"elliptic",label:"Elliptical",     emoji:"🔄",  met:6.5 },
+  {id:"boxing",  label:"Boxing",         emoji:"🥊",  met:9.0 },
+  {id:"hike",    label:"Hiking",         emoji:"🥾",  met:6.0 },
+  {id:"other",   label:"Other",          emoji:"💪",  met:5.0 },
 ];
 
 const QUICK_FOODS = [
@@ -235,13 +262,13 @@ const QUICK_FOODS = [
 ];
 
 const QUICK_CATS = [
-  { label:"Protein",  emoji:"💪", items:QUICK_FOODS.slice(0,14)  },
-  { label:"Carbs",    emoji:"🍚", items:QUICK_FOODS.slice(14,22) },
-  { label:"Veggies",  emoji:"🥦", items:QUICK_FOODS.slice(22,26) },
-  { label:"Fruits",   emoji:"🍎", items:QUICK_FOODS.slice(26,30) },
-  { label:"Fats",     emoji:"🥑", items:QUICK_FOODS.slice(30,34) },
-  { label:"Fast Food",emoji:"🍔", items:QUICK_FOODS.slice(34,42) },
-  { label:"Other",    emoji:"☕", items:QUICK_FOODS.slice(42)    },
+  {label:"Protein",  emoji:"💪", items:QUICK_FOODS.slice(0,14)},
+  {label:"Carbs",    emoji:"🍚", items:QUICK_FOODS.slice(14,22)},
+  {label:"Veggies",  emoji:"🥦", items:QUICK_FOODS.slice(22,26)},
+  {label:"Fruits",   emoji:"🍎", items:QUICK_FOODS.slice(26,30)},
+  {label:"Fats",     emoji:"🥑", items:QUICK_FOODS.slice(30,34)},
+  {label:"Fast Food",emoji:"🍔", items:QUICK_FOODS.slice(34,42)},
+  {label:"Other",    emoji:"☕", items:QUICK_FOODS.slice(42)},
 ];
 
 function sn(v){var x=parseFloat(v);return isNaN(x)?0:x;}
@@ -292,8 +319,7 @@ function parseVoice(text){
     if(qMatch)qty=parseFloat(qMatch[1]);
     var matched=null;
     for(var i=0;i<QUICK_FOODS.length;i++){
-      var qf=QUICK_FOODS[i];
-      var found=false;
+      var qf=QUICK_FOODS[i];var found=false;
       for(var j=0;j<qf.kw.length;j++){if(seg.indexOf(qf.kw[j])!==-1){found=true;break;}}
       if(found){matched=qf;break;}
     }
@@ -307,9 +333,7 @@ function parseVoice(text){
   return results;
 }
 
-function calcBurn(weightLbs,durationMin,met){
-  return Math.round((met*weightLbs*0.453592*durationMin)/60);
-}
+function calcBurn(lbs,min,met){return Math.round((met*lbs*0.453592*min)/60);}
 
 function scoreMeal(meal,goals,calsBefore){
   var score=0;var details=[];var tips=[];
@@ -332,7 +356,7 @@ function scoreMeal(meal,goals,calsBefore){
   if(final>=85){label="Amazing";lc="#fbbf24";icon="🌟";}
   else if(final>=70){label="Great";lc="#34d399";icon="💪";}
   else if(final>=55){label="Good";lc="#60a5fa";icon="👍";}
-  var encs=["Every meal is a step forward.","You showed up — that is what matters.","Consistency beats perfection every single time.","Your body is working with every good choice you make.","Progress lives in the ordinary moments.","This is what building something real looks like.","You are further along than you were yesterday."];
+  var encs=["Every meal is a step forward.","You showed up — that is what matters.","Consistency beats perfection.","Your body is working with every good choice.","Progress lives in the ordinary moments.","This is what building something real looks like.","Further along than yesterday."];
   if(tips.length===0)tips.push("That is a solid meal — keep this up!");
   return{score:final,label:label,lc:lc,icon:icon,details:details,tips:tips,enc:encs[Math.floor(Math.random()*encs.length)]};
 }
@@ -553,7 +577,6 @@ export default function App(){
     recog.onerror=function(){setVoiceListening(false);setVoiceErr("Could not hear you — try typing below.");};
     recogRef.current=recog;recog.start();
   }
-
   function stopVoice(){if(recogRef.current)recogRef.current.stop();}
 
   function confirmVoice(){
@@ -644,7 +667,7 @@ export default function App(){
       </div>
       <div style={{fontSize:11,color:"#484f58",fontFamily:"'DM Mono',monospace",letterSpacing:"0.15em",marginBottom:32}}>YOUR HEALTH COMPANION</div>
       <div style={{display:"flex",gap:8,marginBottom:32}}>
-        {["🌋🐉","🌟🦅","🌌✨","🌊🐲","🌱✨","🪨👊","🕯️","⚡😈","🌍🐢","⛈️👑"].map(function(e,i){return <div key={i} style={{fontSize:18,animation:"bounce 1s ease-in-out "+i*0.08+"s infinite alternate"}}>{e}</div>;})}
+        {["🔥","⚡","❄️","🌊","☠️","👻","🏆","🌀","💥","🐉"].map(function(e,i){return <div key={i} style={{fontSize:18,animation:"bounce 1s ease-in-out "+i*0.08+"s infinite alternate"}}>{e}</div>;})}
       </div>
       <div style={{width:160,height:3,background:"#21262d",borderRadius:99,overflow:"hidden"}}>
         <div style={{height:"100%",background:"#3fb950",borderRadius:99,animation:"loadbar 1.6s ease-out forwards"}}/>
@@ -694,6 +717,7 @@ export default function App(){
 
       {xpPop!=null&&<div className="xpa" style={{position:"fixed",top:80,right:20,zIndex:150,background:"#fbbf24",color:"#030712",borderRadius:12,padding:"8px 16px",fontFamily:"'DM Mono',monospace",fontSize:13,fontWeight:700,pointerEvents:"none"}}>+{xpPop} XP ⚡</div>}
 
+      {/* SCORED MEAL MODAL */}
       {scoredMeal&&modal(modalBox(
         <div>
           <div style={{textAlign:"center",marginBottom:20}}>
@@ -721,6 +745,7 @@ export default function App(){
         </div>
       ))}
 
+      {/* VOICE MODAL */}
       {voiceModal&&(
         <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.88)",zIndex:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}} onClick={function(e){if(e.target===e.currentTarget)setVoiceModal(false);}}>
           {sheetBox(
@@ -771,6 +796,7 @@ export default function App(){
         </div>
       )}
 
+      {/* WORKOUT MODAL */}
       {showWorkoutModal&&modal(modalBox(
         <div>
           {hd("Log a Workout")}
@@ -814,11 +840,12 @@ export default function App(){
           </div>
           <div style={{display:"flex",gap:8}}>
             <button onClick={function(){setShowWorkoutModal(false);}} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,borderRadius:10,color:T.sub,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Cancel</button>
-            {btn("Log Workout",logWorkout,{flex:2})}
+            {btn("Log Workout 🏋️",logWorkout,{flex:2})}
           </div>
         </div>
       ))}
 
+      {/* GOALS MODAL */}
       {showGoals&&modal(modalBox(
         <div>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
@@ -858,7 +885,7 @@ export default function App(){
         <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:20,padding:32,maxWidth:340,width:"90%",textAlign:"center"}}>
           <div style={{fontSize:36,marginBottom:12}}>🌅</div>
           <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,marginBottom:8,color:T.text}}>Start Fresh?</div>
-          <p style={{color:T.sub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears today's meals and workouts. Your pet earns XP for everything you hit today first!</p>
+          <p style={{color:T.sub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears today's meals and workouts. Your companion earns XP for everything you hit today first!</p>
           <div style={{display:"flex",gap:10}}>
             <button onClick={function(){setConfirmNewDay(false);}} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Cancel</button>
             {btn("New Day",newDay,{flex:1})}
@@ -900,7 +927,7 @@ export default function App(){
       {showPetPick&&sheet(sheetBox(
         <div>
           <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:4,textAlign:"center"}}>Choose Your Companion</div>
-          <div style={{fontSize:13,color:T.sub,textAlign:"center",marginBottom:20}}>10 creatures · 5 evolution stages each · Max one out to add to your Zoo!</div>
+          <div style={{fontSize:13,color:T.sub,textAlign:"center",marginBottom:20}}>10 creatures · 5 evolution stages each · Max one out for your Zoo!</div>
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
             {PETS.map(function(pet){
               var pd=petData[pet.id]||{};
@@ -909,17 +936,14 @@ export default function App(){
               var stage=getStage(pet,lvl.level);
               return(
                 <button key={pet.id} onClick={function(){selectPet(pet.id);}} style={{background:isActive?pet.color+"22":T.card2,border:"2px solid "+(isActive?pet.color:T.border),borderRadius:14,padding:"14px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:14,transition:"all .2s"}}>
-                  <div style={{flexShrink:0,width:50,display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    {stage&&stage.Art?renderArt(stage.Art,44):renderArt(pet.stages[0].Art,44)}
+                  <div style={{flexShrink:0,width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",background:T.bg,borderRadius:12,border:"1px solid "+T.border}}>
+                    {renderArt(stage?stage.Art:pet.stages[0].Art,44)}
                   </div>
                   <div style={{flex:1}}>
                     <div style={{fontWeight:700,fontSize:15,color:isActive?pet.color:T.text,marginBottom:1}}>{pd.name||pet.name}</div>
-                    <div style={{fontSize:11,color:T.sub,marginBottom:4,lineHeight:1.4}}>{pet.desc}</div>
-                    <div style={{display:"flex",gap:4,alignItems:"center",flexWrap:"wrap"}}>
-                      {pet.stages.map(function(s,i){return <span key={i} style={{opacity:0.8,display:"inline-flex"}}>{renderArt(s.Art,20)}</span>;})}
-                    </div>
+                    <div style={{fontSize:11,color:T.sub,marginBottom:6,lineHeight:1.4}}>{pet.desc}</div>
                     {(pd.xp||0)>0&&(
-                      <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
+                      <div style={{display:"flex",alignItems:"center",gap:6}}>
                         <div style={{flex:1,height:3,background:T.border,borderRadius:99,overflow:"hidden"}}>
                           <div style={{width:Math.min((pd.xp||0)/60,100)+"%",height:"100%",background:pet.color,borderRadius:99}}/>
                         </div>
@@ -938,8 +962,8 @@ export default function App(){
 
       {showZoo&&sheet(sheetBox(
         <div>
-          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:4,textAlign:"center"}}>Your Pet Zoo</div>
-          <div style={{fontSize:13,color:T.sub,textAlign:"center",marginBottom:20}}>{zoo.length}/{PETS.length} companions at max level</div>
+          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:4,textAlign:"center"}}>Your Companion Zoo</div>
+          <div style={{fontSize:13,color:T.sub,textAlign:"center",marginBottom:20}}>{zoo.length}/{PETS.length} at max level</div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
             {PETS.map(function(pet){
               var unlocked=zoo.includes(pet.id);
@@ -947,7 +971,7 @@ export default function App(){
               var maxStage=pet.stages[pet.stages.length-1];
               if(unlocked)return(
                 <div key={pet.id} style={{background:pet.color+"22",border:"2px solid "+pet.color,borderRadius:14,padding:"16px 12px",textAlign:"center"}}>
-                  <div style={{marginBottom:6,display:"flex",justifyContent:"center"}}>{renderArt(maxStage.Art,52)}</div>
+                  <div style={{marginBottom:8,display:"flex",justifyContent:"center",background:T.bg,borderRadius:10,padding:8}}>{renderArt(maxStage.Art,52)}</div>
                   <div style={{fontWeight:700,fontSize:13,color:pet.color,marginBottom:2}}>{pd.name||pet.name}</div>
                   <div style={{fontSize:10,color:T.sub,fontFamily:"'DM Mono',monospace",marginBottom:2}}>{maxStage.form}</div>
                   <div style={{fontSize:9,color:T.faint,fontFamily:"'DM Mono',monospace"}}>ETERNAL</div>
@@ -977,6 +1001,7 @@ export default function App(){
         </div>
       )}
 
+      {/* HEADER */}
       <header style={{padding:"12px 20px",borderBottom:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:60,background:T.bg}}>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
           <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:20,fontWeight:700,color:T.accent,letterSpacing:"0.06em"}}>FUEL TRACK</span>
@@ -992,8 +1017,11 @@ export default function App(){
 
       <div style={{maxWidth:520,margin:"0 auto",padding:"16px 16px 0"}}>
 
+        {/* ═══ HOME TAB ═══ */}
         {tab==="home"&&(
           <div style={{display:"flex",flexDirection:"column",gap:14}}>
+
+            {/* Calorie ring + macros */}
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"18px 20px"}}>
               <CalRing eaten={Math.round(mealTots.cal)} burned={totalBurned} goal={goals.calories} T={T}/>
               <div style={{display:"flex",gap:6,flexWrap:"wrap",marginTop:14}}>
@@ -1005,11 +1033,27 @@ export default function App(){
               </div>
             </div>
 
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
-              <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>MACROS</div>
-              {MACROS.map(function(m){return <MBar key={m.key} label={m.label} value={r1(mealTots[m.key])} max={m.max} unit={m.unit} color={m.color} T={T}/>;  })}
+            {/* QUICK ACTION BUTTONS — PROMINENT WORKOUT LOGGING */}
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+              <button onClick={function(){setTab("build");}} style={{padding:"16px 12px",background:T.accent,border:"none",borderRadius:14,color:"#030712",cursor:"pointer",textAlign:"left"}}>
+                <div style={{fontSize:24,marginBottom:4}}>🍽️</div>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,lineHeight:1,marginBottom:2}}>Log Meal</div>
+                <div style={{fontSize:11,opacity:0.7,fontFamily:"'DM Mono',monospace"}}>{meals.length} logged today</div>
+              </button>
+              <button onClick={function(){setShowWorkoutModal(true);}} style={{padding:"16px 12px",background:"#f97316",border:"none",borderRadius:14,color:"white",cursor:"pointer",textAlign:"left"}}>
+                <div style={{fontSize:24,marginBottom:4}}>🏋️</div>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,lineHeight:1,marginBottom:2,color:"white"}}>Log Workout</div>
+                <div style={{fontSize:11,opacity:0.8,fontFamily:"'DM Mono',monospace",color:"white"}}>{workouts.length} logged · {totalBurned} kcal burned</div>
+              </button>
             </div>
 
+            {/* Macro bars */}
+            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
+              <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>MACROS</div>
+              {[{key:"pro",label:"Protein",unit:"g",color:"#34d399",max:goals.protein},{key:"car",label:"Carbs",unit:"g",color:"#60a5fa",max:goals.carbs},{key:"fat",label:"Fat",unit:"g",color:"#fbbf24",max:goals.fat},{key:"fib",label:"Fiber",unit:"g",color:"#a78bfa",max:goals.fiber}].map(function(m){return <MBar key={m.key} label={m.label} value={r1(mealTots[m.key])} max={m.max} unit={m.unit} color={m.color} T={T}/>;})}
+            </div>
+
+            {/* Water */}
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
                 <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em"}}>WATER TODAY</div>
@@ -1024,6 +1068,7 @@ export default function App(){
               </div>
             </div>
 
+            {/* Weight */}
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
                 <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em"}}>WEIGHT</div>
@@ -1050,10 +1095,11 @@ export default function App(){
               )}
             </div>
 
+            {/* Companion */}
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
               {!activePetId?(
                 <div style={{textAlign:"center",padding:"10px 0"}}>
-                  <div style={{fontSize:40,marginBottom:10}}>🌑·</div>
+                  <div style={{fontSize:40,marginBottom:10}}>✨</div>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:20,fontWeight:700,color:T.text,marginBottom:6}}>Choose your companion!</div>
                   <div style={{fontSize:13,color:T.sub,marginBottom:16}}>A creature that grows as you do.</div>
                   <button onClick={function(){setShowPetPick(true);}} style={{padding:"12px 24px",background:T.accent,border:"none",borderRadius:10,color:"#030712",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Meet the Companions</button>
@@ -1061,8 +1107,8 @@ export default function App(){
               ):(
                 <div>
                   <div style={{display:"flex",alignItems:"center",gap:16}}>
-                    <div className="pf" style={{cursor:"pointer",flexShrink:0}} onClick={function(){setShowPetPick(true);}}>
-                      {petStage?renderArt(petStage.Art,52):renderArt(activePet.stages[0].Art,52)}
+                    <div className="pf" style={{cursor:"pointer",flexShrink:0,background:T.bg,borderRadius:14,padding:8,border:"1px solid "+T.border}} onClick={function(){setShowPetPick(true);}}>
+                      {renderArt(petStage?petStage.Art:activePet.stages[0].Art,52)}
                     </div>
                     <div style={{flex:1}}>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:activePet.color,marginBottom:1}}>{activePetName}</div>
@@ -1111,30 +1157,38 @@ export default function App(){
           </div>
         )}
 
+        {/* ═══ LOG TAB ═══ */}
         {tab==="log"&&(
           <div style={{marginTop:8,display:"flex",flexDirection:"column",gap:8}}>
+
+            {/* Quick log buttons always visible at top */}
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:4}}>
+              <button onClick={function(){setTab("build");}} style={{padding:"12px",background:T.accent,border:"none",borderRadius:12,color:"#030712",cursor:"pointer",display:"flex",alignItems:"center",gap:8,fontFamily:"'DM Mono',monospace",fontSize:12,fontWeight:700}}>
+                <span style={{fontSize:18}}>🍽️</span> Log Meal
+              </button>
+              <button onClick={function(){setShowWorkoutModal(true);}} style={{padding:"12px",background:"#f97316",border:"none",borderRadius:12,color:"white",cursor:"pointer",display:"flex",alignItems:"center",gap:8,fontFamily:"'DM Mono',monospace",fontSize:12,fontWeight:700}}>
+                <span style={{fontSize:18}}>🏋️</span> Log Workout
+              </button>
+            </div>
+
             {!meals.length&&!workouts.length?(
               <div style={{background:T.card,border:"1px dashed "+T.border,borderRadius:18,padding:"40px 20px",textAlign:"center"}}>
                 <div style={{fontSize:40,marginBottom:12}}>🌱</div>
                 <div style={{color:T.text,fontSize:16,fontWeight:600,marginBottom:6}}>Nothing logged yet today</div>
-                <div style={{color:T.sub,fontSize:13,marginBottom:20}}>Every step counts. Start with a meal or a workout.</div>
-                <div style={{display:"flex",gap:8,justifyContent:"center"}}>
-                  <button onClick={function(){setTab("build");}} style={{padding:"11px 20px",background:T.accent,border:"none",borderRadius:10,color:"#030712",fontSize:12,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Log Meal</button>
-                  <button onClick={function(){setShowWorkoutModal(true);}} style={{padding:"11px 20px",background:T.card2,border:"1px solid "+T.border,borderRadius:10,color:T.accent,fontSize:12,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Log Workout</button>
-                </div>
+                <div style={{color:T.sub,fontSize:13}}>Use the buttons above to get started.</div>
               </div>
             ):(
               <div style={{display:"flex",flexDirection:"column",gap:8}}>
                 {workouts.map(function(wk){return(
                   <div key={wk.id} className="mcard" style={{background:T.card,border:"1px solid #f97316",borderRadius:14,padding:"12px 14px",display:"flex",alignItems:"center",gap:12}}>
-                    <div style={{width:28,height:28,borderRadius:8,background:"rgba(249,115,22,.15)",border:"1px solid #f97316",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:15}}>{wk.emoji}</div>
+                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(249,115,22,.15)",border:"1px solid #f97316",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:18}}>{wk.emoji}</div>
                     <div style={{flex:1}}>
                       <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline"}}>
-                        <span style={{fontWeight:600,fontSize:14,color:T.text}}>{wk.label}</span>
+                        <span style={{fontWeight:700,fontSize:15,color:T.text}}>{wk.label}</span>
                         <span style={{fontFamily:"'DM Mono',monospace",fontSize:10,color:T.sub}}>{wk.time}</span>
                       </div>
                       <div style={{display:"flex",gap:8,marginTop:3,flexWrap:"wrap"}}>
-                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:"#f97316",fontWeight:700}}>-{wk.burned} kcal burned</span>
+                        <span style={{fontSize:12,fontFamily:"'DM Mono',monospace",color:"#f97316",fontWeight:700}}>🔥 {wk.burned} kcal burned</span>
                         <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.sub}}>{wk.duration} min · {wk.intensity}</span>
                       </div>
                       {wk.notes&&<div style={{fontSize:11,color:T.faint,fontStyle:"italic",marginTop:2}}>{wk.notes}</div>}
@@ -1142,6 +1196,7 @@ export default function App(){
                     <button className="delbtn" onClick={function(){setWorkouts(function(p){return p.filter(function(w){return w.id!==wk.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:6,width:28,height:28,cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>x</button>
                   </div>
                 );})}
+
                 {meals.map(function(meal,idx){return(
                   <div key={meal.id} className="mcard" style={{background:T.card,border:"1px solid "+T.border,borderRadius:14,padding:"12px 14px",display:"flex",alignItems:"flex-start",gap:12}}>
                     <div style={{width:28,height:28,borderRadius:8,background:T.card2,border:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontFamily:"'DM Mono',monospace",fontSize:11,color:T.faint}}>{idx+1}</div>
@@ -1163,6 +1218,7 @@ export default function App(){
                     <button className="delbtn" onClick={function(){setMeals(function(p){return p.filter(function(m){return m.id!==meal.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:6,width:28,height:28,cursor:"pointer",fontSize:14,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>x</button>
                   </div>
                 );})}
+
                 <div style={{background:netCal>goals.calories?"rgba(251,146,60,0.1)":"rgba(52,211,153,0.08)",border:"1px solid "+(netCal>goals.calories?"rgba(251,146,60,0.4)":"rgba(52,211,153,0.3)"),borderRadius:14,padding:"12px 16px"}}>
                   <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
                     <div style={{fontSize:10,color:netCal>goals.calories?"#fb923c":"#34d399",fontFamily:"'DM Mono',monospace"}}>{netCal>goals.calories?"A little over today":"Today's summary"}</div>
@@ -1184,6 +1240,7 @@ export default function App(){
           </div>
         )}
 
+        {/* ═══ BUILD TAB ═══ */}
         {tab==="build"&&(
           <div style={{display:"flex",flexDirection:"column",gap:12,marginTop:8}}>
             <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px"}}>
@@ -1283,11 +1340,12 @@ export default function App(){
           </div>
         )}
 
+        {/* ═══ PET TAB ═══ */}
         {tab==="pet"&&(
           <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:8}}>
             {!activePetId?(
               <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"40px 20px",textAlign:"center"}}>
-                <div style={{fontSize:48,marginBottom:16}}>🌑·</div>
+                <div style={{fontSize:48,marginBottom:16}}>✨</div>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:8}}>Meet your companion!</div>
                 <div style={{fontSize:13,color:T.sub,marginBottom:20,lineHeight:1.6}}>10 unique creatures. Each with 5 forms. Each one grows as you do.</div>
                 <button onClick={function(){setShowPetPick(true);}} style={{padding:"14px 32px",background:T.accent,border:"none",borderRadius:12,color:"#030712",fontSize:14,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Choose Your Companion</button>
@@ -1295,8 +1353,8 @@ export default function App(){
             ):(
               <div style={{display:"flex",flexDirection:"column",gap:14}}>
                 <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"24px 20px",textAlign:"center"}}>
-                  <div className="pf" style={{marginBottom:10,display:"flex",justifyContent:"center"}}>
-                    {petStage?renderArt(petStage.Art,80):renderArt(activePet.stages[0].Art,80)}
+                  <div className="pf" style={{marginBottom:12,display:"flex",justifyContent:"center",background:T.card2,borderRadius:20,padding:16,width:96,height:96,margin:"0 auto 12px"}}>
+                    {renderArt(petStage?petStage.Art:activePet.stages[0].Art,80)}
                   </div>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:700,color:activePet.color,marginBottom:2}}>{activePetName}</div>
                   <div style={{fontSize:14,fontWeight:600,color:activePet.color,opacity:0.8,marginBottom:4}}>{petStage?petStage.form:"Newborn"}</div>
@@ -1326,7 +1384,7 @@ export default function App(){
                     var isCur=petLvl.level>=stage.level&&(i===activePet.stages.length-1||petLvl.level<activePet.stages[i+1].level);
                     return(
                       <div key={i} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 0",borderBottom:i<activePet.stages.length-1?"1px solid "+T.border:"none",opacity:unlocked?1:0.35}}>
-                        <div style={{flexShrink:0,width:50,display:"flex",alignItems:"center",justifyContent:"center"}}>
+                        <div style={{flexShrink:0,width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",background:T.card2,borderRadius:12,border:"1px solid "+T.border}}>
                           {renderArt(stage.Art,44)}
                         </div>
                         <div style={{flex:1}}>
@@ -1368,29 +1426,28 @@ export default function App(){
 
       </div>
 
+      {/* BOTTOM NAV */}
       <div style={{position:"fixed",bottom:0,left:0,right:0,background:T.bg,borderTop:"1px solid "+T.border,display:"flex",zIndex:60,maxWidth:520,margin:"0 auto"}}>
         {[
-          {id:"home",  label:"HOME", emoji:"🏠",  big:false},
-          {id:"log",   label:"LOG",  emoji:"📋",  big:false},
-          {id:"build", label:"MEAL", emoji:"+",   big:true},
-          {id:"pet",   label:"PET",  emoji:null,  big:false},
+          {id:"home",  label:"HOME",  emoji:"🏠",  big:false},
+          {id:"log",   label:"LOG",   emoji:"📋",  big:false},
+          {id:"build", label:"MEAL",  emoji:"+",   big:true},
+          {id:"pet",   label:"PET",   emoji:null,  big:false},
         ].map(function(nav){
           if(nav.big)return(
             <div key={nav.id} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:2}}>
               <button onClick={function(){setTab("build");}} style={{width:44,height:44,borderRadius:14,background:T.accent,border:"none",fontSize:22,fontWeight:700,color:"#030712",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 16px "+T.accent+"44",transform:tab==="build"?"scale(0.93)":"scale(1)",transition:"transform .15s"}}>+</button>
-              <button onClick={function(){setShowWorkoutModal(true);}} style={{fontSize:8,fontFamily:"'DM Mono',monospace",fontWeight:600,color:T.faint,background:"transparent",border:"none",cursor:"pointer",padding:"0 4px"}}>+ WORKOUT</button>
+              <span style={{fontSize:8,fontFamily:"'DM Mono',monospace",fontWeight:600,color:T.faint}}>MEAL</span>
             </div>
           );
-          if(nav.id==="pet"){
-            return(
-              <button key={nav.id} style={navSt(tab==="pet")} onClick={function(){setTab("pet");}}>
-                <span style={{display:"flex",alignItems:"center",justifyContent:"center",height:20}}>
-                  {activePetId&&petStage?renderArt(petStage.Art,20):<span style={{fontSize:14}}>{activePetId?"●":"○"}</span>}
-                </span>
-                <span>PET</span>
-              </button>
-            );
-          }
+          if(nav.id==="pet")return(
+            <button key={nav.id} style={navSt(tab==="pet")} onClick={function(){setTab("pet");}}>
+              <span style={{display:"flex",alignItems:"center",justifyContent:"center",height:20}}>
+                {activePetId&&petStage?renderArt(petStage.Art,20):<span style={{fontSize:14}}>{activePetId?"●":"○"}</span>}
+              </span>
+              <span>PET</span>
+            </button>
+          );
           return(
             <button key={nav.id} style={navSt(tab===nav.id)} onClick={function(){setTab(nav.id);}}>
               <span style={{fontSize:17,lineHeight:1.2}}>{nav.emoji}</span>
