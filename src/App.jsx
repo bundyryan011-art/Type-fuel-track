@@ -20,159 +20,134 @@ const THEMES = [
   { id:"golden",   label:"Golden",    bg:"#1a1200", card:"#2a1e00", card2:"#3a2c00", border:"#7a5a00", text:"#fff7d6", sub:"#d4aa40", faint:"#6a4800", accent:"#fbbf24" },
 ];
 
-// ═══════════════════════════════════════════════════
-// PET ART — Bold geometric designs, premium feel
-// ═══════════════════════════════════════════════════
-
-// EMBER — A living flame that grows into a sun
 function EmberS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em1g" cx="50%" cy="70%" r="50%"><stop offset="0%" stopColor="#f97316"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><ellipse cx="50" cy="62" rx="18" ry="14" fill="url(#em1g)"/><path d="M50 20 Q44 38 50 48 Q56 38 50 20Z" fill="#f97316"/><path d="M50 28 Q46 40 50 48 Q54 40 50 28Z" fill="#fbbf24"/><circle cx="50" cy="50" r="4" fill="#fef3c7"/></svg>);}
 function EmberS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em2g" cx="50%" cy="60%" r="55%"><stop offset="0%" stopColor="#fb923c"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><ellipse cx="50" cy="65" rx="22" ry="16" fill="url(#em2g)"/><path d="M50 15 Q40 35 44 52 Q50 44 56 52 Q60 35 50 15Z" fill="#f97316"/><path d="M38 28 Q34 44 40 54 Q44 46 48 54 Q44 36 38 28Z" fill="#fb923c" opacity="0.8"/><path d="M62 28 Q66 44 60 54 Q56 46 52 54 Q56 36 62 28Z" fill="#fb923c" opacity="0.8"/><path d="M50 22 Q46 38 50 48 Q54 38 50 22Z" fill="#fbbf24"/><circle cx="50" cy="50" r="5" fill="#fef3c7"/></svg>);}
 function EmberS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em3g" cx="50%" cy="55%" r="55%"><stop offset="0%" stopColor="#f97316"/><stop offset="100%" stopColor="#431407"/></radialGradient></defs><circle cx="50" cy="55" r="28" fill="url(#em3g)"/><path d="M50 10 Q40 30 44 48 Q50 40 56 48 Q60 30 50 10Z" fill="#fb923c"/><path d="M32 22 Q24 40 30 56 Q36 48 40 56 Q34 36 32 22Z" fill="#f97316" opacity="0.9"/><path d="M68 22 Q76 40 70 56 Q64 48 60 56 Q66 36 68 22Z" fill="#f97316" opacity="0.9"/><path d="M50 16 Q46 34 50 46 Q54 34 50 16Z" fill="#fbbf24"/><circle cx="50" cy="50" r="9" fill="#fef3c7"/><circle cx="50" cy="50" r="5" fill="white"/></svg>);}
 function EmberS4(p){var s=p.size||80;var rays=[0,45,90,135,180,225,270,315];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="50%" stopColor="#f97316"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#em4g)"/>{rays.map(function(deg,i){var r=deg*Math.PI/180;var l=i%2===0?16:10;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke="#fbbf24" strokeWidth={i%2===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="14" fill="#fef3c7"/><circle cx="50" cy="50" r="7" fill="white"/><circle cx="44" cy="46" r="3" fill="#7c2d12"/><circle cx="56" cy="46" r="3" fill="#7c2d12"/><path d="M42 56 Q50 62 58 56" stroke="#f97316" strokeWidth="2" fill="none"/></svg>);}
 function EmberS5(p){var s=p.size||80;var rays=Array.from({length:16},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#fef3c7"/><stop offset="60%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="36" fill="url(#em5g)" opacity="0.3"/><circle cx="50" cy="50" r="28" fill="url(#em5g)"/>{rays.map(function(i){var r=i*22.5*Math.PI/180;var l=i%4===0?22:i%2===0?15:10;return <line key={i} x1={50+Math.cos(r)*26} y1={50+Math.sin(r)*26} x2={50+Math.cos(r)*(26+l)} y2={50+Math.sin(r)*(26+l)} stroke={i%2===0?"#fbbf24":"#fb923c"} strokeWidth={i%4===0?3.5:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="13" fill="white"/><circle cx="44" cy="46" r="4" fill="#92400e"/><circle cx="56" cy="46" r="4" fill="#92400e"/><circle cx="44.5" cy="45.5" r="1.5" fill="white"/><circle cx="56.5" cy="45.5" r="1.5" fill="white"/><path d="M40 57 Q50 65 60 57" stroke="#f97316" strokeWidth="2.5" fill="none"/></svg>);}
-
-// VOID — A black hole creature that warps reality
 function VoidS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><circle cx="50" cy="50" r="20" fill="url(#vo1g)"/><circle cx="50" cy="50" r="8" fill="#0a0010"/><circle cx="50" cy="50" r="20" fill="none" stroke="#7c3aed" strokeWidth="1" opacity="0.5"/></svg>);}
-function VoidS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#7c3aed"/><stop offset="60%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="36" ry="12" fill="url(#vo2g)" opacity="0.6"/><circle cx="50" cy="50" r="22" fill="url(#vo2g)"/><circle cx="50" cy="50" r="22" fill="none" stroke="#a78bfa" strokeWidth="0.8" opacity="0.7"/><ellipse cx="50" cy="50" rx="36" ry="12" fill="none" stroke="#7c3aed" strokeWidth="1.5"/><circle cx="50" cy="50" r="10" fill="#0a0010"/><circle cx="50" cy="50" r="4" fill="#4c1d95"/></svg>);}
-function VoidS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#8b5cf6"/><stop offset="50%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="44" ry="14" fill="#4c1d95" opacity="0.4"/><ellipse cx="50" cy="50" rx="44" ry="14" fill="none" stroke="#7c3aed" strokeWidth="2"/><circle cx="50" cy="50" r="26" fill="url(#vo3g)"/><circle cx="50" cy="50" r="14" fill="#0a0010"/><circle cx="50" cy="50" r="6" fill="#6d28d9"/><circle cx="44" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/><circle cx="56" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/><path d="M43 56 Q50 60 57 56" stroke="#a78bfa" strokeWidth="1.5" fill="none"/></svg>);}
-function VoidS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#a78bfa"/><stop offset="40%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="46" ry="16" fill="#3b0764" opacity="0.5"/><ellipse cx="50" cy="50" rx="46" ry="16" fill="none" stroke="#8b5cf6" strokeWidth="2.5"/><ellipse cx="50" cy="50" rx="36" ry="10" fill="none" stroke="#a78bfa" strokeWidth="1" opacity="0.6"/><circle cx="50" cy="50" r="28" fill="url(#vo4g)"/><circle cx="50" cy="50" r="16" fill="#0a0010"/><circle cx="50" cy="50" r="7" fill="#4c1d95"/><circle cx="43" cy="45" r="4" fill="#ddd6fe"/><circle cx="57" cy="45" r="4" fill="#ddd6fe"/><circle cx="43" cy="45" r="2" fill="#0a0010"/><circle cx="57" cy="45" r="2" fill="#0a0010"/><path d="M42 56 Q50 62 58 56" stroke="#c4b5fd" strokeWidth="2" fill="none"/></svg>);}
-function VoidS5(p){var s=p.size||80;var particles=[[14,26],[86,26],[8,50],[92,50],[14,74],[86,74],[30,10],[70,10]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="30%" stopColor="#8b5cf6"/><stop offset="70%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="48" ry="18" fill="#2e1065" opacity="0.6"/><ellipse cx="50" cy="50" rx="48" ry="18" fill="none" stroke="#a78bfa" strokeWidth="3"/><ellipse cx="50" cy="50" rx="38" ry="12" fill="none" stroke="#c4b5fd" strokeWidth="1.5" opacity="0.7"/><circle cx="50" cy="50" r="30" fill="url(#vo5g)"/><circle cx="50" cy="50" r="18" fill="#0a0010"/><circle cx="50" cy="50" r="8" fill="#4c1d95"/>{particles.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?2:1.5} fill="#c4b5fd" opacity={0.8-i*0.05}/>;})}<circle cx="43" cy="44" r="5" fill="#ede9fe"/><circle cx="57" cy="44" r="5" fill="#ede9fe"/><circle cx="43" cy="44" r="2.5" fill="#0a0010"/><circle cx="57" cy="44" r="2.5" fill="#0a0010"/><circle cx="44" cy="43" r="1" fill="white"/><circle cx="58" cy="43" r="1" fill="white"/><path d="M40 57 Q50 65 60 57" stroke="#c4b5fd" strokeWidth="2.5" fill="none"/></svg>);}
-
-// IRONCLAD — A mechanical titan
+function VoidS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#7c3aed"/><stop offset="60%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="36" ry="12" fill="url(#vo2g)" opacity="0.6"/><circle cx="50" cy="50" r="22" fill="url(#vo2g)"/><ellipse cx="50" cy="50" rx="36" ry="12" fill="none" stroke="#7c3aed" strokeWidth="1.5"/><circle cx="50" cy="50" r="10" fill="#0a0010"/><circle cx="50" cy="50" r="4" fill="#4c1d95"/></svg>);}
+function VoidS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#8b5cf6"/><stop offset="50%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="44" ry="14" fill="#4c1d95" opacity="0.4"/><ellipse cx="50" cy="50" rx="44" ry="14" fill="none" stroke="#7c3aed" strokeWidth="2"/><circle cx="50" cy="50" r="26" fill="url(#vo3g)"/><circle cx="50" cy="50" r="14" fill="#0a0010"/><circle cx="50" cy="50" r="6" fill="#6d28d9"/><circle cx="44" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/><circle cx="56" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/></svg>);}
+function VoidS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#a78bfa"/><stop offset="40%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="46" ry="16" fill="#3b0764" opacity="0.5"/><ellipse cx="50" cy="50" rx="46" ry="16" fill="none" stroke="#8b5cf6" strokeWidth="2.5"/><circle cx="50" cy="50" r="28" fill="url(#vo4g)"/><circle cx="50" cy="50" r="16" fill="#0a0010"/><circle cx="43" cy="45" r="4" fill="#ddd6fe"/><circle cx="57" cy="45" r="4" fill="#ddd6fe"/><circle cx="43" cy="45" r="2" fill="#0a0010"/><circle cx="57" cy="45" r="2" fill="#0a0010"/></svg>);}
+function VoidS5(p){var s=p.size||80;var particles=[[14,26],[86,26],[8,50],[92,50],[14,74],[86,74],[30,10],[70,10]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="30%" stopColor="#8b5cf6"/><stop offset="70%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="48" ry="18" fill="#2e1065" opacity="0.6"/><ellipse cx="50" cy="50" rx="48" ry="18" fill="none" stroke="#a78bfa" strokeWidth="3"/><circle cx="50" cy="50" r="30" fill="url(#vo5g)"/><circle cx="50" cy="50" r="18" fill="#0a0010"/>{particles.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?2:1.5} fill="#c4b5fd" opacity={0.8-i*0.05}/>;})}<circle cx="43" cy="44" r="5" fill="#ede9fe"/><circle cx="57" cy="44" r="5" fill="#ede9fe"/><circle cx="43" cy="44" r="2.5" fill="#0a0010"/><circle cx="57" cy="44" r="2.5" fill="#0a0010"/><path d="M40 57 Q50 65 60 57" stroke="#c4b5fd" strokeWidth="2.5" fill="none"/></svg>);}
 function IronS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><rect x="34" y="30" width="32" height="40" rx="3" fill="#374151" stroke="#6b7280" strokeWidth="1.5"/><rect x="34" y="30" width="32" height="10" rx="2" fill="#4b5563"/><rect x="38" y="44" width="10" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/><rect x="52" y="44" width="10" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/><rect x="40" y="62" width="20" height="6" rx="1" fill="#4b5563"/><rect x="26" y="34" width="10" height="24" rx="2" fill="#374151" stroke="#6b7280" strokeWidth="1"/><rect x="64" y="34" width="10" height="24" rx="2" fill="#374151" stroke="#6b7280" strokeWidth="1"/></svg>);}
-function IronS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><rect x="28" y="24" width="44" height="54" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="2"/><rect x="28" y="24" width="44" height="12" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1"/><rect x="33" y="40" width="14" height="14" rx="2" fill="#1f2937" stroke="#6b7280" strokeWidth="1.2"/><rect x="53" y="40" width="14" height="14" rx="2" fill="#1f2937" stroke="#6b7280" strokeWidth="1.2"/><circle cx="40" cy="47" r="4" fill="#6b7280"/><circle cx="60" cy="47" r="4" fill="#6b7280"/><circle cx="40" cy="47" r="2" fill="#9ca3af"/><circle cx="60" cy="47" r="2" fill="#9ca3af"/><rect x="34" y="60" width="32" height="10" rx="2" fill="#4b5563"/><rect x="38" y="63" width="4" height="4" rx="1" fill="#6b7280"/><rect x="46" y="63" width="4" height="4" rx="1" fill="#6b7280"/><rect x="54" y="63" width="4" height="4" rx="1" fill="#6b7280"/><rect x="18" y="28" width="12" height="34" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1.5"/><rect x="70" y="28" width="12" height="34" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1.5"/></svg>);}
-function IronS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir3g" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#4b5563"/><stop offset="100%" stopColor="#1f2937"/></linearGradient></defs><rect x="22" y="18" width="56" height="66" rx="6" fill="url(#ir3g)" stroke="#9ca3af" strokeWidth="2"/><rect x="22" y="18" width="56" height="14" rx="5" fill="#374151" stroke="#6b7280" strokeWidth="1"/><rect x="28" y="36" width="18" height="18" rx="3" fill="#111827" stroke="#6b7280" strokeWidth="1.5"/><rect x="54" y="36" width="18" height="18" rx="3" fill="#111827" stroke="#6b7280" strokeWidth="1.5"/><circle cx="37" cy="45" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="63" cy="45" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="37" cy="45" r="3" fill="#d1d5db"/><circle cx="63" cy="45" r="3" fill="#d1d5db"/><rect x="28" y="60" width="44" height="18" rx="3" fill="#374151"/><rect x="32" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="42" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="52" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="62" y="64" width="6" height="10" rx="1" fill="#1f2937" stroke="#6b7280" strokeWidth="0.8"/><rect x="10" y="22" width="14" height="44" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><rect x="76" y="22" width="14" height="44" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/></svg>);}
-function IronS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir4g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#6b7280"/><stop offset="100%" stopColor="#111827"/></linearGradient></defs><polygon points="50,8 78,22 82,55 65,80 35,80 18,55 22,22" fill="url(#ir4g)" stroke="#d1d5db" strokeWidth="2"/><polygon points="50,16 72,27 76,55 62,74 38,74 24,55 28,27" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/><rect x="34" y="32" width="14" height="14" rx="2" fill="#111827" stroke="#9ca3af" strokeWidth="1.5"/><rect x="52" y="32" width="14" height="14" rx="2" fill="#111827" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="41" cy="39" r="5" fill="#374151" stroke="#d1d5db" strokeWidth="1.5"/><circle cx="59" cy="39" r="5" fill="#374151" stroke="#d1d5db" strokeWidth="1.5"/><circle cx="41" cy="39" r="2.5" fill="#f3f4f6"/><circle cx="59" cy="39" r="2.5" fill="#f3f4f6"/><rect x="32" y="52" width="36" height="14" rx="2" fill="#111827"/><rect x="36" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/><rect x="44" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/><rect x="52" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/><rect x="60" y="56" width="5" height="6" rx="1" fill="#374151" stroke="#6b7280" strokeWidth="0.8"/></svg>);}
-function IronS5(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir5g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#9ca3af"/><stop offset="50%" stopColor="#374151"/><stop offset="100%" stopColor="#111827"/></linearGradient></defs><polygon points="50,4 82,18 88,52 70,84 30,84 12,52 18,18" fill="url(#ir5g)" stroke="#f3f4f6" strokeWidth="2.5"/><polygon points="50,12 76,24 82,54 66,80 34,80 18,54 24,24" fill="#1f2937" stroke="#9ca3af" strokeWidth="1.5"/><polygon points="50,20 70,30 74,54 60,72 40,72 26,54 30,30" fill="#111827" stroke="#6b7280" strokeWidth="1"/><rect x="32" y="30" width="16" height="16" rx="2" fill="#0a0a0a" stroke="#d1d5db" strokeWidth="2"/><rect x="52" y="30" width="16" height="16" rx="2" fill="#0a0a0a" stroke="#d1d5db" strokeWidth="2"/><circle cx="40" cy="38" r="6" fill="#374151" stroke="#f3f4f6" strokeWidth="2"/><circle cx="60" cy="38" r="6" fill="#374151" stroke="#f3f4f6" strokeWidth="2"/><circle cx="40" cy="38" r="3" fill="white"/><circle cx="60" cy="38" r="3" fill="white"/><circle cx="40" cy="38" r="1.5" fill="#111827"/><circle cx="60" cy="38" r="1.5" fill="#111827"/><rect x="30" y="52" width="40" height="16" rx="3" fill="#0a0a0a" stroke="#9ca3af" strokeWidth="1.5"/><rect x="34" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/><rect x="44" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/><rect x="54" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/><rect x="64" y="56" width="6" height="8" rx="1" fill="#1f2937" stroke="#6b7280"/></svg>);}
-
-// AURORA — A crystalline ice being
+function IronS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><rect x="28" y="24" width="44" height="54" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="2"/><rect x="28" y="24" width="44" height="12" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1"/><rect x="33" y="40" width="14" height="14" rx="2" fill="#1f2937" stroke="#6b7280" strokeWidth="1.2"/><rect x="53" y="40" width="14" height="14" rx="2" fill="#1f2937" stroke="#6b7280" strokeWidth="1.2"/><circle cx="40" cy="47" r="4" fill="#6b7280"/><circle cx="60" cy="47" r="4" fill="#6b7280"/><circle cx="40" cy="47" r="2" fill="#9ca3af"/><circle cx="60" cy="47" r="2" fill="#9ca3af"/><rect x="18" y="28" width="12" height="34" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1.5"/><rect x="70" y="28" width="12" height="34" rx="3" fill="#4b5563" stroke="#6b7280" strokeWidth="1.5"/></svg>);}
+function IronS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir3g" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#4b5563"/><stop offset="100%" stopColor="#1f2937"/></linearGradient></defs><rect x="22" y="18" width="56" height="66" rx="6" fill="url(#ir3g)" stroke="#9ca3af" strokeWidth="2"/><rect x="22" y="18" width="56" height="14" rx="5" fill="#374151" stroke="#6b7280" strokeWidth="1"/><rect x="28" y="36" width="18" height="18" rx="3" fill="#111827" stroke="#6b7280" strokeWidth="1.5"/><rect x="54" y="36" width="18" height="18" rx="3" fill="#111827" stroke="#6b7280" strokeWidth="1.5"/><circle cx="37" cy="45" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="63" cy="45" r="6" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="37" cy="45" r="3" fill="#d1d5db"/><circle cx="63" cy="45" r="3" fill="#d1d5db"/><rect x="10" y="22" width="14" height="44" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/><rect x="76" y="22" width="14" height="44" rx="4" fill="#374151" stroke="#9ca3af" strokeWidth="1.5"/></svg>);}
+function IronS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir4g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#6b7280"/><stop offset="100%" stopColor="#111827"/></linearGradient></defs><polygon points="50,8 78,22 82,55 65,80 35,80 18,55 22,22" fill="url(#ir4g)" stroke="#d1d5db" strokeWidth="2"/><polygon points="50,16 72,27 76,55 62,74 38,74 24,55 28,27" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/><circle cx="41" cy="39" r="5" fill="#374151" stroke="#d1d5db" strokeWidth="1.5"/><circle cx="59" cy="39" r="5" fill="#374151" stroke="#d1d5db" strokeWidth="1.5"/><circle cx="41" cy="39" r="2.5" fill="#f3f4f6"/><circle cx="59" cy="39" r="2.5" fill="#f3f4f6"/><rect x="32" y="52" width="36" height="14" rx="2" fill="#111827"/></svg>);}
+function IronS5(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ir5g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#9ca3af"/><stop offset="50%" stopColor="#374151"/><stop offset="100%" stopColor="#111827"/></linearGradient></defs><polygon points="50,4 82,18 88,52 70,84 30,84 12,52 18,18" fill="url(#ir5g)" stroke="#f3f4f6" strokeWidth="2.5"/><polygon points="50,12 76,24 82,54 66,80 34,80 18,54 24,24" fill="#1f2937" stroke="#9ca3af" strokeWidth="1.5"/><circle cx="40" cy="38" r="6" fill="#374151" stroke="#f3f4f6" strokeWidth="2"/><circle cx="60" cy="38" r="6" fill="#374151" stroke="#f3f4f6" strokeWidth="2"/><circle cx="40" cy="38" r="3" fill="white"/><circle cx="60" cy="38" r="3" fill="white"/><circle cx="40" cy="38" r="1.5" fill="#111827"/><circle cx="60" cy="38" r="1.5" fill="#111827"/><rect x="30" y="52" width="40" height="16" rx="3" fill="#0a0a0a" stroke="#9ca3af" strokeWidth="1.5"/></svg>);}
 function AuroraS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#bae6fd"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,22 62,44 50,66 38,44" fill="url(#au1g)"/><polygon points="50,22 62,44 50,66 38,44" fill="none" stroke="#e0f2fe" strokeWidth="1" opacity="0.7"/></svg>);}
-function AuroraS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#e0f2fe"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><polygon points="50,14 70,36 70,64 50,78 30,64 30,36" fill="url(#au2g)"/><polygon points="50,14 70,36 70,64 50,78 30,64 30,36" fill="none" stroke="#bae6fd" strokeWidth="1.5"/><polygon points="50,26 62,42 62,58 50,66 38,58 38,42" fill="none" stroke="#e0f2fe" strokeWidth="1" opacity="0.8"/><circle cx="44" cy="44" r="3" fill="#0284c7" opacity="0.8"/><circle cx="56" cy="44" r="3" fill="#0284c7" opacity="0.8"/></svg>);}
-function AuroraS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#f0f9ff"/><stop offset="50%" stopColor="#38bdf8"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,10 72,28 80,54 66,76 34,76 20,54 28,28" fill="url(#au3g)"/><polygon points="50,10 72,28 80,54 66,76 34,76 20,54 28,28" fill="none" stroke="#e0f2fe" strokeWidth="2"/><polygon points="50,22 64,36 70,54 60,68 40,68 30,54 36,36" fill="none" stroke="#bae6fd" strokeWidth="1" opacity="0.8"/><line x1="50" y1="10" x2="50" y2="76" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.5"/><line x1="20" y1="54" x2="80" y2="54" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.5"/><circle cx="43" cy="42" r="4" fill="#0369a1"/><circle cx="57" cy="42" r="4" fill="#0369a1"/><circle cx="43" cy="42" r="2" fill="#e0f2fe"/><circle cx="57" cy="42" r="2" fill="#e0f2fe"/><path d="M42 56 Q50 62 58 56" stroke="#bae6fd" strokeWidth="2" fill="none"/></svg>);}
-function AuroraS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#7dd3fc"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><polygon points="50,6 76,22 84,50 76,78 50,88 24,78 16,50 24,22" fill="url(#au4g)"/><polygon points="50,6 76,22 84,50 76,78 50,88 24,78 16,50 24,22" fill="none" stroke="#e0f2fe" strokeWidth="2"/><polygon points="50,18 68,30 74,50 68,70 50,78 32,70 26,50 32,30" fill="none" stroke="#bae6fd" strokeWidth="1.5" opacity="0.7"/><line x1="50" y1="6" x2="50" y2="88" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><line x1="16" y1="50" x2="84" y2="50" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><line x1="24" y1="22" x2="76" y2="78" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><line x1="76" y1="22" x2="24" y2="78" stroke="#e0f2fe" strokeWidth="0.8" opacity="0.4"/><circle cx="42" cy="42" r="5" fill="#0284c7"/><circle cx="58" cy="42" r="5" fill="#0284c7"/><circle cx="42" cy="42" r="2.5" fill="white"/><circle cx="58" cy="42" r="2.5" fill="white"/><path d="M40 58 Q50 66 60 58" stroke="#7dd3fc" strokeWidth="2.5" fill="none"/></svg>);}
-function AuroraS5(p){var s=p.size||80;var spikes=[0,45,90,135,180,225,270,315];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#bae6fd"/><stop offset="70%" stopColor="#0ea5e9"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,4 80,20 88,50 80,80 50,92 20,80 12,50 20,20" fill="url(#au5g)"/><polygon points="50,4 80,20 88,50 80,80 50,92 20,80 12,50 20,20" fill="none" stroke="#e0f2fe" strokeWidth="2.5"/>{spikes.map(function(deg,i){var r=deg*Math.PI/180;var l=i%2===0?10:6;var x1=50+Math.cos(r)*42;var y1=50+Math.sin(r)*42;return <line key={i} x1={x1} y1={y1} x2={50+Math.cos(r)*(42+l)} y2={50+Math.sin(r)*(42+l)} stroke="#bae6fd" strokeWidth={i%2===0?2:1.5} strokeLinecap="round"/>;})}<polygon points="50,16 72,28 78,50 72,72 50,80 28,72 22,50 28,28" fill="none" stroke="#7dd3fc" strokeWidth="1.5" opacity="0.6"/><circle cx="42" cy="42" r="6" fill="#0284c7"/><circle cx="58" cy="42" r="6" fill="#0284c7"/><circle cx="42" cy="42" r="3" fill="white"/><circle cx="58" cy="42" r="3" fill="white"/><circle cx="42" cy="41" r="1.2" fill="#0369a1"/><circle cx="58" cy="41" r="1.2" fill="#0369a1"/><path d="M38 60 Q50 70 62 60" stroke="#bae6fd" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2" fill="#7dd3fc"/><circle cx="62" cy="60" r="2" fill="#7dd3fc"/></svg>);}
-
-// VENOM — A toxic serpentine creature
+function AuroraS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#e0f2fe"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><polygon points="50,14 70,36 70,64 50,78 30,64 30,36" fill="url(#au2g)"/><polygon points="50,14 70,36 70,64 50,78 30,64 30,36" fill="none" stroke="#bae6fd" strokeWidth="1.5"/><circle cx="44" cy="44" r="3" fill="#0284c7" opacity="0.8"/><circle cx="56" cy="44" r="3" fill="#0284c7" opacity="0.8"/></svg>);}
+function AuroraS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#f0f9ff"/><stop offset="50%" stopColor="#38bdf8"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,10 72,28 80,54 66,76 34,76 20,54 28,28" fill="url(#au3g)"/><polygon points="50,10 72,28 80,54 66,76 34,76 20,54 28,28" fill="none" stroke="#e0f2fe" strokeWidth="2"/><circle cx="43" cy="42" r="4" fill="#0369a1"/><circle cx="57" cy="42" r="4" fill="#0369a1"/><circle cx="43" cy="42" r="2" fill="#e0f2fe"/><circle cx="57" cy="42" r="2" fill="#e0f2fe"/></svg>);}
+function AuroraS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#7dd3fc"/><stop offset="100%" stopColor="#0284c7"/></radialGradient></defs><polygon points="50,6 76,22 84,50 76,78 50,88 24,78 16,50 24,22" fill="url(#au4g)"/><polygon points="50,6 76,22 84,50 76,78 50,88 24,78 16,50 24,22" fill="none" stroke="#e0f2fe" strokeWidth="2"/><circle cx="42" cy="42" r="5" fill="#0284c7"/><circle cx="58" cy="42" r="5" fill="#0284c7"/><circle cx="42" cy="42" r="2.5" fill="white"/><circle cx="58" cy="42" r="2.5" fill="white"/><path d="M40 58 Q50 66 60 58" stroke="#7dd3fc" strokeWidth="2.5" fill="none"/></svg>);}
+function AuroraS5(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="au5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#bae6fd"/><stop offset="70%" stopColor="#0ea5e9"/><stop offset="100%" stopColor="#0369a1"/></radialGradient></defs><polygon points="50,4 80,20 88,50 80,80 50,92 20,80 12,50 20,20" fill="url(#au5g)"/><polygon points="50,4 80,20 88,50 80,80 50,92 20,80 12,50 20,20" fill="none" stroke="#e0f2fe" strokeWidth="2.5"/><circle cx="42" cy="42" r="6" fill="#0284c7"/><circle cx="58" cy="42" r="6" fill="#0284c7"/><circle cx="42" cy="42" r="3" fill="white"/><circle cx="58" cy="42" r="3" fill="white"/><path d="M38 60 Q50 70 62 60" stroke="#bae6fd" strokeWidth="3" fill="none"/></svg>);}
 function VenomS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#4ade80"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 20 Q58 32 60 48 Q58 62 50 70 Q42 62 40 48 Q42 32 50 20Z" fill="url(#vn1g)"/><circle cx="44" cy="44" r="2.5" fill="#14532d"/><circle cx="56" cy="44" r="2.5" fill="#14532d"/></svg>);}
-function VenomS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#86efac"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 14 Q64 26 68 44 Q68 62 56 74 Q50 80 44 74 Q32 62 32 44 Q36 26 50 14Z" fill="url(#vn2g)"/><path d="M50 14 Q54 10 58 14 Q54 20 50 18Z" fill="#4ade80"/><path d="M50 14 Q46 10 42 14 Q46 20 50 18Z" fill="#4ade80"/><circle cx="43" cy="40" r="4" fill="#14532d"/><circle cx="57" cy="40" r="4" fill="#14532d"/><circle cx="43" cy="40" r="2" fill="#86efac"/><circle cx="57" cy="40" r="2" fill="#86efac"/><path d="M44 56 Q50 60 56 56" stroke="#14532d" strokeWidth="2" fill="none"/><path d="M48 62 L46 68 M52 62 L54 68" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round"/></svg>);}
-function VenomS3(p){var s=p.size||80;var scales=[[32,48],[68,48],[28,60],[72,60]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn3g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#bbf7d0"/><stop offset="50%" stopColor="#22c55e"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 10 Q68 20 74 40 Q78 60 64 76 Q57 84 50 86 Q43 84 36 76 Q22 60 26 40 Q32 20 50 10Z" fill="url(#vn3g)"/><path d="M50 10 Q55 4 60 8 Q56 16 50 14Z" fill="#4ade80"/><path d="M50 10 Q45 4 40 8 Q44 16 50 14Z" fill="#4ade80"/>{scales.map(function(pt,i){return <ellipse key={i} cx={pt[0]} cy={pt[1]} rx="6" ry="4" fill="#14532d" opacity="0.4"/>;})}<circle cx="42" cy="36" r="5" fill="#14532d"/><circle cx="58" cy="36" r="5" fill="#14532d"/><circle cx="42" cy="36" r="2.5" fill="#dcfce7"/><circle cx="58" cy="36" r="2.5" fill="#dcfce7"/><circle cx="42" cy="35" r="1" fill="#14532d"/><circle cx="58" cy="35" r="1" fill="#14532d"/><path d="M42 54 Q50 60 58 54" stroke="#4ade80" strokeWidth="2" fill="none"/><path d="M47 62 L44 70 M53 62 L56 70" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/></svg>);}
-function VenomS4(p){var s=p.size||80;var fins=[[18,36,true],[82,36,false],[14,56,true],[86,56,false]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn4g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#dcfce7"/><stop offset="40%" stopColor="#4ade80"/><stop offset="100%" stopColor="#052e16"/></radialGradient></defs><path d="M50 6 Q72 14 80 36 Q86 56 74 74 Q65 86 50 88 Q35 86 26 74 Q14 56 20 36 Q28 14 50 6Z" fill="url(#vn4g)"/><path d="M50 6 Q56 0 62 4 Q58 12 50 10Z" fill="#86efac"/><path d="M50 6 Q44 0 38 4 Q42 12 50 10Z" fill="#86efac"/>{fins.map(function(fin,i){var x=fin[0];var y=fin[1];var flip=fin[2];return <path key={i} d={"M"+x+" "+y+" L"+(x+(flip?-12:12))+" "+(y-8)+" L"+(x+(flip?-10:10))+" "+y+" L"+(x+(flip?-12:12))+" "+(y+8)+"Z"} fill="#22c55e" opacity="0.8"/>;})}<circle cx="41" cy="34" r="6" fill="#052e16"/><circle cx="59" cy="34" r="6" fill="#052e16"/><circle cx="41" cy="34" r="3" fill="#bbf7d0"/><circle cx="59" cy="34" r="3" fill="#bbf7d0"/><circle cx="41" cy="33" r="1.2" fill="#052e16"/><circle cx="59" cy="33" r="1.2" fill="#052e16"/><path d="M40 54 Q50 62 60 54" stroke="#86efac" strokeWidth="2.5" fill="none"/><path d="M46 64 L42 74 M54 64 L58 74" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round"/></svg>);}
-function VenomS5(p){var s=p.size||80;var fins=[[12,30,true],[88,30,false],[8,52,true],[92,52,false],[14,72,true],[86,72,false]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn5g" cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#bbf7d0"/><stop offset="50%" stopColor="#22c55e"/><stop offset="100%" stopColor="#052e16"/></radialGradient></defs><path d="M50 4 Q76 10 86 32 Q94 56 80 76 Q68 92 50 94 Q32 92 20 76 Q6 56 14 32 Q24 10 50 4Z" fill="url(#vn5g)"/><path d="M50 4 Q58 -2 64 2 Q60 12 50 8Z" fill="#4ade80"/><path d="M50 4 Q42 -2 36 2 Q40 12 50 8Z" fill="#4ade80"/>{fins.map(function(fin,i){var x=fin[0];var y=fin[1];var flip=fin[2];return <path key={i} d={"M"+x+" "+y+" L"+(x+(flip?-14:14))+" "+(y-9)+" L"+(x+(flip?-11:11))+" "+y+" L"+(x+(flip?-14:14))+" "+(y+9)+"Z"} fill="#16a34a" opacity="0.85"/>;})}<circle cx="40" cy="32" r="8" fill="#052e16"/><circle cx="60" cy="32" r="8" fill="#052e16"/><circle cx="40" cy="32" r="4.5" fill="#dcfce7"/><circle cx="60" cy="32" r="4.5" fill="#dcfce7"/><circle cx="40" cy="31" r="2" fill="#052e16"/><circle cx="60" cy="31" r="2" fill="#052e16"/><circle cx="41" cy="30" r="0.8" fill="white"/><circle cx="61" cy="30" r="0.8" fill="white"/><path d="M38 54 Q50 64 62 54" stroke="#bbf7d0" strokeWidth="3" fill="none"/><path d="M44 66 L40 78 M56 66 L60 78" stroke="#4ade80" strokeWidth="3" strokeLinecap="round"/></svg>);}
-
-// PHANTOM — A ghost/spirit creature
+function VenomS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#86efac"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 14 Q64 26 68 44 Q68 62 56 74 Q50 80 44 74 Q32 62 32 44 Q36 26 50 14Z" fill="url(#vn2g)"/><circle cx="43" cy="40" r="4" fill="#14532d"/><circle cx="57" cy="40" r="4" fill="#14532d"/><circle cx="43" cy="40" r="2" fill="#86efac"/><circle cx="57" cy="40" r="2" fill="#86efac"/><path d="M48 62 L46 68 M52 62 L54 68" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round"/></svg>);}
+function VenomS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn3g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#bbf7d0"/><stop offset="50%" stopColor="#22c55e"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><path d="M50 10 Q68 20 74 40 Q78 60 64 76 Q57 84 50 86 Q43 84 36 76 Q22 60 26 40 Q32 20 50 10Z" fill="url(#vn3g)"/><circle cx="42" cy="36" r="5" fill="#14532d"/><circle cx="58" cy="36" r="5" fill="#14532d"/><circle cx="42" cy="36" r="2.5" fill="#dcfce7"/><circle cx="58" cy="36" r="2.5" fill="#dcfce7"/><path d="M42 54 Q50 60 58 54" stroke="#4ade80" strokeWidth="2" fill="none"/><path d="M47 62 L44 70 M53 62 L56 70" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/></svg>);}
+function VenomS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn4g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#dcfce7"/><stop offset="40%" stopColor="#4ade80"/><stop offset="100%" stopColor="#052e16"/></radialGradient></defs><path d="M50 6 Q72 14 80 36 Q86 56 74 74 Q65 86 50 88 Q35 86 26 74 Q14 56 20 36 Q28 14 50 6Z" fill="url(#vn4g)"/><circle cx="41" cy="34" r="6" fill="#052e16"/><circle cx="59" cy="34" r="6" fill="#052e16"/><circle cx="41" cy="34" r="3" fill="#bbf7d0"/><circle cx="59" cy="34" r="3" fill="#bbf7d0"/><path d="M40 54 Q50 62 60 54" stroke="#86efac" strokeWidth="2.5" fill="none"/><path d="M46 64 L42 74 M54 64 L58 74" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round"/></svg>);}
+function VenomS5(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vn5g" cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#bbf7d0"/><stop offset="50%" stopColor="#22c55e"/><stop offset="100%" stopColor="#052e16"/></radialGradient></defs><path d="M50 4 Q76 10 86 32 Q94 56 80 76 Q68 92 50 94 Q32 92 20 76 Q6 56 14 32 Q24 10 50 4Z" fill="url(#vn5g)"/><circle cx="40" cy="32" r="8" fill="#052e16"/><circle cx="60" cy="32" r="8" fill="#052e16"/><circle cx="40" cy="32" r="4.5" fill="#dcfce7"/><circle cx="60" cy="32" r="4.5" fill="#dcfce7"/><path d="M38 54 Q50 64 62 54" stroke="#bbf7d0" strokeWidth="3" fill="none"/><path d="M44 66 L40 78 M56 66 L60 78" stroke="#4ade80" strokeWidth="3" strokeLinecap="round"/></svg>);}
 function PhantomS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph1g" cx="50%" cy="40%" r="50%"><stop offset="0%" stopColor="#e0e7ff"/><stop offset="100%" stopColor="#4338ca" stopOpacity="0.3"/></radialGradient></defs><path d="M30 70 Q30 30 50 22 Q70 30 70 70 Q64 64 58 70 Q52 64 50 70 Q48 64 42 70 Q36 64 30 70Z" fill="url(#ph1g)" opacity="0.9"/><circle cx="42" cy="46" r="3" fill="#312e81" opacity="0.6"/><circle cx="58" cy="46" r="3" fill="#312e81" opacity="0.6"/></svg>);}
-function PhantomS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#c7d2fe"/><stop offset="70%" stopColor="#6366f1" stopOpacity="0.5"/><stop offset="100%" stopColor="#312e81" stopOpacity="0.2"/></radialGradient></defs><path d="M26 72 Q26 26 50 18 Q74 26 74 72 Q67 64 62 72 Q57 64 54 72 Q52 66 50 72 Q48 66 46 72 Q43 64 38 72 Q33 64 26 72Z" fill="url(#ph2g)"/><circle cx="42" cy="44" r="4" fill="#312e81" opacity="0.8"/><circle cx="58" cy="44" r="4" fill="#312e81" opacity="0.8"/><circle cx="42" cy="44" r="2" fill="#e0e7ff"/><circle cx="58" cy="44" r="2" fill="#e0e7ff"/><path d="M44 60 Q50 65 56 60" stroke="#6366f1" strokeWidth="1.5" fill="none" opacity="0.8"/></svg>);}
-function PhantomS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph3g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="#e0e7ff"/><stop offset="50%" stopColor="#818cf8" stopOpacity="0.7"/><stop offset="100%" stopColor="#312e81" stopOpacity="0.3"/></radialGradient></defs><path d="M22 74 Q22 22 50 14 Q78 22 78 74 Q70 64 65 74 Q60 64 57 74 Q54 66 50 74 Q46 66 43 74 Q40 64 35 74 Q30 64 22 74Z" fill="url(#ph3g)"/><circle cx="50" cy="14" r="4" fill="#c7d2fe" opacity="0.6"/><circle cx="40" cy="42" r="5" fill="#312e81"/><circle cx="60" cy="42" r="5" fill="#312e81"/><circle cx="40" cy="42" r="2.5" fill="#e0e7ff"/><circle cx="60" cy="42" r="2.5" fill="#e0e7ff"/><path d="M42 58 Q50 65 58 58" stroke="#818cf8" strokeWidth="2" fill="none"/><circle cx="30" cy="30" r="3" fill="#6366f1" opacity="0.4"/><circle cx="70" cy="30" r="3" fill="#6366f1" opacity="0.4"/></svg>);}
-function PhantomS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph4g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#a5b4fc"/><stop offset="80%" stopColor="#4f46e5" stopOpacity="0.6"/><stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.3"/></radialGradient></defs><path d="M18 76 Q18 18 50 10 Q82 18 82 76 Q73 64 68 76 Q63 64 60 76 Q57 66 50 76 Q43 66 40 76 Q37 64 32 76 Q27 64 18 76Z" fill="url(#ph4g)"/><circle cx="30" cy="24" r="4" fill="#818cf8" opacity="0.5"/><circle cx="70" cy="24" r="4" fill="#818cf8" opacity="0.5"/><circle cx="50" cy="10" r="5" fill="#c7d2fe" opacity="0.7"/><circle cx="38" cy="40" r="6" fill="#312e81"/><circle cx="62" cy="40" r="6" fill="#312e81"/><circle cx="38" cy="40" r="3" fill="white"/><circle cx="62" cy="40" r="3" fill="white"/><circle cx="38" cy="39" r="1.5" fill="#312e81"/><circle cx="62" cy="39" r="1.5" fill="#312e81"/><path d="M40 58 Q50 67 60 58" stroke="#a5b4fc" strokeWidth="2.5" fill="none"/></svg>);}
-function PhantomS5(p){var s=p.size||80;var orbs=[[20,20],[80,20],[14,44],[86,44],[18,68],[82,68],[38,8],[62,8]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph5g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#c7d2fe"/><stop offset="70%" stopColor="#6366f1" stopOpacity="0.7"/><stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.3"/></radialGradient></defs><path d="M14 78 Q14 14 50 6 Q86 14 86 78 Q76 64 71 78 Q66 64 63 78 Q60 66 50 78 Q40 66 37 78 Q34 64 29 78 Q24 64 14 78Z" fill="url(#ph5g)"/>{orbs.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?3:2} fill="#818cf8" opacity={0.6-i*0.04}/>;})}<circle cx="36" cy="38" r="7" fill="#1e1b4b"/><circle cx="64" cy="38" r="7" fill="#1e1b4b"/><circle cx="36" cy="38" r="4" fill="white"/><circle cx="64" cy="38" r="4" fill="white"/><circle cx="36" cy="37" r="2" fill="#312e81"/><circle cx="64" cy="37" r="2" fill="#312e81"/><circle cx="37" cy="36" r="0.8" fill="white"/><circle cx="65" cy="36" r="0.8" fill="white"/><path d="M38 60 Q50 72 62 60" stroke="#c7d2fe" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2.5" fill="#818cf8"/><circle cx="62" cy="60" r="2.5" fill="#818cf8"/></svg>);}
-
-// TITAN — A golden warrior
+function PhantomS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#c7d2fe"/><stop offset="70%" stopColor="#6366f1" stopOpacity="0.5"/><stop offset="100%" stopColor="#312e81" stopOpacity="0.2"/></radialGradient></defs><path d="M26 72 Q26 26 50 18 Q74 26 74 72 Q67 64 62 72 Q57 64 54 72 Q52 66 50 72 Q48 66 46 72 Q43 64 38 72 Q33 64 26 72Z" fill="url(#ph2g)"/><circle cx="42" cy="44" r="4" fill="#312e81" opacity="0.8"/><circle cx="58" cy="44" r="4" fill="#312e81" opacity="0.8"/><circle cx="42" cy="44" r="2" fill="#e0e7ff"/><circle cx="58" cy="44" r="2" fill="#e0e7ff"/></svg>);}
+function PhantomS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph3g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="#e0e7ff"/><stop offset="50%" stopColor="#818cf8" stopOpacity="0.7"/><stop offset="100%" stopColor="#312e81" stopOpacity="0.3"/></radialGradient></defs><path d="M22 74 Q22 22 50 14 Q78 22 78 74 Q70 64 65 74 Q60 64 57 74 Q54 66 50 74 Q46 66 43 74 Q40 64 35 74 Q30 64 22 74Z" fill="url(#ph3g)"/><circle cx="40" cy="42" r="5" fill="#312e81"/><circle cx="60" cy="42" r="5" fill="#312e81"/><circle cx="40" cy="42" r="2.5" fill="#e0e7ff"/><circle cx="60" cy="42" r="2.5" fill="#e0e7ff"/><path d="M42 58 Q50 65 58 58" stroke="#818cf8" strokeWidth="2" fill="none"/></svg>);}
+function PhantomS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph4g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#a5b4fc"/><stop offset="80%" stopColor="#4f46e5" stopOpacity="0.6"/><stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.3"/></radialGradient></defs><path d="M18 76 Q18 18 50 10 Q82 18 82 76 Q73 64 68 76 Q63 64 60 76 Q57 66 50 76 Q43 66 40 76 Q37 64 32 76 Q27 64 18 76Z" fill="url(#ph4g)"/><circle cx="38" cy="40" r="6" fill="#312e81"/><circle cx="62" cy="40" r="6" fill="#312e81"/><circle cx="38" cy="40" r="3" fill="white"/><circle cx="62" cy="40" r="3" fill="white"/><path d="M40 58 Q50 67 60 58" stroke="#a5b4fc" strokeWidth="2.5" fill="none"/></svg>);}
+function PhantomS5(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ph5g" cx="50%" cy="35%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#c7d2fe"/><stop offset="70%" stopColor="#6366f1" stopOpacity="0.7"/><stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.3"/></radialGradient></defs><path d="M14 78 Q14 14 50 6 Q86 14 86 78 Q76 64 71 78 Q66 64 63 78 Q60 66 50 78 Q40 66 37 78 Q34 64 29 78 Q24 64 14 78Z" fill="url(#ph5g)"/><circle cx="36" cy="38" r="7" fill="#1e1b4b"/><circle cx="64" cy="38" r="7" fill="#1e1b4b"/><circle cx="36" cy="38" r="4" fill="white"/><circle cx="64" cy="38" r="4" fill="white"/><circle cx="36" cy="37" r="2" fill="#312e81"/><circle cx="64" cy="37" r="2" fill="#312e81"/><path d="M38 60 Q50 72 62 60" stroke="#c7d2fe" strokeWidth="3" fill="none"/></svg>);}
 function TitanS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ti1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#78350f"/></radialGradient></defs><polygon points="50,20 65,50 50,75 35,50" fill="url(#ti1g)"/><polygon points="50,20 65,50 50,75 35,50" fill="none" stroke="#fde68a" strokeWidth="1"/></svg>);}
 function TitanS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ti2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fde68a"/><stop offset="100%" stopColor="#92400e"/></radialGradient></defs><polygon points="50,14 68,32 74,56 58,76 42,76 26,56 32,32" fill="url(#ti2g)"/><polygon points="50,14 68,32 74,56 58,76 42,76 26,56 32,32" fill="none" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="42" cy="46" r="4" fill="#78350f"/><circle cx="58" cy="46" r="4" fill="#78350f"/><circle cx="42" cy="46" r="2" fill="#fef3c7"/><circle cx="58" cy="46" r="2" fill="#fef3c7"/></svg>);}
-function TitanS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ti3g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#fde68a"/><stop offset="100%" stopColor="#b45309"/></linearGradient></defs><polygon points="50,10 72,24 80,50 72,76 50,84 28,76 20,50 28,24" fill="url(#ti3g)"/><polygon points="50,10 72,24 80,50 72,76 50,84 28,76 20,50 28,24" fill="none" stroke="#fbbf24" strokeWidth="2"/><polygon points="50,22 64,32 70,50 64,68 50,74 36,68 30,50 36,32" fill="none" stroke="#fde68a" strokeWidth="1" opacity="0.6"/><circle cx="41" cy="43" r="5" fill="#78350f"/><circle cx="59" cy="43" r="5" fill="#78350f"/><circle cx="41" cy="43" r="2.5" fill="#fef3c7"/><circle cx="59" cy="43" r="2.5" fill="#fef3c7"/><path d="M40 58 Q50 66 60 58" stroke="#fbbf24" strokeWidth="2" fill="none"/></svg>);}
-function TitanS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ti4g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#fef3c7"/><stop offset="50%" stopColor="#d97706"/><stop offset="100%" stopColor="#78350f"/></linearGradient></defs><polygon points="50,6 76,18 86,46 76,74 50,86 24,74 14,46 24,18" fill="url(#ti4g)"/><polygon points="50,6 76,18 86,46 76,74 50,86 24,74 14,46 24,18" fill="none" stroke="#fbbf24" strokeWidth="2.5"/><polygon points="50,18 68,28 76,46 68,64 50,72 32,64 24,46 32,28" fill="none" stroke="#fde68a" strokeWidth="1" opacity="0.7"/><rect x="34" y="38" width="12" height="14" rx="2" fill="#78350f"/><rect x="54" y="38" width="12" height="14" rx="2" fill="#78350f"/><circle cx="40" cy="45" r="5" fill="#92400e" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="60" cy="45" r="5" fill="#92400e" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="40" cy="45" r="2.5" fill="#fef3c7"/><circle cx="60" cy="45" r="2.5" fill="#fef3c7"/><path d="M38 60 Q50 70 62 60" stroke="#fde68a" strokeWidth="2.5" fill="none"/></svg>);}
-function TitanS5(p){var s=p.size||80;var pts=[[50,4],[78,16],[88,46],[78,76],[50,88],[22,76],[12,46],[22,16]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ti5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#fef3c7"/><stop offset="50%" stopColor="#fbbf24"/><stop offset="80%" stopColor="#d97706"/><stop offset="100%" stopColor="#78350f"/></radialGradient></defs><polygon points="50,4 78,16 88,46 78,76 50,88 22,76 12,46 22,16" fill="url(#ti5g)"/><polygon points="50,4 78,16 88,46 78,76 50,88 22,76 12,46 22,16" fill="none" stroke="#fef3c7" strokeWidth="3"/>{pts.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r="2" fill="#fbbf24"/>;})}<polygon points="50,18 70,28 78,46 70,64 50,72 30,64 22,46 30,28" fill="none" stroke="#fde68a" strokeWidth="1.5" opacity="0.6"/><circle cx="40" cy="42" r="7" fill="#78350f" stroke="#fef3c7" strokeWidth="1.5"/><circle cx="60" cy="42" r="7" fill="#78350f" stroke="#fef3c7" strokeWidth="1.5"/><circle cx="40" cy="42" r="4" fill="#fef3c7"/><circle cx="60" cy="42" r="4" fill="#fef3c7"/><circle cx="40" cy="41" r="2" fill="#78350f"/><circle cx="60" cy="41" r="2" fill="#78350f"/><circle cx="41" cy="40" r="0.8" fill="white"/><circle cx="61" cy="40" r="0.8" fill="white"/><path d="M38 60 Q50 72 62 60" stroke="#fef3c7" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2.5" fill="#fbbf24"/><circle cx="62" cy="60" r="2.5" fill="#fbbf24"/></svg>);}
-
-// STORM — A lightning elemental
+function TitanS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ti3g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#fde68a"/><stop offset="100%" stopColor="#b45309"/></linearGradient></defs><polygon points="50,10 72,24 80,50 72,76 50,84 28,76 20,50 28,24" fill="url(#ti3g)"/><polygon points="50,10 72,24 80,50 72,76 50,84 28,76 20,50 28,24" fill="none" stroke="#fbbf24" strokeWidth="2"/><circle cx="41" cy="43" r="5" fill="#78350f"/><circle cx="59" cy="43" r="5" fill="#78350f"/><circle cx="41" cy="43" r="2.5" fill="#fef3c7"/><circle cx="59" cy="43" r="2.5" fill="#fef3c7"/><path d="M40 58 Q50 66 60 58" stroke="#fbbf24" strokeWidth="2" fill="none"/></svg>);}
+function TitanS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><linearGradient id="ti4g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#fef3c7"/><stop offset="50%" stopColor="#d97706"/><stop offset="100%" stopColor="#78350f"/></linearGradient></defs><polygon points="50,6 76,18 86,46 76,74 50,86 24,74 14,46 24,18" fill="url(#ti4g)"/><polygon points="50,6 76,18 86,46 76,74 50,86 24,74 14,46 24,18" fill="none" stroke="#fbbf24" strokeWidth="2.5"/><circle cx="40" cy="45" r="5" fill="#92400e" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="60" cy="45" r="5" fill="#92400e" stroke="#fbbf24" strokeWidth="1.5"/><circle cx="40" cy="45" r="2.5" fill="#fef3c7"/><circle cx="60" cy="45" r="2.5" fill="#fef3c7"/><path d="M38 60 Q50 70 62 60" stroke="#fde68a" strokeWidth="2.5" fill="none"/></svg>);}
+function TitanS5(p){var s=p.size||80;var pts=[[50,4],[78,16],[88,46],[78,76],[50,88],[22,76],[12,46],[22,16]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="ti5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#fef3c7"/><stop offset="50%" stopColor="#fbbf24"/><stop offset="80%" stopColor="#d97706"/><stop offset="100%" stopColor="#78350f"/></radialGradient></defs><polygon points="50,4 78,16 88,46 78,76 50,88 22,76 12,46 22,16" fill="url(#ti5g)"/><polygon points="50,4 78,16 88,46 78,76 50,88 22,76 12,46 22,16" fill="none" stroke="#fef3c7" strokeWidth="3"/>{pts.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r="2" fill="#fbbf24"/>;})}<circle cx="40" cy="42" r="7" fill="#78350f" stroke="#fef3c7" strokeWidth="1.5"/><circle cx="60" cy="42" r="7" fill="#78350f" stroke="#fef3c7" strokeWidth="1.5"/><circle cx="40" cy="42" r="4" fill="#fef3c7"/><circle cx="60" cy="42" r="4" fill="#fef3c7"/><path d="M38 60 Q50 72 62 60" stroke="#fef3c7" strokeWidth="3" fill="none"/></svg>);}
 function StormS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef08a"/><stop offset="100%" stopColor="#713f12"/></radialGradient></defs><polygon points="56,18 46,46 54,46 44,80 62,44 52,44" fill="url(#st1g)"/></svg>);}
 function StormS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef9c3"/><stop offset="100%" stopColor="#854d0e"/></radialGradient></defs><circle cx="50" cy="50" r="24" fill="#1c1917" stroke="#ca8a04" strokeWidth="1.5"/><polygon points="57,22 45,48 55,48 43,78 65,44 53,44" fill="url(#st2g)"/><circle cx="44" cy="42" r="3" fill="#fef08a" opacity="0.7"/><circle cx="56" cy="42" r="3" fill="#fef08a" opacity="0.7"/></svg>);}
-function StormS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#92400e"/><stop offset="100%" stopColor="#0a0a00"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#st3g)"/><circle cx="50" cy="50" r="30" fill="none" stroke="#ca8a04" strokeWidth="1.5"/><polygon points="58,18 44,46 56,46 42,82 68,42 54,42" fill="#fef08a"/><polygon points="58,18 44,46 56,46 42,82 68,42 54,42" fill="none" stroke="#fef9c3" strokeWidth="0.5"/><circle cx="42" cy="40" r="4" fill="#fef08a" opacity="0.9"/><circle cx="58" cy="40" r="4" fill="#fef08a" opacity="0.9"/><circle cx="42" cy="40" r="2" fill="#78350f"/><circle cx="58" cy="40" r="2" fill="#78350f"/></svg>);}
-function StormS4(p){var s=p.size||80;var arcs=[28,20,14];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#b45309"/><stop offset="100%" stopColor="#0a0500"/></radialGradient></defs><circle cx="50" cy="50" r="38" fill="url(#st4g)"/>{arcs.map(function(r,i){return <circle key={i} cx="50" cy="50" r={r} fill="none" stroke="#ca8a04" strokeWidth="0.8" opacity={0.8-i*0.2}/>;})}<polygon points="60,14 44,46 58,46 40,86 72,40 56,40" fill="#fef08a"/><polygon points="60,14 44,46 58,46 40,86 72,40 56,40" fill="none" stroke="#fef9c3" strokeWidth="0.8"/><circle cx="40" cy="38" r="5" fill="#fef08a"/><circle cx="58" cy="38" r="5" fill="#fef08a"/><circle cx="40" cy="38" r="2.5" fill="#78350f"/><circle cx="58" cy="38" r="2.5" fill="#78350f"/><path d="M40 56 Q50 64 60 56" stroke="#fef08a" strokeWidth="2" fill="none"/></svg>);}
-function StormS5(p){var s=p.size||80;var bolts=Array.from({length:6},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef9c3"/><stop offset="30%" stopColor="#eab308"/><stop offset="70%" stopColor="#92400e"/><stop offset="100%" stopColor="#0a0500"/></radialGradient></defs><circle cx="50" cy="50" r="42" fill="url(#st5g)"/><circle cx="50" cy="50" r="42" fill="none" stroke="#fef08a" strokeWidth="2"/>{bolts.map(function(i){var angle=(i*60)*Math.PI/180;var x1=50+Math.cos(angle)*28;var y1=50+Math.sin(angle)*28;var x2=50+Math.cos(angle)*42;var y2=50+Math.sin(angle)*42;return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#fef9c3" strokeWidth="2" strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="22" fill="#0a0500"/><polygon points="58,28 42,52 56,52 38,76 70,46 54,46" fill="#fef08a"/><polygon points="58,28 42,52 56,52 38,76 70,46 54,46" fill="none" stroke="white" strokeWidth="0.8"/><circle cx="40" cy="38" r="6" fill="#fef08a" stroke="#0a0500" strokeWidth="1.5"/><circle cx="60" cy="38" r="6" fill="#fef08a" stroke="#0a0500" strokeWidth="1.5"/><circle cx="40" cy="38" r="3" fill="#78350f"/><circle cx="60" cy="38" r="3" fill="#78350f"/><path d="M38 58 Q50 68 62 58" stroke="#fef9c3" strokeWidth="3" fill="none"/></svg>);}
-
-// NOVA — A cosmic explosion creature
+function StormS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#92400e"/><stop offset="100%" stopColor="#0a0a00"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#st3g)"/><circle cx="50" cy="50" r="30" fill="none" stroke="#ca8a04" strokeWidth="1.5"/><polygon points="58,18 44,46 56,46 42,82 68,42 54,42" fill="#fef08a"/><circle cx="42" cy="40" r="4" fill="#fef08a" opacity="0.9"/><circle cx="58" cy="40" r="4" fill="#fef08a" opacity="0.9"/><circle cx="42" cy="40" r="2" fill="#78350f"/><circle cx="58" cy="40" r="2" fill="#78350f"/></svg>);}
+function StormS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#b45309"/><stop offset="100%" stopColor="#0a0500"/></radialGradient></defs><circle cx="50" cy="50" r="38" fill="url(#st4g)"/><circle cx="50" cy="50" r="28" fill="none" stroke="#ca8a04" strokeWidth="0.8" opacity="0.8"/><circle cx="50" cy="50" r="20" fill="none" stroke="#ca8a04" strokeWidth="0.8" opacity="0.5"/><polygon points="60,14 44,46 58,46 40,86 72,40 56,40" fill="#fef08a"/><circle cx="40" cy="38" r="5" fill="#fef08a"/><circle cx="58" cy="38" r="5" fill="#fef08a"/><circle cx="40" cy="38" r="2.5" fill="#78350f"/><circle cx="58" cy="38" r="2.5" fill="#78350f"/></svg>);}
+function StormS5(p){var s=p.size||80;var bolts=Array.from({length:6},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="st5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fef9c3"/><stop offset="30%" stopColor="#eab308"/><stop offset="70%" stopColor="#92400e"/><stop offset="100%" stopColor="#0a0500"/></radialGradient></defs><circle cx="50" cy="50" r="42" fill="url(#st5g)"/><circle cx="50" cy="50" r="42" fill="none" stroke="#fef08a" strokeWidth="2"/>{bolts.map(function(i){var angle=(i*60)*Math.PI/180;var x1=50+Math.cos(angle)*28;var y1=50+Math.sin(angle)*28;var x2=50+Math.cos(angle)*42;var y2=50+Math.sin(angle)*42;return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#fef9c3" strokeWidth="2" strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="22" fill="#0a0500"/><polygon points="58,28 42,52 56,52 38,76 70,46 54,46" fill="#fef08a"/><circle cx="40" cy="38" r="6" fill="#fef08a" stroke="#0a0500" strokeWidth="1.5"/><circle cx="60" cy="38" r="6" fill="#fef08a" stroke="#0a0500" strokeWidth="1.5"/><circle cx="40" cy="38" r="3" fill="#78350f"/><circle cx="60" cy="38" r="3" fill="#78350f"/></svg>);}
 function NovaS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#f0abfc"/><stop offset="100%" stopColor="#701a75"/></radialGradient></defs><circle cx="50" cy="50" r="18" fill="url(#nv1g)"/><circle cx="50" cy="50" r="6" fill="#fdf4ff"/></svg>);}
 function NovaS2(p){var s=p.size||80;var spikes=[0,72,144,216,288];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#f0abfc"/><stop offset="100%" stopColor="#701a75"/></radialGradient></defs><circle cx="50" cy="50" r="22" fill="url(#nv2g)"/>{spikes.map(function(deg,i){var r=deg*Math.PI/180;return <line key={i} x1={50+Math.cos(r)*20} y1={50+Math.sin(r)*20} x2={50+Math.cos(r)*32} y2={50+Math.sin(r)*32} stroke="#e879f9" strokeWidth="3" strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="10" fill="#fdf4ff"/><circle cx="44" cy="46" r="3" fill="#701a75"/><circle cx="56" cy="46" r="3" fill="#701a75"/></svg>);}
-function NovaS3(p){var s=p.size||80;var spikes=Array.from({length:8},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fdf4ff"/><stop offset="40%" stopColor="#d946ef"/><stop offset="100%" stopColor="#701a75"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#nv3g)"/>{spikes.map(function(i){var r=i*45*Math.PI/180;var l=i%2===0?14:9;return <line key={i} x1={50+Math.cos(r)*24} y1={50+Math.sin(r)*24} x2={50+Math.cos(r)*(24+l)} y2={50+Math.sin(r)*(24+l)} stroke="#f0abfc" strokeWidth={i%2===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="12" fill="#fdf4ff"/><circle cx="43" cy="46" r="4" fill="#701a75"/><circle cx="57" cy="46" r="4" fill="#701a75"/><circle cx="43" cy="46" r="2" fill="#fdf4ff"/><circle cx="57" cy="46" r="2" fill="#fdf4ff"/></svg>);}
-function NovaS4(p){var s=p.size||80;var spikes=Array.from({length:12},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#f0abfc"/><stop offset="70%" stopColor="#a21caf"/><stop offset="100%" stopColor="#4a044e"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#nv4g)"/>{spikes.map(function(i){var r=i*30*Math.PI/180;var l=i%3===0?18:i%3===1?12:8;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke={i%2===0?"#f0abfc":"#e879f9"} strokeWidth={i%3===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="14" fill="#fdf4ff"/><circle cx="42" cy="46" r="5" fill="#701a75"/><circle cx="58" cy="46" r="5" fill="#701a75"/><circle cx="42" cy="46" r="2.5" fill="white"/><circle cx="58" cy="46" r="2.5" fill="white"/><path d="M40 58 Q50 66 60 58" stroke="#d946ef" strokeWidth="2.5" fill="none"/></svg>);}
-function NovaS5(p){var s=p.size||80;var spikes=Array.from({length:16},function(_,i){return i;});var particles=[[12,22],[88,22],[8,50],[92,50],[12,78],[88,78],[36,8],[64,8]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#fdf4ff"/><stop offset="50%" stopColor="#d946ef"/><stop offset="80%" stopColor="#86198f"/><stop offset="100%" stopColor="#2e1065"/></radialGradient></defs><circle cx="50" cy="50" r="38" fill="url(#nv5g)" opacity="0.3"/><circle cx="50" cy="50" r="30" fill="url(#nv5g)"/>{spikes.map(function(i){var r=i*22.5*Math.PI/180;var l=i%4===0?22:i%2===0?15:10;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke={i%2===0?"#f0abfc":"#d946ef"} strokeWidth={i%4===0?3.5:2} strokeLinecap="round"/>;})}{particles.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?2.5:2} fill="#f0abfc" opacity={0.8-i*0.05}/>;})}<circle cx="50" cy="50" r="14" fill="white"/><circle cx="42" cy="46" r="6" fill="#701a75"/><circle cx="58" cy="46" r="6" fill="#701a75"/><circle cx="42" cy="46" r="3" fill="white"/><circle cx="58" cy="46" r="3" fill="white"/><circle cx="42" cy="45" r="1.5" fill="#4a044e"/><circle cx="58" cy="45" r="1.5" fill="#4a044e"/><circle cx="43" cy="44.5" r="0.8" fill="white"/><circle cx="59" cy="44.5" r="0.8" fill="white"/><path d="M38 60 Q50 72 62 60" stroke="#f0abfc" strokeWidth="3" fill="none"/><circle cx="38" cy="60" r="2.5" fill="#d946ef"/><circle cx="62" cy="60" r="2.5" fill="#d946ef"/></svg>);}
-
-// REEF — An ocean creature
+function NovaS3(p){var s=p.size||80;var spikes=Array.from({length:8},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fdf4ff"/><stop offset="40%" stopColor="#d946ef"/><stop offset="100%" stopColor="#701a75"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#nv3g)"/>{spikes.map(function(i){var r=i*45*Math.PI/180;var l=i%2===0?14:9;return <line key={i} x1={50+Math.cos(r)*24} y1={50+Math.sin(r)*24} x2={50+Math.cos(r)*(24+l)} y2={50+Math.sin(r)*(24+l)} stroke="#f0abfc" strokeWidth={i%2===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="12" fill="#fdf4ff"/><circle cx="43" cy="46" r="4" fill="#701a75"/><circle cx="57" cy="46" r="4" fill="#701a75"/></svg>);}
+function NovaS4(p){var s=p.size||80;var spikes=Array.from({length:12},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#f0abfc"/><stop offset="70%" stopColor="#a21caf"/><stop offset="100%" stopColor="#4a044e"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#nv4g)"/>{spikes.map(function(i){var r=i*30*Math.PI/180;var l=i%3===0?18:i%3===1?12:8;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke={i%2===0?"#f0abfc":"#e879f9"} strokeWidth={i%3===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="14" fill="#fdf4ff"/><circle cx="42" cy="46" r="5" fill="#701a75"/><circle cx="58" cy="46" r="5" fill="#701a75"/><circle cx="42" cy="46" r="2.5" fill="white"/><circle cx="58" cy="46" r="2.5" fill="white"/></svg>);}
+function NovaS5(p){var s=p.size||80;var spikes=Array.from({length:16},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="nv5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="20%" stopColor="#fdf4ff"/><stop offset="50%" stopColor="#d946ef"/><stop offset="80%" stopColor="#86198f"/><stop offset="100%" stopColor="#2e1065"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#nv5g)"/>{spikes.map(function(i){var r=i*22.5*Math.PI/180;var l=i%4===0?22:i%2===0?15:10;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke={i%2===0?"#f0abfc":"#d946ef"} strokeWidth={i%4===0?3.5:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="14" fill="white"/><circle cx="42" cy="46" r="6" fill="#701a75"/><circle cx="58" cy="46" r="6" fill="#701a75"/><circle cx="42" cy="46" r="3" fill="white"/><circle cx="58" cy="46" r="3" fill="white"/><path d="M38 60 Q50 72 62 60" stroke="#f0abfc" strokeWidth="3" fill="none"/></svg>);}
 function ReefS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#67e8f9"/><stop offset="100%" stopColor="#0e7490"/></radialGradient></defs><ellipse cx="50" cy="52" rx="20" ry="24" fill="url(#rf1g)"/><circle cx="44" cy="48" r="3" fill="#0e7490" opacity="0.7"/><circle cx="56" cy="48" r="3" fill="#0e7490" opacity="0.7"/></svg>);}
 function ReefS2(p){var s=p.size||80;var tentacles=Array.from({length:6},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf2g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#a5f3fc"/><stop offset="100%" stopColor="#0891b2"/></radialGradient></defs><ellipse cx="50" cy="46" rx="26" ry="28" fill="url(#rf2g)"/>{tentacles.map(function(i){var x=30+i*8;var wave=i%2===0?8:-8;return <path key={i} d={"M"+x+" 68 Q"+(x+wave)+" 76 "+x+" 84"} stroke="#0891b2" strokeWidth="3" fill="none" strokeLinecap="round"/>;})}<circle cx="42" cy="42" r="4" fill="#0e7490"/><circle cx="58" cy="42" r="4" fill="#0e7490"/><circle cx="42" cy="42" r="2" fill="#e0f2fe"/><circle cx="58" cy="42" r="2" fill="#e0f2fe"/></svg>);}
-function ReefS3(p){var s=p.size||80;var tentacles=Array.from({length:8},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf3g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#e0f2fe"/><stop offset="50%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#0e7490"/></radialGradient></defs><ellipse cx="50" cy="44" rx="30" ry="30" fill="url(#rf3g)"/>{tentacles.map(function(i){var x=26+i*7;var wave=i%2===0?10:-10;return <path key={i} d={"M"+x+" 68 Q"+(x+wave)+" 78 "+x+" 88"} stroke="#0284c7" strokeWidth={i%2===0?3.5:2.5} fill="none" strokeLinecap="round"/>;})}<circle cx="41" cy="40" r="5" fill="#0e7490"/><circle cx="59" cy="40" r="5" fill="#0e7490"/><circle cx="41" cy="40" r="2.5" fill="#e0f2fe"/><circle cx="59" cy="40" r="2.5" fill="#e0f2fe"/><path d="M42 56 Q50 62 58 56" stroke="#0891b2" strokeWidth="2" fill="none"/></svg>);}
-function ReefS4(p){var s=p.size||80;var tentacles=Array.from({length:10},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf4g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#38bdf8"/><stop offset="100%" stopColor="#0c4a6e"/></radialGradient></defs><ellipse cx="50" cy="42" rx="34" ry="32" fill="url(#rf4g)"/>{tentacles.map(function(i){var x=18+i*7;var wave=i%2===0?12:-12;return <path key={i} d={"M"+x+" 66 Q"+(x+wave/2)+" 76 "+x+" 86 Q"+(x+wave)+" 82 "+x+" 90"} stroke="#0284c7" strokeWidth={i%3===0?4:3} fill="none" strokeLinecap="round"/>;})}<circle cx="40" cy="38" r="6" fill="#0c4a6e"/><circle cx="60" cy="38" r="6" fill="#0c4a6e"/><circle cx="40" cy="38" r="3" fill="#e0f2fe"/><circle cx="60" cy="38" r="3" fill="#e0f2fe"/><circle cx="40" cy="37" r="1.5" fill="#0c4a6e"/><circle cx="60" cy="37" r="1.5" fill="#0c4a6e"/><path d="M40 56 Q50 64 60 56" stroke="#38bdf8" strokeWidth="2.5" fill="none"/></svg>);}
-function ReefS5(p){var s=p.size||80;var tentacles=Array.from({length:12},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf5g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#bae6fd"/><stop offset="70%" stopColor="#0ea5e9"/><stop offset="100%" stopColor="#082f49"/></radialGradient></defs><ellipse cx="50" cy="40" rx="38" ry="34" fill="url(#rf5g)"/>{tentacles.map(function(i){var x=14+i*6.5;var wave=i%2===0?14:-14;var thick=i%4===0?4.5:i%2===0?3.5:2.5;return <path key={i} d={"M"+x+" 64 Q"+(x+wave/2)+" 74 "+x+" 82 Q"+(x+wave)+" 78 "+x+" 88"} stroke="#0284c7" strokeWidth={thick} fill="none" strokeLinecap="round"/>;})}<circle cx="40" cy="34" r="8" fill="#082f49"/><circle cx="60" cy="34" r="8" fill="#082f49"/><circle cx="40" cy="34" r="4.5" fill="#e0f2fe"/><circle cx="60" cy="34" r="4.5" fill="#e0f2fe"/><circle cx="40" cy="33" r="2.5" fill="#082f49"/><circle cx="60" cy="33" r="2.5" fill="#082f49"/><circle cx="41" cy="32" r="1" fill="white"/><circle cx="61" cy="32" r="1" fill="white"/><path d="M38 56 Q50 68 62 56" stroke="#bae6fd" strokeWidth="3" fill="none"/><circle cx="38" cy="56" r="2.5" fill="#38bdf8"/><circle cx="62" cy="56" r="2.5" fill="#38bdf8"/></svg>);}
-
-// SHADOW — A dark assassin
+function ReefS3(p){var s=p.size||80;var tentacles=Array.from({length:8},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf3g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="#e0f2fe"/><stop offset="50%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#0e7490"/></radialGradient></defs><ellipse cx="50" cy="44" rx="30" ry="30" fill="url(#rf3g)"/>{tentacles.map(function(i){var x=26+i*7;var wave=i%2===0?10:-10;return <path key={i} d={"M"+x+" 68 Q"+(x+wave)+" 78 "+x+" 88"} stroke="#0284c7" strokeWidth={i%2===0?3.5:2.5} fill="none" strokeLinecap="round"/>;})}<circle cx="41" cy="40" r="5" fill="#0e7490"/><circle cx="59" cy="40" r="5" fill="#0e7490"/><circle cx="41" cy="40" r="2.5" fill="#e0f2fe"/><circle cx="59" cy="40" r="2.5" fill="#e0f2fe"/></svg>);}
+function ReefS4(p){var s=p.size||80;var tentacles=Array.from({length:10},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf4g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="40%" stopColor="#38bdf8"/><stop offset="100%" stopColor="#0c4a6e"/></radialGradient></defs><ellipse cx="50" cy="42" rx="34" ry="32" fill="url(#rf4g)"/>{tentacles.map(function(i){var x=18+i*7;var wave=i%2===0?12:-12;return <path key={i} d={"M"+x+" 66 Q"+(x+wave/2)+" 76 "+x+" 86"} stroke="#0284c7" strokeWidth={i%3===0?4:3} fill="none" strokeLinecap="round"/>;})}<circle cx="40" cy="38" r="6" fill="#0c4a6e"/><circle cx="60" cy="38" r="6" fill="#0c4a6e"/><circle cx="40" cy="38" r="3" fill="#e0f2fe"/><circle cx="60" cy="38" r="3" fill="#e0f2fe"/></svg>);}
+function ReefS5(p){var s=p.size||80;var tentacles=Array.from({length:12},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="rf5g" cx="50%" cy="40%" r="55%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#bae6fd"/><stop offset="70%" stopColor="#0ea5e9"/><stop offset="100%" stopColor="#082f49"/></radialGradient></defs><ellipse cx="50" cy="40" rx="38" ry="34" fill="url(#rf5g)"/>{tentacles.map(function(i){var x=14+i*6.5;var wave=i%2===0?14:-14;return <path key={i} d={"M"+x+" 64 Q"+(x+wave/2)+" 74 "+x+" 82"} stroke="#0284c7" strokeWidth={i%4===0?4.5:3} fill="none" strokeLinecap="round"/>;})}<circle cx="40" cy="34" r="8" fill="#082f49"/><circle cx="60" cy="34" r="8" fill="#082f49"/><circle cx="40" cy="34" r="4.5" fill="#e0f2fe"/><circle cx="60" cy="34" r="4.5" fill="#e0f2fe"/><path d="M38 56 Q50 68 62 56" stroke="#bae6fd" strokeWidth="3" fill="none"/></svg>);}
 function ShadowS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><polygon points="50,20 60,46 50,56 40,46" fill="#1e1b4b"/><polygon points="50,20 60,46 50,56 40,46" fill="none" stroke="#6366f1" strokeWidth="1" opacity="0.6"/><circle cx="44" cy="40" r="2" fill="#818cf8" opacity="0.8"/><circle cx="56" cy="40" r="2" fill="#818cf8" opacity="0.8"/></svg>);}
 function ShadowS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,16 66,34 70,56 60,74 40,74 30,56 34,34" fill="url(#sh2g)"/><polygon points="50,16 66,34 70,56 60,74 40,74 30,56 34,34" fill="none" stroke="#6366f1" strokeWidth="1.5"/><circle cx="42" cy="44" r="3.5" fill="#818cf8"/><circle cx="58" cy="44" r="3.5" fill="#818cf8"/><circle cx="42" cy="44" r="1.5" fill="white" opacity="0.9"/><circle cx="58" cy="44" r="1.5" fill="white" opacity="0.9"/></svg>);}
-function ShadowS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#4338ca"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,10 70,26 76,50 70,74 50,84 30,74 24,50 30,26" fill="url(#sh3g)"/><polygon points="50,10 70,26 76,50 70,74 50,84 30,74 24,50 30,26" fill="none" stroke="#818cf8" strokeWidth="2"/><line x1="50" y1="10" x2="50" y2="84" stroke="#6366f1" strokeWidth="0.8" opacity="0.4"/><circle cx="40" cy="42" r="5" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5"/><circle cx="60" cy="42" r="5" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5"/><circle cx="40" cy="42" r="2.5" fill="#c7d2fe"/><circle cx="60" cy="42" r="2.5" fill="#c7d2fe"/><path d="M41 58 Q50 65 59 58" stroke="#818cf8" strokeWidth="2" fill="none"/></svg>);}
-function ShadowS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#6366f1"/><stop offset="60%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,6 74,20 82,48 74,76 50,86 26,76 18,48 26,20" fill="url(#sh4g)"/><polygon points="50,6 74,20 82,48 74,76 50,86 26,76 18,48 26,20" fill="none" stroke="#818cf8" strokeWidth="2"/><polygon points="50,18 66,28 72,48 66,68 50,76 34,68 28,48 34,28" fill="none" stroke="#6366f1" strokeWidth="1" opacity="0.5"/><circle cx="50" cy="6" r="3" fill="#818cf8"/><circle cx="50" cy="86" r="3" fill="#818cf8"/><circle cx="38" cy="40" r="6" fill="#0a0014" stroke="#a5b4fc" strokeWidth="2"/><circle cx="62" cy="40" r="6" fill="#0a0014" stroke="#a5b4fc" strokeWidth="2"/><circle cx="38" cy="40" r="3" fill="#c7d2fe"/><circle cx="62" cy="40" r="3" fill="#c7d2fe"/><circle cx="38" cy="39" r="1.5" fill="#0a0014"/><circle cx="62" cy="39" r="1.5" fill="#0a0014"/><path d="M38 58 Q50 68 62 58" stroke="#a5b4fc" strokeWidth="2.5" fill="none"/></svg>);}
-function ShadowS5(p){var s=p.size||80;var shards=[[50,4],[82,20],[90,50],[82,80],[50,92],[18,80],[10,50],[18,20]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#a5b4fc"/><stop offset="30%" stopColor="#6366f1"/><stop offset="70%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,4 82,20 90,50 82,80 50,92 18,80 10,50 18,20" fill="url(#sh5g)"/><polygon points="50,4 82,20 90,50 82,80 50,92 18,80 10,50 18,20" fill="none" stroke="#c7d2fe" strokeWidth="2.5"/>{shards.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r="2.5" fill="#818cf8"/>;})}<polygon points="50,16 70,26 76,50 70,74 50,80 30,74 24,50 30,26" fill="none" stroke="#818cf8" strokeWidth="1.5" opacity="0.5"/><circle cx="36" cy="38" r="7" fill="#0a0014" stroke="#c7d2fe" strokeWidth="2"/><circle cx="64" cy="38" r="7" fill="#0a0014" stroke="#c7d2fe" strokeWidth="2"/><circle cx="36" cy="38" r="4" fill="#e0e7ff"/><circle cx="64" cy="38" r="4" fill="#e0e7ff"/><circle cx="36" cy="37" r="2" fill="#0a0014"/><circle cx="64" cy="37" r="2" fill="#0a0014"/><circle cx="37" cy="36" r="0.8" fill="white"/><circle cx="65" cy="36" r="0.8" fill="white"/><path d="M36 60 Q50 74 64 60" stroke="#c7d2fe" strokeWidth="3" fill="none"/><circle cx="36" cy="60" r="3" fill="#6366f1"/><circle cx="64" cy="60" r="3" fill="#6366f1"/></svg>);}
+function ShadowS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#4338ca"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,10 70,26 76,50 70,74 50,84 30,74 24,50 30,26" fill="url(#sh3g)"/><polygon points="50,10 70,26 76,50 70,74 50,84 30,74 24,50 30,26" fill="none" stroke="#818cf8" strokeWidth="2"/><circle cx="40" cy="42" r="5" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5"/><circle cx="60" cy="42" r="5" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5"/><circle cx="40" cy="42" r="2.5" fill="#c7d2fe"/><circle cx="60" cy="42" r="2.5" fill="#c7d2fe"/></svg>);}
+function ShadowS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#6366f1"/><stop offset="60%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,6 74,20 82,48 74,76 50,86 26,76 18,48 26,20" fill="url(#sh4g)"/><polygon points="50,6 74,20 82,48 74,76 50,86 26,76 18,48 26,20" fill="none" stroke="#818cf8" strokeWidth="2"/><circle cx="38" cy="40" r="6" fill="#0a0014" stroke="#a5b4fc" strokeWidth="2"/><circle cx="62" cy="40" r="6" fill="#0a0014" stroke="#a5b4fc" strokeWidth="2"/><circle cx="38" cy="40" r="3" fill="#c7d2fe"/><circle cx="62" cy="40" r="3" fill="#c7d2fe"/><path d="M38 58 Q50 68 62 58" stroke="#a5b4fc" strokeWidth="2.5" fill="none"/></svg>);}
+function ShadowS5(p){var s=p.size||80;var shards=[[50,4],[82,20],[90,50],[82,80],[50,92],[18,80],[10,50],[18,20]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="sh5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#a5b4fc"/><stop offset="30%" stopColor="#6366f1"/><stop offset="70%" stopColor="#312e81"/><stop offset="100%" stopColor="#0a0014"/></radialGradient></defs><polygon points="50,4 82,20 90,50 82,80 50,92 18,80 10,50 18,20" fill="url(#sh5g)"/><polygon points="50,4 82,20 90,50 82,80 50,92 18,80 10,50 18,20" fill="none" stroke="#c7d2fe" strokeWidth="2.5"/>{shards.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r="2.5" fill="#818cf8"/>;})}<circle cx="36" cy="38" r="7" fill="#0a0014" stroke="#c7d2fe" strokeWidth="2"/><circle cx="64" cy="38" r="7" fill="#0a0014" stroke="#c7d2fe" strokeWidth="2"/><circle cx="36" cy="38" r="4" fill="#e0e7ff"/><circle cx="64" cy="38" r="4" fill="#e0e7ff"/><path d="M36 60 Q50 74 64 60" stroke="#c7d2fe" strokeWidth="3" fill="none"/></svg>);}
 
 function renderArt(A,size){if(!A)return null;return <A size={size}/>;}
 
 const PETS = [
   { id:"ember",   name:"Ember",   color:"#f97316", desc:"Born from a dying coal. Grows into a star that cannot be extinguished.", stages:[
-    {level:1,  form:"Dying Ember",    Art:EmberS1, desc:"Almost out. But not yet."},
-    {level:3,  form:"Rising Flame",   Art:EmberS2, desc:"Something caught. It is not stopping."},
-    {level:5,  form:"Burning Core",   Art:EmberS3, desc:"Solid fire. It warms everything near it."},
-    {level:7,  form:"Solar Bloom",    Art:EmberS4, desc:"Expanded past what contained it."},
-    {level:10, form:"The Undying Sun",Art:EmberS5, desc:"Burns cold. Burns forever. Cannot be put out."},
+    {level:1,  form:"Dying Ember",      Art:EmberS1, desc:"Almost out. But not yet."},
+    {level:3,  form:"Rising Flame",     Art:EmberS2, desc:"Something caught. It is not stopping."},
+    {level:5,  form:"Burning Core",     Art:EmberS3, desc:"Solid fire. It warms everything near it."},
+    {level:7,  form:"Solar Bloom",      Art:EmberS4, desc:"Expanded past what contained it."},
+    {level:10, form:"The Undying Sun",  Art:EmberS5, desc:"Burns cold. Burns forever. Cannot be put out."},
   ]},
   { id:"void",    name:"Void",    color:"#8b5cf6", desc:"A black hole that learned to think. Pulls everything toward its gravity.", stages:[
-    {level:1,  form:"Dark Point",     Art:VoidS1, desc:"Nothing to see. Everything to fear."},
-    {level:3,  form:"Event Horizon",  Art:VoidS2, desc:"The ring forms. Things get close and don't leave."},
-    {level:5,  form:"Collapsing Star",Art:VoidS3, desc:"It is consuming itself to become something greater."},
-    {level:7,  form:"Singularity",    Art:VoidS4, desc:"Space bends. Time bends. It does not."},
-    {level:10, form:"The Absolute",   Art:VoidS5, desc:"There is no outside of it anymore."},
+    {level:1,  form:"Dark Point",       Art:VoidS1, desc:"Nothing to see. Everything to fear."},
+    {level:3,  form:"Event Horizon",    Art:VoidS2, desc:"The ring forms. Things get close and don't leave."},
+    {level:5,  form:"Collapsing Star",  Art:VoidS3, desc:"Consuming itself to become something greater."},
+    {level:7,  form:"Singularity",      Art:VoidS4, desc:"Space bends. Time bends. It does not."},
+    {level:10, form:"The Absolute",     Art:VoidS5, desc:"There is no outside of it anymore."},
   ]},
   { id:"iron",    name:"Ironclad",color:"#9ca3af", desc:"Forged in fire. Tested by everything. Still standing.", stages:[
-    {level:1,  form:"Raw Frame",      Art:IronS1, desc:"Bolted together. Not pretty. Functional."},
-    {level:3,  form:"First Armor",    Art:IronS2, desc:"The plates are setting. Shape emerging."},
-    {level:5,  form:"War Machine",    Art:IronS3, desc:"All systems operational. Purpose: withstand."},
-    {level:7,  form:"Iron Fortress",  Art:IronS4, desc:"Has absorbed every hit. Has not moved."},
-    {level:10, form:"The Indestructible",Art:IronS5, desc:"You cannot break what has already survived everything."},
+    {level:1,  form:"Raw Frame",        Art:IronS1, desc:"Bolted together. Not pretty. Functional."},
+    {level:3,  form:"First Armor",      Art:IronS2, desc:"The plates are setting. Shape emerging."},
+    {level:5,  form:"War Machine",      Art:IronS3, desc:"All systems operational. Purpose: withstand."},
+    {level:7,  form:"Iron Fortress",    Art:IronS4, desc:"Has absorbed every hit. Has not moved."},
+    {level:10, form:"The Indestructible",Art:IronS5, desc:"You cannot break what has survived everything."},
   ]},
   { id:"aurora",  name:"Aurora",  color:"#38bdf8", desc:"A crystal being grown from pure arctic silence.", stages:[
-    {level:1,  form:"Ice Shard",      Art:AuroraS1, desc:"One perfect cut. One perfect edge."},
-    {level:3,  form:"Frost Prism",    Art:AuroraS2, desc:"Light bends through it. Colours appear."},
-    {level:5,  form:"Crystal Form",   Art:AuroraS3, desc:"Many faces. One being. Perfectly cold."},
-    {level:7,  form:"Glacial Crown",  Art:AuroraS4, desc:"The tundra grows where it walks."},
-    {level:10, form:"The Eternal Ice",Art:AuroraS5, desc:"Nothing melts it. Nothing comes close enough to try."},
+    {level:1,  form:"Ice Shard",        Art:AuroraS1, desc:"One perfect cut. One perfect edge."},
+    {level:3,  form:"Frost Prism",      Art:AuroraS2, desc:"Light bends through it. Colors appear."},
+    {level:5,  form:"Crystal Form",     Art:AuroraS3, desc:"Many faces. One being. Perfectly cold."},
+    {level:7,  form:"Glacial Crown",    Art:AuroraS4, desc:"The tundra grows where it walks."},
+    {level:10, form:"The Eternal Ice",  Art:AuroraS5, desc:"Nothing melts it."},
   ]},
   { id:"venom",   name:"Venom",   color:"#4ade80", desc:"A serpent that got larger every time something tried to stop it.", stages:[
-    {level:1,  form:"Hatchling",      Art:VenomS1, desc:"Tiny. Already dangerous."},
-    {level:3,  form:"Fang",           Art:VenomS2, desc:"The venom works fast. The bite is faster."},
-    {level:5,  form:"River Serpent",  Art:VenomS3, desc:"Moves without sound. Strikes without warning."},
-    {level:7,  form:"Apex Predator",  Art:VenomS4, desc:"At the top of every food chain it entered."},
-    {level:10, form:"The Ancient One",Art:VenomS5, desc:"Older than the forest. Larger than the river."},
+    {level:1,  form:"Hatchling",        Art:VenomS1, desc:"Tiny. Already dangerous."},
+    {level:3,  form:"Fang",             Art:VenomS2, desc:"The venom works fast. The bite is faster."},
+    {level:5,  form:"River Serpent",    Art:VenomS3, desc:"Moves without sound. Strikes without warning."},
+    {level:7,  form:"Apex Predator",    Art:VenomS4, desc:"At the top of every food chain it entered."},
+    {level:10, form:"The Ancient One",  Art:VenomS5, desc:"Older than the forest. Larger than the river."},
   ]},
   { id:"phantom", name:"Phantom", color:"#818cf8", desc:"Neither here nor gone. Passes through walls. Passes through time.", stages:[
-    {level:1,  form:"Wisp",           Art:PhantomS1, desc:"A breath of something. Gone if you look."},
-    {level:3,  form:"Specter",        Art:PhantomS2, desc:"Visible now. Still not quite real."},
-    {level:5,  form:"Haunt",          Art:PhantomS3, desc:"It has chosen this place. And this person."},
-    {level:7,  form:"Revenant",       Art:PhantomS4, desc:"Has returned from somewhere worse. Is fine now."},
-    {level:10, form:"The Undying",    Art:PhantomS5, desc:"Death already tried. Did not stick."},
+    {level:1,  form:"Wisp",             Art:PhantomS1, desc:"A breath of something. Gone if you look."},
+    {level:3,  form:"Specter",          Art:PhantomS2, desc:"Visible now. Still not quite real."},
+    {level:5,  form:"Haunt",            Art:PhantomS3, desc:"It has chosen this place. And this person."},
+    {level:7,  form:"Revenant",         Art:PhantomS4, desc:"Has returned from somewhere worse. Is fine now."},
+    {level:10, form:"The Undying",      Art:PhantomS5, desc:"Death already tried. Did not stick."},
   ]},
   { id:"titan",   name:"Titan",   color:"#fbbf24", desc:"A golden warrior that grows more legendary with every challenge.", stages:[
-    {level:1,  form:"Warrior's Oath", Art:TitanS1, desc:"The promise made before the battle."},
-    {level:3,  form:"Bronze Guard",   Art:TitanS2, desc:"The first victories have been won."},
-    {level:5,  form:"Golden Knight",  Art:TitanS3, desc:"The legend is beginning to form."},
-    {level:7,  form:"Warlord",        Art:TitanS4, desc:"Armies step aside. No contest necessary."},
-    {level:10, form:"The Eternal Champion",Art:TitanS5, desc:"Songs are written. The warrior has not finished."},
+    {level:1,  form:"Warrior's Oath",   Art:TitanS1, desc:"The promise made before the battle."},
+    {level:3,  form:"Bronze Guard",     Art:TitanS2, desc:"The first victories have been won."},
+    {level:5,  form:"Golden Knight",    Art:TitanS3, desc:"The legend is beginning to form."},
+    {level:7,  form:"Warlord",          Art:TitanS4, desc:"Armies step aside. No contest necessary."},
+    {level:10, form:"Eternal Champion", Art:TitanS5, desc:"Songs are written. The warrior has not finished."},
   ]},
   { id:"storm",   name:"Storm",   color:"#eab308", desc:"Pure electrical fury wearing the shape of a living thing.", stages:[
-    {level:1,  form:"Static",         Art:StormS1, desc:"A charge in the air. Hair stands up."},
-    {level:3,  form:"Spark",          Art:StormS2, desc:"The first bolt has been thrown."},
-    {level:5,  form:"Thunderhead",    Art:StormS3, desc:"Weather patterns change when it moves."},
-    {level:7,  form:"Lightning Lord", Art:StormS4, desc:"Controls the storm. Is the storm."},
-    {level:10, form:"The Tempest",    Art:StormS5, desc:"The sky obeys. The thunder is its voice."},
+    {level:1,  form:"Static",           Art:StormS1, desc:"A charge in the air. Hair stands up."},
+    {level:3,  form:"Spark",            Art:StormS2, desc:"The first bolt has been thrown."},
+    {level:5,  form:"Thunderhead",      Art:StormS3, desc:"Weather patterns change when it moves."},
+    {level:7,  form:"Lightning Lord",   Art:StormS4, desc:"Controls the storm. Is the storm."},
+    {level:10, form:"The Tempest",      Art:StormS5, desc:"The sky obeys. The thunder is its voice."},
   ]},
-  { id:"nova",    name:"Nova",    color:"#d946ef", desc:"An explosion that refuses to fade. Gets brighter with every moment.", stages:[
-    {level:1,  form:"Pinpoint",       Art:NovaS1, desc:"Compressed to almost nothing. Extremely dangerous."},
-    {level:3,  form:"Burst",          Art:NovaS2, desc:"The first expansion. Cannot be contained."},
-    {level:5,  form:"Radiant",        Art:NovaS3, desc:"Visible from far away now. Getting closer."},
-    {level:7,  form:"Supernova",      Art:NovaS4, desc:"Exploded once. Growing from the wreckage."},
-    {level:10, form:"The Eternal Bloom",Art:NovaS5, desc:"The explosion never ended. It just became everything."},
+  { id:"nova",    name:"Nova",    color:"#d946ef", desc:"An explosion that refuses to fade. Gets brighter every moment.", stages:[
+    {level:1,  form:"Pinpoint",         Art:NovaS1, desc:"Compressed to almost nothing. Extremely dangerous."},
+    {level:3,  form:"Burst",            Art:NovaS2, desc:"The first expansion. Cannot be contained."},
+    {level:5,  form:"Radiant",          Art:NovaS3, desc:"Visible from far away now. Getting closer."},
+    {level:7,  form:"Supernova",        Art:NovaS4, desc:"Exploded once. Growing from the wreckage."},
+    {level:10, form:"The Eternal Bloom",Art:NovaS5, desc:"The explosion never ended. It became everything."},
   ]},
-  { id:"reef",    name:"Reef",    color:"#22d3ee", desc:"An ocean hunter. Patient as the tide. As inevitable as the sea.", stages:[
-    {level:1,  form:"Larvae",         Art:ReefS1, desc:"Translucent. Almost invisible. Learning."},
-    {level:3,  form:"Jellyfish",      Art:ReefS2, desc:"Floats with purpose. Stings without warning."},
-    {level:5,  form:"Kraken Pup",     Art:ReefS3, desc:"The tentacles have opinions now."},
-    {level:7,  form:"Deep Hunter",    Art:ReefS4, desc:"The deep water belongs to it."},
-    {level:10, form:"The Leviathan",  Art:ReefS5, desc:"Older than the ocean. The ocean knows."},
+  { id:"reef",    name:"Reef",    color:"#22d3ee", desc:"An ocean hunter. Patient as the tide. Inevitable as the sea.", stages:[
+    {level:1,  form:"Larvae",           Art:ReefS1, desc:"Translucent. Almost invisible. Learning."},
+    {level:3,  form:"Jellyfish",        Art:ReefS2, desc:"Floats with purpose. Stings without warning."},
+    {level:5,  form:"Kraken Pup",       Art:ReefS3, desc:"The tentacles have opinions now."},
+    {level:7,  form:"Deep Hunter",      Art:ReefS4, desc:"The deep water belongs to it."},
+    {level:10, form:"The Leviathan",    Art:ReefS5, desc:"Older than the ocean. The ocean knows."},
   ]},
 ];
 
@@ -190,85 +165,138 @@ const PET_LEVELS = [
 ];
 
 const WORKOUT_TYPES = [
-  {id:"run",     label:"Running",        emoji:"🏃",  met:9.8 },
-  {id:"walk",    label:"Walking",        emoji:"🚶",  met:3.5 },
-  {id:"bike",    label:"Cycling",        emoji:"🚴",  met:8.0 },
-  {id:"swim",    label:"Swimming",       emoji:"🏊",  met:7.0 },
-  {id:"lift",    label:"Weight Training",emoji:"🏋️", met:5.0 },
-  {id:"hiit",    label:"HIIT",           emoji:"⚡",  met:10.0},
-  {id:"yoga",    label:"Yoga",           emoji:"🧘",  met:2.5 },
-  {id:"pilates", label:"Pilates",        emoji:"🤸",  met:3.0 },
-  {id:"sport",   label:"Sports",         emoji:"⚽",  met:7.5 },
-  {id:"climb",   label:"Climbing",       emoji:"🧗",  met:8.0 },
-  {id:"dance",   label:"Dancing",        emoji:"💃",  met:5.5 },
-  {id:"row",     label:"Rowing",         emoji:"🚣",  met:7.0 },
-  {id:"elliptic",label:"Elliptical",     emoji:"🔄",  met:6.5 },
-  {id:"boxing",  label:"Boxing",         emoji:"🥊",  met:9.0 },
-  {id:"hike",    label:"Hiking",         emoji:"🥾",  met:6.0 },
-  {id:"other",   label:"Other",          emoji:"💪",  met:5.0 },
+  {id:"run",        label:"Running",        emoji:"🏃",  met:9.8 },
+  {id:"walk",       label:"Walking",        emoji:"🚶",  met:3.5 },
+  {id:"bike",       label:"Cycling",        emoji:"🚴",  met:8.0 },
+  {id:"swim",       label:"Swimming",       emoji:"🏊",  met:7.0 },
+  {id:"lift",       label:"Weight Training",emoji:"🏋️", met:5.0 },
+  {id:"hiit",       label:"HIIT",           emoji:"⚡",  met:10.0},
+  {id:"calisthenics",label:"Calisthenics",  emoji:"🤸",  met:8.0 },
+  {id:"pullups",    label:"Pull-ups",       emoji:"💪",  met:6.0 },
+  {id:"pushups",    label:"Push-ups",       emoji:"⬆️",  met:5.5 },
+  {id:"yoga",       label:"Yoga",           emoji:"🧘",  met:2.5 },
+  {id:"pilates",    label:"Pilates",        emoji:"🩰",  met:3.0 },
+  {id:"jump_rope",  label:"Jump Rope",      emoji:"⭕",  met:12.0},
+  {id:"sport",      label:"Sports",         emoji:"⚽",  met:7.5 },
+  {id:"climb",      label:"Climbing",       emoji:"🧗",  met:8.0 },
+  {id:"dance",      label:"Dancing",        emoji:"💃",  met:5.5 },
+  {id:"row",        label:"Rowing",         emoji:"🚣",  met:7.0 },
+  {id:"elliptic",   label:"Elliptical",     emoji:"🔄",  met:6.5 },
+  {id:"boxing",     label:"Boxing",         emoji:"🥊",  met:9.0 },
+  {id:"martial",    label:"Martial Arts",   emoji:"🥋",  met:10.0},
+  {id:"hike",       label:"Hiking",         emoji:"🥾",  met:6.0 },
+  {id:"skating",    label:"Skating",        emoji:"⛸️",  met:7.0 },
+  {id:"other",      label:"Other",          emoji:"🔥",  met:5.0 },
 ];
 
 const QUICK_FOODS = [
-  {kw:["chicken breast","grilled chicken","baked chicken","chicken"], name:"Chicken Breast",     emoji:"🍗", cal:185, pro:35, car:0,   fat:4,   fib:0,  perOz:46.25},
-  {kw:["salmon","salmon fillet"],                                      name:"Salmon",             emoji:"🐟", cal:234, pro:31, car:0,   fat:12,  fib:0,  perOz:58.5},
-  {kw:["ground beef","beef","burger patty"],                          name:"Ground Beef",        emoji:"🥩", cal:196, pro:24, car:0,   fat:11,  fib:0,  perOz:49.0},
-  {kw:["ground turkey","turkey"],                                      name:"Ground Turkey",      emoji:"🦃", cal:170, pro:22, car:0,   fat:9,   fib:0,  perOz:42.5},
-  {kw:["tuna","tuna can"],                                            name:"Canned Tuna",        emoji:"🐟", cal:109, pro:25, car:0,   fat:1,   fib:0},
-  {kw:["shrimp","prawns"],                                            name:"Shrimp",             emoji:"🦐", cal:112, pro:24, car:0,   fat:1.5, fib:0,  perOz:28.0},
-  {kw:["egg white","egg whites"],                                     name:"Egg Whites",         emoji:"🥚", cal:17,  pro:3.6,car:0.2, fat:0.1, fib:0},
-  {kw:["egg","eggs","whole egg"],                                     name:"Egg",                emoji:"🥚", cal:72,  pro:6,  car:0.4, fat:5,   fib:0},
-  {kw:["greek yogurt","yogurt"],                                      name:"Greek Yogurt",       emoji:"🫙", cal:100, pro:17, car:6,   fat:0,   fib:0,  perCup:1},
-  {kw:["cottage cheese"],                                             name:"Cottage Cheese",     emoji:"🫙", cal:90,  pro:12, car:5,   fat:2.5, fib:0},
-  {kw:["protein shake","protein powder","whey","protein"],            name:"Protein Shake",      emoji:"🥤", cal:120, pro:25, car:5,   fat:2,   fib:1},
-  {kw:["quest bar","protein bar","bar"],                              name:"Quest Bar",          emoji:"💪", cal:200, pro:21, car:22,  fat:8,   fib:14},
-  {kw:["fairlife","core power"],                                      name:"Fairlife Core Power",emoji:"🥤", cal:230, pro:42, car:13,  fat:3.5, fib:0},
-  {kw:["premier protein"],                                            name:"Premier Protein",    emoji:"🥤", cal:160, pro:30, car:6,   fat:3,   fib:1},
-  {kw:["white rice","jasmine rice"],                                  name:"White Rice",         emoji:"🍚", cal:206, pro:4,  car:45,  fat:0.4, fib:0.6,perCup:1},
-  {kw:["brown rice"],                                                  name:"Brown Rice",         emoji:"🍚", cal:216, pro:5,  car:45,  fat:1.8, fib:3.5,perCup:1},
-  {kw:["rice"],                                                        name:"White Rice",         emoji:"🍚", cal:206, pro:4,  car:45,  fat:0.4, fib:0.6,perCup:1},
-  {kw:["oatmeal","oats"],                                             name:"Oatmeal",            emoji:"🥣", cal:158, pro:6,  car:27,  fat:3,   fib:4,  perCup:1},
-  {kw:["sweet potato","yam"],                                         name:"Sweet Potato",       emoji:"🍠", cal:103, pro:2,  car:24,  fat:0.1, fib:3.8},
-  {kw:["pasta","spaghetti","noodles"],                                 name:"Pasta",              emoji:"🍝", cal:220, pro:8,  car:43,  fat:1.3, fib:2.5,perCup:1},
-  {kw:["bread","toast","slice of bread"],                             name:"Bread",              emoji:"🍞", cal:81,  pro:4,  car:14,  fat:1,   fib:1.9},
-  {kw:["quinoa"],                                                      name:"Quinoa",             emoji:"🌾", cal:222, pro:8,  car:39,  fat:4,   fib:5,  perCup:1},
-  {kw:["broccoli"],                                                    name:"Broccoli",           emoji:"🥦", cal:55,  pro:4,  car:11,  fat:0.6, fib:5,  perCup:1},
-  {kw:["spinach"],                                                     name:"Spinach",            emoji:"🥬", cal:14,  pro:1.7,car:2,   fat:0.2, fib:1.3,perCup:1},
-  {kw:["avocado","avo"],                                              name:"Avocado",            emoji:"🥑", cal:120, pro:1.5,car:6,   fat:11,  fib:5},
-  {kw:["banana"],                                                      name:"Banana",             emoji:"🍌", cal:105, pro:1.3,car:27,  fat:0.4, fib:3.1},
-  {kw:["apple"],                                                       name:"Apple",              emoji:"🍎", cal:95,  pro:0.5,car:25,  fat:0.3, fib:4.4},
-  {kw:["blueberries","blueberry"],                                    name:"Blueberries",        emoji:"🫐", cal:84,  pro:1.1,car:21,  fat:0.5, fib:3.6,perCup:1},
-  {kw:["strawberries","strawberry"],                                  name:"Strawberries",       emoji:"🍓", cal:49,  pro:1,  car:12,  fat:0.5, fib:3,  perCup:1},
-  {kw:["peanut butter","pb"],                                         name:"Peanut Butter",      emoji:"🥜", cal:188, pro:8,  car:6,   fat:16,  fib:2},
-  {kw:["almonds","almond"],                                           name:"Almonds",            emoji:"🌰", cal:164, pro:6,  car:6,   fat:14,  fib:3.5},
-  {kw:["olive oil","oil"],                                            name:"Olive Oil",          emoji:"🫒", cal:119, pro:0,  car:0,   fat:13.5,fib:0},
-  {kw:["black beans","beans"],                                        name:"Black Beans",        emoji:"🫘", cal:114, pro:7.6,car:20,  fat:0.5, fib:7.5,perCup:228},
-  {kw:["pizza"],                                                       name:"Pizza Slice",        emoji:"🍕", cal:285, pro:12, car:36,  fat:10,  fib:2},
-  {kw:["burger","hamburger","big mac","mcdouble"],                    name:"Burger",             emoji:"🍔", cal:450, pro:23, car:40,  fat:20,  fib:2},
-  {kw:["fries","french fries"],                                       name:"Fries",              emoji:"🍟", cal:320, pro:4,  car:44,  fat:15,  fib:3},
-  {kw:["chipotle","burrito bowl"],                                    name:"Chipotle Bowl",      emoji:"🥙", cal:655, pro:51, car:62,  fat:21,  fib:11},
-  {kw:["salad"],                                                       name:"Salad",              emoji:"🥗", cal:150, pro:8,  car:12,  fat:7,   fib:4},
-  {kw:["coffee","latte","espresso"],                                  name:"Coffee",             emoji:"☕", cal:5,   pro:0.3,car:0.7, fat:0.1, fib:0},
-  {kw:["milk"],                                                        name:"Milk",               emoji:"🥛", cal:122, pro:8,  car:12,  fat:5,   fib:0,  perCup:1},
-  {kw:["cheese"],                                                      name:"Cheese",             emoji:"🧀", cal:115, pro:7,  car:0.4, fat:9,   fib:0},
-  {kw:["butter"],                                                      name:"Butter",             emoji:"🧈", cal:102, pro:0.1,car:0,   fat:11.5,fib:0},
-  {kw:["orange juice","oj"],                                          name:"Orange Juice",       emoji:"🍊", cal:112, pro:1.7,car:26,  fat:0.5, fib:0.5,perCup:1},
-  {kw:["gatorade","sports drink"],                                    name:"Gatorade",           emoji:"🥤", cal:140, pro:0,  car:36,  fat:0,   fib:0},
-  {kw:["chocolate","dark chocolate"],                                 name:"Dark Chocolate",     emoji:"🍫", cal:170, pro:2,  car:13,  fat:12,  fib:3},
-  {kw:["ice cream"],                                                   name:"Ice Cream",          emoji:"🍦", cal:207, pro:3.5,car:24,  fat:11,  fib:0.7},
-  {kw:["tortilla","wrap"],                                            name:"Tortilla",           emoji:"🫓", cal:110, pro:5,  car:22,  fat:3,   fib:11},
-  {kw:["hummus"],                                                      name:"Hummus",             emoji:"🫘", cal:50,  pro:2,  car:6,   fat:3,   fib:1.6},
-  {kw:["soup"],                                                        name:"Soup",               emoji:"🍲", cal:120, pro:8,  car:15,  fat:3,   fib:1},
-  {kw:["bacon"],                                                       name:"Bacon",              emoji:"🥓", cal:86,  pro:6,  car:0.1, fat:7,   fib:0},
+  // ── PROTEINS ──
+  {kw:["chicken breast","grilled chicken","baked chicken","chicken"],  name:"Chicken Breast",         emoji:"🍗", cal:185, pro:35, car:0,   fat:4,   fib:0,  perOz:46.25},
+  {kw:["salmon","salmon fillet"],                                       name:"Salmon",                 emoji:"🐟", cal:234, pro:31, car:0,   fat:12,  fib:0,  perOz:58.5},
+  {kw:["ground beef","beef","burger patty"],                           name:"Ground Beef (90/10)",    emoji:"🥩", cal:196, pro:24, car:0,   fat:11,  fib:0,  perOz:49.0},
+  {kw:["ground turkey","turkey"],                                       name:"Ground Turkey",          emoji:"🦃", cal:170, pro:22, car:0,   fat:9,   fib:0,  perOz:42.5},
+  {kw:["tuna","tuna can"],                                             name:"Canned Tuna",            emoji:"🐟", cal:109, pro:25, car:0,   fat:1,   fib:0},
+  {kw:["shrimp","prawns"],                                             name:"Shrimp",                 emoji:"🦐", cal:112, pro:24, car:0,   fat:1.5, fib:0,  perOz:28.0},
+  {kw:["tilapia","white fish"],                                        name:"Tilapia",                emoji:"🐠", cal:111, pro:23, car:0,   fat:2,   fib:0,  perOz:27.8},
+  {kw:["egg white","egg whites"],                                      name:"Egg Whites (3)",         emoji:"🥚", cal:51,  pro:11, car:0.6, fat:0.3, fib:0},
+  {kw:["egg","eggs","whole egg"],                                      name:"Egg (whole)",            emoji:"🥚", cal:72,  pro:6,  car:0.4, fat:5,   fib:0},
+  {kw:["greek yogurt","yogurt"],                                       name:"Greek Yogurt",           emoji:"🫙", cal:100, pro:17, car:6,   fat:0,   fib:0,  perCup:1},
+  {kw:["cottage cheese"],                                              name:"Cottage Cheese",         emoji:"🫙", cal:90,  pro:12, car:5,   fat:2.5, fib:0},
+  {kw:["protein shake","protein powder","whey","protein"],             name:"Protein Shake",          emoji:"🥤", cal:120, pro:25, car:5,   fat:2,   fib:1},
+  {kw:["quest bar","protein bar","bar"],                               name:"Quest Bar",              emoji:"💪", cal:200, pro:21, car:22,  fat:8,   fib:14},
+  {kw:["fairlife","core power"],                                       name:"Fairlife Core Power",    emoji:"🥤", cal:230, pro:42, car:13,  fat:3.5, fib:0},
+  {kw:["premier protein"],                                             name:"Premier Protein",        emoji:"🥤", cal:160, pro:30, car:6,   fat:3,   fib:1},
+  {kw:["beef jerky","jerky"],                                          name:"Beef Jerky",             emoji:"🥩", cal:116, pro:9,  car:3,   fat:7,   fib:0},
+  {kw:["deli turkey","turkey breast"],                                 name:"Deli Turkey",            emoji:"🦃", cal:60,  pro:11, car:1,   fat:1,   fib:0},
+  {kw:["tofu","firm tofu"],                                            name:"Firm Tofu",              emoji:"⬜", cal:144, pro:17, car:4,   fat:8,   fib:2,  perCup:1},
+  // ── CARBS ──
+  {kw:["white rice","jasmine rice"],                                   name:"White Rice",             emoji:"🍚", cal:206, pro:4,  car:45,  fat:0.4, fib:0.6,perCup:1},
+  {kw:["brown rice"],                                                   name:"Brown Rice",             emoji:"🍚", cal:216, pro:5,  car:45,  fat:1.8, fib:3.5,perCup:1},
+  {kw:["rice"],                                                         name:"White Rice",             emoji:"🍚", cal:206, pro:4,  car:45,  fat:0.4, fib:0.6,perCup:1},
+  {kw:["oatmeal","oats"],                                              name:"Oatmeal",                emoji:"🥣", cal:158, pro:6,  car:27,  fat:3,   fib:4,  perCup:1},
+  {kw:["sweet potato","yam"],                                          name:"Sweet Potato",           emoji:"🍠", cal:103, pro:2,  car:24,  fat:0.1, fib:3.8},
+  {kw:["pasta","spaghetti","noodles"],                                  name:"Pasta",                  emoji:"🍝", cal:220, pro:8,  car:43,  fat:1.3, fib:2.5,perCup:1},
+  {kw:["bread","toast","slice of bread"],                              name:"Bread (1 slice)",        emoji:"🍞", cal:81,  pro:4,  car:14,  fat:1,   fib:1.9},
+  {kw:["ezekiel bread","sprouted bread"],                              name:"Ezekiel Bread",          emoji:"🍞", cal:80,  pro:4,  car:15,  fat:0.5, fib:3},
+  {kw:["quinoa"],                                                       name:"Quinoa",                 emoji:"🌾", cal:222, pro:8,  car:39,  fat:4,   fib:5,  perCup:1},
+  {kw:["potato","white potato"],                                       name:"Potato (medium)",        emoji:"🥔", cal:161, pro:4,  car:37,  fat:0.2, fib:3.8},
+  // ── VEGGIES ──
+  {kw:["broccoli"],                                                     name:"Broccoli",               emoji:"🥦", cal:55,  pro:4,  car:11,  fat:0.6, fib:5,  perCup:1},
+  {kw:["spinach"],                                                      name:"Spinach",                emoji:"🥬", cal:14,  pro:1.7,car:2,   fat:0.2, fib:1.3,perCup:1},
+  {kw:["asparagus"],                                                    name:"Asparagus",              emoji:"🌿", cal:27,  pro:3,  car:5,   fat:0.2, fib:2.8},
+  {kw:["bell pepper","pepper"],                                        name:"Bell Pepper",            emoji:"🫑", cal:31,  pro:1,  car:7,   fat:0.3, fib:2.5},
+  {kw:["zucchini","courgette"],                                        name:"Zucchini",               emoji:"🥒", cal:33,  pro:2.4,car:6,   fat:0.6, fib:2},
+  {kw:["kale"],                                                         name:"Kale",                   emoji:"🥬", cal:33,  pro:2.9,car:6,   fat:0.6, fib:1.3,perCup:1},
+  {kw:["cucumber"],                                                     name:"Cucumber",               emoji:"🥒", cal:16,  pro:0.7,car:3.8, fat:0.1, fib:0.5},
+  {kw:["tomato"],                                                       name:"Tomato",                 emoji:"🍅", cal:35,  pro:1.7,car:7,   fat:0.4, fib:2.2},
+  // ── FRUITS ──
+  {kw:["avocado","avo"],                                               name:"Avocado (half)",         emoji:"🥑", cal:120, pro:1.5,car:6,   fat:11,  fib:5},
+  {kw:["banana"],                                                       name:"Banana",                 emoji:"🍌", cal:105, pro:1.3,car:27,  fat:0.4, fib:3.1},
+  {kw:["apple"],                                                        name:"Apple",                  emoji:"🍎", cal:95,  pro:0.5,car:25,  fat:0.3, fib:4.4},
+  {kw:["blueberries","blueberry"],                                     name:"Blueberries",            emoji:"🫐", cal:84,  pro:1.1,car:21,  fat:0.5, fib:3.6,perCup:1},
+  {kw:["strawberries","strawberry"],                                   name:"Strawberries",           emoji:"🍓", cal:49,  pro:1,  car:12,  fat:0.5, fib:3,  perCup:1},
+  {kw:["mango"],                                                        name:"Mango (1 cup)",          emoji:"🥭", cal:107, pro:0.8,car:28,  fat:0.4, fib:3},
+  {kw:["orange"],                                                       name:"Orange",                 emoji:"🍊", cal:62,  pro:1.2,car:15,  fat:0.2, fib:3.1},
+  // ── FATS ──
+  {kw:["peanut butter","pb"],                                          name:"Peanut Butter (2 tbsp)", emoji:"🥜", cal:188, pro:8,  car:6,   fat:16,  fib:2},
+  {kw:["almond butter"],                                               name:"Almond Butter (2 tbsp)", emoji:"🌰", cal:196, pro:7,  car:6,   fat:18,  fib:3.3},
+  {kw:["almonds","almond"],                                            name:"Almonds (1 oz)",         emoji:"🌰", cal:164, pro:6,  car:6,   fat:14,  fib:3.5},
+  {kw:["olive oil","oil"],                                             name:"Olive Oil (1 tbsp)",     emoji:"🫒", cal:119, pro:0,  car:0,   fat:13.5,fib:0},
+  {kw:["mixed nuts","nuts"],                                           name:"Mixed Nuts (1 oz)",      emoji:"🥜", cal:173, pro:5,  car:8,   fat:16,  fib:2},
+  {kw:["black beans","beans"],                                         name:"Black Beans",            emoji:"🫘", cal:114, pro:7.6,car:20,  fat:0.5, fib:7.5,perCup:228},
+  // ── DAIRY ──
+  {kw:["milk","whole milk"],                                           name:"Milk (1 cup)",           emoji:"🥛", cal:149, pro:8,  car:12,  fat:8,   fib:0},
+  {kw:["skim milk","low fat milk"],                                    name:"Skim Milk (1 cup)",      emoji:"🥛", cal:83,  pro:8,  car:12,  fat:0.2, fib:0},
+  {kw:["cheese","cheddar"],                                            name:"Cheddar Cheese (1 oz)",  emoji:"🧀", cal:115, pro:7,  car:0.4, fat:9,   fib:0},
+  {kw:["mozzarella"],                                                   name:"Mozzarella (1 oz)",      emoji:"🧀", cal:85,  pro:6,  car:1,   fat:6,   fib:0},
+  {kw:["butter"],                                                       name:"Butter (1 tbsp)",        emoji:"🧈", cal:102, pro:0.1,car:0,   fat:11.5,fib:0},
+  // ── TORTILLAS & WRAPS ──
+  {kw:["low carb tortilla","low carb wrap","mission carb balance"],    name:"Low Carb Tortilla",      emoji:"🫓", cal:70,  pro:5,  car:18,  fat:3,   fib:11},
+  {kw:["flour tortilla","tortilla","wrap"],                            name:"Flour Tortilla (10\")",  emoji:"🫓", cal:213, pro:6,  car:36,  fat:5,   fib:2},
+  {kw:["corn tortilla"],                                               name:"Corn Tortilla (2)",      emoji:"🌮", cal:104, pro:2.7,car:22,  fat:1.3, fib:3},
+  {kw:["whole wheat tortilla","wheat tortilla"],                       name:"Whole Wheat Tortilla",   emoji:"🫓", cal:140, pro:4,  car:22,  fat:4,   fib:3},
+  // ── COFFEE VARIATIONS ──
+  {kw:["black coffee","plain coffee"],                                 name:"Black Coffee",           emoji:"☕", cal:2,   pro:0.3,car:0,   fat:0,   fib:0},
+  {kw:["coffee with creamer","creamer coffee","homemade coffee","coffee creamer"], name:"Coffee + Creamer",       emoji:"☕", cal:50,  pro:0.5,car:7,   fat:2,   fib:0},
+  {kw:["cinnamon coffee","coffee cinnamon","spiced coffee"],           name:"Coffee + Cream + Cinnamon",emoji:"☕",cal:55,  pro:0.5,car:7,   fat:2.5, fib:0.5},
+  {kw:["bulletproof coffee","butter coffee"],                          name:"Bulletproof Coffee",     emoji:"☕", cal:230, pro:0.3,car:0,   fat:25,  fib:0},
+  {kw:["latte","cafe latte"],                                          name:"Latte (12oz oat milk)",  emoji:"☕", cal:130, pro:3,  car:22,  fat:3,   fib:1},
+  {kw:["espresso"],                                                     name:"Espresso (double)",      emoji:"☕", cal:10,  pro:0.7,car:1.5, fat:0.2, fib:0},
+  {kw:["cold brew","cold brew coffee"],                                name:"Cold Brew (12oz)",       emoji:"☕", cal:15,  pro:0.5,car:3,   fat:0,   fib:0},
+  // ── FAST FOOD ──
+  {kw:["pizza"],                                                        name:"Pizza Slice",            emoji:"🍕", cal:285, pro:12, car:36,  fat:10,  fib:2},
+  {kw:["burger","hamburger","big mac","mcdouble"],                     name:"Burger",                 emoji:"🍔", cal:450, pro:23, car:40,  fat:20,  fib:2},
+  {kw:["fries","french fries"],                                        name:"Fries (medium)",         emoji:"🍟", cal:320, pro:4,  car:44,  fat:15,  fib:3},
+  {kw:["chipotle","burrito bowl"],                                     name:"Chipotle Bowl",          emoji:"🥙", cal:655, pro:51, car:62,  fat:21,  fib:11},
+  {kw:["chick fil a","chicken sandwich"],                              name:"Chick-fil-A Sandwich",   emoji:"🍗", cal:440, pro:28, car:40,  fat:19,  fib:1},
+  {kw:["subway","footlong"],                                           name:"Subway 6\" Turkey",      emoji:"🥖", cal:280, pro:18, car:46,  fat:4.5, fib:3},
+  {kw:["salad"],                                                        name:"Side Salad",             emoji:"🥗", cal:150, pro:8,  car:12,  fat:7,   fib:4},
+  {kw:["sushi","sushi roll"],                                          name:"Sushi Roll (8pc)",       emoji:"🍱", cal:320, pro:14, car:56,  fat:5,   fib:2},
+  // ── SNACKS & OTHER ──
+  {kw:["rice cakes","rice cake"],                                      name:"Rice Cakes (2)",         emoji:"⭕", cal:70,  pro:1.4,car:15,  fat:0.4, fib:0.4},
+  {kw:["hummus"],                                                       name:"Hummus (2 tbsp)",        emoji:"🫘", cal:50,  pro:2,  car:6,   fat:3,   fib:1.6},
+  {kw:["soup","chicken soup","tomato soup"],                           name:"Soup (1 cup)",           emoji:"🍲", cal:120, pro:8,  car:15,  fat:3,   fib:1},
+  {kw:["bacon"],                                                        name:"Bacon (2 strips)",       emoji:"🥓", cal:86,  pro:6,  car:0.1, fat:7,   fib:0},
+  {kw:["gatorade","sports drink"],                                     name:"Gatorade (20oz)",        emoji:"🥤", cal:140, pro:0,  car:36,  fat:0,   fib:0},
+  {kw:["chocolate","dark chocolate"],                                  name:"Dark Chocolate (1oz)",   emoji:"🍫", cal:170, pro:2,  car:13,  fat:12,  fib:3},
+  {kw:["ice cream"],                                                    name:"Ice Cream (1/2 cup)",    emoji:"🍦", cal:207, pro:3.5,car:24,  fat:11,  fib:0.7},
+  {kw:["orange juice","oj"],                                           name:"Orange Juice (8oz)",     emoji:"🍊", cal:112, pro:1.7,car:26,  fat:0.5, fib:0.5,perCup:1},
+  {kw:["protein pancakes","pancake mix"],                              name:"Protein Pancakes",       emoji:"🥞", cal:180, pro:16, car:22,  fat:4,   fib:2},
+  {kw:["overnight oats"],                                              name:"Overnight Oats",         emoji:"🥣", cal:215, pro:10, car:35,  fat:4,   fib:5},
+  {kw:["granola bar","nature valley"],                                 name:"Granola Bar",            emoji:"🍫", cal:190, pro:4,  car:29,  fat:7,   fib:2},
 ];
 
 const QUICK_CATS = [
-  {label:"Protein",  emoji:"💪", items:QUICK_FOODS.slice(0,14)},
-  {label:"Carbs",    emoji:"🍚", items:QUICK_FOODS.slice(14,22)},
-  {label:"Veggies",  emoji:"🥦", items:QUICK_FOODS.slice(22,26)},
-  {label:"Fruits",   emoji:"🍎", items:QUICK_FOODS.slice(26,30)},
-  {label:"Fats",     emoji:"🥑", items:QUICK_FOODS.slice(30,34)},
-  {label:"Fast Food",emoji:"🍔", items:QUICK_FOODS.slice(34,42)},
-  {label:"Other",    emoji:"☕", items:QUICK_FOODS.slice(42)},
+  {label:"Protein",   emoji:"💪", items:QUICK_FOODS.slice(0,18)},
+  {label:"Carbs",     emoji:"🍚", items:QUICK_FOODS.slice(18,26)},
+  {label:"Veggies",   emoji:"🥦", items:QUICK_FOODS.slice(26,34)},
+  {label:"Fruits",    emoji:"🍎", items:QUICK_FOODS.slice(34,40)},
+  {label:"Fats",      emoji:"🥑", items:QUICK_FOODS.slice(40,46)},
+  {label:"Dairy",     emoji:"🥛", items:QUICK_FOODS.slice(46,51)},
+  {label:"Tortillas", emoji:"🫓", items:QUICK_FOODS.slice(51,55)},
+  {label:"Coffee",    emoji:"☕", items:QUICK_FOODS.slice(55,62)},
+  {label:"Fast Food", emoji:"🍔", items:QUICK_FOODS.slice(62,70)},
+  {label:"Snacks",    emoji:"🍫", items:QUICK_FOODS.slice(70)},
 ];
 
 function sn(v){var x=parseFloat(v);return isNaN(x)?0:x;}
@@ -525,938 +553,4 @@ export default function App(){
   var totalBurned=workouts.reduce(function(a,w){return a+sn(w.burned);},0);
   var ingTots=ings.reduce(function(a,i){var s=sn(i.servings);a.cal+=Math.round(sn(i.cal)*s);a.pro+=r1(sn(i.pro)*s);a.car+=r1(sn(i.car)*s);a.fat+=r1(sn(i.fat)*s);a.fib+=r1(sn(i.fib)*s);return a;},{cal:0,pro:0,car:0,fat:0,fib:0});
   var avgScore=meals.length>0?Math.round(meals.reduce(function(a,m){return a+(m.score||0);},0)/meals.length):null;
-  var netCal=mealTots.cal-totalBurned;
-
-  function awardXP(amt){
-    if(!activePetId)return;
-    setPetData(function(prev){
-      var cur=prev[activePetId]||{xp:0,name:activePet?activePet.name:"",maxed:false};
-      var nXP=cur.xp+amt;var nMaxed=nXP>=6000;
-      if(nMaxed&&!cur.maxed)setZoo(function(z){return z.includes(activePetId)?z:z.concat([activePetId]);});
-      var upd=Object.assign({},prev);
-      upd[activePetId]=Object.assign({},cur,{xp:Math.min(nXP,6000),maxed:nMaxed});
-      return upd;
-    });
-    setXpPop(amt);setTimeout(function(){setXpPop(null);},2500);
-  }
-
-  function trackDay(){
-    var today=new Date().toDateString();
-    if(lastDate===today)return;
-    setLastDate(today);setTotalDays(function(d){return d+1;});awardXP(5);
-  }
-
-  function addIng(food){
-    setIngs(function(prev){
-      var ex=prev.find(function(i){return i.name===food.name;});
-      if(ex)return prev.map(function(i){return i.name===food.name?Object.assign({},i,{servings:String(sn(i.servings)+1)}):i;});
-      return prev.concat([Object.assign({},food,{id:Date.now()+Math.random(),servings:"1"})]);
-    });setMealErr("");
-  }
-
-  function updServ(id,val){setIngs(function(p){return p.map(function(i){return i.id===id?Object.assign({},i,{servings:val}):i;});});}
-  function removeIng(id){setIngs(function(p){return p.filter(function(i){return i.id!==id;});});}
-
-  async function doSearch(){
-    if(!searchQ.trim())return;
-    setSearching(true);setSearchErr("");setSearchR([]);
-    var r=await searchUSDA(searchQ);
-    if(!r.length)setSearchErr("No results — try simpler terms.");
-    setSearchR(r);setSearching(false);
-  }
-
-  function startVoice(){
-    setVoiceErr("");setVoiceText("");setVoiceParsed([]);
-    var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-    if(!SR){setVoiceErr("Voice not supported — type below instead.");return;}
-    var recog=new SR();
-    recog.continuous=false;recog.interimResults=true;recog.lang="en-US";
-    recog.onstart=function(){setVoiceListening(true);};
-    recog.onresult=function(e){var t="";for(var i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;setVoiceText(t);};
-    recog.onend=function(){setVoiceListening(false);setVoiceText(function(t){if(t.trim())setVoiceParsed(parseVoice(t));return t;});};
-    recog.onerror=function(){setVoiceListening(false);setVoiceErr("Could not hear you — try typing below.");};
-    recogRef.current=recog;recog.start();
-  }
-  function stopVoice(){if(recogRef.current)recogRef.current.stop();}
-
-  function confirmVoice(){
-    if(!voiceParsed.length){setVoiceErr("No foods detected — try typing.");return;}
-    voiceParsed.forEach(function(f){addIng(f);});
-    setVoiceModal(false);setVoiceText("");setVoiceParsed([]);
-    if(!mealName.trim())setMealName("Meal "+new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}));
-  }
-
-  function logMeal(){
-    if(!mealName.trim()){setMealErr("Give this meal a name.");return;}
-    if(!ings.length){setMealErr("Add at least one food.");return;}
-    var meal={id:Date.now(),name:mealName.trim(),cal:ingTots.cal,pro:ingTots.pro,car:ingTots.car,fat:ingTots.fat,fib:ingTots.fib,time:new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})};
-    var sc=scoreMeal(meal,goals,mealTots.cal);
-    meal.score=sc.score;meal.label=sc.label;meal.lc=sc.lc;meal.icon=sc.icon;
-    setMeals(function(p){return p.concat([meal]);});
-    setScoredMeal(Object.assign({},meal,sc));
-    var xp=10;if(sc.score>=85)xp+=15;else if(sc.score>=70)xp+=8;else if(sc.score>=55)xp+=4;
-    awardXP(xp);trackDay();
-    setMealName("");setIngs([]);setMealErr("");setTab("log");
-  }
-
-  function saveMealTmpl(){
-    if(!mealName.trim()||!ings.length){setMealErr("Name and add ingredients first.");return;}
-    setSaved(function(p){return p.concat([{id:Date.now(),name:mealName.trim(),ings:ings.map(function(i){return Object.assign({},i);}),cal:ingTots.cal,pro:ingTots.pro,car:ingTots.car,fat:ingTots.fat}]);});
-    setMealErr("");alert(mealName+" saved!");
-  }
-
-  function loadTmpl(m){
-    setMealName(m.name);
-    setIngs(m.ings.map(function(i){return Object.assign({},i,{id:Date.now()+Math.random()});}));
-    setShowSaved(false);setTab("build");setMealErr("");
-  }
-
-  function logWorkout(){
-    var im={light:wkType.met*0.7,moderate:wkType.met,hard:wkType.met*1.3};
-    var met=im[wkIntensity]||wkType.met;
-    var burned=calcBurn(bodyWeightLbs,sn(wkDuration),met);
-    var wk={id:Date.now(),type:wkType.id,label:wkType.label,emoji:wkType.emoji,duration:sn(wkDuration),burned:burned,intensity:wkIntensity,notes:wkNotes.trim(),time:new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})};
-    setWorkouts(function(p){return p.concat([wk]);});
-    awardXP(12);trackDay();
-    setShowWorkoutModal(false);setWkNotes("");setWkDuration("30");setTab("log");
-  }
-
-  function newDay(){
-    if(activePetId&&(meals.length>0||workouts.length>0)){
-      var xp=0;
-      if(meals.length>=3)xp+=10;
-      var cp=mealTots.cal/Math.max(goals.calories,1);
-      if(cp>=0.8&&cp<=1.1)xp+=15;
-      if(mealTots.pro/Math.max(goals.protein,1)>=0.85)xp+=20;
-      if(waterGlasses>=goals.water)xp+=10;
-      if(workouts.length>0)xp+=15;
-      if(xp>0)awardXP(xp);
-    }
-    setMeals([]);setWorkouts([]);setWaterGlasses(0);
-    setMealName("");setIngs([]);setMealErr("");
-    setConfirmNewDay(false);setTab("home");setScoredMeal(null);
-  }
-
-  function selectPet(id){
-    if(!petData[id]){
-      var pet=PETS.find(function(p){return p.id===id;});
-      setPetData(function(prev){var u=Object.assign({},prev);u[id]={xp:0,name:pet?pet.name:"",maxed:false};return u;});
-    }
-    setActivePetId(id);setShowPetPick(false);
-  }
-
-  function saveGoals(){
-    var g={calories:sn(goalsF.calories)||2000,protein:sn(goalsF.protein)||150,carbs:sn(goalsF.carbs)||225,fat:sn(goalsF.fat)||65,fiber:sn(goalsF.fiber)||25,water:sn(goalsF.water)||8};
-    setGoals(g);setShowGoals(false);
-  }
-
-  function navSt(active){return{flex:1,padding:"9px 0 7px",border:"none",cursor:"pointer",fontFamily:"'DM Mono',monospace",fontSize:9,fontWeight:600,background:"transparent",color:active?T.accent:T.faint,transition:"color .2s",display:"flex",flexDirection:"column",alignItems:"center",gap:2,position:"relative"};}
-  function inp(ex){return Object.assign({},{width:"100%",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.text,fontSize:14,padding:"11px 14px",fontFamily:"'DM Sans',sans-serif",outline:"none"},ex||{});}
-  function modal(children){return <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.88)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>{children}</div>;}
-  function modalBox(children){return <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:24,padding:26,width:"100%",maxWidth:420,maxHeight:"90vh",overflowY:"auto"}}>{children}</div>;}
-  function sheet(children){return <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.88)",zIndex:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}} onClick={function(e){if(e.target===e.currentTarget){setShowSaved(false);setShowTheme(false);setShowZoo(false);setShowPetPick(false);}}}>{children}</div>;}
-  function sheetBox(children){return <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:"24px 24px 0 0",padding:24,width:"100%",maxWidth:520,maxHeight:"85vh",overflowY:"auto"}}>{children}</div>;}
-  function hd(txt){return <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:T.text,marginBottom:16}}>{txt}</div>;}
-  function btn(label,onClick,extra){return <button onClick={onClick} style={Object.assign({},{padding:"12px 0",background:T.accent,border:"none",borderRadius:10,color:"#030712",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",width:"100%"},extra||{})}>{label}</button>;}
-
-  if(splash)return(
-    <div style={{position:"fixed",inset:0,zIndex:200,background:"#030712",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
-      <style>{CSS}</style>
-      <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:54,fontWeight:700,letterSpacing:"0.08em",lineHeight:1,marginBottom:8}}>
-        <span style={{color:"#3fb950"}}>FUEL</span><span style={{color:"#e6edf3"}}> TRACK</span>
-      </div>
-      <div style={{fontSize:11,color:"#484f58",fontFamily:"'DM Mono',monospace",letterSpacing:"0.15em",marginBottom:32}}>YOUR HEALTH COMPANION</div>
-      <div style={{display:"flex",gap:8,marginBottom:32}}>
-        {["🔥","⚡","❄️","🌊","☠️","👻","🏆","🌀","💥","🐉"].map(function(e,i){return <div key={i} style={{fontSize:18,animation:"bounce 1s ease-in-out "+i*0.08+"s infinite alternate"}}>{e}</div>;})}
-      </div>
-      <div style={{width:160,height:3,background:"#21262d",borderRadius:99,overflow:"hidden"}}>
-        <div style={{height:"100%",background:"#3fb950",borderRadius:99,animation:"loadbar 1.6s ease-out forwards"}}/>
-      </div>
-    </div>
-  );
-
-  if(showNameScreen)return(
-    <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'DM Sans',sans-serif",display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
-      <style>{CSS}</style>
-      {showTheme&&sheet(sheetBox(
-        <div>
-          {hd("Choose a Theme")}
-          <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
-            {THEMES.map(function(th){return(
-              <button key={th.id} onClick={function(){setThemeId(th.id);setShowTheme(false);}} style={{display:"flex",alignItems:"center",gap:7,padding:"7px 12px",borderRadius:8,cursor:"pointer",border:themeId===th.id?"2px solid "+T.accent:"1px solid "+T.border,background:th.card}}>
-                <div style={{width:14,height:14,borderRadius:3,background:th.bg,border:"1px solid rgba(128,128,128,.3)"}}/>
-                <span style={{fontSize:11,fontWeight:600,fontFamily:"'DM Mono',monospace",color:themeId===th.id?T.accent:th.text,whiteSpace:"nowrap"}}>{th.label}</span>
-              </button>
-            );})}
-          </div>
-        </div>
-      ))}
-      <div style={{width:"100%",maxWidth:380}}>
-        <div style={{textAlign:"center",marginBottom:32}}>
-          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:50,fontWeight:700,letterSpacing:"0.06em",lineHeight:1,marginBottom:6}}>
-            <span style={{color:T.accent}}>FUEL</span><span style={{color:T.text}}> TRACK</span>
-          </div>
-          <div style={{fontSize:12,color:T.sub,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em"}}>YOUR HEALTH COMPANION</div>
-        </div>
-        <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:20,padding:28,marginBottom:16}}>
-          <div style={{fontSize:16,fontWeight:600,color:T.text,marginBottom:6}}>What should we call you?</div>
-          <div style={{fontSize:13,color:T.sub,marginBottom:20}}>This stays on your device — no account needed.</div>
-          <input type="text" value={nameInput} onChange={function(e){setNameInput(e.target.value);}} onKeyDown={function(e){if(e.key==="Enter"&&nameInput.trim()){setUserName(nameInput.trim());setShowNameScreen(false);}}} placeholder="Your name or nickname..." style={inp({marginBottom:16,borderLeft:"3px solid "+T.accent})}/>
-          {btn("Get Started",function(){if(nameInput.trim()){setUserName(nameInput.trim());setShowNameScreen(false);}})}
-        </div>
-        <div style={{textAlign:"center"}}>
-          <button onClick={function(){setShowTheme(true);}} style={{background:"transparent",border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 14px",fontSize:11,cursor:"pointer",fontFamily:"'DM Mono',monospace"}}>🎨 Change Theme</button>
-        </div>
-      </div>
-    </div>
-  );
-
-  return(
-    <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'DM Sans',sans-serif",transition:"background .3s",paddingBottom:72}}>
-      <style>{CSS}</style>
-
-      {xpPop!=null&&<div className="xpa" style={{position:"fixed",top:80,right:20,zIndex:150,background:"#fbbf24",color:"#030712",borderRadius:12,padding:"8px 16px",fontFamily:"'DM Mono',monospace",fontSize:13,fontWeight:700,pointerEvents:"none"}}>+{xpPop} XP ⚡</div>}
-
-      {/* SCORED MEAL MODAL */}
-      {scoredMeal&&modal(modalBox(
-        <div>
-          <div style={{textAlign:"center",marginBottom:20}}>
-            <div style={{fontSize:48,marginBottom:8,lineHeight:1}}>{scoredMeal.icon}</div>
-            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:40,fontWeight:700,color:scoredMeal.lc,lineHeight:1,marginBottom:4}}>{scoredMeal.label}</div>
-            <div style={{fontSize:13,color:T.sub,fontStyle:"italic",marginBottom:6}}>{scoredMeal.enc}</div>
-            <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace"}}>{scoredMeal.score}/100</div>
-          </div>
-          {scoredMeal.details.length>0&&<div style={{display:"flex",flexDirection:"column",gap:6,marginBottom:14}}>
-            {scoredMeal.details.map(function(d,i){return <div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 12px",background:T.card2,borderRadius:8}}><span style={{fontSize:13}}>{d.pos?"✅":"💡"}</span><span style={{fontSize:12,color:T.sub}}>{d.t}</span></div>;})}
-          </div>}
-          {scoredMeal.tips&&scoredMeal.tips.length>0&&<div style={{background:T.card2,border:"1px solid "+T.border,borderRadius:12,padding:"14px",marginBottom:14}}>
-            <div style={{fontSize:10,color:T.accent,fontFamily:"'DM Mono',monospace",marginBottom:8}}>NEXT TIME, TRY THIS</div>
-            {scoredMeal.tips.map(function(t,i){return <div key={i} style={{display:"flex",gap:8,marginBottom:6}}><span style={{fontSize:13}}>💡</span><div style={{fontSize:12,color:T.sub,lineHeight:1.5}}>{t}</div></div>;})}
-          </div>}
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginBottom:16}}>
-            {[["CAL",scoredMeal.cal,"kcal"],["PROTEIN",scoredMeal.pro,"g"],["CARBS",scoredMeal.car,"g"]].map(function(x){return(
-              <div key={x[0]} style={{background:T.card2,borderRadius:8,padding:"8px",textAlign:"center"}}>
-                <div style={{fontSize:9,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:2}}>{x[0]}</div>
-                <div style={{fontSize:15,fontWeight:700,color:T.text,fontFamily:"'Barlow Condensed',sans-serif"}}>{x[1]}<span style={{fontSize:10,fontWeight:400}}>{x[2]}</span></div>
-              </div>
-            );})}
-          </div>
-          {btn("Keep going!",function(){setScoredMeal(null);})}
-        </div>
-      ))}
-
-      {/* VOICE MODAL */}
-      {voiceModal&&(
-        <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.88)",zIndex:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}} onClick={function(e){if(e.target===e.currentTarget)setVoiceModal(false);}}>
-          {sheetBox(
-            <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:4}}>Voice Entry</div>
-              <div style={{fontSize:13,color:T.sub,marginBottom:20}}>Say what you ate — "two chicken breasts and a cup of rice"</div>
-              <div style={{textAlign:"center",marginBottom:20}}>
-                <button onClick={voiceListening?stopVoice:startVoice} className={voiceListening?"vp":""} style={{width:80,height:80,borderRadius:99,background:voiceListening?"#ef4444":T.accent,border:"none",cursor:"pointer",fontSize:30,transition:"all .2s"}}>
-                  {voiceListening?"⏹":"🎤"}
-                </button>
-                <div style={{fontSize:12,color:T.sub,marginTop:10,fontFamily:"'DM Mono',monospace"}}>{voiceListening?"Listening — tap to stop":"Tap mic to start"}</div>
-              </div>
-              {voiceText&&<div style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"12px",marginBottom:14}}>
-                <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:6}}>YOU SAID</div>
-                <div style={{fontSize:14,color:T.text,lineHeight:1.5}}>{voiceText}</div>
-              </div>}
-              {voiceParsed.length>0&&<div style={{marginBottom:14}}>
-                <div style={{fontSize:10,color:T.accent,fontFamily:"'DM Mono',monospace",marginBottom:8}}>FOODS DETECTED</div>
-                {voiceParsed.map(function(f,i){return(
-                  <div key={i} style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"10px 14px",display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
-                    <div style={{display:"flex",alignItems:"center",gap:10}}>
-                      <span style={{fontSize:22}}>{f.emoji}</span>
-                      <div>
-                        <div style={{fontSize:13,fontWeight:600,color:T.text}}>{f.name}</div>
-                        <div style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.accent}}>{f.cal} kcal · P{f.pro}g · C{f.car}g</div>
-                      </div>
-                    </div>
-                    <button onClick={function(){setVoiceParsed(function(p){return p.filter(function(_,j){return j!==i;});});}} style={{background:"transparent",border:"none",color:T.faint,cursor:"pointer",fontSize:18}}>x</button>
-                  </div>
-                );})}
-              </div>}
-              {voiceErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'DM Mono',monospace",marginBottom:12,padding:"8px 12px",background:"rgba(127,29,29,0.3)",borderRadius:8}}>⚠ {voiceErr}</div>}
-              <div style={{marginBottom:14}}>
-                <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:6}}>OR TYPE WHAT YOU ATE</div>
-                <div style={{display:"flex",gap:8}}>
-                  <input type="text" value={voiceText} onChange={function(e){setVoiceText(e.target.value);}} onKeyDown={function(e){if(e.key==="Enter"&&voiceText.trim())setVoiceParsed(parseVoice(voiceText));}} placeholder="e.g. 2 chicken breasts and a cup of rice..." style={inp({flex:1,fontSize:13,padding:"9px 12px"})}/>
-                  <button onClick={function(){if(voiceText.trim())setVoiceParsed(parseVoice(voiceText));}} style={{padding:"9px 14px",background:T.accent,border:"none",borderRadius:8,color:"#030712",fontSize:12,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Parse</button>
-                </div>
-              </div>
-              <div style={{display:"flex",gap:8}}>
-                <button onClick={function(){setVoiceModal(false);}} style={{flex:1,padding:"13px 0",background:T.card2,border:"1px solid "+T.border,borderRadius:10,color:T.sub,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Cancel</button>
-                <button onClick={confirmVoice} disabled={voiceParsed.length===0} style={{flex:2,padding:"13px 0",background:T.accent,border:"none",borderRadius:10,color:"#030712",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",opacity:voiceParsed.length===0?0.4:1}}>
-                  Add {voiceParsed.length>0&&voiceParsed.reduce(function(a,f){return a+f.cal;},0)+" kcal"} to Meal
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* WORKOUT MODAL */}
-      {showWorkoutModal&&modal(modalBox(
-        <div>
-          {hd("Log a Workout")}
-          <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:8}}>WORKOUT TYPE</div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,marginBottom:16}}>
-            {WORKOUT_TYPES.map(function(wt){return(
-              <button key={wt.id} onClick={function(){setWkType(wt);}} style={{padding:"8px 4px",border:"1px solid "+(wkType.id===wt.id?T.accent:T.border),borderRadius:8,background:wkType.id===wt.id?T.accent+"22":T.card2,cursor:"pointer",textAlign:"center"}}>
-                <div style={{fontSize:18,marginBottom:2}}>{wt.emoji}</div>
-                <div style={{fontSize:9,color:wkType.id===wt.id?T.accent:T.sub,fontFamily:"'DM Mono',monospace",fontWeight:600}}>{wt.label}</div>
-              </button>
-            );})}
-          </div>
-          <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:6}}>DURATION (MINUTES)</div>
-          <div style={{display:"flex",gap:6,marginBottom:16}}>
-            {["15","20","30","45","60","90"].map(function(d){return(
-              <button key={d} onClick={function(){setWkDuration(d);}} style={{flex:1,padding:"10px 0",border:"1px solid "+(wkDuration===d?T.accent:T.border),borderRadius:8,background:wkDuration===d?T.accent+"22":T.card2,color:wkDuration===d?T.accent:T.sub,fontFamily:"'DM Mono',monospace",fontSize:12,fontWeight:700,cursor:"pointer"}}>{d}</button>
-            );})}
-          </div>
-          <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:6}}>INTENSITY</div>
-          <div style={{display:"flex",gap:6,marginBottom:16}}>
-            {[{id:"light",label:"Easy",emoji:"😊"},{id:"moderate",label:"Medium",emoji:"💪"},{id:"hard",label:"Hard",emoji:"🔥"}].map(function(lvl){return(
-              <button key={lvl.id} onClick={function(){setWkIntensity(lvl.id);}} style={{flex:1,padding:"10px 4px",border:"1px solid "+(wkIntensity===lvl.id?T.accent:T.border),borderRadius:8,background:wkIntensity===lvl.id?T.accent+"22":T.card2,cursor:"pointer",textAlign:"center"}}>
-                <div style={{fontSize:18,marginBottom:2}}>{lvl.emoji}</div>
-                <div style={{fontSize:10,color:wkIntensity===lvl.id?T.accent:T.sub,fontFamily:"'DM Mono',monospace",fontWeight:600}}>{lvl.label}</div>
-              </button>
-            );})}
-          </div>
-          <div style={{padding:"12px 14px",background:T.card2,border:"1px solid "+T.border,borderRadius:10,marginBottom:16,textAlign:"center"}}>
-            <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:4}}>ESTIMATED CALORIES BURNED</div>
-            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:36,fontWeight:700,color:"#f97316"}}>
-              {(function(){var im={light:wkType.met*0.7,moderate:wkType.met,hard:wkType.met*1.3};return calcBurn(bodyWeightLbs,sn(wkDuration),im[wkIntensity]||wkType.met);})()}
-            </div>
-            <div style={{fontSize:11,color:T.faint}}>kcal · {bodyWeightLbs} lbs · {wkDuration} min</div>
-          </div>
-          <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:6}}>NOTES (optional)</div>
-          <input type="text" value={wkNotes} onChange={function(e){setWkNotes(e.target.value);}} placeholder="e.g. Felt great, new PR..." style={inp({marginBottom:16})}/>
-          <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:6}}>YOUR BODY WEIGHT (for accuracy)</div>
-          <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:20}}>
-            <input type="number" value={bodyWeightLbs} onChange={function(e){setBodyWeightLbs(sn(e.target.value));}} style={inp({flex:1})}/>
-            <span style={{color:T.sub,fontSize:13,fontFamily:"'DM Mono',monospace",flexShrink:0}}>lbs</span>
-          </div>
-          <div style={{display:"flex",gap:8}}>
-            <button onClick={function(){setShowWorkoutModal(false);}} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,borderRadius:10,color:T.sub,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Cancel</button>
-            {btn("Log Workout 🏋️",logWorkout,{flex:2})}
-          </div>
-        </div>
-      ))}
-
-      {/* GOALS MODAL */}
-      {showGoals&&modal(modalBox(
-        <div>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
-            {hd("Your Daily Goals")}
-            <button onClick={function(){setShowGoals(false);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 12px",fontSize:12,cursor:"pointer",fontFamily:"'DM Mono',monospace"}}>Cancel</button>
-          </div>
-          <div style={{display:"flex",flexDirection:"column",gap:12}}>
-            {[{key:"calories",label:"Calories (kcal)",color:"#34d399"},{key:"protein",label:"Protein (g)",color:"#34d399"},{key:"carbs",label:"Carbs (g)",color:"#60a5fa"},{key:"fat",label:"Fat (g)",color:"#fbbf24"},{key:"fiber",label:"Fiber (g)",color:"#a78bfa"},{key:"water",label:"Water (glasses/day)",color:"#38bdf8"}].map(function(item){return(
-              <div key={item.key}>
-                <label style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.08em",display:"block",marginBottom:5}}>{item.label}</label>
-                <input type="number" min="0" value={goalsF[item.key]} onChange={function(e){var v=e.target.value;setGoalsF(function(f){var u=Object.assign({},f);u[item.key]=v;return u;});}} style={inp({borderLeft:"3px solid "+item.color})}/>
-              </div>
-            );})}
-          </div>
-          <div style={{display:"flex",gap:10,marginTop:20}}>
-            <button onClick={function(){setGoalsF(DEFAULT_GOALS);}} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,fontSize:12,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Reset</button>
-            {btn("Save Goals",saveGoals,{flex:2})}
-          </div>
-        </div>
-      ))}
-
-      {showTheme&&sheet(sheetBox(
-        <div>
-          {hd("Choose a Theme")}
-          <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
-            {THEMES.map(function(th){return(
-              <button key={th.id} onClick={function(){setThemeId(th.id);setShowTheme(false);}} style={{display:"flex",alignItems:"center",gap:7,padding:"7px 12px",borderRadius:8,cursor:"pointer",border:themeId===th.id?"2px solid "+T.accent:"1px solid "+T.border,background:th.card,transition:"all .2s"}}>
-                <div style={{width:14,height:14,borderRadius:3,background:th.bg,border:"1px solid rgba(128,128,128,.3)"}}/>
-                <span style={{fontSize:11,fontWeight:600,fontFamily:"'DM Mono',monospace",color:themeId===th.id?T.accent:th.text,whiteSpace:"nowrap"}}>{th.label}</span>
-              </button>
-            );})}
-          </div>
-        </div>
-      ))}
-
-      {confirmNewDay&&modal(
-        <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:20,padding:32,maxWidth:340,width:"90%",textAlign:"center"}}>
-          <div style={{fontSize:36,marginBottom:12}}>🌅</div>
-          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,marginBottom:8,color:T.text}}>Start Fresh?</div>
-          <p style={{color:T.sub,fontSize:13,lineHeight:1.6,marginBottom:24}}>Clears today's meals and workouts. Your companion earns XP for everything you hit today first!</p>
-          <div style={{display:"flex",gap:10}}>
-            <button onClick={function(){setConfirmNewDay(false);}} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Cancel</button>
-            {btn("New Day",newDay,{flex:1})}
-          </div>
-        </div>
-      )}
-
-      {showSaved&&sheet(sheetBox(
-        <div>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-            {hd("Your Saved Meals")}
-            <button onClick={function(){setShowSaved(false);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 12px",fontSize:12,cursor:"pointer",fontFamily:"'DM Mono',monospace"}}>Close</button>
-          </div>
-          {!saved.length?(
-            <div style={{textAlign:"center",padding:"30px 0",color:T.faint,fontSize:13}}>No saved meals yet. Build a meal and tap Save.</div>
-          ):(
-            <div style={{display:"flex",flexDirection:"column",gap:10}}>
-              {saved.map(function(m){return(
-                <div key={m.id} style={{background:T.card2,border:"1px solid "+T.border,borderRadius:12,padding:"14px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                  <div>
-                    <div style={{fontWeight:700,fontSize:14,color:T.text,marginBottom:2}}>{m.name}</div>
-                    <div style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.accent}}>{m.cal} kcal · P{m.pro}g · C{m.car}g</div>
-                  </div>
-                  <div style={{display:"flex",gap:6}}>
-                    <button onClick={function(){loadTmpl(m);}} style={{padding:"6px 12px",background:T.accent,border:"none",borderRadius:8,color:"#030712",fontSize:11,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Load</button>
-                    {delSaved===m.id?(
-                      <button onClick={function(){setSaved(function(p){return p.filter(function(x){return x.id!==m.id;});});setDelSaved(null);}} style={{padding:"6px 10px",background:"rgba(127,29,29,0.4)",border:"1px solid rgba(127,29,29,0.6)",borderRadius:8,color:"#fca5a5",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"'DM Mono',monospace"}}>Sure?</button>
-                    ):(
-                      <button onClick={function(){setDelSaved(m.id);}} style={{padding:"6px 10px",background:"transparent",border:"1px solid "+T.border,borderRadius:8,color:T.faint,fontSize:13,cursor:"pointer"}}>x</button>
-                    )}
-                  </div>
-                </div>
-              );})}
-            </div>
-          )}
-        </div>
-      ))}
-
-      {showPetPick&&sheet(sheetBox(
-        <div>
-          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:4,textAlign:"center"}}>Choose Your Companion</div>
-          <div style={{fontSize:13,color:T.sub,textAlign:"center",marginBottom:20}}>10 creatures · 5 evolution stages each · Max one out for your Zoo!</div>
-          <div style={{display:"flex",flexDirection:"column",gap:10}}>
-            {PETS.map(function(pet){
-              var pd=petData[pet.id]||{};
-              var isActive=activePetId===pet.id;
-              var lvl=getLvl(pd.xp||0);
-              var stage=getStage(pet,lvl.level);
-              return(
-                <button key={pet.id} onClick={function(){selectPet(pet.id);}} style={{background:isActive?pet.color+"22":T.card2,border:"2px solid "+(isActive?pet.color:T.border),borderRadius:14,padding:"14px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:14,transition:"all .2s"}}>
-                  <div style={{flexShrink:0,width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",background:T.bg,borderRadius:12,border:"1px solid "+T.border}}>
-                    {renderArt(stage?stage.Art:pet.stages[0].Art,44)}
-                  </div>
-                  <div style={{flex:1}}>
-                    <div style={{fontWeight:700,fontSize:15,color:isActive?pet.color:T.text,marginBottom:1}}>{pd.name||pet.name}</div>
-                    <div style={{fontSize:11,color:T.sub,marginBottom:6,lineHeight:1.4}}>{pet.desc}</div>
-                    {(pd.xp||0)>0&&(
-                      <div style={{display:"flex",alignItems:"center",gap:6}}>
-                        <div style={{flex:1,height:3,background:T.border,borderRadius:99,overflow:"hidden"}}>
-                          <div style={{width:Math.min((pd.xp||0)/60,100)+"%",height:"100%",background:pet.color,borderRadius:99}}/>
-                        </div>
-                        <span style={{fontSize:9,color:T.faint,fontFamily:"'DM Mono',monospace",whiteSpace:"nowrap"}}>Lv{lvl.level}{pd.maxed?" MAXED":""}</span>
-                      </div>
-                    )}
-                  </div>
-                  {isActive&&<span style={{fontSize:10,color:pet.color,fontFamily:"'DM Mono',monospace",fontWeight:700,flexShrink:0}}>ACTIVE</span>}
-                </button>
-              );
-            })}
-          </div>
-          <div style={{marginTop:16}}>{btn("Done",function(){setShowPetPick(false);})}</div>
-        </div>
-      ))}
-
-      {showZoo&&sheet(sheetBox(
-        <div>
-          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:4,textAlign:"center"}}>Your Companion Zoo</div>
-          <div style={{fontSize:13,color:T.sub,textAlign:"center",marginBottom:20}}>{zoo.length}/{PETS.length} at max level</div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-            {PETS.map(function(pet){
-              var unlocked=zoo.includes(pet.id);
-              var pd=petData[pet.id]||{};
-              var maxStage=pet.stages[pet.stages.length-1];
-              if(unlocked)return(
-                <div key={pet.id} style={{background:pet.color+"22",border:"2px solid "+pet.color,borderRadius:14,padding:"16px 12px",textAlign:"center"}}>
-                  <div style={{marginBottom:8,display:"flex",justifyContent:"center",background:T.bg,borderRadius:10,padding:8}}>{renderArt(maxStage.Art,52)}</div>
-                  <div style={{fontWeight:700,fontSize:13,color:pet.color,marginBottom:2}}>{pd.name||pet.name}</div>
-                  <div style={{fontSize:10,color:T.sub,fontFamily:"'DM Mono',monospace",marginBottom:2}}>{maxStage.form}</div>
-                  <div style={{fontSize:9,color:T.faint,fontFamily:"'DM Mono',monospace"}}>ETERNAL</div>
-                </div>
-              );
-              return(
-                <div key={pet.id} style={{background:T.card2,border:"1px dashed "+T.border,borderRadius:14,padding:"16px 12px",textAlign:"center",opacity:0.4}}>
-                  <div style={{fontSize:28,marginBottom:6}}>?</div>
-                  <div style={{fontWeight:700,fontSize:12,color:T.faint}}>???</div>
-                  <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginTop:2}}>Not yet maxed</div>
-                </div>
-              );
-            })}
-          </div>
-          <div style={{marginTop:16}}>{btn("Close",function(){setShowZoo(false);})}</div>
-        </div>
-      ))}
-
-      {showWeightModal&&modal(
-        <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:20,padding:24,width:"100%",maxWidth:340}}>
-          {hd("Log Your Weight")}
-          <input type="number" value={weightInput} onChange={function(e){setWeightInput(e.target.value);}} placeholder="Weight in lbs" style={inp({marginBottom:16,fontSize:18,padding:"14px",textAlign:"center"})}/>
-          <div style={{display:"flex",gap:10}}>
-            <button onClick={function(){setShowWeightModal(false);setWeightInput("");}} style={{flex:1,padding:"12px 0",background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,fontSize:13,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Cancel</button>
-            <button onClick={function(){if(!weightInput)return;setWeightLog(function(w){return w.concat([{weight:parseFloat(weightInput),date:new Date().toLocaleDateString()}]);});setShowWeightModal(false);setWeightInput("");}} style={{flex:2,padding:"12px 0",background:T.accent,border:"none",borderRadius:8,color:"#030712",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Save</button>
-          </div>
-        </div>
-      )}
-
-      {/* HEADER */}
-      <header style={{padding:"12px 20px",borderBottom:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:60,background:T.bg}}>
-        <div style={{display:"flex",alignItems:"center",gap:8}}>
-          <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:20,fontWeight:700,color:T.accent,letterSpacing:"0.06em"}}>FUEL TRACK</span>
-          {userName&&<span style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace"}}>· {userName}</span>}
-        </div>
-        <div style={{display:"flex",gap:5}}>
-          <button onClick={function(){setGoalsF(Object.assign({},goals));setShowGoals(true);}} style={{background:"transparent",border:"1px solid "+T.border,color:T.sub,borderRadius:7,padding:"5px 8px",fontSize:12,cursor:"pointer"}}>🎯</button>
-          <button onClick={function(){setShowTheme(true);}} style={{background:"transparent",border:"1px solid "+T.border,color:T.sub,borderRadius:7,padding:"5px 8px",fontSize:12,cursor:"pointer"}}>🎨</button>
-          {(meals.length>0||workouts.length>0)&&<button onClick={function(){setConfirmNewDay(true);}} style={{background:"transparent",border:"1px solid "+T.border,color:T.sub,borderRadius:7,padding:"5px 8px",fontSize:12,cursor:"pointer"}}>🌅</button>}
-          <button onClick={function(){setUserName("");setShowNameScreen(true);}} style={{background:"transparent",border:"1px solid "+T.border,color:T.sub,borderRadius:7,padding:"5px 8px",fontSize:11,cursor:"pointer",fontFamily:"'DM Mono',monospace"}}>✎</button>
-        </div>
-      </header>
-
-      <div style={{maxWidth:520,margin:"0 auto",padding:"16px 16px 0"}}>
-
-        {/* ═══ HOME TAB ═══ */}
-        {tab==="home"&&(
-          <div style={{display:"flex",flexDirection:"column",gap:14}}>
-
-            {/* Calorie ring + macros */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"18px 20px"}}>
-              <CalRing eaten={Math.round(mealTots.cal)} burned={totalBurned} goal={goals.calories} T={T}/>
-              <div style={{display:"flex",gap:6,flexWrap:"wrap",marginTop:14}}>
-                <Pill label="PROTEIN" value={r1(mealTots.pro)} unit="g"    color="#34d399" T={T}/>
-                <Pill label="CARBS"   value={r1(mealTots.car)} unit="g"    color="#60a5fa" T={T}/>
-                <Pill label="FAT"     value={r1(mealTots.fat)} unit="g"    color="#fbbf24" T={T}/>
-                <Pill label="FIBER"   value={r1(mealTots.fib)} unit="g"    color="#a78bfa" T={T}/>
-                {totalBurned>0&&<Pill label="BURNED" value={totalBurned}   unit="kcal" color="#f97316" T={T}/>}
-              </div>
-            </div>
-
-            {/* QUICK ACTION BUTTONS — PROMINENT WORKOUT LOGGING */}
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-              <button onClick={function(){setTab("build");}} style={{padding:"16px 12px",background:T.accent,border:"none",borderRadius:14,color:"#030712",cursor:"pointer",textAlign:"left"}}>
-                <div style={{fontSize:24,marginBottom:4}}>🍽️</div>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,lineHeight:1,marginBottom:2}}>Log Meal</div>
-                <div style={{fontSize:11,opacity:0.7,fontFamily:"'DM Mono',monospace"}}>{meals.length} logged today</div>
-              </button>
-              <button onClick={function(){setShowWorkoutModal(true);}} style={{padding:"16px 12px",background:"#f97316",border:"none",borderRadius:14,color:"white",cursor:"pointer",textAlign:"left"}}>
-                <div style={{fontSize:24,marginBottom:4}}>🏋️</div>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,lineHeight:1,marginBottom:2,color:"white"}}>Log Workout</div>
-                <div style={{fontSize:11,opacity:0.8,fontFamily:"'DM Mono',monospace",color:"white"}}>{workouts.length} logged · {totalBurned} kcal burned</div>
-              </button>
-            </div>
-
-            {/* Macro bars */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
-              <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>MACROS</div>
-              {[{key:"pro",label:"Protein",unit:"g",color:"#34d399",max:goals.protein},{key:"car",label:"Carbs",unit:"g",color:"#60a5fa",max:goals.carbs},{key:"fat",label:"Fat",unit:"g",color:"#fbbf24",max:goals.fat},{key:"fib",label:"Fiber",unit:"g",color:"#a78bfa",max:goals.fiber}].map(function(m){return <MBar key={m.key} label={m.label} value={r1(mealTots[m.key])} max={m.max} unit={m.unit} color={m.color} T={T}/>;})}
-            </div>
-
-            {/* Water */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
-                <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em"}}>WATER TODAY</div>
-                <div style={{fontSize:12,color:T.sub,fontFamily:"'DM Mono',monospace"}}>{waterGlasses}/{goals.water} glasses</div>
-              </div>
-              <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
-                {Array.from({length:goals.water},function(_,i){return(
-                  <button key={i} onClick={function(){setWaterGlasses(function(w){return i<w?i:i+1;});}} style={{width:36,height:36,borderRadius:8,border:"1px solid "+T.border,background:i<waterGlasses?T.accent:T.card2,fontSize:15,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"all .2s"}}>
-                    {i<waterGlasses?"💧":"○"}
-                  </button>
-                );})}
-              </div>
-            </div>
-
-            {/* Weight */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
-                <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em"}}>WEIGHT</div>
-                <button onClick={function(){setShowWeightModal(true);}} style={{padding:"5px 12px",background:T.accent,border:"none",borderRadius:6,color:"#030712",fontSize:11,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>+ Log</button>
-              </div>
-              {weightLog.length===0?(
-                <div style={{fontSize:13,color:T.faint,textAlign:"center",padding:"10px 0"}}>Tap + Log to start tracking your weight</div>
-              ):(
-                <div>
-                  <div style={{display:"flex",gap:3,alignItems:"flex-end",height:56,marginBottom:6}}>
-                    {weightLog.slice(-14).map(function(entry,i,arr){
-                      var ws=arr.map(function(e){return e.weight;});
-                      var mn=Math.min.apply(null,ws);var mx=Math.max.apply(null,ws);
-                      var range=Math.max(mx-mn,5);
-                      var h=Math.round(((entry.weight-mn)/range)*44+12);
-                      return <div key={i} style={{flex:1,background:i===arr.length-1?T.accent:T.border,borderRadius:3,height:h+"px",transition:"height .5s"}}/>;
-                    })}
-                  </div>
-                  <div style={{display:"flex",justifyContent:"space-between",fontSize:11,fontFamily:"'DM Mono',monospace"}}>
-                    <span style={{color:T.faint}}>{weightLog.length>=2&&weightLog[weightLog.length-2].weight+" lbs"}</span>
-                    <span style={{color:T.text,fontWeight:700}}>{weightLog[weightLog.length-1].weight} lbs</span>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Companion */}
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px 18px"}}>
-              {!activePetId?(
-                <div style={{textAlign:"center",padding:"10px 0"}}>
-                  <div style={{fontSize:40,marginBottom:10}}>✨</div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:20,fontWeight:700,color:T.text,marginBottom:6}}>Choose your companion!</div>
-                  <div style={{fontSize:13,color:T.sub,marginBottom:16}}>A creature that grows as you do.</div>
-                  <button onClick={function(){setShowPetPick(true);}} style={{padding:"12px 24px",background:T.accent,border:"none",borderRadius:10,color:"#030712",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Meet the Companions</button>
-                </div>
-              ):(
-                <div>
-                  <div style={{display:"flex",alignItems:"center",gap:16}}>
-                    <div className="pf" style={{cursor:"pointer",flexShrink:0,background:T.bg,borderRadius:14,padding:8,border:"1px solid "+T.border}} onClick={function(){setShowPetPick(true);}}>
-                      {renderArt(petStage?petStage.Art:activePet.stages[0].Art,52)}
-                    </div>
-                    <div style={{flex:1}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:activePet.color,marginBottom:1}}>{activePetName}</div>
-                      <div style={{fontSize:11,color:activePet.color,fontFamily:"'DM Mono',monospace",marginBottom:2}}>{petStage?petStage.form:"Newborn"}</div>
-                      <div style={{fontSize:12,color:T.sub,fontStyle:"italic",marginBottom:6}}>{petStage?petStage.desc:activePet.stages[0].desc}</div>
-                      <div style={{height:5,background:T.border,borderRadius:99,overflow:"hidden",marginBottom:3}}>
-                        <div style={{width:petLvl.prog+"%",height:"100%",background:activePet.color,borderRadius:99,transition:"width .8s"}}/>
-                      </div>
-                      <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace"}}>
-                        {(petData[activePetId]||{}).maxed?"Eternal — visit your Zoo!":petLvl.nxt?"→ "+(petLvl.nxt.xpReq-activePetXP)+" XP to next form":""}
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{marginTop:10,padding:"10px 14px",background:T.card2,border:"1px solid "+T.border,borderRadius:10}}>
-                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
-                      <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace"}}>YOUR JOURNEY</div>
-                      <div style={{fontSize:11,color:T.accent,fontFamily:"'DM Mono',monospace",fontWeight:700}}>{totalDays} days logged</div>
-                    </div>
-                    <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
-                      {[{i:"🍽️",v:meals.length,l:"meals"},{i:"🏋️",v:workouts.length,l:"workouts"},{i:"💧",v:waterGlasses+"/"+goals.water,l:"water"},{i:"⚡",v:activePetXP,l:"XP"}].map(function(x){return(
-                        <div key={x.l} style={{display:"flex",alignItems:"center",gap:4}}>
-                          <span style={{fontSize:12}}>{x.i}</span>
-                          <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.text}}>{x.v}</span>
-                          <span style={{fontSize:9,color:T.faint,fontFamily:"'DM Mono',monospace"}}>{x.l}</span>
-                        </div>
-                      );})}
-                    </div>
-                  </div>
-                  {zoo.length>0&&<button onClick={function(){setShowZoo(true);}} style={{width:"100%",marginTop:10,padding:"8px 0",background:"transparent",border:"1px solid "+T.border,borderRadius:8,color:T.accent,fontSize:11,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>🏆 Zoo ({zoo.length}/{PETS.length})</button>}
-                </div>
-              )}
-            </div>
-
-            {avgScore!=null&&(
-              <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"14px 18px",display:"flex",alignItems:"center",gap:14}}>
-                <div style={{textAlign:"center",flexShrink:0}}>
-                  <div style={{fontSize:32,lineHeight:1,marginBottom:4}}>{avgScore>=85?"🌟":avgScore>=70?"💪":avgScore>=55?"👍":"🌱"}</div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,color:avgScore>=85?"#fbbf24":avgScore>=70?"#34d399":avgScore>=55?"#60a5fa":"#94a3b8"}}>{avgScore>=85?"Amazing":avgScore>=70?"Great":avgScore>=55?"Good":"Keep Going"}</div>
-                </div>
-                <div>
-                  <div style={{fontSize:13,fontWeight:600,color:T.text,marginBottom:4}}>Today's nutrition quality</div>
-                  <div style={{fontSize:12,color:T.sub}}>{meals.length} meal{meals.length!==1?"s":""} · {workouts.length} workout{workouts.length!==1?"s":""} · keep it up{userName?" "+userName:""}!</div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ═══ LOG TAB ═══ */}
-        {tab==="log"&&(
-          <div style={{marginTop:8,display:"flex",flexDirection:"column",gap:8}}>
-
-            {/* Quick log buttons always visible at top */}
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:4}}>
-              <button onClick={function(){setTab("build");}} style={{padding:"12px",background:T.accent,border:"none",borderRadius:12,color:"#030712",cursor:"pointer",display:"flex",alignItems:"center",gap:8,fontFamily:"'DM Mono',monospace",fontSize:12,fontWeight:700}}>
-                <span style={{fontSize:18}}>🍽️</span> Log Meal
-              </button>
-              <button onClick={function(){setShowWorkoutModal(true);}} style={{padding:"12px",background:"#f97316",border:"none",borderRadius:12,color:"white",cursor:"pointer",display:"flex",alignItems:"center",gap:8,fontFamily:"'DM Mono',monospace",fontSize:12,fontWeight:700}}>
-                <span style={{fontSize:18}}>🏋️</span> Log Workout
-              </button>
-            </div>
-
-            {!meals.length&&!workouts.length?(
-              <div style={{background:T.card,border:"1px dashed "+T.border,borderRadius:18,padding:"40px 20px",textAlign:"center"}}>
-                <div style={{fontSize:40,marginBottom:12}}>🌱</div>
-                <div style={{color:T.text,fontSize:16,fontWeight:600,marginBottom:6}}>Nothing logged yet today</div>
-                <div style={{color:T.sub,fontSize:13}}>Use the buttons above to get started.</div>
-              </div>
-            ):(
-              <div style={{display:"flex",flexDirection:"column",gap:8}}>
-                {workouts.map(function(wk){return(
-                  <div key={wk.id} className="mcard" style={{background:T.card,border:"1px solid #f97316",borderRadius:14,padding:"12px 14px",display:"flex",alignItems:"center",gap:12}}>
-                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(249,115,22,.15)",border:"1px solid #f97316",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:18}}>{wk.emoji}</div>
-                    <div style={{flex:1}}>
-                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline"}}>
-                        <span style={{fontWeight:700,fontSize:15,color:T.text}}>{wk.label}</span>
-                        <span style={{fontFamily:"'DM Mono',monospace",fontSize:10,color:T.sub}}>{wk.time}</span>
-                      </div>
-                      <div style={{display:"flex",gap:8,marginTop:3,flexWrap:"wrap"}}>
-                        <span style={{fontSize:12,fontFamily:"'DM Mono',monospace",color:"#f97316",fontWeight:700}}>🔥 {wk.burned} kcal burned</span>
-                        <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.sub}}>{wk.duration} min · {wk.intensity}</span>
-                      </div>
-                      {wk.notes&&<div style={{fontSize:11,color:T.faint,fontStyle:"italic",marginTop:2}}>{wk.notes}</div>}
-                    </div>
-                    <button className="delbtn" onClick={function(){setWorkouts(function(p){return p.filter(function(w){return w.id!==wk.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:6,width:28,height:28,cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>x</button>
-                  </div>
-                );})}
-
-                {meals.map(function(meal,idx){return(
-                  <div key={meal.id} className="mcard" style={{background:T.card,border:"1px solid "+T.border,borderRadius:14,padding:"12px 14px",display:"flex",alignItems:"flex-start",gap:12}}>
-                    <div style={{width:28,height:28,borderRadius:8,background:T.card2,border:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontFamily:"'DM Mono',monospace",fontSize:11,color:T.faint}}>{idx+1}</div>
-                    <div style={{flex:1,minWidth:0}}>
-                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:3}}>
-                        <span style={{fontWeight:600,fontSize:14,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{meal.name}</span>
-                        <span style={{fontFamily:"'DM Mono',monospace",fontSize:10,color:T.sub,marginLeft:8,flexShrink:0}}>{meal.time}</span>
-                      </div>
-                      <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:5}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:20,fontWeight:700,color:T.accent}}>{meal.cal} <span style={{fontSize:12,fontWeight:400,color:T.sub}}>kcal</span></div>
-                        {meal.label&&<div style={{fontSize:12,fontWeight:700,color:meal.lc,background:meal.lc+"22",borderRadius:8,padding:"2px 8px"}}>{meal.icon} {meal.label}</div>}
-                      </div>
-                      <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
-                        {[{l:"P",v:meal.pro,c:"#34d399"},{l:"C",v:meal.car,c:"#60a5fa"},{l:"F",v:meal.fat,c:"#fbbf24"},{l:"Fi",v:meal.fib,c:"#a78bfa"}].filter(function(x){return x.v>0;}).map(function(chip){return(
-                          <span key={chip.l} style={{background:T.card2,border:"1px solid "+T.border,borderRadius:5,padding:"2px 6px",fontSize:10,fontFamily:"'DM Mono',monospace",color:chip.c}}>{chip.l} {r1(chip.v)}g</span>
-                        );})}
-                      </div>
-                    </div>
-                    <button className="delbtn" onClick={function(){setMeals(function(p){return p.filter(function(m){return m.id!==meal.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:6,width:28,height:28,cursor:"pointer",fontSize:14,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>x</button>
-                  </div>
-                );})}
-
-                <div style={{background:netCal>goals.calories?"rgba(251,146,60,0.1)":"rgba(52,211,153,0.08)",border:"1px solid "+(netCal>goals.calories?"rgba(251,146,60,0.4)":"rgba(52,211,153,0.3)"),borderRadius:14,padding:"12px 16px"}}>
-                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
-                    <div style={{fontSize:10,color:netCal>goals.calories?"#fb923c":"#34d399",fontFamily:"'DM Mono',monospace"}}>{netCal>goals.calories?"A little over today":"Today's summary"}</div>
-                    {avgScore!=null&&<div style={{fontSize:11,color:T.accent,fontFamily:"'DM Mono',monospace",fontWeight:600}}>{avgScore>=85?"🌟 Amazing":avgScore>=70?"💪 Great":avgScore>=55?"👍 Good":"🌱 Keep Going"}</div>}
-                  </div>
-                  <div style={{display:"flex",gap:16,flexWrap:"wrap"}}>
-                    <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:20,fontWeight:700,color:netCal>goals.calories?"#fb923c":"#34d399",lineHeight:1}}>{mealTots.cal} eaten</div>
-                      {totalBurned>0&&<div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:16,fontWeight:600,color:"#f97316",lineHeight:1}}>-{totalBurned} burned</div>}
-                    </div>
-                    <div>
-                      <div style={{fontSize:11,color:T.sub,fontFamily:"'DM Mono',monospace"}}>{meals.length} meal{meals.length!==1?"s":""}</div>
-                      <div style={{fontSize:12,color:"#34d399",fontFamily:"'DM Mono',monospace",fontWeight:600}}>{r1(mealTots.pro)}g protein</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ═══ BUILD TAB ═══ */}
-        {tab==="build"&&(
-          <div style={{display:"flex",flexDirection:"column",gap:12,marginTop:8}}>
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"16px"}}>
-              <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:8}}>MEAL NAME</div>
-              <input type="text" value={mealName} onChange={function(e){setMealName(e.target.value);setMealErr("");}} placeholder="e.g. Lunch, Post-Workout..." style={inp({})}/>
-            </div>
-
-            <div style={{background:T.card,border:"2px solid "+T.accent,borderRadius:18,padding:"16px",cursor:"pointer"}} onClick={function(){setVoiceModal(true);}}>
-              <div style={{display:"flex",alignItems:"center",gap:12}}>
-                <div style={{fontSize:32}}>🎤</div>
-                <div style={{flex:1}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,color:T.accent,marginBottom:2}}>Voice Entry</div>
-                  <div style={{fontSize:12,color:T.sub}}>Say what you ate — we handle the rest</div>
-                </div>
-                <div style={{fontSize:18,color:T.accent}}>→</div>
-              </div>
-            </div>
-
-            <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"14px 16px"}}>
-              <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:10}}>BROWSE FOODS</div>
-              <div style={{display:"flex",gap:8,marginBottom:10}}>
-                <input type="text" value={searchQ} onChange={function(e){setSearchQ(e.target.value);if(!e.target.value)setSearchR([]);}} onKeyDown={function(e){if(e.key==="Enter")doSearch();}} placeholder="Search USDA database..." style={inp({flex:1,fontSize:13,padding:"9px 12px"})}/>
-                <button onClick={doSearch} disabled={searching} style={{padding:"9px 14px",background:T.accent,border:"none",borderRadius:8,color:"#030712",fontSize:11,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",whiteSpace:"nowrap"}}>{searching?"...":"Search"}</button>
-                {searchR.length>0&&<button onClick={function(){setSearchR([]);setSearchQ("");}} style={{padding:"9px 10px",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.sub,fontSize:12,cursor:"pointer"}}>X</button>}
-              </div>
-              {searchErr&&<div style={{fontSize:12,color:"#fca5a5",fontFamily:"'DM Mono',monospace",marginBottom:8}}>⚠ {searchErr}</div>}
-              {!searchR.length&&(
-                <div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,marginBottom:10}}>
-                  {QUICK_CATS.map(function(c,i){return(
-                    <button key={i} onClick={function(){setCatIdx(i);}} style={{padding:"5px 12px",borderRadius:18,border:"1px solid "+(catIdx===i?T.accent:T.border),background:catIdx===i?T.accent:T.card2,color:catIdx===i?"#030712":T.sub,fontSize:10,fontWeight:600,fontFamily:"'DM Mono',monospace",flexShrink:0,cursor:"pointer",whiteSpace:"nowrap"}}>{c.emoji} {c.label}</button>
-                  );})}
-                </div>
-              )}
-              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:7}}>
-                {(searchR.length>0?searchR:QUICK_CATS[catIdx].items).map(function(food,i){var f=food;return(
-                  <div key={i} className="fc" onClick={function(){addIng({name:f.name,emoji:f.emoji||"🔍",cal:f.cal,pro:f.pro,car:f.car,fat:f.fat,fib:f.fib});}} style={{background:T.card2,border:"1px solid "+T.border,borderRadius:12,padding:"10px",cursor:"pointer"}}>
-                    <div style={{fontSize:22,marginBottom:4,lineHeight:1}}>{f.emoji||"🔍"}</div>
-                    <div style={{fontSize:10,fontWeight:600,color:T.text,lineHeight:1.3,marginBottom:4}}>{f.name}</div>
-                    {f.brand&&<div style={{fontSize:9,color:T.faint,marginBottom:3}}>{(f.brand||"").slice(0,18)}</div>}
-                    <div style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.accent,fontWeight:700}}>{f.cal} kcal</div>
-                    <div style={{fontSize:9,fontFamily:"'DM Mono',monospace",color:T.sub}}>P{f.pro}g C{f.car}g F{f.fat}g</div>
-                  </div>
-                );})}
-              </div>
-            </div>
-
-            <div style={{background:T.card,border:"2px dashed "+T.border,borderRadius:18,padding:"14px 16px",minHeight:80}}>
-              {!ings.length?(
-                <div style={{textAlign:"center",padding:"12px 0"}}>
-                  <div style={{fontSize:24,marginBottom:5}}>🧺</div>
-                  <div style={{color:T.sub,fontSize:13,fontWeight:600,marginBottom:2}}>Your meal basket</div>
-                  <div style={{color:T.faint,fontSize:11}}>Use voice or tap foods above</div>
-                </div>
-              ):(
-                <div>
-                  <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:8}}>🧺 {ings.length} item{ings.length!==1?"s":""} added</div>
-                  <div style={{display:"flex",flexDirection:"column",gap:7}}>
-                    {ings.map(function(ing){return(
-                      <div key={ing.id} style={{display:"flex",alignItems:"center",gap:8,background:T.card2,borderRadius:10,padding:"8px 10px",border:"1px solid "+T.border}}>
-                        <span style={{fontSize:18,flexShrink:0}}>{ing.emoji||"🍽️"}</span>
-                        <div style={{flex:1,minWidth:0}}>
-                          <div style={{fontSize:11,fontWeight:600,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{ing.name}</div>
-                          <div style={{fontSize:10,fontFamily:"'DM Mono',monospace",color:T.accent}}>{Math.round(sn(ing.cal)*sn(ing.servings))} kcal · P{r1(sn(ing.pro)*sn(ing.servings))}g</div>
-                        </div>
-                        <div style={{display:"flex",alignItems:"center",gap:3,flexShrink:0}}>
-                          <button onClick={function(){updServ(ing.id,String(Math.max(0.25,sn(ing.servings)-0.25)));}} style={{width:24,height:24,borderRadius:5,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:13,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>-</button>
-                          <span style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:T.text,minWidth:24,textAlign:"center"}}>{ing.servings}x</span>
-                          <button onClick={function(){updServ(ing.id,String(sn(ing.servings)+0.25));}} style={{width:24,height:24,borderRadius:5,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:13,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>+</button>
-                          <button onClick={function(){removeIng(ing.id);}} style={{width:24,height:24,borderRadius:5,background:"transparent",border:"1px solid "+T.border,color:T.faint,fontSize:13,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",marginLeft:2}}>x</button>
-                        </div>
-                      </div>
-                    );})}
-                  </div>
-                  <div style={{marginTop:10,padding:"10px 12px",background:T.card2,border:"1px solid "+T.border,borderRadius:10}}>
-                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:3}}>
-                      <span style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace"}}>Meal total</span>
-                      <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:20,fontWeight:700,color:T.accent}}>{ingTots.cal} kcal</span>
-                    </div>
-                    <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-                      {[["P",ingTots.pro,"#34d399"],["C",ingTots.car,"#60a5fa"],["F",ingTots.fat,"#fbbf24"],["Fi",ingTots.fib,"#a78bfa"]].map(function(x){return <span key={x[0]} style={{fontSize:11,fontFamily:"'DM Mono',monospace",color:x[2]}}>{x[0]} {x[1]}g</span>;})}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {mealErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'DM Mono',monospace",textAlign:"center",padding:"8px",background:"rgba(127,29,29,0.2)",borderRadius:8}}>⚠ {mealErr}</div>}
-            <div style={{display:"flex",gap:8}}>
-              <button onClick={saveMealTmpl} disabled={!mealName.trim()||!ings.length} style={{flex:1,padding:"13px 0",background:"transparent",border:"1px solid "+T.accent,borderRadius:12,color:T.accent,fontSize:12,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",opacity:(!mealName.trim()||!ings.length)?0.4:1}}>Save</button>
-              <button onClick={logMeal} disabled={!mealName.trim()||!ings.length} style={{flex:2,padding:"13px 0",background:T.accent,border:"none",borderRadius:12,color:"#030712",fontSize:13,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer",opacity:(!mealName.trim()||!ings.length)?0.4:1}}>
-                Log it! {ings.length>0&&"· "+ingTots.cal+" kcal"}
-              </button>
-            </div>
-            <button onClick={function(){setShowSaved(true);}} style={{padding:"10px 0",background:"transparent",border:"1px solid "+T.border,borderRadius:12,color:T.sub,fontSize:11,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>
-              Saved Meals {saved.length>0&&"("+saved.length+")"}
-            </button>
-          </div>
-        )}
-
-        {/* ═══ PET TAB ═══ */}
-        {tab==="pet"&&(
-          <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:8}}>
-            {!activePetId?(
-              <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"40px 20px",textAlign:"center"}}>
-                <div style={{fontSize:48,marginBottom:16}}>✨</div>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:24,fontWeight:700,color:T.text,marginBottom:8}}>Meet your companion!</div>
-                <div style={{fontSize:13,color:T.sub,marginBottom:20,lineHeight:1.6}}>10 unique creatures. Each with 5 forms. Each one grows as you do.</div>
-                <button onClick={function(){setShowPetPick(true);}} style={{padding:"14px 32px",background:T.accent,border:"none",borderRadius:12,color:"#030712",fontSize:14,fontWeight:700,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Choose Your Companion</button>
-              </div>
-            ):(
-              <div style={{display:"flex",flexDirection:"column",gap:14}}>
-                <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"24px 20px",textAlign:"center"}}>
-                  <div className="pf" style={{marginBottom:12,display:"flex",justifyContent:"center",background:T.card2,borderRadius:20,padding:16,width:96,height:96,margin:"0 auto 12px"}}>
-                    {renderArt(petStage?petStage.Art:activePet.stages[0].Art,80)}
-                  </div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:28,fontWeight:700,color:activePet.color,marginBottom:2}}>{activePetName}</div>
-                  <div style={{fontSize:14,fontWeight:600,color:activePet.color,opacity:0.8,marginBottom:4}}>{petStage?petStage.form:"Newborn"}</div>
-                  <div style={{fontSize:13,color:T.sub,marginBottom:16,lineHeight:1.5,fontStyle:"italic"}}>{petStage?petStage.desc:activePet.stages[0].desc}</div>
-                  <div style={{background:T.card2,border:"1px solid "+T.border,borderRadius:12,padding:"14px",marginBottom:14}}>
-                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:6}}>
-                      <span style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:18,fontWeight:700,color:T.text}}>Level {petLvl.level} — {petLvl.name}</span>
-                      <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:T.sub}}>{activePetXP} XP</span>
-                    </div>
-                    <div style={{height:7,background:T.border,borderRadius:99,overflow:"hidden",marginBottom:5}}>
-                      <div style={{width:petLvl.prog+"%",height:"100%",background:activePet.color,borderRadius:99,transition:"width 1s"}}/>
-                    </div>
-                    <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace"}}>
-                      {(petData[activePetId]||{}).maxed?"Eternal — check the Zoo!":petLvl.nxt?"→ "+(petLvl.nxt.xpReq-activePetXP)+" XP to next form":""}
-                    </div>
-                  </div>
-                  <div style={{display:"flex",gap:8}}>
-                    <button onClick={function(){setShowPetPick(true);}} style={{flex:1,padding:"10px 0",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.sub,fontSize:12,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Switch</button>
-                    <button onClick={function(){setShowZoo(true);}} style={{flex:1,padding:"10px 0",background:T.card2,border:"1px solid "+T.border,borderRadius:8,color:T.accent,fontSize:12,fontWeight:600,fontFamily:"'DM Mono',monospace",cursor:"pointer"}}>Zoo ({zoo.length})</button>
-                  </div>
-                </div>
-
-                <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"18px 20px"}}>
-                  <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:14}}>EVOLUTION PATH</div>
-                  {activePet.stages.map(function(stage,i){
-                    var unlocked=petLvl.level>=stage.level;
-                    var isCur=petLvl.level>=stage.level&&(i===activePet.stages.length-1||petLvl.level<activePet.stages[i+1].level);
-                    return(
-                      <div key={i} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 0",borderBottom:i<activePet.stages.length-1?"1px solid "+T.border:"none",opacity:unlocked?1:0.35}}>
-                        <div style={{flexShrink:0,width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",background:T.card2,borderRadius:12,border:"1px solid "+T.border}}>
-                          {renderArt(stage.Art,44)}
-                        </div>
-                        <div style={{flex:1}}>
-                          <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:2}}>
-                            <span style={{fontSize:13,fontWeight:700,color:isCur?activePet.color:unlocked?T.text:T.faint}}>{stage.form}</span>
-                            {isCur&&<span style={{fontSize:9,background:activePet.color,color:"#030712",borderRadius:4,padding:"1px 6px",fontFamily:"'DM Mono',monospace",fontWeight:700}}>NOW</span>}
-                            {!unlocked&&<span style={{fontSize:9,color:T.faint,fontFamily:"'DM Mono',monospace"}}>Level {stage.level}</span>}
-                          </div>
-                          <div style={{fontSize:11,color:T.faint,fontStyle:"italic"}}>{stage.desc}</div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div style={{background:T.card,border:"1px solid "+T.border,borderRadius:18,padding:"18px 20px"}}>
-                  <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",letterSpacing:"0.1em",marginBottom:12}}>YOUR JOURNEY</div>
-                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
-                    {[{label:"Days Logged",value:totalDays,icon:"📅"},{label:"Total XP",value:activePetXP,icon:"⚡"},{label:"Meals Today",value:meals.length,icon:"🍽️"},{label:"Workouts Today",value:workouts.length,icon:"🏋️"}].map(function(s){return(
-                      <div key={s.label} style={{background:T.card2,border:"1px solid "+T.border,borderRadius:10,padding:"12px",textAlign:"center"}}>
-                        <div style={{fontSize:20,marginBottom:4}}>{s.icon}</div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:22,fontWeight:700,color:T.accent,lineHeight:1,marginBottom:2}}>{s.value}</div>
-                        <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace"}}>{s.label}</div>
-                      </div>
-                    );})}
-                  </div>
-                  <div style={{fontSize:10,color:T.faint,fontFamily:"'DM Mono',monospace",marginBottom:8}}>XP GUIDE</div>
-                  {[["🍽️","Log any meal","+10 XP"],["🏋️","Log a workout","+12 XP"],["💧","Hit water goal","+10 XP"],["🔥","Hit calorie goal","+15 XP"],["💪","Hit protein goal","+20 XP"],["🌟","Amazing meal score","+15 XP"],["🌅","Complete a full day","bonus XP"]].map(function(x){return(
-                    <div key={x[1]} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 0",borderBottom:"1px solid "+T.border}}>
-                      <div style={{display:"flex",alignItems:"center",gap:8}}><span style={{fontSize:13}}>{x[0]}</span><span style={{fontSize:12,color:T.sub}}>{x[1]}</span></div>
-                      <span style={{fontFamily:"'DM Mono',monospace",fontSize:11,color:"#fbbf24",fontWeight:700}}>{x[2]}</span>
-                    </div>
-                  );})}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-      </div>
-
-      {/* BOTTOM NAV */}
-      <div style={{position:"fixed",bottom:0,left:0,right:0,background:T.bg,borderTop:"1px solid "+T.border,display:"flex",zIndex:60,maxWidth:520,margin:"0 auto"}}>
-        {[
-          {id:"home",  label:"HOME",  emoji:"🏠",  big:false},
-          {id:"log",   label:"LOG",   emoji:"📋",  big:false},
-          {id:"build", label:"MEAL",  emoji:"+",   big:true},
-          {id:"pet",   label:"PET",   emoji:null,  big:false},
-        ].map(function(nav){
-          if(nav.big)return(
-            <div key={nav.id} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:2}}>
-              <button onClick={function(){setTab("build");}} style={{width:44,height:44,borderRadius:14,background:T.accent,border:"none",fontSize:22,fontWeight:700,color:"#030712",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 16px "+T.accent+"44",transform:tab==="build"?"scale(0.93)":"scale(1)",transition:"transform .15s"}}>+</button>
-              <span style={{fontSize:8,fontFamily:"'DM Mono',monospace",fontWeight:600,color:T.faint}}>MEAL</span>
-            </div>
-          );
-          if(nav.id==="pet")return(
-            <button key={nav.id} style={navSt(tab==="pet")} onClick={function(){setTab("pet");}}>
-              <span style={{display:"flex",alignItems:"center",justifyContent:"center",height:20}}>
-                {activePetId&&petStage?renderArt(petStage.Art,20):<span style={{fontSize:14}}>{activePetId?"●":"○"}</span>}
-              </span>
-              <span>PET</span>
-            </button>
-          );
-          return(
-            <button key={nav.id} style={navSt(tab===nav.id)} onClick={function(){setTab(nav.id);}}>
-              <span style={{fontSize:17,lineHeight:1.2}}>{nav.emoji}</span>
-              <span>{nav.label}</span>
-              {nav.id==="log"&&(meals.length+workouts.length)>0&&<span style={{position:"absolute",top:6,background:T.accent,color:"#030712",borderRadius:99,fontSize:8,fontWeight:700,padding:"1px 5px",fontFamily:"'DM Mono',monospace"}}>{meals.length+workouts.length}</span>}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
+  var netCal=mealTots.cal​​​​​​​​​​​​​​​​
