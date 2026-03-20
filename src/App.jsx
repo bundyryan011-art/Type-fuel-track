@@ -26,7 +26,7 @@ function EmberS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0
 function EmberS4(p){var s=p.size||80;var rays=[0,45,90,135,180,225,270,315];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#fbbf24"/><stop offset="50%" stopColor="#f97316"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="30" fill="url(#em4g)"/>{rays.map(function(deg,i){var r=deg*Math.PI/180;var l=i%2===0?16:10;return <line key={i} x1={50+Math.cos(r)*28} y1={50+Math.sin(r)*28} x2={50+Math.cos(r)*(28+l)} y2={50+Math.sin(r)*(28+l)} stroke="#fbbf24" strokeWidth={i%2===0?3:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="14" fill="#fef3c7"/><circle cx="50" cy="50" r="7" fill="white"/><circle cx="44" cy="46" r="3" fill="#7c2d12"/><circle cx="56" cy="46" r="3" fill="#7c2d12"/><path d="M42 56 Q50 62 58 56" stroke="#f97316" strokeWidth="2" fill="none"/></svg>);}
 function EmberS5(p){var s=p.size||80;var rays=Array.from({length:16},function(_,i){return i;});return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="em5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="white"/><stop offset="30%" stopColor="#fef3c7"/><stop offset="60%" stopColor="#fbbf24"/><stop offset="100%" stopColor="#7c2d12"/></radialGradient></defs><circle cx="50" cy="50" r="28" fill="url(#em5g)"/>{rays.map(function(i){var r=i*22.5*Math.PI/180;var l=i%4===0?22:i%2===0?15:10;return <line key={i} x1={50+Math.cos(r)*26} y1={50+Math.sin(r)*26} x2={50+Math.cos(r)*(26+l)} y2={50+Math.sin(r)*(26+l)} stroke={i%2===0?"#fbbf24":"#fb923c"} strokeWidth={i%4===0?3.5:2} strokeLinecap="round"/>;})}<circle cx="50" cy="50" r="13" fill="white"/><circle cx="44" cy="46" r="4" fill="#92400e"/><circle cx="56" cy="46" r="4" fill="#92400e"/><path d="M40 57 Q50 65 60 57" stroke="#f97316" strokeWidth="2.5" fill="none"/></svg>);}
 function VoidS1(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo1g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><circle cx="50" cy="50" r="20" fill="url(#vo1g)"/><circle cx="50" cy="50" r="8" fill="#0a0010"/></svg>);}
-function VoidS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#7c3aed"/><stop offset="60%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="36" ry="12" fill="url(#vo2g)" opacity="0.5"/><circle cx="50" cy="50" r="22" fill="url(#vo2g)"/><ellipse cx="50" cy="50" rx="36" ry="12" fill="none" stroke="#7c3aed" strokeWidth="1.5"/><circle cx="50" cy="50" r="10" fill="#0a0010"/></svg>);}
+function VoidS2(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo2g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#7c3aed"/><stop offset="60%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="36" ry="12" fill="none" stroke="#7c3aed" strokeWidth="1.5"/><circle cx="50" cy="50" r="22" fill="url(#vo2g)"/><circle cx="50" cy="50" r="10" fill="#0a0010"/></svg>);}
 function VoidS3(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo3g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#8b5cf6"/><stop offset="50%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="44" ry="14" fill="none" stroke="#7c3aed" strokeWidth="2"/><circle cx="50" cy="50" r="26" fill="url(#vo3g)"/><circle cx="50" cy="50" r="14" fill="#0a0010"/><circle cx="44" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/><circle cx="56" cy="46" r="3" fill="#c4b5fd" opacity="0.9"/></svg>);}
 function VoidS4(p){var s=p.size||80;return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo4g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#a78bfa"/><stop offset="40%" stopColor="#6d28d9"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="46" ry="16" fill="none" stroke="#8b5cf6" strokeWidth="2.5"/><circle cx="50" cy="50" r="28" fill="url(#vo4g)"/><circle cx="50" cy="50" r="16" fill="#0a0010"/><circle cx="43" cy="45" r="4" fill="#ddd6fe"/><circle cx="57" cy="45" r="4" fill="#ddd6fe"/><circle cx="43" cy="45" r="2" fill="#0a0010"/><circle cx="57" cy="45" r="2" fill="#0a0010"/></svg>);}
 function VoidS5(p){var s=p.size||80;var pts=[[14,26],[86,26],[8,50],[92,50],[14,74],[86,74],[30,10],[70,10]];return(<svg width={s} height={s} viewBox="0 0 100 100"><defs><radialGradient id="vo5g" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="30%" stopColor="#8b5cf6"/><stop offset="70%" stopColor="#4c1d95"/><stop offset="100%" stopColor="#0a0010"/></radialGradient></defs><ellipse cx="50" cy="50" rx="48" ry="18" fill="none" stroke="#a78bfa" strokeWidth="3"/><circle cx="50" cy="50" r="30" fill="url(#vo5g)"/><circle cx="50" cy="50" r="18" fill="#0a0010"/>{pts.map(function(pt,i){return <circle key={i} cx={pt[0]} cy={pt[1]} r={i<4?2:1.5} fill="#c4b5fd" opacity={0.8-i*0.05}/>;})}<circle cx="43" cy="44" r="5" fill="#ede9fe"/><circle cx="57" cy="44" r="5" fill="#ede9fe"/><circle cx="43" cy="44" r="2.5" fill="#0a0010"/><circle cx="57" cy="44" r="2.5" fill="#0a0010"/><path d="M40 57 Q50 65 60 57" stroke="#c4b5fd" strokeWidth="2.5" fill="none"/></svg>);}
@@ -73,214 +73,214 @@ function ReefS5(p){var s=p.size||80;var t=Array.from({length:12},function(_,i){r
 
 function renderArt(A,size){if(!A)return null;return <A size={size}/>;}
 
-const PETS = [
-  { id:"ember",   name:"Ember",    color:"#f97316", desc:"Born from a dying coal. Grows into a star that cannot be extinguished.", stages:[
-    {level:1,  form:"Dying Ember",      Art:EmberS1, desc:"Almost out. But not yet."},
-    {level:3,  form:"Rising Flame",     Art:EmberS2, desc:"Something caught. It is not stopping."},
-    {level:5,  form:"Burning Core",     Art:EmberS3, desc:"Solid fire. Warms everything near it."},
-    {level:7,  form:"Solar Bloom",      Art:EmberS4, desc:"Expanded past what contained it."},
-    {level:10, form:"The Undying Sun",  Art:EmberS5, desc:"Burns forever. Cannot be put out."},
+const PETS=[
+  {id:"ember",  name:"Ember",   color:"#f97316",desc:"Born from a dying coal. Grows into a star that cannot be extinguished.",stages:[
+    {level:1, form:"Dying Ember",     Art:EmberS1,desc:"Almost out. But not yet."},
+    {level:3, form:"Rising Flame",    Art:EmberS2,desc:"Something caught. Not stopping."},
+    {level:5, form:"Burning Core",    Art:EmberS3,desc:"Solid fire. Warms everything near it."},
+    {level:7, form:"Solar Bloom",     Art:EmberS4,desc:"Expanded past what contained it."},
+    {level:10,form:"The Undying Sun", Art:EmberS5,desc:"Burns forever. Cannot be put out."},
   ]},
-  { id:"void",    name:"Void",     color:"#8b5cf6", desc:"A black hole that learned to think.", stages:[
-    {level:1,  form:"Dark Point",       Art:VoidS1, desc:"Nothing to see. Everything to fear."},
-    {level:3,  form:"Event Horizon",    Art:VoidS2, desc:"The ring forms. Things don't leave."},
-    {level:5,  form:"Collapsing Star",  Art:VoidS3, desc:"Consuming itself to become greater."},
-    {level:7,  form:"Singularity",      Art:VoidS4, desc:"Space bends. Time bends. It does not."},
-    {level:10, form:"The Absolute",     Art:VoidS5, desc:"There is no outside of it anymore."},
+  {id:"void",   name:"Void",    color:"#8b5cf6",desc:"A black hole that learned to think.",stages:[
+    {level:1, form:"Dark Point",      Art:VoidS1,desc:"Nothing to see. Everything to fear."},
+    {level:3, form:"Event Horizon",   Art:VoidS2,desc:"The ring forms. Things do not leave."},
+    {level:5, form:"Collapsing Star", Art:VoidS3,desc:"Consuming itself to become greater."},
+    {level:7, form:"Singularity",     Art:VoidS4,desc:"Space bends. Time bends. It does not."},
+    {level:10,form:"The Absolute",    Art:VoidS5,desc:"There is no outside of it anymore."},
   ]},
-  { id:"iron",    name:"Ironclad", color:"#9ca3af", desc:"Forged in fire. Tested by everything. Still standing.", stages:[
-    {level:1,  form:"Raw Frame",        Art:IronS1, desc:"Bolted together. Functional."},
-    {level:3,  form:"First Armor",      Art:IronS2, desc:"Shape emerging."},
-    {level:5,  form:"War Machine",      Art:IronS3, desc:"All systems operational."},
-    {level:7,  form:"Iron Fortress",    Art:IronS4, desc:"Has absorbed every hit."},
-    {level:10, form:"The Indestructible",Art:IronS5, desc:"You cannot break what survived everything."},
+  {id:"iron",   name:"Ironclad",color:"#9ca3af",desc:"Forged in fire. Tested by everything. Still standing.",stages:[
+    {level:1, form:"Raw Frame",       Art:IronS1,desc:"Bolted together. Functional."},
+    {level:3, form:"First Armor",     Art:IronS2,desc:"Shape emerging."},
+    {level:5, form:"War Machine",     Art:IronS3,desc:"All systems operational."},
+    {level:7, form:"Iron Fortress",   Art:IronS4,desc:"Has absorbed every hit."},
+    {level:10,form:"The Indestructible",Art:IronS5,desc:"Cannot break what survived everything."},
   ]},
-  { id:"aurora",  name:"Aurora",   color:"#38bdf8", desc:"A crystal being grown from pure arctic silence.", stages:[
-    {level:1,  form:"Ice Shard",        Art:AuroraS1, desc:"One perfect cut. One perfect edge."},
-    {level:3,  form:"Frost Prism",      Art:AuroraS2, desc:"Light bends through it."},
-    {level:5,  form:"Crystal Form",     Art:AuroraS3, desc:"Many faces. One being."},
-    {level:7,  form:"Glacial Crown",    Art:AuroraS4, desc:"The tundra grows where it walks."},
-    {level:10, form:"The Eternal Ice",  Art:AuroraS5, desc:"Nothing melts it."},
+  {id:"aurora", name:"Aurora",  color:"#38bdf8",desc:"A crystal being grown from pure arctic silence.",stages:[
+    {level:1, form:"Ice Shard",       Art:AuroraS1,desc:"One perfect cut. One perfect edge."},
+    {level:3, form:"Frost Prism",     Art:AuroraS2,desc:"Light bends through it."},
+    {level:5, form:"Crystal Form",    Art:AuroraS3,desc:"Many faces. One being."},
+    {level:7, form:"Glacial Crown",   Art:AuroraS4,desc:"The tundra grows where it walks."},
+    {level:10,form:"The Eternal Ice", Art:AuroraS5,desc:"Nothing melts it."},
   ]},
-  { id:"venom",   name:"Venom",    color:"#4ade80", desc:"A serpent that grew larger every time something tried to stop it.", stages:[
-    {level:1,  form:"Hatchling",        Art:VenomS1, desc:"Tiny. Already dangerous."},
-    {level:3,  form:"Fang",             Art:VenomS2, desc:"The bite is faster."},
-    {level:5,  form:"River Serpent",    Art:VenomS3, desc:"Moves without sound."},
-    {level:7,  form:"Apex Predator",    Art:VenomS4, desc:"Top of every food chain."},
-    {level:10, form:"The Ancient One",  Art:VenomS5, desc:"Older than the forest."},
+  {id:"venom",  name:"Venom",   color:"#4ade80",desc:"A serpent that grew larger every time something tried to stop it.",stages:[
+    {level:1, form:"Hatchling",       Art:VenomS1,desc:"Tiny. Already dangerous."},
+    {level:3, form:"Fang",            Art:VenomS2,desc:"The bite is faster."},
+    {level:5, form:"River Serpent",   Art:VenomS3,desc:"Moves without sound."},
+    {level:7, form:"Apex Predator",   Art:VenomS4,desc:"Top of every food chain."},
+    {level:10,form:"The Ancient One", Art:VenomS5,desc:"Older than the forest."},
   ]},
-  { id:"phantom", name:"Phantom",  color:"#818cf8", desc:"Neither here nor gone. Passes through walls. Passes through time.", stages:[
-    {level:1,  form:"Wisp",             Art:PhantomS1, desc:"Gone if you look directly."},
-    {level:3,  form:"Specter",          Art:PhantomS2, desc:"Visible now. Still not real."},
-    {level:5,  form:"Haunt",            Art:PhantomS3, desc:"It has chosen you."},
-    {level:7,  form:"Revenant",         Art:PhantomS4, desc:"Returned from somewhere worse."},
-    {level:10, form:"The Undying",      Art:PhantomS5, desc:"Death already tried."},
+  {id:"phantom",name:"Phantom", color:"#818cf8",desc:"Neither here nor gone. Passes through walls. Passes through time.",stages:[
+    {level:1, form:"Wisp",            Art:PhantomS1,desc:"Gone if you look directly."},
+    {level:3, form:"Specter",         Art:PhantomS2,desc:"Visible now. Still not real."},
+    {level:5, form:"Haunt",           Art:PhantomS3,desc:"It has chosen you."},
+    {level:7, form:"Revenant",        Art:PhantomS4,desc:"Returned from somewhere worse."},
+    {level:10,form:"The Undying",     Art:PhantomS5,desc:"Death already tried."},
   ]},
-  { id:"titan",   name:"Titan",    color:"#fbbf24", desc:"A golden warrior growing more legendary with every challenge.", stages:[
-    {level:1,  form:"Warrior's Oath",   Art:TitanS1, desc:"The promise before battle."},
-    {level:3,  form:"Bronze Guard",     Art:TitanS2, desc:"First victories won."},
-    {level:5,  form:"Golden Knight",    Art:TitanS3, desc:"The legend forming."},
-    {level:7,  form:"Warlord",          Art:TitanS4, desc:"Armies step aside."},
-    {level:10, form:"Eternal Champion", Art:TitanS5, desc:"Songs are still being written."},
+  {id:"titan",  name:"Titan",   color:"#fbbf24",desc:"A golden warrior growing more legendary with every challenge.",stages:[
+    {level:1, form:"Warrior's Oath",  Art:TitanS1,desc:"The promise before battle."},
+    {level:3, form:"Bronze Guard",    Art:TitanS2,desc:"First victories won."},
+    {level:5, form:"Golden Knight",   Art:TitanS3,desc:"The legend forming."},
+    {level:7, form:"Warlord",         Art:TitanS4,desc:"Armies step aside."},
+    {level:10,form:"Eternal Champion",Art:TitanS5,desc:"Songs are still being written."},
   ]},
-  { id:"storm",   name:"Storm",    color:"#eab308", desc:"Pure electrical fury wearing the shape of a living thing.", stages:[
-    {level:1,  form:"Static",           Art:StormS1, desc:"A charge in the air."},
-    {level:3,  form:"Spark",            Art:StormS2, desc:"The first bolt thrown."},
-    {level:5,  form:"Thunderhead",      Art:StormS3, desc:"Weather patterns change."},
-    {level:7,  form:"Lightning Lord",   Art:StormS4, desc:"Controls the storm. Is the storm."},
-    {level:10, form:"The Tempest",      Art:StormS5, desc:"The sky obeys."},
+  {id:"storm",  name:"Storm",   color:"#eab308",desc:"Pure electrical fury wearing the shape of a living thing.",stages:[
+    {level:1, form:"Static",          Art:StormS1,desc:"A charge in the air."},
+    {level:3, form:"Spark",           Art:StormS2,desc:"The first bolt thrown."},
+    {level:5, form:"Thunderhead",     Art:StormS3,desc:"Weather patterns change."},
+    {level:7, form:"Lightning Lord",  Art:StormS4,desc:"Controls the storm. Is the storm."},
+    {level:10,form:"The Tempest",     Art:StormS5,desc:"The sky obeys."},
   ]},
-  { id:"nova",    name:"Nova",     color:"#d946ef", desc:"An explosion that refuses to fade. Gets brighter every moment.", stages:[
-    {level:1,  form:"Pinpoint",         Art:NovaS1, desc:"Compressed. Extremely dangerous."},
-    {level:3,  form:"Burst",            Art:NovaS2, desc:"First expansion. Cannot be contained."},
-    {level:5,  form:"Radiant",          Art:NovaS3, desc:"Visible from far away now."},
-    {level:7,  form:"Supernova",        Art:NovaS4, desc:"Growing from the wreckage."},
-    {level:10, form:"The Eternal Bloom",Art:NovaS5, desc:"The explosion became everything."},
+  {id:"nova",   name:"Nova",    color:"#d946ef",desc:"An explosion that refuses to fade. Gets brighter every moment.",stages:[
+    {level:1, form:"Pinpoint",        Art:NovaS1,desc:"Compressed. Extremely dangerous."},
+    {level:3, form:"Burst",           Art:NovaS2,desc:"First expansion. Cannot be contained."},
+    {level:5, form:"Radiant",         Art:NovaS3,desc:"Visible from far away now."},
+    {level:7, form:"Supernova",       Art:NovaS4,desc:"Growing from the wreckage."},
+    {level:10,form:"Eternal Bloom",   Art:NovaS5,desc:"The explosion became everything."},
   ]},
-  { id:"reef",    name:"Reef",     color:"#22d3ee", desc:"An ocean hunter. Patient as the tide. Inevitable as the sea.", stages:[
-    {level:1,  form:"Larvae",           Art:ReefS1, desc:"Almost invisible. Learning."},
-    {level:3,  form:"Jellyfish",        Art:ReefS2, desc:"Stings without warning."},
-    {level:5,  form:"Kraken Pup",       Art:ReefS3, desc:"The tentacles have opinions."},
-    {level:7,  form:"Deep Hunter",      Art:ReefS4, desc:"The deep belongs to it."},
-    {level:10, form:"The Leviathan",    Art:ReefS5, desc:"Older than the ocean."},
+  {id:"reef",   name:"Reef",    color:"#22d3ee",desc:"An ocean hunter. Patient as the tide. Inevitable as the sea.",stages:[
+    {level:1, form:"Larvae",          Art:ReefS1,desc:"Almost invisible. Learning."},
+    {level:3, form:"Jellyfish",       Art:ReefS2,desc:"Stings without warning."},
+    {level:5, form:"Kraken Pup",      Art:ReefS3,desc:"The tentacles have opinions."},
+    {level:7, form:"Deep Hunter",     Art:ReefS4,desc:"The deep belongs to it."},
+    {level:10,form:"The Leviathan",   Art:ReefS5,desc:"Older than the ocean."},
   ]},
 ];
 
-const PET_LEVELS = [
-  {level:1,  name:"Newborn",  xpReq:0},
-  {level:2,  name:"Waking",   xpReq:100},
-  {level:3,  name:"Growing",  xpReq:250},
-  {level:4,  name:"Learning", xpReq:500},
-  {level:5,  name:"Evolved",  xpReq:900},
-  {level:6,  name:"Strong",   xpReq:1400},
-  {level:7,  name:"Powerful", xpReq:2100},
-  {level:8,  name:"Champion", xpReq:3000},
-  {level:9,  name:"Legend",   xpReq:4200},
-  {level:10, name:"Eternal",  xpReq:6000},
+const PET_LEVELS=[
+  {level:1, name:"Newborn", xpReq:0},
+  {level:2, name:"Waking",  xpReq:100},
+  {level:3, name:"Growing", xpReq:250},
+  {level:4, name:"Learning",xpReq:500},
+  {level:5, name:"Evolved", xpReq:900},
+  {level:6, name:"Strong",  xpReq:1400},
+  {level:7, name:"Powerful",xpReq:2100},
+  {level:8, name:"Champion",xpReq:3000},
+  {level:9, name:"Legend",  xpReq:4200},
+  {level:10,name:"Eternal", xpReq:6000},
 ];
 
-const WORKOUT_TYPES = [
-  {id:"run",         label:"Running",         emoji:"🏃",  met:9.8 },
-  {id:"walk",        label:"Walking",         emoji:"🚶",  met:3.5 },
-  {id:"bike",        label:"Cycling",         emoji:"🚴",  met:8.0 },
-  {id:"swim",        label:"Swimming",        emoji:"🏊",  met:7.0 },
-  {id:"lift",        label:"Weight Training", emoji:"🏋️", met:5.0 },
+const WORKOUT_TYPES=[
+  {id:"run",         label:"Running",         emoji:"🏃",  met:9.8},
+  {id:"walk",        label:"Walking",         emoji:"🚶",  met:3.5},
+  {id:"bike",        label:"Cycling",         emoji:"🚴",  met:8.0},
+  {id:"swim",        label:"Swimming",        emoji:"🏊",  met:7.0},
+  {id:"lift",        label:"Weight Training", emoji:"🏋️", met:5.0},
   {id:"hiit",        label:"HIIT",            emoji:"⚡",  met:10.0},
-  {id:"calisthenics",label:"Calisthenics",    emoji:"🤸",  met:8.0 },
-  {id:"pullups",     label:"Pull-ups",        emoji:"💪",  met:6.0 },
-  {id:"pushups",     label:"Push-ups",        emoji:"⬆️",  met:5.5 },
-  {id:"yoga",        label:"Yoga",            emoji:"🧘",  met:2.5 },
-  {id:"pilates",     label:"Pilates",         emoji:"🩰",  met:3.0 },
-  {id:"jump_rope",   label:"Jump Rope",       emoji:"⭕",  met:12.0},
-  {id:"sport",       label:"Sports",          emoji:"⚽",  met:7.5 },
-  {id:"climb",       label:"Climbing",        emoji:"🧗",  met:8.0 },
-  {id:"dance",       label:"Dancing",         emoji:"💃",  met:5.5 },
-  {id:"row",         label:"Rowing",          emoji:"🚣",  met:7.0 },
-  {id:"elliptic",    label:"Elliptical",      emoji:"🔄",  met:6.5 },
-  {id:"boxing",      label:"Boxing",          emoji:"🥊",  met:9.0 },
+  {id:"calisthenics",label:"Calisthenics",    emoji:"🤸",  met:8.0},
+  {id:"pullups",     label:"Pull-ups",        emoji:"💪",  met:6.0},
+  {id:"pushups",     label:"Push-ups",        emoji:"🔼",  met:5.5},
+  {id:"yoga",        label:"Yoga",            emoji:"🧘",  met:2.5},
+  {id:"pilates",     label:"Pilates",         emoji:"🩰",  met:3.0},
+  {id:"jump_rope",   label:"Jump Rope",       emoji:"🔁",  met:12.0},
+  {id:"sport",       label:"Sports",          emoji:"⚽",  met:7.5},
+  {id:"climb",       label:"Climbing",        emoji:"🧗",  met:8.0},
+  {id:"dance",       label:"Dancing",         emoji:"💃",  met:5.5},
+  {id:"row",         label:"Rowing",          emoji:"🚣",  met:7.0},
+  {id:"elliptic",    label:"Elliptical",      emoji:"🔄",  met:6.5},
+  {id:"boxing",      label:"Boxing",          emoji:"🥊",  met:9.0},
   {id:"martial",     label:"Martial Arts",    emoji:"🥋",  met:10.0},
-  {id:"hike",        label:"Hiking",          emoji:"🥾",  met:6.0 },
-  {id:"skating",     label:"Skating",         emoji:"⛸️",  met:7.0 },
-  {id:"other",       label:"Other",           emoji:"🔥",  met:5.0 },
+  {id:"hike",        label:"Hiking",          emoji:"🥾",  met:6.0},
+  {id:"skating",     label:"Skating",         emoji:"🛼",  met:7.0},
+  {id:"other",       label:"Other",           emoji:"🔥",  met:5.0},
 ];
 
-const QUICK_FOODS = [
-  {kw:["chicken breast","grilled chicken","baked chicken","chicken"],  name:"Chicken Breast",          emoji:"🍗", cal:185, pro:35, car:0,   fat:4,   fib:0,  perOz:46.25},
-  {kw:["salmon","salmon fillet"],                                       name:"Salmon",                  emoji:"🐟", cal:234, pro:31, car:0,   fat:12,  fib:0,  perOz:58.5},
-  {kw:["ground beef","beef","burger patty"],                           name:"Ground Beef (90/10)",     emoji:"🥩", cal:196, pro:24, car:0,   fat:11,  fib:0},
-  {kw:["ground turkey","turkey"],                                       name:"Ground Turkey",           emoji:"🦃", cal:170, pro:22, car:0,   fat:9,   fib:0},
-  {kw:["tuna","tuna can"],                                             name:"Canned Tuna",             emoji:"🐟", cal:109, pro:25, car:0,   fat:1,   fib:0},
-  {kw:["shrimp","prawns"],                                             name:"Shrimp",                  emoji:"🦐", cal:112, pro:24, car:0,   fat:1.5, fib:0},
-  {kw:["tilapia","white fish"],                                        name:"Tilapia",                 emoji:"🐠", cal:111, pro:23, car:0,   fat:2,   fib:0},
-  {kw:["egg white","egg whites"],                                      name:"Egg Whites (3)",          emoji:"🥚", cal:51,  pro:11, car:0.6, fat:0.3, fib:0},
-  {kw:["egg","eggs","whole egg"],                                      name:"Whole Egg",               emoji:"🥚", cal:72,  pro:6,  car:0.4, fat:5,   fib:0},
-  {kw:["greek yogurt","yogurt"],                                       name:"Greek Yogurt",            emoji:"🫙", cal:100, pro:17, car:6,   fat:0,   fib:0,  perCup:1},
-  {kw:["cottage cheese"],                                              name:"Cottage Cheese",          emoji:"🫙", cal:90,  pro:12, car:5,   fat:2.5, fib:0},
-  {kw:["protein shake","protein powder","whey","protein"],             name:"Protein Shake",           emoji:"🥤", cal:120, pro:25, car:5,   fat:2,   fib:1},
-  {kw:["quest bar","protein bar","bar"],                               name:"Quest Bar",               emoji:"💪", cal:200, pro:21, car:22,  fat:8,   fib:14},
-  {kw:["fairlife","core power"],                                       name:"Fairlife Core Power",     emoji:"🥤", cal:230, pro:42, car:13,  fat:3.5, fib:0},
-  {kw:["premier protein"],                                             name:"Premier Protein",         emoji:"🥤", cal:160, pro:30, car:6,   fat:3,   fib:1},
-  {kw:["beef jerky","jerky"],                                          name:"Beef Jerky (1oz)",        emoji:"🥩", cal:116, pro:9,  car:3,   fat:7,   fib:0},
-  {kw:["deli turkey","turkey breast","deli meat"],                     name:"Deli Turkey (2oz)",       emoji:"🦃", cal:60,  pro:11, car:1,   fat:1,   fib:0},
-  {kw:["tofu","firm tofu"],                                            name:"Firm Tofu",               emoji:"⬜", cal:144, pro:17, car:4,   fat:8,   fib:2},
-  {kw:["white rice","jasmine rice"],                                   name:"White Rice",              emoji:"🍚", cal:206, pro:4,  car:45,  fat:0.4, fib:0.6,perCup:1},
-  {kw:["brown rice"],                                                   name:"Brown Rice",              emoji:"🍚", cal:216, pro:5,  car:45,  fat:1.8, fib:3.5,perCup:1},
-  {kw:["rice"],                                                         name:"White Rice",              emoji:"🍚", cal:206, pro:4,  car:45,  fat:0.4, fib:0.6,perCup:1},
-  {kw:["oatmeal","oats"],                                              name:"Oatmeal",                 emoji:"🥣", cal:158, pro:6,  car:27,  fat:3,   fib:4,  perCup:1},
-  {kw:["sweet potato","yam"],                                          name:"Sweet Potato",            emoji:"🍠", cal:103, pro:2,  car:24,  fat:0.1, fib:3.8},
-  {kw:["pasta","spaghetti","noodles"],                                  name:"Pasta",                   emoji:"🍝", cal:220, pro:8,  car:43,  fat:1.3, fib:2.5,perCup:1},
-  {kw:["bread","toast"],                                               name:"Bread (1 slice)",         emoji:"🍞", cal:81,  pro:4,  car:14,  fat:1,   fib:1.9},
-  {kw:["ezekiel bread","sprouted bread"],                              name:"Ezekiel Bread",           emoji:"🍞", cal:80,  pro:4,  car:15,  fat:0.5, fib:3},
-  {kw:["quinoa"],                                                       name:"Quinoa",                  emoji:"🌾", cal:222, pro:8,  car:39,  fat:4,   fib:5,  perCup:1},
-  {kw:["potato","white potato"],                                       name:"Potato",                  emoji:"🥔", cal:161, pro:4,  car:37,  fat:0.2, fib:3.8},
-  {kw:["broccoli"],                                                     name:"Broccoli",                emoji:"🥦", cal:55,  pro:4,  car:11,  fat:0.6, fib:5,  perCup:1},
-  {kw:["spinach"],                                                      name:"Spinach",                 emoji:"🥬", cal:14,  pro:1.7,car:2,   fat:0.2, fib:1.3,perCup:1},
-  {kw:["asparagus"],                                                    name:"Asparagus",               emoji:"🌿", cal:27,  pro:3,  car:5,   fat:0.2, fib:2.8},
-  {kw:["bell pepper","pepper"],                                        name:"Bell Pepper",             emoji:"🫑", cal:31,  pro:1,  car:7,   fat:0.3, fib:2.5},
-  {kw:["zucchini","courgette"],                                        name:"Zucchini",                emoji:"🥒", cal:33,  pro:2.4,car:6,   fat:0.6, fib:2},
-  {kw:["kale"],                                                         name:"Kale",                    emoji:"🥬", cal:33,  pro:2.9,car:6,   fat:0.6, fib:1.3,perCup:1},
-  {kw:["cucumber"],                                                     name:"Cucumber",                emoji:"🥒", cal:16,  pro:0.7,car:3.8, fat:0.1, fib:0.5},
-  {kw:["tomato"],                                                       name:"Tomato",                  emoji:"🍅", cal:35,  pro:1.7,car:7,   fat:0.4, fib:2.2},
-  {kw:["avocado","avo"],                                               name:"Avocado (half)",          emoji:"🥑", cal:120, pro:1.5,car:6,   fat:11,  fib:5},
-  {kw:["banana"],                                                       name:"Banana",                  emoji:"🍌", cal:105, pro:1.3,car:27,  fat:0.4, fib:3.1},
-  {kw:["apple"],                                                        name:"Apple",                   emoji:"🍎", cal:95,  pro:0.5,car:25,  fat:0.3, fib:4.4},
-  {kw:["blueberries","blueberry"],                                     name:"Blueberries",             emoji:"🫐", cal:84,  pro:1.1,car:21,  fat:0.5, fib:3.6,perCup:1},
-  {kw:["strawberries","strawberry"],                                   name:"Strawberries",            emoji:"🍓", cal:49,  pro:1,  car:12,  fat:0.5, fib:3,  perCup:1},
-  {kw:["mango"],                                                        name:"Mango (1 cup)",           emoji:"🥭", cal:107, pro:0.8,car:28,  fat:0.4, fib:3},
-  {kw:["orange"],                                                       name:"Orange",                  emoji:"🍊", cal:62,  pro:1.2,car:15,  fat:0.2, fib:3.1},
-  {kw:["peanut butter","pb"],                                          name:"Peanut Butter (2 tbsp)",  emoji:"🥜", cal:188, pro:8,  car:6,   fat:16,  fib:2},
-  {kw:["almond butter"],                                               name:"Almond Butter (2 tbsp)",  emoji:"🌰", cal:196, pro:7,  car:6,   fat:18,  fib:3.3},
-  {kw:["almonds","almond"],                                            name:"Almonds (1oz)",           emoji:"🌰", cal:164, pro:6,  car:6,   fat:14,  fib:3.5},
-  {kw:["olive oil"],                                                   name:"Olive Oil (1 tbsp)",      emoji:"🫒", cal:119, pro:0,  car:0,   fat:13.5,fib:0},
-  {kw:["mixed nuts","nuts"],                                           name:"Mixed Nuts (1oz)",        emoji:"🥜", cal:173, pro:5,  car:8,   fat:16,  fib:2},
-  {kw:["milk","whole milk"],                                           name:"Whole Milk (1 cup)",      emoji:"🥛", cal:149, pro:8,  car:12,  fat:8,   fib:0},
-  {kw:["skim milk","low fat milk"],                                    name:"Skim Milk (1 cup)",       emoji:"🥛", cal:83,  pro:8,  car:12,  fat:0.2, fib:0},
-  {kw:["cheese","cheddar"],                                            name:"Cheddar (1oz)",           emoji:"🧀", cal:115, pro:7,  car:0.4, fat:9,   fib:0},
-  {kw:["mozzarella"],                                                   name:"Mozzarella (1oz)",        emoji:"🧀", cal:85,  pro:6,  car:1,   fat:6,   fib:0},
-  {kw:["butter"],                                                       name:"Butter (1 tbsp)",         emoji:"🧈", cal:102, pro:0.1,car:0,   fat:11.5,fib:0},
-  {kw:["black beans","beans"],                                         name:"Black Beans (1/2 cup)",   emoji:"🫘", cal:114, pro:7.6,car:20,  fat:0.5, fib:7.5},
-  {kw:["low carb tortilla","low carb wrap","mission carb balance","carb balance"], name:"Low Carb Tortilla",      emoji:"🫓", cal:70,  pro:5,  car:18,  fat:3,   fib:11},
-  {kw:["flour tortilla","tortilla","wrap"],                            name:"Flour Tortilla",          emoji:"🫓", cal:213, pro:6,  car:36,  fat:5,   fib:2},
-  {kw:["corn tortilla"],                                               name:"Corn Tortilla (2)",       emoji:"🌮", cal:104, pro:2.7,car:22,  fat:1.3, fib:3},
-  {kw:["whole wheat tortilla","wheat tortilla"],                       name:"Wheat Tortilla",          emoji:"🫓", cal:140, pro:4,  car:22,  fat:4,   fib:3},
-  {kw:["black coffee","plain coffee"],                                 name:"Black Coffee",            emoji:"☕", cal:2,   pro:0.3,car:0,   fat:0,   fib:0},
-  {kw:["coffee with creamer","creamer coffee","homemade coffee","coffee creamer","coffee cream"], name:"Coffee + Creamer",        emoji:"☕", cal:50,  pro:0.5,car:7,   fat:2,   fib:0},
-  {kw:["cinnamon coffee","coffee cinnamon","spiced coffee","coffee with cinnamon"], name:"Coffee+Cream+Cinnamon",   emoji:"☕", cal:55,  pro:0.5,car:7,   fat:2.5, fib:0.5},
-  {kw:["bulletproof coffee","butter coffee"],                          name:"Bulletproof Coffee",      emoji:"☕", cal:230, pro:0.3,car:0,   fat:25,  fib:0},
-  {kw:["latte","cafe latte"],                                          name:"Latte (oat milk)",        emoji:"☕", cal:130, pro:3,  car:22,  fat:3,   fib:1},
-  {kw:["espresso"],                                                     name:"Espresso (double)",       emoji:"☕", cal:10,  pro:0.7,car:1.5, fat:0.2, fib:0},
-  {kw:["cold brew","cold brew coffee"],                                name:"Cold Brew (12oz)",        emoji:"☕", cal:15,  pro:0.5,car:3,   fat:0,   fib:0},
-  {kw:["coffee"],                                                       name:"Black Coffee",            emoji:"☕", cal:2,   pro:0.3,car:0,   fat:0,   fib:0},
-  {kw:["pizza"],                                                        name:"Pizza Slice",             emoji:"🍕", cal:285, pro:12, car:36,  fat:10,  fib:2},
-  {kw:["burger","hamburger","big mac","mcdouble"],                     name:"Burger",                  emoji:"🍔", cal:450, pro:23, car:40,  fat:20,  fib:2},
-  {kw:["fries","french fries"],                                        name:"Fries (medium)",          emoji:"🍟", cal:320, pro:4,  car:44,  fat:15,  fib:3},
-  {kw:["chipotle","burrito bowl"],                                     name:"Chipotle Bowl",           emoji:"🥙", cal:655, pro:51, car:62,  fat:21,  fib:11},
-  {kw:["chick fil a","chick-fil-a","chicken sandwich"],                name:"Chick-fil-A Sandwich",    emoji:"🍗", cal:440, pro:28, car:40,  fat:19,  fib:1},
-  {kw:["subway","footlong","sub sandwich"],                            name:"Subway 6\" Turkey",       emoji:"🥖", cal:280, pro:18, car:46,  fat:4.5, fib:3},
-  {kw:["salad"],                                                        name:"Side Salad",              emoji:"🥗", cal:150, pro:8,  car:12,  fat:7,   fib:4},
-  {kw:["sushi","sushi roll"],                                          name:"Sushi Roll (8pc)",        emoji:"🍱", cal:320, pro:14, car:56,  fat:5,   fib:2},
-  {kw:["rice cakes","rice cake"],                                      name:"Rice Cakes (2)",          emoji:"⭕", cal:70,  pro:1.4,car:15,  fat:0.4, fib:0.4},
-  {kw:["hummus"],                                                       name:"Hummus (2 tbsp)",         emoji:"🫘", cal:50,  pro:2,  car:6,   fat:3,   fib:1.6},
-  {kw:["soup","chicken soup","tomato soup"],                           name:"Soup (1 cup)",            emoji:"🍲", cal:120, pro:8,  car:15,  fat:3,   fib:1},
-  {kw:["bacon"],                                                        name:"Bacon (2 strips)",        emoji:"🥓", cal:86,  pro:6,  car:0.1, fat:7,   fib:0},
-  {kw:["gatorade","sports drink"],                                     name:"Gatorade (20oz)",         emoji:"🥤", cal:140, pro:0,  car:36,  fat:0,   fib:0},
-  {kw:["dark chocolate","chocolate"],                                  name:"Dark Chocolate (1oz)",    emoji:"🍫", cal:170, pro:2,  car:13,  fat:12,  fib:3},
-  {kw:["ice cream"],                                                    name:"Ice Cream (1/2 cup)",     emoji:"🍦", cal:207, pro:3.5,car:24,  fat:11,  fib:0.7},
-  {kw:["protein pancakes","pancake"],                                  name:"Protein Pancakes",        emoji:"🥞", cal:180, pro:16, car:22,  fat:4,   fib:2},
-  {kw:["overnight oats"],                                              name:"Overnight Oats",          emoji:"🥣", cal:215, pro:10, car:35,  fat:4,   fib:5},
-  {kw:["granola bar","nature valley"],                                 name:"Granola Bar",             emoji:"🍫", cal:190, pro:4,  car:29,  fat:7,   fib:2},
+const QUICK_FOODS=[
+  {kw:["chicken breast","grilled chicken","baked chicken","chicken"],name:"Chicken Breast",       emoji:"🍗",cal:185,pro:35,car:0,  fat:4,  fib:0, perOz:46.25},
+  {kw:["salmon","salmon fillet"],                                     name:"Salmon",               emoji:"🐟",cal:234,pro:31,car:0,  fat:12, fib:0, perOz:58.5},
+  {kw:["ground beef","beef","burger patty"],                         name:"Ground Beef 90/10",    emoji:"🥩",cal:196,pro:24,car:0,  fat:11, fib:0},
+  {kw:["ground turkey","turkey"],                                     name:"Ground Turkey",        emoji:"🦃",cal:170,pro:22,car:0,  fat:9,  fib:0},
+  {kw:["tuna","tuna can"],                                           name:"Canned Tuna",          emoji:"🐟",cal:109,pro:25,car:0,  fat:1,  fib:0},
+  {kw:["shrimp","prawns"],                                           name:"Shrimp",               emoji:"🦐",cal:112,pro:24,car:0,  fat:1.5,fib:0},
+  {kw:["tilapia","white fish"],                                      name:"Tilapia",              emoji:"🐠",cal:111,pro:23,car:0,  fat:2,  fib:0},
+  {kw:["egg white","egg whites"],                                    name:"Egg Whites x3",        emoji:"🥚",cal:51, pro:11,car:0.6,fat:0.3,fib:0},
+  {kw:["egg","eggs","whole egg"],                                    name:"Whole Egg",            emoji:"🥚",cal:72, pro:6, car:0.4,fat:5,  fib:0},
+  {kw:["greek yogurt","yogurt"],                                     name:"Greek Yogurt",         emoji:"🫙",cal:100,pro:17,car:6,  fat:0,  fib:0, perCup:1},
+  {kw:["cottage cheese"],                                            name:"Cottage Cheese",       emoji:"🫙",cal:90, pro:12,car:5,  fat:2.5,fib:0},
+  {kw:["protein shake","protein powder","whey","protein"],           name:"Protein Shake",        emoji:"🥤",cal:120,pro:25,car:5,  fat:2,  fib:1},
+  {kw:["quest bar","protein bar","bar"],                             name:"Quest Bar",            emoji:"💪",cal:200,pro:21,car:22, fat:8,  fib:14},
+  {kw:["fairlife","core power"],                                     name:"Fairlife Core Power",  emoji:"🥤",cal:230,pro:42,car:13, fat:3.5,fib:0},
+  {kw:["premier protein"],                                           name:"Premier Protein",      emoji:"🥤",cal:160,pro:30,car:6,  fat:3,  fib:1},
+  {kw:["beef jerky","jerky"],                                        name:"Beef Jerky 1oz",       emoji:"🥩",cal:116,pro:9, car:3,  fat:7,  fib:0},
+  {kw:["deli turkey","turkey breast","deli meat"],                   name:"Deli Turkey 2oz",      emoji:"🦃",cal:60, pro:11,car:1,  fat:1,  fib:0},
+  {kw:["tofu","firm tofu"],                                          name:"Firm Tofu",            emoji:"⬜",cal:144,pro:17,car:4,  fat:8,  fib:2},
+  {kw:["white rice","jasmine rice"],                                 name:"White Rice",           emoji:"🍚",cal:206,pro:4, car:45, fat:0.4,fib:0.6,perCup:1},
+  {kw:["brown rice"],                                                 name:"Brown Rice",           emoji:"🍚",cal:216,pro:5, car:45, fat:1.8,fib:3.5,perCup:1},
+  {kw:["rice"],                                                       name:"White Rice",           emoji:"🍚",cal:206,pro:4, car:45, fat:0.4,fib:0.6,perCup:1},
+  {kw:["oatmeal","oats"],                                            name:"Oatmeal",              emoji:"🥣",cal:158,pro:6, car:27, fat:3,  fib:4, perCup:1},
+  {kw:["sweet potato","yam"],                                        name:"Sweet Potato",         emoji:"🍠",cal:103,pro:2, car:24, fat:0.1,fib:3.8},
+  {kw:["pasta","spaghetti","noodles"],                                name:"Pasta",                emoji:"🍝",cal:220,pro:8, car:43, fat:1.3,fib:2.5,perCup:1},
+  {kw:["bread","toast"],                                             name:"Bread 1 slice",        emoji:"🍞",cal:81, pro:4, car:14, fat:1,  fib:1.9},
+  {kw:["ezekiel bread","sprouted bread"],                            name:"Ezekiel Bread",        emoji:"🍞",cal:80, pro:4, car:15, fat:0.5,fib:3},
+  {kw:["quinoa"],                                                     name:"Quinoa",               emoji:"🌾",cal:222,pro:8, car:39, fat:4,  fib:5, perCup:1},
+  {kw:["potato","white potato"],                                     name:"Potato",               emoji:"🥔",cal:161,pro:4, car:37, fat:0.2,fib:3.8},
+  {kw:["broccoli"],                                                   name:"Broccoli",             emoji:"🥦",cal:55, pro:4, car:11, fat:0.6,fib:5, perCup:1},
+  {kw:["spinach"],                                                    name:"Spinach",              emoji:"🥬",cal:14, pro:1.7,car:2,  fat:0.2,fib:1.3,perCup:1},
+  {kw:["asparagus"],                                                  name:"Asparagus",            emoji:"🌿",cal:27, pro:3, car:5,  fat:0.2,fib:2.8},
+  {kw:["bell pepper","pepper"],                                      name:"Bell Pepper",          emoji:"🫑",cal:31, pro:1, car:7,  fat:0.3,fib:2.5},
+  {kw:["zucchini","courgette"],                                      name:"Zucchini",             emoji:"🥒",cal:33, pro:2.4,car:6,  fat:0.6,fib:2},
+  {kw:["kale"],                                                       name:"Kale",                 emoji:"🥬",cal:33, pro:2.9,car:6,  fat:0.6,fib:1.3,perCup:1},
+  {kw:["cucumber"],                                                   name:"Cucumber",             emoji:"🥒",cal:16, pro:0.7,car:3.8,fat:0.1,fib:0.5},
+  {kw:["tomato"],                                                     name:"Tomato",               emoji:"🍅",cal:35, pro:1.7,car:7,  fat:0.4,fib:2.2},
+  {kw:["avocado","avo"],                                             name:"Avocado half",         emoji:"🥑",cal:120,pro:1.5,car:6,  fat:11, fib:5},
+  {kw:["banana"],                                                     name:"Banana",               emoji:"🍌",cal:105,pro:1.3,car:27, fat:0.4,fib:3.1},
+  {kw:["apple"],                                                      name:"Apple",                emoji:"🍎",cal:95, pro:0.5,car:25, fat:0.3,fib:4.4},
+  {kw:["blueberries","blueberry"],                                   name:"Blueberries",          emoji:"🫐",cal:84, pro:1.1,car:21, fat:0.5,fib:3.6,perCup:1},
+  {kw:["strawberries","strawberry"],                                 name:"Strawberries",         emoji:"🍓",cal:49, pro:1,  car:12, fat:0.5,fib:3, perCup:1},
+  {kw:["mango"],                                                      name:"Mango 1 cup",          emoji:"🥭",cal:107,pro:0.8,car:28, fat:0.4,fib:3},
+  {kw:["orange"],                                                     name:"Orange",               emoji:"🍊",cal:62, pro:1.2,car:15, fat:0.2,fib:3.1},
+  {kw:["peanut butter","pb"],                                        name:"Peanut Butter 2tbsp",  emoji:"🥜",cal:188,pro:8,  car:6,  fat:16, fib:2},
+  {kw:["almond butter"],                                             name:"Almond Butter 2tbsp",  emoji:"🌰",cal:196,pro:7,  car:6,  fat:18, fib:3.3},
+  {kw:["almonds","almond"],                                          name:"Almonds 1oz",          emoji:"🌰",cal:164,pro:6,  car:6,  fat:14, fib:3.5},
+  {kw:["olive oil"],                                                 name:"Olive Oil 1tbsp",      emoji:"🫒",cal:119,pro:0,  car:0,  fat:13.5,fib:0},
+  {kw:["mixed nuts","nuts"],                                         name:"Mixed Nuts 1oz",       emoji:"🥜",cal:173,pro:5,  car:8,  fat:16, fib:2},
+  {kw:["milk","whole milk"],                                         name:"Whole Milk 1 cup",     emoji:"🥛",cal:149,pro:8,  car:12, fat:8,  fib:0},
+  {kw:["skim milk","low fat milk"],                                  name:"Skim Milk 1 cup",      emoji:"🥛",cal:83, pro:8,  car:12, fat:0.2,fib:0},
+  {kw:["cheese","cheddar"],                                          name:"Cheddar 1oz",          emoji:"🧀",cal:115,pro:7,  car:0.4,fat:9,  fib:0},
+  {kw:["mozzarella"],                                                 name:"Mozzarella 1oz",       emoji:"🧀",cal:85, pro:6,  car:1,  fat:6,  fib:0},
+  {kw:["butter"],                                                     name:"Butter 1tbsp",         emoji:"🧈",cal:102,pro:0.1,car:0,  fat:11.5,fib:0},
+  {kw:["black beans","beans"],                                       name:"Black Beans half cup", emoji:"🫘",cal:114,pro:7.6,car:20, fat:0.5,fib:7.5},
+  {kw:["low carb tortilla","low carb wrap","mission carb balance","carb balance"],name:"Low Carb Tortilla",emoji:"🫓",cal:70, pro:5,  car:18, fat:3,  fib:11},
+  {kw:["flour tortilla","tortilla","wrap"],                          name:"Flour Tortilla",       emoji:"🫓",cal:213,pro:6,  car:36, fat:5,  fib:2},
+  {kw:["corn tortilla"],                                             name:"Corn Tortilla x2",     emoji:"🌮",cal:104,pro:2.7,car:22, fat:1.3,fib:3},
+  {kw:["whole wheat tortilla","wheat tortilla"],                     name:"Wheat Tortilla",       emoji:"🫓",cal:140,pro:4,  car:22, fat:4,  fib:3},
+  {kw:["black coffee","plain coffee"],                               name:"Black Coffee",         emoji:"☕",cal:2,  pro:0.3,car:0,  fat:0,  fib:0},
+  {kw:["coffee with creamer","creamer coffee","homemade coffee","coffee creamer","coffee cream"],name:"Coffee with Creamer",emoji:"☕",cal:50, pro:0.5,car:7,  fat:2,  fib:0},
+  {kw:["cinnamon coffee","coffee cinnamon","spiced coffee","coffee with cinnamon"],name:"Coffee Cream Cinnamon",emoji:"☕",cal:55, pro:0.5,car:7,  fat:2.5,fib:0.5},
+  {kw:["bulletproof coffee","butter coffee"],                        name:"Bulletproof Coffee",   emoji:"☕",cal:230,pro:0.3,car:0,  fat:25, fib:0},
+  {kw:["latte","cafe latte"],                                        name:"Latte oat milk",       emoji:"☕",cal:130,pro:3,  car:22, fat:3,  fib:1},
+  {kw:["espresso"],                                                   name:"Espresso double",      emoji:"☕",cal:10, pro:0.7,car:1.5,fat:0.2,fib:0},
+  {kw:["cold brew","cold brew coffee"],                              name:"Cold Brew 12oz",       emoji:"☕",cal:15, pro:0.5,car:3,  fat:0,  fib:0},
+  {kw:["coffee"],                                                     name:"Black Coffee",         emoji:"☕",cal:2,  pro:0.3,car:0,  fat:0,  fib:0},
+  {kw:["pizza"],                                                      name:"Pizza Slice",          emoji:"🍕",cal:285,pro:12, car:36, fat:10, fib:2},
+  {kw:["burger","hamburger","big mac","mcdouble"],                   name:"Burger",               emoji:"🍔",cal:450,pro:23, car:40, fat:20, fib:2},
+  {kw:["fries","french fries"],                                      name:"Fries medium",         emoji:"🍟",cal:320,pro:4,  car:44, fat:15, fib:3},
+  {kw:["chipotle","burrito bowl"],                                   name:"Chipotle Bowl",        emoji:"🥙",cal:655,pro:51, car:62, fat:21, fib:11},
+  {kw:["chick fil a","chick-fil-a","chicken sandwich"],              name:"Chick-fil-A Sandwich", emoji:"🍗",cal:440,pro:28, car:40, fat:19, fib:1},
+  {kw:["subway","footlong","sub sandwich"],                          name:"Subway 6in Turkey",    emoji:"🥖",cal:280,pro:18, car:46, fat:4.5,fib:3},
+  {kw:["salad"],                                                      name:"Side Salad",           emoji:"🥗",cal:150,pro:8,  car:12, fat:7,  fib:4},
+  {kw:["sushi","sushi roll"],                                        name:"Sushi Roll 8pc",       emoji:"🍱",cal:320,pro:14, car:56, fat:5,  fib:2},
+  {kw:["rice cakes","rice cake"],                                    name:"Rice Cakes x2",        emoji:"🫓",cal:70, pro:1.4,car:15, fat:0.4,fib:0.4},
+  {kw:["hummus"],                                                     name:"Hummus 2tbsp",         emoji:"🫘",cal:50, pro:2,  car:6,  fat:3,  fib:1.6},
+  {kw:["soup","chicken soup","tomato soup"],                         name:"Soup 1 cup",           emoji:"🍲",cal:120,pro:8,  car:15, fat:3,  fib:1},
+  {kw:["bacon"],                                                      name:"Bacon 2 strips",       emoji:"🥓",cal:86, pro:6,  car:0.1,fat:7,  fib:0},
+  {kw:["gatorade","sports drink"],                                   name:"Gatorade 20oz",        emoji:"🥤",cal:140,pro:0,  car:36, fat:0,  fib:0},
+  {kw:["dark chocolate","chocolate"],                                name:"Dark Chocolate 1oz",   emoji:"🍫",cal:170,pro:2,  car:13, fat:12, fib:3},
+  {kw:["ice cream"],                                                  name:"Ice Cream half cup",   emoji:"🍦",cal:207,pro:3.5,car:24, fat:11, fib:0.7},
+  {kw:["protein pancakes","pancake"],                                name:"Protein Pancakes",     emoji:"🥞",cal:180,pro:16, car:22, fat:4,  fib:2},
+  {kw:["overnight oats"],                                            name:"Overnight Oats",       emoji:"🥣",cal:215,pro:10, car:35, fat:4,  fib:5},
+  {kw:["granola bar","nature valley"],                               name:"Granola Bar",          emoji:"🍫",cal:190,pro:4,  car:29, fat:7,  fib:2},
 ];
 
-const QUICK_CATS = [
-  {label:"Protein",   emoji:"💪", items:QUICK_FOODS.slice(0,18)},
-  {label:"Carbs",     emoji:"🍚", items:QUICK_FOODS.slice(18,28)},
-  {label:"Veggies",   emoji:"🥦", items:QUICK_FOODS.slice(28,36)},
-  {label:"Fruits",    emoji:"🍎", items:QUICK_FOODS.slice(36,43)},
-  {label:"Fats",      emoji:"🥑", items:QUICK_FOODS.slice(43,53)},
-  {label:"Tortillas", emoji:"🫓", items:QUICK_FOODS.slice(53,57)},
-  {label:"Coffee",    emoji:"☕", items:QUICK_FOODS.slice(57,65)},
-  {label:"Fast Food", emoji:"🍔", items:QUICK_FOODS.slice(65,73)},
-  {label:"Snacks",    emoji:"🍫", items:QUICK_FOODS.slice(73)},
+const QUICK_CATS=[
+  {label:"Protein",  emoji:"💪",items:QUICK_FOODS.slice(0,18)},
+  {label:"Carbs",    emoji:"🍚",items:QUICK_FOODS.slice(18,28)},
+  {label:"Veggies",  emoji:"🥦",items:QUICK_FOODS.slice(28,36)},
+  {label:"Fruits",   emoji:"🍎",items:QUICK_FOODS.slice(36,43)},
+  {label:"Fats",     emoji:"🥑",items:QUICK_FOODS.slice(43,53)},
+  {label:"Tortillas",emoji:"🫓",items:QUICK_FOODS.slice(53,57)},
+  {label:"Coffee",   emoji:"☕",items:QUICK_FOODS.slice(57,65)},
+  {label:"Fast Food",emoji:"🍔",items:QUICK_FOODS.slice(65,73)},
+  {label:"Snacks",   emoji:"🍫",items:QUICK_FOODS.slice(73)},
 ];
 
 function sn(v){var x=parseFloat(v);return isNaN(x)?0:x;}
@@ -356,7 +356,7 @@ function scoreMeal(meal,goals,calsBefore){
   var rem=goals.calories-calsBefore;
   var cs=meal.cal<=rem?Math.min(25,Math.round(25*(1-meal.cal/goals.calories))):5;
   score+=cs;
-  if(meal.cal>rem+400)tips.push("A little over today — no big deal, just go lighter at your next meal");
+  if(meal.cal>rem+400)tips.push("A little over today -- no big deal, just go lighter at your next meal");
   var fs=Math.min(15,Math.round((meal.fib/Math.max(goals.fiber,1))*150));
   score+=fs;
   if(fs>=8)details.push({t:"Good fiber in this one",pos:true});
@@ -367,8 +367,8 @@ function scoreMeal(meal,goals,calsBefore){
   if(final>=85){label="Amazing";lc="#fbbf24";icon="🌟";}
   else if(final>=70){label="Great";lc="#34d399";icon="💪";}
   else if(final>=55){label="Good";lc="#60a5fa";icon="👍";}
-  var encs=["Every meal is a step forward.","You showed up — that is what matters.","Consistency beats perfection.","Your body is working with every good choice.","Progress lives in the ordinary moments.","This is what building something real looks like.","Further along than yesterday."];
-  if(tips.length===0)tips.push("Solid meal — keep this up!");
+  var encs=["Every meal is a step forward.","You showed up -- that is what matters.","Consistency beats perfection.","Your body is working with every good choice.","Progress lives in the ordinary moments.","This is what building something real looks like.","Further along than yesterday."];
+  if(tips.length===0)tips.push("Solid meal -- keep this up!");
   return{score:final,label:label,lc:lc,icon:icon,details:details,tips:tips,enc:encs[Math.floor(Math.random()*encs.length)]};
 }
 
@@ -507,26 +507,26 @@ export default function App(){
     if(!searchQ.trim())return;
     setSearching(true);setSearchErr("");setSearchR([]);
     var r=await searchUSDA(searchQ);
-    if(!r.length)setSearchErr("No results — try simpler terms.");
+    if(!r.length)setSearchErr("No results -- try simpler terms.");
     setSearchR(r);setSearching(false);
   }
 
   function startVoice(){
     setVoiceErr("");setVoiceText("");setVoiceParsed([]);
     var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-    if(!SR){setVoiceErr("Voice not supported on this device — type below.");return;}
+    if(!SR){setVoiceErr("Voice not supported on this device -- type below.");return;}
     var recog=new SR();
     recog.continuous=false;recog.interimResults=true;recog.lang="en-US";
     recog.onstart=function(){setVoiceListening(true);};
     recog.onresult=function(e){var t="";for(var i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;setVoiceText(t);};
     recog.onend=function(){setVoiceListening(false);setVoiceText(function(t){if(t.trim())setVoiceParsed(parseVoice(t));return t;});};
-    recog.onerror=function(){setVoiceListening(false);setVoiceErr("Could not hear — try typing below.");};
+    recog.onerror=function(){setVoiceListening(false);setVoiceErr("Could not hear -- try typing below.");};
     recogRef.current=recog;recog.start();
   }
   function stopVoice(){if(recogRef.current)recogRef.current.stop();}
 
   function confirmVoice(){
-    if(!voiceParsed.length){setVoiceErr("No foods detected — try typing.");return;}
+    if(!voiceParsed.length){setVoiceErr("No foods detected -- try typing.");return;}
     voiceParsed.forEach(function(f){addIng(f);});
     setVoiceModal(false);setVoiceText("");setVoiceParsed([]);
     if(!mealName.trim())setMealName("Meal "+new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}));
@@ -596,7 +596,6 @@ export default function App(){
     setGoals(g);setShowGoals(false);
   }
 
-  // ── Style helpers ──────────────────────────────────────────────────────
   function card(ex){return Object.assign({background:T.card,border:"1px solid "+T.border,borderRadius:20,padding:"18px 20px"},ex||{});}
   function inp(ex){return Object.assign({width:"100%",background:T.card2,border:"1px solid "+T.border,borderRadius:10,color:T.text,fontSize:15,padding:"12px 16px",fontFamily:"'DM Sans',sans-serif",outline:"none"},ex||{});}
   function pBtn(ex){return Object.assign({padding:"14px 0",background:T.accent,border:"none",borderRadius:12,color:["snow","warm","mint","rose"].includes(themeId)?"#fff":"#030712",fontSize:13,fontWeight:700,fontFamily:"'Space Mono',monospace",cursor:"pointer",width:"100%",letterSpacing:"0.04em"},ex||{});}
@@ -610,7 +609,6 @@ export default function App(){
   function sLbl(t){return <div style={{fontSize:10,color:T.faint,fontFamily:"'Space Mono',monospace",letterSpacing:"0.12em",marginBottom:10}}>{t}</div>;}
   function pgTtl(t){return <div style={{fontFamily:"'Syne',sans-serif",fontSize:26,fontWeight:800,color:T.text,marginBottom:20,letterSpacing:"-0.02em"}}>{t}</div>;}
 
-  // ── SPLASH ─────────────────────────────────────────────────────────────
   if(splash)return(
     <div style={{position:"fixed",inset:0,zIndex:200,background:"#030712",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",overflow:"hidden"}}>
       <style>{CSS}</style>
@@ -620,7 +618,7 @@ export default function App(){
           <span style={{color:"#3fb950"}}>FUEL</span><br/>
           <span style={{color:"#e6edf3",fontSize:40}}>TRACK</span>
         </div>
-        <div style={{fontSize:10,color:"#484f58",fontFamily:"'Space Mono',monospace",letterSpacing:"0.2em",marginBottom:40}}>HEALTH · GROWTH · EVOLUTION</div>
+        <div style={{fontSize:10,color:"#484f58",fontFamily:"'Space Mono',monospace",letterSpacing:"0.2em",marginBottom:40}}>HEALTH - GROWTH - EVOLUTION</div>
         <div style={{display:"flex",gap:10,justifyContent:"center",marginBottom:40}}>
           {["🔥","⚡","❄️","🌊","🌀","👻","🏆","💥","🐙","🐍"].map(function(e,i){return(
             <div key={i} style={{fontSize:18,animation:"bounce 0.8s ease-in-out "+i*0.07+"s infinite alternate"}}>{e}</div>
@@ -633,7 +631,6 @@ export default function App(){
     </div>
   );
 
-  // ── NAME SCREEN ─────────────────────────────────────────────────────────
   if(showNameScreen)return(
     <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'DM Sans',sans-serif",display:"flex",alignItems:"center",justifyContent:"center",padding:20,position:"relative",overflow:"hidden"}}>
       <style>{CSS}</style>
@@ -659,27 +656,25 @@ export default function App(){
           </div>
           <div style={{fontSize:11,color:T.sub,fontFamily:"'Space Mono',monospace",letterSpacing:"0.14em",marginTop:8}}>YOUR COMPANION AWAITS</div>
         </div>
-        <div style={{...card(),marginBottom:14,borderTop:"2px solid "+T.accent}}>
+        <div style={Object.assign({},card(),{marginBottom:14,borderTop:"2px solid "+T.accent})}>
           <div style={{fontSize:17,fontWeight:700,color:T.text,fontFamily:"'Syne',sans-serif",marginBottom:6}}>What should we call you?</div>
           <div style={{fontSize:13,color:T.sub,marginBottom:20,lineHeight:1.5}}>Stays on your device. No account. No data collected.</div>
           <input type="text" value={nameInput} onChange={function(e){setNameInput(e.target.value);}} onKeyDown={function(e){if(e.key==="Enter"&&nameInput.trim()){setUserName(nameInput.trim());setShowNameScreen(false);}}} placeholder="Your name..." style={inp({marginBottom:14,borderLeft:"3px solid "+T.accent})} autoFocus/>
-          <button onClick={function(){if(nameInput.trim()){setUserName(nameInput.trim());setShowNameScreen(false);}}} style={pBtn()}>Let's Go →</button>
+          <button onClick={function(){if(nameInput.trim()){setUserName(nameInput.trim());setShowNameScreen(false);}}} style={pBtn()}>Get Started</button>
         </div>
         <div style={{textAlign:"center"}}>
-          <button onClick={function(){setShowTheme(true);}} style={{background:"transparent",border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"7px 16px",fontSize:11,cursor:"pointer",fontFamily:"'Space Mono',monospace",letterSpacing:"0.06em"}}>🎨 THEME</button>
+          <button onClick={function(){setShowTheme(true);}} style={{background:"transparent",border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"7px 16px",fontSize:11,cursor:"pointer",fontFamily:"'Space Mono',monospace",letterSpacing:"0.06em"}}>THEME</button>
         </div>
       </div>
     </div>
   );
 
-  // ── MAIN APP ─────────────────────────────────────────────────────────────
   return(
     <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'DM Sans',sans-serif",transition:"background .3s",paddingBottom:76}}>
       <style>{CSS}</style>
 
-      {xpPop!=null&&<div className="xpa" style={{position:"fixed",top:72,right:20,zIndex:200,background:"linear-gradient(135deg,#fbbf24,#f97316)",color:"#030712",borderRadius:14,padding:"8px 18px",fontFamily:"'Space Mono',monospace",fontSize:13,fontWeight:700,pointerEvents:"none",boxShadow:"0 4px 20px rgba(251,191,36,0.5)"}}>+{xpPop} XP ⚡</div>}
+      {xpPop!=null&&<div className="xpa" style={{position:"fixed",top:72,right:20,zIndex:200,background:"linear-gradient(135deg,#fbbf24,#f97316)",color:"#030712",borderRadius:14,padding:"8px 18px",fontFamily:"'Space Mono',monospace",fontSize:13,fontWeight:700,pointerEvents:"none",boxShadow:"0 4px 20px rgba(251,191,36,0.5)"}}>+{xpPop} XP</div>}
 
-      {/* MEAL SCORE MODAL */}
       {scoredMeal&&modal(mBox(
         <div>
           <div style={{textAlign:"center",marginBottom:24}}>
@@ -698,7 +693,7 @@ export default function App(){
           </div>}
           {scoredMeal.tips&&scoredMeal.tips.length>0&&(
             <div style={{background:T.accent+"12",border:"1px solid "+T.accent+"44",borderRadius:14,padding:"14px 16px",marginBottom:16}}>
-              {sLbl("NEXT TIME, TRY THIS")}
+              {sLbl("NEXT TIME TRY THIS")}
               {scoredMeal.tips.map(function(t,i){return(
                 <div key={i} style={{display:"flex",gap:10,marginBottom:6}}><span>💡</span><div style={{fontSize:13,color:T.sub,lineHeight:1.5}}>{t}</div></div>
               );})}
@@ -712,22 +707,21 @@ export default function App(){
               </div>
             );})}
           </div>
-          <button onClick={function(){setScoredMeal(null);}} style={pBtn()}>Keep going! 🔥</button>
+          <button onClick={function(){setScoredMeal(null);}} style={pBtn()}>Keep going!</button>
         </div>
       ))}
 
-      {/* VOICE MODAL */}
       {voiceModal&&(
         <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.92)",zIndex:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}} onClick={function(e){if(e.target===e.currentTarget)setVoiceModal(false);}}>
           {sBox(
             <div>
               <div style={{fontFamily:"'Syne',sans-serif",fontSize:26,fontWeight:800,marginBottom:4}}>Voice Entry</div>
-              <div style={{fontSize:13,color:T.sub,marginBottom:24,lineHeight:1.5}}>"Two chicken breasts, a cup of brown rice, and some broccoli"</div>
+              <div style={{fontSize:13,color:T.sub,marginBottom:24,lineHeight:1.5}}>Say what you ate and we will figure out the rest</div>
               <div style={{textAlign:"center",marginBottom:24}}>
                 <button onClick={voiceListening?stopVoice:startVoice} className={voiceListening?"vp":""} style={{width:88,height:88,borderRadius:99,background:voiceListening?"#ef4444":T.accent,border:"none",cursor:"pointer",fontSize:32,transition:"all .2s",boxShadow:voiceListening?"0 0 30px rgba(239,68,68,0.5)":"0 0 30px "+T.accent+"66"}}>
-                  {voiceListening?"⏹":"🎤"}
+                  {voiceListening?"X":"🎤"}
                 </button>
-                <div style={{fontSize:11,color:T.sub,marginTop:12,fontFamily:"'Space Mono',monospace",letterSpacing:"0.06em"}}>{voiceListening?"LISTENING — TAP TO STOP":"TAP MIC TO START"}</div>
+                <div style={{fontSize:11,color:T.sub,marginTop:12,fontFamily:"'Space Mono',monospace",letterSpacing:"0.06em"}}>{voiceListening?"LISTENING -- TAP TO STOP":"TAP MIC TO START"}</div>
               </div>
               {voiceText&&(
                 <div style={{background:T.card2,border:"1px solid "+T.border,borderRadius:12,padding:"14px",marginBottom:16}}>
@@ -745,16 +739,16 @@ export default function App(){
                           <span style={{fontSize:24}}>{f.emoji}</span>
                           <div>
                             <div style={{fontSize:14,fontWeight:600,color:T.text,fontFamily:"'Syne',sans-serif"}}>{f.name}</div>
-                            <div style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:T.accent}}>{f.cal} kcal · P{f.pro}g</div>
+                            <div style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:T.accent}}>{f.cal} kcal P{f.pro}g</div>
                           </div>
                         </div>
-                        <button onClick={function(){setVoiceParsed(function(p){return p.filter(function(_,j){return j!==i;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,cursor:"pointer",fontSize:15,width:28,height:28,borderRadius:8,display:"flex",alignItems:"center",justifyContent:"center"}}>×</button>
+                        <button onClick={function(){setVoiceParsed(function(p){return p.filter(function(_,j){return j!==i;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,cursor:"pointer",fontSize:15,width:28,height:28,borderRadius:8,display:"flex",alignItems:"center",justifyContent:"center"}}>X</button>
                       </div>
                     );})}
                   </div>
                 </div>
               )}
-              {voiceErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'Space Mono',monospace",marginBottom:12,padding:"10px 14px",background:"rgba(127,29,29,0.3)",borderRadius:10}}>⚠ {voiceErr}</div>}
+              {voiceErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'Space Mono',monospace",marginBottom:12,padding:"10px 14px",background:"rgba(127,29,29,0.3)",borderRadius:10}}>! {voiceErr}</div>}
               <div style={{marginBottom:16}}>
                 {sLbl("OR TYPE WHAT YOU ATE")}
                 <div style={{display:"flex",gap:8}}>
@@ -773,7 +767,6 @@ export default function App(){
         </div>
       )}
 
-      {/* WORKOUT MODAL */}
       {showWorkoutModal&&modal(mBox(
         <div>
           {pgTtl("Log Workout")}
@@ -786,7 +779,7 @@ export default function App(){
               </button>
             );})}
           </div>
-          {sLbl("DURATION (MIN)")}
+          {sLbl("DURATION MIN")}
           <div style={{display:"flex",gap:6,marginBottom:20}}>
             {["15","20","30","45","60","90"].map(function(d){var active=wkDuration===d;return(
               <button key={d} onClick={function(){setWkDuration(d);}} style={{flex:1,padding:"11px 0",border:"1px solid "+(active?T.accent:T.border),borderRadius:10,background:active?T.accent+"1a":T.card2,color:active?T.accent:T.sub,fontFamily:"'Space Mono',monospace",fontSize:12,fontWeight:700,cursor:"pointer"}}>{d}</button>
@@ -802,27 +795,26 @@ export default function App(){
             );})}
           </div>
           <div style={{padding:"16px",background:T.card2,border:"1px solid #f9731644",borderRadius:16,marginBottom:20,textAlign:"center"}}>
-            {sLbl("ESTIMATED CALORIES BURNED")}
+            {sLbl("CALORIES BURNED")}
             <div style={{fontFamily:"'Syne',sans-serif",fontSize:48,fontWeight:800,color:"#f97316",lineHeight:1}}>
               {(function(){var im={light:wkType.met*0.7,moderate:wkType.met,hard:wkType.met*1.3};return calcBurn(bodyWeightLbs,sn(wkDuration),im[wkIntensity]||wkType.met);})()}
             </div>
-            <div style={{fontSize:11,color:T.faint,fontFamily:"'Space Mono',monospace",marginTop:4}}>{bodyWeightLbs} lbs · {wkDuration} min · {wkType.label}</div>
+            <div style={{fontSize:11,color:T.faint,fontFamily:"'Space Mono',monospace",marginTop:4}}>{bodyWeightLbs} lbs - {wkDuration} min - {wkType.label}</div>
           </div>
-          {sLbl("NOTES (optional)")}
+          {sLbl("NOTES optional")}
           <input type="text" value={wkNotes} onChange={function(e){setWkNotes(e.target.value);}} placeholder="e.g. New PR, felt strong..." style={inp({marginBottom:16})}/>
-          {sLbl("YOUR WEIGHT (for accuracy)")}
+          {sLbl("YOUR WEIGHT for accuracy")}
           <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:24}}>
             <input type="number" value={bodyWeightLbs} onChange={function(e){setBodyWeightLbs(sn(e.target.value));}} style={inp({flex:1})}/>
             <span style={{color:T.sub,fontSize:13,fontFamily:"'Space Mono',monospace",flexShrink:0}}>lbs</span>
           </div>
           <div style={{display:"flex",gap:10}}>
             <button onClick={function(){setShowWorkoutModal(false);}} style={gBtn({flex:1})}>Cancel</button>
-            <button onClick={logWorkout} style={pBtn({flex:2})}>Log Workout 🏋️</button>
+            <button onClick={logWorkout} style={pBtn({flex:2})}>Log Workout</button>
           </div>
         </div>
       ))}
 
-      {/* GOALS MODAL */}
       {showGoals&&modal(mBox(
         <div>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
@@ -830,9 +822,9 @@ export default function App(){
             <button onClick={function(){setShowGoals(false);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 14px",fontSize:11,cursor:"pointer",fontFamily:"'Space Mono',monospace"}}>CANCEL</button>
           </div>
           <div style={{display:"flex",flexDirection:"column",gap:14}}>
-            {[{key:"calories",label:"Calories",unit:"kcal",color:"#34d399"},{key:"protein",label:"Protein",unit:"g",color:"#34d399"},{key:"carbs",label:"Carbs",unit:"g",color:"#60a5fa"},{key:"fat",label:"Fat",unit:"g",color:"#fbbf24"},{key:"fiber",label:"Fiber",unit:"g",color:"#a78bfa"},{key:"water",label:"Water",unit:"glasses",color:"#38bdf8"}].map(function(item){return(
+            {[{key:"calories",label:"Calories kcal",color:"#34d399"},{key:"protein",label:"Protein g",color:"#34d399"},{key:"carbs",label:"Carbs g",color:"#60a5fa"},{key:"fat",label:"Fat g",color:"#fbbf24"},{key:"fiber",label:"Fiber g",color:"#a78bfa"},{key:"water",label:"Water glasses",color:"#38bdf8"}].map(function(item){return(
               <div key={item.key}>
-                <div style={{fontSize:10,color:T.faint,fontFamily:"'Space Mono',monospace",letterSpacing:"0.08em",marginBottom:6}}>{item.label.toUpperCase()}<span style={{color:item.color,opacity:0.7}}> ({item.unit})</span></div>
+                <div style={{fontSize:10,color:T.faint,fontFamily:"'Space Mono',monospace",letterSpacing:"0.08em",marginBottom:6}}>{item.label.toUpperCase()}</div>
                 <input type="number" min="0" value={goalsF[item.key]} onChange={function(e){var v=e.target.value;setGoalsF(function(f){var u=Object.assign({},f);u[item.key]=v;return u;});}} style={inp({borderLeft:"3px solid "+item.color})}/>
               </div>
             );})}
@@ -844,7 +836,6 @@ export default function App(){
         </div>
       ))}
 
-      {/* THEME SHEET */}
       {showTheme&&sheet(sBox(
         <div>
           <div style={{fontFamily:"'Syne',sans-serif",fontSize:22,fontWeight:800,marginBottom:16}}>Choose Theme</div>
@@ -859,7 +850,6 @@ export default function App(){
         </div>
       ))}
 
-      {/* NEW DAY CONFIRM */}
       {confirmNewDay&&modal(
         <div style={{background:T.card,border:"1px solid "+T.border,borderTop:"2px solid "+T.accent,borderRadius:24,padding:36,maxWidth:340,width:"90%",textAlign:"center"}}>
           <div style={{fontSize:44,marginBottom:14}}>🌅</div>
@@ -872,7 +862,6 @@ export default function App(){
         </div>
       )}
 
-      {/* SAVED MEALS SHEET */}
       {showSaved&&sheet(sBox(
         <div>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
@@ -881,7 +870,7 @@ export default function App(){
           </div>
           {!saved.length?(
             <div style={{textAlign:"center",padding:"40px 0"}}>
-              <div style={{fontSize:36,marginBottom:12}}>🗂</div>
+              <div style={{fontSize:36,marginBottom:12}}>📁</div>
               <div style={{color:T.faint,fontSize:14}}>No saved meals yet. Build a meal and tap Save.</div>
             </div>
           ):(
@@ -890,14 +879,14 @@ export default function App(){
                 <div key={m.id} style={{background:T.card2,border:"1px solid "+T.border,borderRadius:14,padding:"14px 16px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <div>
                     <div style={{fontWeight:700,fontSize:15,color:T.text,fontFamily:"'Syne',sans-serif",marginBottom:3}}>{m.name}</div>
-                    <div style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:T.accent}}>{m.cal} kcal · P{m.pro}g · C{m.car}g</div>
+                    <div style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:T.accent}}>{m.cal} kcal P{m.pro}g C{m.car}g</div>
                   </div>
                   <div style={{display:"flex",gap:6}}>
                     <button onClick={function(){loadTmpl(m);}} style={{padding:"7px 14px",background:T.accent,border:"none",borderRadius:8,color:"#030712",fontSize:11,fontWeight:700,fontFamily:"'Space Mono',monospace",cursor:"pointer"}}>LOAD</button>
                     {delSaved===m.id?(
                       <button onClick={function(){setSaved(function(p){return p.filter(function(x){return x.id!==m.id;});});setDelSaved(null);}} style={{padding:"7px 12px",background:"rgba(127,29,29,0.4)",border:"1px solid rgba(127,29,29,0.6)",borderRadius:8,color:"#fca5a5",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"'Space Mono',monospace"}}>Sure?</button>
                     ):(
-                      <button onClick={function(){setDelSaved(m.id);}} style={{padding:"7px 10px",background:"transparent",border:"1px solid "+T.border,borderRadius:8,color:T.faint,fontSize:15,cursor:"pointer"}}>×</button>
+                      <button onClick={function(){setDelSaved(m.id);}} style={{padding:"7px 10px",background:"transparent",border:"1px solid "+T.border,borderRadius:8,color:T.faint,fontSize:15,cursor:"pointer"}}>X</button>
                     )}
                   </div>
                 </div>
@@ -907,11 +896,10 @@ export default function App(){
         </div>
       ))}
 
-      {/* PET PICK SHEET */}
       {showPetPick&&sheet(sBox(
         <div>
           <div style={{fontFamily:"'Syne',sans-serif",fontSize:22,fontWeight:800,textAlign:"center",marginBottom:4}}>Choose Companion</div>
-          <div style={{fontSize:11,color:T.sub,textAlign:"center",fontFamily:"'Space Mono',monospace",marginBottom:20,letterSpacing:"0.04em"}}>10 CREATURES · 5 EVOLUTION STAGES EACH</div>
+          <div style={{fontSize:11,color:T.sub,textAlign:"center",fontFamily:"'Space Mono',monospace",marginBottom:20,letterSpacing:"0.04em"}}>10 CREATURES - 5 EVOLUTION STAGES EACH</div>
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
             {PETS.map(function(pet){
               var pd=petData[pet.id]||{};
@@ -931,7 +919,7 @@ export default function App(){
                         <div style={{flex:1,height:3,background:T.border,borderRadius:99,overflow:"hidden"}}>
                           <div style={{width:Math.min((pd.xp||0)/60,100)+"%",height:"100%",background:pet.color,borderRadius:99}}/>
                         </div>
-                        <span style={{fontSize:9,color:T.faint,fontFamily:"'Space Mono',monospace",whiteSpace:"nowrap"}}>Lv{lvl.level}{pd.maxed?" ∞":""}</span>
+                        <span style={{fontSize:9,color:T.faint,fontFamily:"'Space Mono',monospace",whiteSpace:"nowrap"}}>Lv{lvl.level}{pd.maxed?" MAX":""}</span>
                       </div>
                     )}
                   </div>
@@ -944,7 +932,6 @@ export default function App(){
         </div>
       ))}
 
-      {/* ZOO SHEET */}
       {showZoo&&sheet(sBox(
         <div>
           <div style={{fontFamily:"'Syne',sans-serif",fontSize:22,fontWeight:800,textAlign:"center",marginBottom:4}}>Companion Zoo</div>
@@ -975,7 +962,6 @@ export default function App(){
         </div>
       ))}
 
-      {/* WEIGHT MODAL */}
       {showWeightModal&&modal(
         <div style={{background:T.card,border:"1px solid "+T.border,borderTop:"2px solid "+T.accent,borderRadius:24,padding:28,width:"100%",maxWidth:320}}>
           <div style={{fontFamily:"'Syne',sans-serif",fontSize:24,fontWeight:800,marginBottom:20}}>Log Weight</div>
@@ -987,29 +973,26 @@ export default function App(){
         </div>
       )}
 
-      {/* HEADER */}
       <header style={{padding:"14px 20px",borderBottom:"1px solid "+T.border,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:60,background:T.bg}}>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
           <span style={{fontFamily:"'Syne',sans-serif",fontSize:22,fontWeight:800,color:T.accent,letterSpacing:"-0.02em"}}>FUEL</span>
           <span style={{width:1,height:18,background:T.border,display:"inline-block"}}/>
           <span style={{fontFamily:"'Syne',sans-serif",fontSize:22,fontWeight:800,color:T.text,letterSpacing:"-0.02em"}}>TRACK</span>
-          {userName&&<span style={{fontSize:10,color:T.faint,fontFamily:"'Space Mono',monospace",marginLeft:4}}>· {userName}</span>}
+          {userName&&<span style={{fontSize:10,color:T.faint,fontFamily:"'Space Mono',monospace",marginLeft:4}}>- {userName}</span>}
         </div>
         <div style={{display:"flex",gap:6}}>
           <button onClick={function(){setGoalsF(Object.assign({},goals));setShowGoals(true);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 10px",fontSize:13,cursor:"pointer"}}>🎯</button>
           <button onClick={function(){setShowTheme(true);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 10px",fontSize:13,cursor:"pointer"}}>🎨</button>
           {(meals.length>0||workouts.length>0)&&<button onClick={function(){setConfirmNewDay(true);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 10px",fontSize:13,cursor:"pointer"}}>🌅</button>}
-          <button onClick={function(){setUserName("");setShowNameScreen(true);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 10px",fontSize:11,cursor:"pointer",fontFamily:"'Space Mono',monospace"}}>✎</button>
+          <button onClick={function(){setUserName("");setShowNameScreen(true);}} style={{background:T.card2,border:"1px solid "+T.border,color:T.sub,borderRadius:8,padding:"6px 10px",fontSize:11,cursor:"pointer",fontFamily:"'Space Mono',monospace"}}>edit</button>
         </div>
       </header>
 
       <div style={{maxWidth:520,margin:"0 auto",padding:"16px 16px 0"}}>
 
-        {/* ═══ HOME TAB ═══ */}
         {tab==="home"&&(
           <div style={{display:"flex",flexDirection:"column",gap:14}}>
 
-            {/* CALORIE RING */}
             <div style={card()}>
               {(function(){
                 var net=mealTots.cal-totalBurned;
@@ -1062,21 +1045,19 @@ export default function App(){
               </div>
             </div>
 
-            {/* BIG ACTION BUTTONS */}
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-              <button onClick={function(){setTab("build");}} style={{padding:"18px 14px",background:T.accent,border:"none",borderRadius:18,color:"#030712",cursor:"pointer",textAlign:"left",transition:"transform .12s,box-shadow .12s"}} onMouseOver={function(e){e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 8px 24px "+T.accent+"44";}} onMouseOut={function(e){e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="";}}>
+              <button onClick={function(){setTab("build");}} style={{padding:"18px 14px",background:T.accent,border:"none",borderRadius:18,color:"#030712",cursor:"pointer",textAlign:"left"}}>
                 <div style={{fontSize:26,marginBottom:6}}>🍽️</div>
                 <div style={{fontFamily:"'Syne',sans-serif",fontSize:19,fontWeight:800,lineHeight:1,marginBottom:4}}>Log Meal</div>
                 <div style={{fontSize:10,opacity:0.7,fontFamily:"'Space Mono',monospace"}}>{meals.length} today</div>
               </button>
-              <button onClick={function(){setShowWorkoutModal(true);}} style={{padding:"18px 14px",background:"linear-gradient(135deg,#f97316,#ea580c)",border:"none",borderRadius:18,color:"white",cursor:"pointer",textAlign:"left",transition:"transform .12s,box-shadow .12s"}} onMouseOver={function(e){e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 8px 24px rgba(249,115,22,0.4)";}} onMouseOut={function(e){e.currentTarget.style.transform="";e.currentTarget.style.boxShadow="";}}>
+              <button onClick={function(){setShowWorkoutModal(true);}} style={{padding:"18px 14px",background:"linear-gradient(135deg,#f97316,#ea580c)",border:"none",borderRadius:18,color:"white",cursor:"pointer",textAlign:"left"}}>
                 <div style={{fontSize:26,marginBottom:6}}>🏋️</div>
                 <div style={{fontFamily:"'Syne',sans-serif",fontSize:19,fontWeight:800,lineHeight:1,marginBottom:4}}>Log Workout</div>
-                <div style={{fontSize:10,opacity:0.8,fontFamily:"'Space Mono',monospace"}}>{workouts.length} today · -{totalBurned} kcal</div>
+                <div style={{fontSize:10,opacity:0.8,fontFamily:"'Space Mono',monospace"}}>{workouts.length} today - -{totalBurned} kcal</div>
               </button>
             </div>
 
-            {/* MACRO BARS */}
             <div style={card()}>
               {sLbl("MACROS TODAY")}
               {[{key:"pro",label:"PROTEIN",unit:"g",color:"#34d399",max:goals.protein},{key:"car",label:"CARBS",unit:"g",color:"#60a5fa",max:goals.carbs},{key:"fat",label:"FAT",unit:"g",color:"#fbbf24",max:goals.fat},{key:"fib",label:"FIBER",unit:"g",color:"#a78bfa",max:goals.fiber}].map(function(m){
@@ -1095,7 +1076,6 @@ export default function App(){
               })}
             </div>
 
-            {/* WATER */}
             <div style={card()}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
                 {sLbl("HYDRATION")}
@@ -1104,13 +1084,12 @@ export default function App(){
               <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
                 {Array.from({length:goals.water},function(_,i){return(
                   <button key={i} onClick={function(){setWaterGlasses(function(w){return i<w?i:i+1;});}} style={{width:38,height:38,borderRadius:10,border:"1px solid "+(i<waterGlasses?T.accent:T.border),background:i<waterGlasses?T.accent+"22":T.card2,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"all .2s",color:i<waterGlasses?T.accent:T.faint}}>
-                    {i<waterGlasses?"💧":"○"}
+                    {i<waterGlasses?"💧":"o"}
                   </button>
                 );})}
               </div>
             </div>
 
-            {/* WEIGHT */}
             <div style={card()}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
                 {sLbl("WEIGHT")}
@@ -1141,14 +1120,13 @@ export default function App(){
               )}
             </div>
 
-            {/* COMPANION */}
             <div style={card()}>
               {!activePetId?(
                 <div style={{textAlign:"center",padding:"16px 0"}}>
                   <div style={{fontSize:48,marginBottom:12}}>✨</div>
                   <div style={{fontFamily:"'Syne',sans-serif",fontSize:22,fontWeight:800,color:T.text,marginBottom:8}}>Choose your companion</div>
                   <div style={{fontSize:14,color:T.sub,marginBottom:20,lineHeight:1.6}}>10 creatures. 5 evolution stages. All free.</div>
-                  <button onClick={function(){setShowPetPick(true);}} style={pBtn({width:"auto",padding:"12px 28px"})}>Meet the Companions →</button>
+                  <button onClick={function(){setShowPetPick(true);}} style={pBtn({width:"auto",padding:"12px 28px"})}>Meet the Companions</button>
                 </div>
               ):(
                 <div>
@@ -1164,8 +1142,7 @@ export default function App(){
                         <div style={{width:petLvl.prog+"%",height:"100%",background:activePet.color,borderRadius:99,transition:"width 1s"}}/>
                       </div>
                       <div style={{fontSize:10,color:T.faint,fontFamily:"'Space Mono',monospace"}}>
-                        {(petData[activePetId]||{}).maxed?"∞ Eternal — visit Zoo":(petLvl.nxt?"→ "+(petLvl.nxt.xpReq-activePetXP)+" XP to next form"):""}
-                      </div>
+                        {(petData[activePetId]||{}).maxed?"Max level -- visit Zoo":(petLvl.nxt?(petLvl.nxt.xpReq-activePetXP)+" XP to next form"):""}</div>
                     </div>
                   </div>
                   <div style={{marginTop:14,padding:"12px 14px",background:T.card2,border:"1px solid "+T.border,borderRadius:14}}>
@@ -1183,27 +1160,26 @@ export default function App(){
                       );})}
                     </div>
                   </div>
-                  {zoo.length>0&&<button onClick={function(){setShowZoo(true);}} style={{width:"100%",marginTop:10,padding:"9px 0",background:"transparent",border:"1px solid "+T.border,borderRadius:10,color:T.accent,fontSize:11,fontWeight:700,fontFamily:"'Space Mono',monospace",cursor:"pointer",letterSpacing:"0.06em"}}>🏆 ZOO ({zoo.length}/{PETS.length})</button>}
+                  {zoo.length>0&&<button onClick={function(){setShowZoo(true);}} style={{width:"100%",marginTop:10,padding:"9px 0",background:"transparent",border:"1px solid "+T.border,borderRadius:10,color:T.accent,fontSize:11,fontWeight:700,fontFamily:"'Space Mono',monospace",cursor:"pointer",letterSpacing:"0.06em"}}>ZOO ({zoo.length}/{PETS.length})</button>}
                 </div>
               )}
             </div>
 
             {avgScore!=null&&(
-              <div style={{...card(),display:"flex",alignItems:"center",gap:16}}>
+              <div style={Object.assign({},card(),{display:"flex",alignItems:"center",gap:16})}>
                 <div style={{textAlign:"center",flexShrink:0,width:64}}>
                   <div style={{fontSize:36,lineHeight:1,marginBottom:4}}>{avgScore>=85?"🌟":avgScore>=70?"💪":avgScore>=55?"👍":"🌱"}</div>
                   <div style={{fontFamily:"'Syne',sans-serif",fontSize:15,fontWeight:800,color:avgScore>=85?"#fbbf24":avgScore>=70?"#34d399":avgScore>=55?"#60a5fa":"#94a3b8"}}>{avgScore>=85?"Amazing":avgScore>=70?"Great":avgScore>=55?"Good":"Keep Going"}</div>
                 </div>
                 <div>
                   <div style={{fontSize:14,fontWeight:700,color:T.text,fontFamily:"'Syne',sans-serif",marginBottom:4}}>Today's quality score</div>
-                  <div style={{fontSize:12,color:T.sub}}>{meals.length} meal{meals.length!==1?"s":""} · {workouts.length} workout{workouts.length!==1?"s":""}{userName?" · keep going "+userName:""}!</div>
+                  <div style={{fontSize:12,color:T.sub}}>{meals.length} meal{meals.length!==1?"s":""} - {workouts.length} workout{workouts.length!==1?"s":""}{userName?" - great work "+userName:""}!</div>
                 </div>
               </div>
             )}
           </div>
         )}
 
-        {/* ═══ LOG TAB ═══ */}
         {tab==="log"&&(
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
@@ -1216,7 +1192,7 @@ export default function App(){
             </div>
 
             {!meals.length&&!workouts.length?(
-              <div style={{...card(),textAlign:"center",padding:"48px 20px"}}>
+              <div style={Object.assign({},card(),{textAlign:"center",padding:"48px 20px"})}>
                 <div style={{fontSize:48,marginBottom:14}}>🌱</div>
                 <div style={{color:T.text,fontSize:18,fontWeight:700,fontFamily:"'Syne',sans-serif",marginBottom:8}}>Nothing logged yet today</div>
                 <div style={{color:T.sub,fontSize:13,lineHeight:1.5}}>Use the buttons above to get started.</div>
@@ -1225,7 +1201,7 @@ export default function App(){
               <div style={{display:"flex",flexDirection:"column",gap:8}}>
                 {workouts.map(function(wk){return(
                   <div key={wk.id} className="mcard" style={{background:T.card,border:"1px solid #f9731644",borderLeft:"3px solid #f97316",borderRadius:16,padding:"14px 16px",display:"flex",alignItems:"center",gap:12}}>
-                    <div style={{width:42,height:42,borderRadius:12,background:"rgba(249,115,22,0.1)",border:"1px solid #f9731444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:20}}>{wk.emoji}</div>
+                    <div style={{width:42,height:42,borderRadius:12,background:"rgba(249,115,22,0.1)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:20}}>{wk.emoji}</div>
                     <div style={{flex:1}}>
                       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
                         <span style={{fontWeight:800,fontSize:15,color:T.text,fontFamily:"'Syne',sans-serif"}}>{wk.label}</span>
@@ -1233,11 +1209,11 @@ export default function App(){
                       </div>
                       <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
                         <span style={{fontSize:12,fontFamily:"'Space Mono',monospace",color:"#f97316",fontWeight:700}}>🔥 -{wk.burned} kcal</span>
-                        <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:T.sub}}>{wk.duration} min · {wk.intensity}</span>
+                        <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:T.sub}}>{wk.duration} min - {wk.intensity}</span>
                       </div>
                       {wk.notes&&<div style={{fontSize:12,color:T.faint,fontStyle:"italic",marginTop:4}}>{wk.notes}</div>}
                     </div>
-                    <button className="delbtn" onClick={function(){setWorkouts(function(p){return p.filter(function(w){return w.id!==wk.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:8,width:30,height:30,cursor:"pointer",fontSize:16,display:"flex",alignItems:"center",justifyContent:"center"}}>×</button>
+                    <button className="delbtn" onClick={function(){setWorkouts(function(p){return p.filter(function(w){return w.id!==wk.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:8,width:30,height:30,cursor:"pointer",fontSize:16,display:"flex",alignItems:"center",justifyContent:"center"}}>X</button>
                   </div>
                 );})}
 
@@ -1259,13 +1235,13 @@ export default function App(){
                         );})}
                       </div>
                     </div>
-                    <button className="delbtn" onClick={function(){setMeals(function(p){return p.filter(function(m){return m.id!==meal.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:8,width:30,height:30,cursor:"pointer",fontSize:16,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>×</button>
+                    <button className="delbtn" onClick={function(){setMeals(function(p){return p.filter(function(m){return m.id!==meal.id;});});}} style={{background:"transparent",border:"1px solid "+T.border,color:T.faint,borderRadius:8,width:30,height:30,cursor:"pointer",fontSize:16,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>X</button>
                   </div>
                 );})}
 
                 <div style={{background:netCal>goals.calories?"rgba(251,146,60,0.08)":"rgba(52,211,153,0.06)",border:"1px solid "+(netCal>goals.calories?"rgba(251,146,60,0.3)":"rgba(52,211,153,0.25)"),borderRadius:16,padding:"14px 18px"}}>
                   <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
-                    <span style={{fontSize:10,color:netCal>goals.calories?"#fb923c":"#34d399",fontFamily:"'Space Mono',monospace",fontWeight:700}}>{netCal>goals.calories?"SLIGHTLY OVER":"TODAY'S TOTAL"}</span>
+                    <span style={{fontSize:10,color:netCal>goals.calories?"#fb923c":"#34d399",fontFamily:"'Space Mono',monospace",fontWeight:700}}>{netCal>goals.calories?"SLIGHTLY OVER":"TODAY TOTAL"}</span>
                     {avgScore!=null&&<span style={{fontSize:11,color:T.accent,fontFamily:"'Space Mono',monospace",fontWeight:700}}>{avgScore>=85?"🌟 AMAZING":avgScore>=70?"💪 GREAT":avgScore>=55?"👍 GOOD":"🌱 KEEP GOING"}</span>}
                   </div>
                   <div style={{display:"flex",gap:20,flexWrap:"wrap"}}>
@@ -1284,7 +1260,6 @@ export default function App(){
           </div>
         )}
 
-        {/* ═══ BUILD TAB ═══ */}
         {tab==="build"&&(
           <div style={{display:"flex",flexDirection:"column",gap:12}}>
             <div style={card()}>
@@ -1296,9 +1271,8 @@ export default function App(){
               <div style={{width:48,height:48,borderRadius:14,background:T.accent+"22",border:"1px solid "+T.accent+"44",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,flexShrink:0}}>🎤</div>
               <div style={{flex:1}}>
                 <div style={{fontFamily:"'Syne',sans-serif",fontSize:18,fontWeight:800,color:T.accent,marginBottom:2}}>Voice Entry</div>
-                <div style={{fontSize:13,color:T.sub}}>Just say what you ate — we figure out the rest</div>
+                <div style={{fontSize:13,color:T.sub}}>Just say what you ate -- we figure out the rest</div>
               </div>
-              <div style={{fontSize:18,color:T.accent,opacity:0.6}}>→</div>
             </button>
 
             <div style={card()}>
@@ -1306,9 +1280,9 @@ export default function App(){
               <div style={{display:"flex",gap:8,marginBottom:14}}>
                 <input type="text" value={searchQ} onChange={function(e){setSearchQ(e.target.value);if(!e.target.value)setSearchR([]);}} onKeyDown={function(e){if(e.key==="Enter")doSearch();}} placeholder="Search USDA database..." style={inp({flex:1,fontSize:14,padding:"10px 14px"})}/>
                 <button onClick={doSearch} disabled={searching} style={{padding:"10px 16px",background:T.accent,border:"none",borderRadius:10,color:"#030712",fontSize:11,fontWeight:700,fontFamily:"'Space Mono',monospace",cursor:"pointer",whiteSpace:"nowrap"}}>{searching?"...":"SEARCH"}</button>
-                {searchR.length>0&&<button onClick={function(){setSearchR([]);setSearchQ("");}} style={{padding:"10px 12px",background:T.card2,border:"1px solid "+T.border,borderRadius:10,color:T.sub,fontSize:14,cursor:"pointer"}}>×</button>}
+                {searchR.length>0&&<button onClick={function(){setSearchR([]);setSearchQ("");}} style={{padding:"10px 12px",background:T.card2,border:"1px solid "+T.border,borderRadius:10,color:T.sub,fontSize:14,cursor:"pointer"}}>X</button>}
               </div>
-              {searchErr&&<div style={{fontSize:12,color:"#fca5a5",fontFamily:"'Space Mono',monospace",marginBottom:10,padding:"8px 12px",background:"rgba(127,29,29,0.2)",borderRadius:8}}>⚠ {searchErr}</div>}
+              {searchErr&&<div style={{fontSize:12,color:"#fca5a5",fontFamily:"'Space Mono',monospace",marginBottom:10,padding:"8px 12px",background:"rgba(127,29,29,0.2)",borderRadius:8}}>! {searchErr}</div>}
               {!searchR.length&&(
                 <div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:10,marginBottom:12}}>
                   {QUICK_CATS.map(function(c,i){return(
@@ -1338,20 +1312,20 @@ export default function App(){
                 </div>
               ):(
                 <div>
-                  {sLbl(ings.length+" item"+(ings.length!==1?"s":"")+" · "+ingTots.cal+" kcal")}
+                  {sLbl(ings.length+" item"+(ings.length!==1?"s":"")+" - "+ingTots.cal+" kcal")}
                   <div style={{display:"flex",flexDirection:"column",gap:8}}>
                     {ings.map(function(ing){return(
                       <div key={ing.id} style={{display:"flex",alignItems:"center",gap:10,background:T.card2,borderRadius:12,padding:"10px 12px",border:"1px solid "+T.border}}>
                         <span style={{fontSize:20,flexShrink:0}}>{ing.emoji||"🍽️"}</span>
                         <div style={{flex:1,minWidth:0}}>
                           <div style={{fontSize:12,fontWeight:700,color:T.text,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{ing.name}</div>
-                          <div style={{fontSize:10,fontFamily:"'Space Mono',monospace",color:T.accent}}>{Math.round(sn(ing.cal)*sn(ing.servings))} kcal · P{r1(sn(ing.pro)*sn(ing.servings))}g</div>
+                          <div style={{fontSize:10,fontFamily:"'Space Mono',monospace",color:T.accent}}>{Math.round(sn(ing.cal)*sn(ing.servings))} kcal P{r1(sn(ing.pro)*sn(ing.servings))}g</div>
                         </div>
                         <div style={{display:"flex",alignItems:"center",gap:4,flexShrink:0}}>
                           <button onClick={function(){updServ(ing.id,String(Math.max(0.25,sn(ing.servings)-0.25)));}} style={{width:26,height:26,borderRadius:7,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Syne',sans-serif",fontWeight:800}}>-</button>
                           <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:T.text,minWidth:26,textAlign:"center",fontWeight:700}}>{ing.servings}x</span>
                           <button onClick={function(){updServ(ing.id,String(sn(ing.servings)+0.25));}} style={{width:26,height:26,borderRadius:7,background:T.card,border:"1px solid "+T.border,color:T.text,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Syne',sans-serif",fontWeight:800}}>+</button>
-                          <button onClick={function(){removeIng(ing.id);}} style={{width:26,height:26,borderRadius:7,background:"transparent",border:"1px solid "+T.border,color:T.faint,fontSize:15,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",marginLeft:3}}>×</button>
+                          <button onClick={function(){removeIng(ing.id);}} style={{width:26,height:26,borderRadius:7,background:"transparent",border:"1px solid "+T.border,color:T.faint,fontSize:15,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",marginLeft:3}}>X</button>
                         </div>
                       </div>
                     );})}
@@ -1369,30 +1343,29 @@ export default function App(){
               )}
             </div>
 
-            {mealErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'Space Mono',monospace",textAlign:"center",padding:"10px",background:"rgba(127,29,29,0.2)",borderRadius:10}}>⚠ {mealErr}</div>}
+            {mealErr&&<div style={{color:"#fca5a5",fontSize:12,fontFamily:"'Space Mono',monospace",textAlign:"center",padding:"10px",background:"rgba(127,29,29,0.2)",borderRadius:10}}>! {mealErr}</div>}
             <div style={{display:"flex",gap:8}}>
               <button onClick={saveMealTmpl} disabled={!mealName.trim()||!ings.length} style={gBtn({flex:1,opacity:(!mealName.trim()||!ings.length)?0.35:1})}>Save</button>
               <button onClick={logMeal} disabled={!mealName.trim()||!ings.length} style={pBtn({flex:2,opacity:(!mealName.trim()||!ings.length)?0.35:1})}>
-                Log It! {ings.length>0&&"· "+ingTots.cal+" kcal"}
+                Log It {ings.length>0?"- "+ingTots.cal+" kcal":""}
               </button>
             </div>
-            <button onClick={function(){setShowSaved(true);}} style={gBtn()}>Saved Meals {saved.length>0&&"("+saved.length+")"}</button>
+            <button onClick={function(){setShowSaved(true);}} style={gBtn()}>Saved Meals {saved.length>0?"("+saved.length+")":""}</button>
           </div>
         )}
 
-        {/* ═══ PET TAB ═══ */}
         {tab==="pet"&&(
           <div style={{display:"flex",flexDirection:"column",gap:14}}>
             {!activePetId?(
-              <div style={{...card(),textAlign:"center",padding:"48px 20px"}}>
+              <div style={Object.assign({},card(),{textAlign:"center",padding:"48px 20px"})}>
                 <div style={{fontSize:56,marginBottom:16}}>✨</div>
                 <div style={{fontFamily:"'Syne',sans-serif",fontSize:26,fontWeight:800,color:T.text,marginBottom:10}}>Choose a companion</div>
                 <div style={{fontSize:14,color:T.sub,marginBottom:24,lineHeight:1.7}}>10 unique creatures. 5 evolution stages each. Every form earned by showing up.</div>
-                <button onClick={function(){setShowPetPick(true);}} style={pBtn({width:"auto",padding:"14px 32px"})}>Meet the Companions →</button>
+                <button onClick={function(){setShowPetPick(true);}} style={pBtn({width:"auto",padding:"14px 32px"})}>Meet the Companions</button>
               </div>
             ):(
               <div style={{display:"flex",flexDirection:"column",gap:14}}>
-                <div style={{...card(),textAlign:"center"}}>
+                <div style={Object.assign({},card(),{textAlign:"center"})}>
                   <div className="pf" style={{width:100,height:100,margin:"0 auto 14px",display:"flex",alignItems:"center",justifyContent:"center",background:T.card2,borderRadius:24,border:"1px solid "+T.border}}>
                     {renderArt(petStage?petStage.Art:activePet.stages[0].Art,82)}
                   </div>
@@ -1401,14 +1374,14 @@ export default function App(){
                   <div style={{fontSize:14,color:T.sub,marginBottom:20,lineHeight:1.5,fontStyle:"italic",maxWidth:280,margin:"0 auto 20px"}}>{petStage?petStage.desc:activePet.stages[0].desc}</div>
                   <div style={{background:T.card2,border:"1px solid "+T.border,borderRadius:14,padding:"14px",marginBottom:16}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
-                      <span style={{fontFamily:"'Syne',sans-serif",fontSize:17,fontWeight:800,color:T.text}}>Level {petLvl.level} — {petLvl.name}</span>
+                      <span style={{fontFamily:"'Syne',sans-serif",fontSize:17,fontWeight:800,color:T.text}}>Level {petLvl.level} - {petLvl.name}</span>
                       <span style={{fontFamily:"'Space Mono',monospace",fontSize:11,color:T.sub}}>{activePetXP} XP</span>
                     </div>
                     <div style={{height:6,background:T.border,borderRadius:99,overflow:"hidden",marginBottom:6}}>
                       <div style={{width:petLvl.prog+"%",height:"100%",background:activePet.color,borderRadius:99,transition:"width 1.2s"}}/>
                     </div>
                     <div style={{fontSize:11,color:T.faint,fontFamily:"'Space Mono',monospace"}}>
-                      {(petData[activePetId]||{}).maxed?"∞ Eternal — check the Zoo!":(petLvl.nxt?"→ "+(petLvl.nxt.xpReq-activePetXP)+" XP to unlock next form"):""}
+                      {(petData[activePetId]||{}).maxed?"Max level -- check the Zoo!":(petLvl.nxt?(petLvl.nxt.xpReq-activePetXP)+" XP to unlock next form"):""}
                     </div>
                   </div>
                   <div style={{display:"flex",gap:8}}>
@@ -1469,12 +1442,11 @@ export default function App(){
 
       </div>
 
-      {/* BOTTOM NAV */}
       <div style={{position:"fixed",bottom:0,left:0,right:0,background:T.bg,borderTop:"1px solid "+T.border,display:"flex",zIndex:60,maxWidth:520,margin:"0 auto"}}>
         {[
           {id:"home",  label:"HOME",  icon:"🏠"},
           {id:"log",   label:"LOG",   icon:"📋"},
-          {id:"build", label:"MEAL",  icon:"+", big:true},
+          {id:"build", label:"MEAL",  icon:"+",big:true},
           {id:"pet",   label:"PET",   icon:null},
         ].map(function(nav){
           if(nav.big)return(
@@ -1486,7 +1458,7 @@ export default function App(){
           if(nav.id==="pet")return(
             <button key="pet" style={navB(tab==="pet")} onClick={function(){setTab("pet");}}>
               <span style={{display:"flex",alignItems:"center",justifyContent:"center",width:24,height:24}}>
-                {activePetId&&petStage?renderArt(petStage.Art,22):<span style={{fontSize:16,opacity:0.6}}>○</span>}
+                {activePetId&&petStage?renderArt(petStage.Art,22):<span style={{fontSize:16,opacity:0.6}}>o</span>}
               </span>
               <span>PET</span>
             </button>
